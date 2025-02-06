@@ -19,16 +19,16 @@
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
                         @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                             <a href="{{ route('detail',Crypt::encrypt($r->id))}}">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.</a>
+                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
                             <br>
                             @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</a>
+                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
                             <br>
                             @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">{{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.</a>
+                            {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
                             <br>
                             @else                            
-                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">{{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</a>
+                            {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
                             <br>
                             @endif
                         
