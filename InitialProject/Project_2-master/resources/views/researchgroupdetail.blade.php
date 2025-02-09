@@ -18,22 +18,24 @@
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
-                        @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                            {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @else                            
-                            {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                            <br>
-                            @endif
+                        <a href=" {{ route('detail',Crypt::encrypt($r->id))}}">
+                            @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
+                                {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @else                            
+                                {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @endif
                         
-                        @endif
-                        @endforeach
+                            @endif
+                            @endforeach
+                        </a>
                     </h2>
                     <h1 class="card-text-1"> Student </h1>
                     <h2 class="card-text-2">

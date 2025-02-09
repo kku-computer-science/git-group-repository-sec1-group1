@@ -7,7 +7,7 @@ Documentation     A resource file with reusable keywords and variables.
 Library           SeleniumLibrary
 
 ***Variables***
-${SERVER}         http://localhost:8000
+${BASE_URL}         http://localhost:8000
 ${BROWSER}        custom_chrome
 ${CHROME_BROWSER_PATH}     C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe
 ${CHROME_DRIVER_PATH}      C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe
@@ -23,7 +23,7 @@ Open Custom Chrome Browser
     Go To    ${url}
 
 Open Web
-    Open Custom Chrome Browser    ${SERVER}
+    Open Custom Chrome Browser    ${BASE_URL}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Home Should Be Open
@@ -34,6 +34,9 @@ Home Should Be Open
 Go To Researcher
     Click Element    id=navbarDropdown   
     Click Element    xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a
+Go To Researcher Group
+    Click Element    xpath=//a[@href='/researchgroup']
+    Page Should Contain Element    xpath=//p[contains(text(), 'Research Group')]
 
 Change Language
     [Arguments]      ${LANGUAGE}
