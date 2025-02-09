@@ -1,4 +1,6 @@
 @extends('layouts.layout')
+@section('title', 'Home')
+
 <style>
     .count {
         background-color: #f5f5f5;
