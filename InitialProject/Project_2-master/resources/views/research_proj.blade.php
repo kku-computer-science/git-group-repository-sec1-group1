@@ -2,24 +2,19 @@
 @section('content')
 
 <div class="container refund">
-    <p>โครงการบริการวิชาการ/ โครงการวิจัย</p>
+    <p>{{ __('message.academic_services') }}</p>
+    
 
     <div class="table-refund table-responsive">
         <table id="example1" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th style="font-weight: bold;">ลำดับ</th>
-                    <th class="col-md-1" style="font-weight: bold;">ปี</th>
-                    <th class="col-md-4" style="font-weight: bold;">ชื่อโครงการ </th>
-                    <!-- <th>ระยะเวลาโครงการ</th>
-                    <th>ผู้รับผิดชอบโครงการ</th>
-                    <th>ประเภททุนวิจัย</th>
-                    <th>หน่วยงานที่สนันสนุนทุน</th>
-                    <th>งบประมาณที่ได้รับจัดสรร</th> -->
-                    <th class="col-md-4" style="font-weight: bold;">รายละเอียด</th>
-                    <th class="col-md-2" style="font-weight: bold;">ผู้รับผิดชอบโครงการ</th>
-                    <!-- <th class="col-md-5">หน่วยงานที่รับผิดชอบ</th> -->
-                    <th class="col-md-1" style="font-weight: bold;">สถานะ</th>
+                    <th style="font-weight: bold;">{{ __('message.order') }}</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ __('message.year') }}</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ __('message.project_name') }}</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ __('message.details') }}</th>
+                    <th class="col-md-2" style="font-weight: bold;">{{ __('message.responsible') }}</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ __('message.status') }}</th>
                 </tr>
             </thead>
 
@@ -31,75 +26,49 @@
                     <td style="vertical-align: top;text-align: left;">{{($re->project_year)+543}}</td>
                     <td style="vertical-align: top;text-align: left;">
                         {{$re->project_name}}
-
                     </td>
                     <td>
                         <div style="padding-bottom: 10px">
 
                             @if ($re->project_start != null)
                             <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
+                                {{ __('message.project_duration') }}
                             </span>
                             <span style="padding-left: 10px;">
-                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} ถึง {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
+                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} {{ __('message.to') }} {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
                             </span>
                             @else
                             <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
+                                {{ __('message.project_duration') }}
                             </span>
                             <span>
-
                             </span>
                             @endif
                         </div>
 
-
-                        <!-- @if ($re->project_start != null)
-                    <td>{{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }}<br>ถึง {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}</td>
-                    @else
-                    <td></td>
-                    @endif -->
-
-                        <!-- <td>@foreach($re->user as $user)
-                        {{$user->position }}{{$user->fname_th}} {{$user->lname_th}}<br>
-                        @endforeach
-                    </td> -->
-                        <!-- <td>
-                        @if(is_null($re->fund))
-                        @else
-                        {{$re->fund->fund_type}}
-                        @endif
-                    </td> -->
-                        <!-- <td>@if(is_null($re->fund))
-                        @else
-                        {{$re->fund->support_resource}}
-                        @endif
-                    </td> -->
-                        <!-- <td>{{$re->budget}}</td> -->
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">ประเภททุนวิจัย</span>
+                            <span style="font-weight: bold;">{{ __('message.funding_type') }}</span>
                             <span style="padding-left: 10px;"> @if(is_null($re->fund))
                                 @else
                                 {{$re->fund->fund_type}}
                                 @endif</span>
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่สนันสนุนทุน</span>
+                            <span style="font-weight: bold;">{{ __('message.funding_agency') }}</span>
                             <span style="padding-left: 10px;"> @if(is_null($re->fund))
                                 @else
                                 {{$re->fund->support_resource}}
                                 @endif</span>
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่รับผิดชอบ</span>
+                            <span style="font-weight: bold;">{{ __('message.responsible_department') }}</span>
                             <span style="padding-left: 10px;">
                                 {{$re->responsible_department}}
                             </span>
                         </div>
                         <div style="padding-bottom: 10px;">
-
-                            <span style="font-weight: bold;">งบประมาณที่ได้รับจัดสรร</span>
-                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} บาท</span>
+                            <span style="font-weight: bold;">{{ __('message.budget_allocated') }}</span>
+                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} {{ __('message.thai_baht') }}</span>
                         </div>
                     </td>
 
@@ -112,20 +81,17 @@
                     </td>
                     @if($re->status == 1)
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge badge-success">ยื่นขอ</label></h6>
+                        <h6><label class="badge badge-success">{{ __('message.submitted') }}</label></h6>
                     </td>
                     @elseif($re->status == 2)
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-warning text-dark">ดำเนินการ</label></h6>
+                        <h6><label class="badge bg-warning text-dark">{{ __('message.in_progress') }}</label></h6>
                     </td>
                     @else
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-dark">ปิดโครงการ</label>
-                            <h6>
+                        <h6><label class="badge bg-dark">{{ __('message.project_closed') }}</label></h6>
                     </td>
                     @endif
-                    <!-- <td></td>
-                    <td></td> -->
                 </tr>
                 @endforeach
             </tbody>

@@ -67,8 +67,7 @@
                     <li class="nav-item <?php echo e(request()->is('/') ? 'active' : ''); ?> ">
                         <a class="nav-link" href="/"><?php echo e(trans('message.Home')); ?></a>
                     </li>
-                    <li
-                        class="nav-item dropdown <?php echo e(Request::routeIs('researchers') ? 'active' : ''); ?> <?php echo e(request()->is('detail*') ? 'active' : ''); ?> ">
+                    <li class="nav-item dropdown <?php echo e(Request::routeIs('researchers') ? 'active' : ''); ?> <?php echo e(request()->is('detail*') ? 'active' : ''); ?>">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <?php echo e(trans('message.Researchers')); ?>
@@ -77,11 +76,13 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php $__currentLoopData = $dn; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li><a class="dropdown-item" href="<?php echo e(route('researchers',['id'=>$department->id])); ?>">
-                                    <?php echo e($department->program_name_en); ?></a>
-                            </li>
+                                    <?php echo e($department->{'program_name_' . App::getLocale()}); ?>
+
+                            </a></li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </li>
+
                     <li class="nav-item <?php echo e(request()->is('researchproject') ? 'active' : ''); ?> ">
                         <a class="nav-link" href="/researchproject"><?php echo e(trans('message.ResearchProj')); ?></a>
                     </li>

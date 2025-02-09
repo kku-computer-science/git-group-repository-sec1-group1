@@ -2,24 +2,19 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="container refund">
-    <p>โครงการบริการวิชาการ/ โครงการวิจัย</p>
+    <p><?php echo e(__('message.academic_services')); ?></p>
+    
 
     <div class="table-refund table-responsive">
         <table id="example1" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th style="font-weight: bold;">ลำดับ</th>
-                    <th class="col-md-1" style="font-weight: bold;">ปี</th>
-                    <th class="col-md-4" style="font-weight: bold;">ชื่อโครงการ </th>
-                    <!-- <th>ระยะเวลาโครงการ</th>
-                    <th>ผู้รับผิดชอบโครงการ</th>
-                    <th>ประเภททุนวิจัย</th>
-                    <th>หน่วยงานที่สนันสนุนทุน</th>
-                    <th>งบประมาณที่ได้รับจัดสรร</th> -->
-                    <th class="col-md-4" style="font-weight: bold;">รายละเอียด</th>
-                    <th class="col-md-2" style="font-weight: bold;">ผู้รับผิดชอบโครงการ</th>
-                    <!-- <th class="col-md-5">หน่วยงานที่รับผิดชอบ</th> -->
-                    <th class="col-md-1" style="font-weight: bold;">สถานะ</th>
+                    <th style="font-weight: bold;"><?php echo e(__('message.order')); ?></th>
+                    <th class="col-md-1" style="font-weight: bold;"><?php echo e(__('message.year')); ?></th>
+                    <th class="col-md-4" style="font-weight: bold;"><?php echo e(__('message.project_name')); ?></th>
+                    <th class="col-md-4" style="font-weight: bold;"><?php echo e(__('message.details')); ?></th>
+                    <th class="col-md-2" style="font-weight: bold;"><?php echo e(__('message.responsible')); ?></th>
+                    <th class="col-md-1" style="font-weight: bold;"><?php echo e(__('message.status')); ?></th>
                 </tr>
             </thead>
 
@@ -32,56 +27,31 @@
                     <td style="vertical-align: top;text-align: left;">
                         <?php echo e($re->project_name); ?>
 
-
                     </td>
                     <td>
                         <div style="padding-bottom: 10px">
 
                             <?php if($re->project_start != null): ?>
                             <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
+                                <?php echo e(__('message.project_duration')); ?>
+
                             </span>
                             <span style="padding-left: 10px;">
-                                <?php echo e(\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y')); ?> ถึง <?php echo e(\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y')); ?>
+                                <?php echo e(\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y')); ?> <?php echo e(__('message.to')); ?> <?php echo e(\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y')); ?>
 
                             </span>
                             <?php else: ?>
                             <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
+                                <?php echo e(__('message.project_duration')); ?>
+
                             </span>
                             <span>
-
                             </span>
                             <?php endif; ?>
                         </div>
 
-
-                        <!-- <?php if($re->project_start != null): ?>
-                    <td><?php echo e(\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y')); ?><br>ถึง <?php echo e(\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y')); ?></td>
-                    <?php else: ?>
-                    <td></td>
-                    <?php endif; ?> -->
-
-                        <!-- <td><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php echo e($user->position); ?><?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?><br>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </td> -->
-                        <!-- <td>
-                        <?php if(is_null($re->fund)): ?>
-                        <?php else: ?>
-                        <?php echo e($re->fund->fund_type); ?>
-
-                        <?php endif; ?>
-                    </td> -->
-                        <!-- <td><?php if(is_null($re->fund)): ?>
-                        <?php else: ?>
-                        <?php echo e($re->fund->support_resource); ?>
-
-                        <?php endif; ?>
-                    </td> -->
-                        <!-- <td><?php echo e($re->budget); ?></td> -->
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">ประเภททุนวิจัย</span>
+                            <span style="font-weight: bold;"><?php echo e(__('message.funding_type')); ?></span>
                             <span style="padding-left: 10px;"> <?php if(is_null($re->fund)): ?>
                                 <?php else: ?>
                                 <?php echo e($re->fund->fund_type); ?>
@@ -89,7 +59,7 @@
                                 <?php endif; ?></span>
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่สนันสนุนทุน</span>
+                            <span style="font-weight: bold;"><?php echo e(__('message.funding_agency')); ?></span>
                             <span style="padding-left: 10px;"> <?php if(is_null($re->fund)): ?>
                                 <?php else: ?>
                                 <?php echo e($re->fund->support_resource); ?>
@@ -97,16 +67,15 @@
                                 <?php endif; ?></span>
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่รับผิดชอบ</span>
+                            <span style="font-weight: bold;"><?php echo e(__('message.responsible_department')); ?></span>
                             <span style="padding-left: 10px;">
                                 <?php echo e($re->responsible_department); ?>
 
                             </span>
                         </div>
                         <div style="padding-bottom: 10px;">
-
-                            <span style="font-weight: bold;">งบประมาณที่ได้รับจัดสรร</span>
-                            <span style="padding-left: 10px;"> <?php echo e(number_format($re->budget)); ?> บาท</span>
+                            <span style="font-weight: bold;"><?php echo e(__('message.budget_allocated')); ?></span>
+                            <span style="padding-left: 10px;"> <?php echo e(number_format($re->budget)); ?> <?php echo e(__('message.thai_baht')); ?></span>
                         </div>
                     </td>
 
@@ -119,20 +88,17 @@
                     </td>
                     <?php if($re->status == 1): ?>
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge badge-success">ยื่นขอ</label></h6>
+                        <h6><label class="badge badge-success"><?php echo e(__('message.submitted')); ?></label></h6>
                     </td>
                     <?php elseif($re->status == 2): ?>
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-warning text-dark">ดำเนินการ</label></h6>
+                        <h6><label class="badge bg-warning text-dark"><?php echo e(__('message.in_progress')); ?></label></h6>
                     </td>
                     <?php else: ?>
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-dark">ปิดโครงการ</label>
-                            <h6>
+                        <h6><label class="badge bg-dark"><?php echo e(__('message.project_closed')); ?></label></h6>
                     </td>
                     <?php endif; ?>
-                    <!-- <td></td>
-                    <td></td> -->
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
@@ -155,4 +121,5 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/research_proj.blade.php ENDPATH**/ ?>
