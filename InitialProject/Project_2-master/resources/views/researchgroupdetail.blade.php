@@ -17,41 +17,50 @@
                     <h1 class="card-text-1"> Laboratory Supervisor </h1>
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
-                        @if($r->hasRole('teacher'))
-                        @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                             {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                            <br>
-                            @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                            {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
-                            <br>
-                            @else                            
-                            {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                            <br>
+                            @if($r->hasRole('teacher'))
+                                @php
+                                    $locale = app()->getLocale();
+                                    $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                                @endphp
+                                @if($locale == 'en' && $r->academic_ranks_en == 'Lecturer' && $r->doctoral_degree == 'Ph.D.')
+                                    {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}, Ph.D.
+                                    <br>
+                                @elseif($locale == 'en' && $r->academic_ranks_en == 'Lecturer')
+                                    {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}
+                                    <br>
+                                @elseif($locale == 'en' && $r->doctoral_degree == 'Ph.D.')
+                                    {{ str_replace('Dr.', ' ', $r->{'position_' . $locale}) }} {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}, Ph.D.
+                                    <br>
+                                @else
+                                    {{ $r->{'position_' . $locale} }} {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}
+                                    <br>
+                                @endif
                             @endif
-                        
-                        @endif
                         @endforeach
                     </h2>
                     <h1 class="card-text-1"> Student </h1>
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $user)
-                        @if($user->hasRole('student'))
-                        {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
-                        <br>
+                            @if($user->hasRole('student'))
+                                @php
+                                    $locale = app()->getLocale();
+                                    $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                             @endphp
+                            {{ $user->{'position_' . $locale} }} {{ $user->{'fname_' . $locale} }} {{ $user->{'lname_' . $locale} }}
+                            <br>
                         @endif
-                        @endforeach
+                    @endforeach
                     </h2>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"> {{ $rg->{'group_name_'.app()->getLocale()} }}</>
-                    </h5>
-                    <h3 class="card-text">{{$rg->{'group_detail_'.app()->getLocale()} }}
-                    </h3>
+                    @php
+                        $locale = app()->getLocale();
+                        $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                    @endphp
+                    <h5 class="card-title">{{ $rg->{'group_name_' . $locale} }}</h5>
+                    <h3 class="card-text">{{ Str::limit($rg->{'group_desc_' . $locale}, 350) }}</h3>
                 </div>
                 
             </div>

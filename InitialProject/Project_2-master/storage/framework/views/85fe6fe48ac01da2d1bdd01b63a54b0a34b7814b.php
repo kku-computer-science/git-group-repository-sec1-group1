@@ -17,45 +17,53 @@
                     <h1 class="card-text-1"> Laboratory Supervisor </h1>
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($r->hasRole('teacher')): ?>
-                        <?php if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.'): ?>
-                             <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, Ph.D.
-                            <br>
-                            <?php elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer'): ?>
-                            <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>
+                            <?php if($r->hasRole('teacher')): ?>
+                                <?php
+                                    $locale = app()->getLocale();
+                                    $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                                ?>
+                                <?php if($locale == 'en' && $r->academic_ranks_en == 'Lecturer' && $r->doctoral_degree == 'Ph.D.'): ?>
+                                    <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?>, Ph.D.
+                                    <br>
+                                <?php elseif($locale == 'en' && $r->academic_ranks_en == 'Lecturer'): ?>
+                                    <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?>
 
-                            <br>
-                            <?php elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.'): ?>
-                            <?php echo e(str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()})); ?> <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, Ph.D.
-                            <br>
-                            <?php else: ?>                            
-                            <?php echo e($r->{'position_'.app()->getLocale()}); ?> <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>
+                                    <br>
+                                <?php elseif($locale == 'en' && $r->doctoral_degree == 'Ph.D.'): ?>
+                                    <?php echo e(str_replace('Dr.', ' ', $r->{'position_' . $locale})); ?> <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?>, Ph.D.
+                                    <br>
+                                <?php else: ?>
+                                    <?php echo e($r->{'position_' . $locale}); ?> <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?>
 
-                            <br>
+                                    <br>
+                                <?php endif; ?>
                             <?php endif; ?>
-                        
-                        <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </h2>
                     <h1 class="card-text-1"> Student </h1>
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($user->hasRole('student')): ?>
-                        <?php echo e($user->{'position_'.app()->getLocale()}); ?> <?php echo e($user->{'fname_'.app()->getLocale()}); ?> <?php echo e($user->{'lname_'.app()->getLocale()}); ?>
+                            <?php if($user->hasRole('student')): ?>
+                                <?php
+                                    $locale = app()->getLocale();
+                                    $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                             ?>
+                            <?php echo e($user->{'position_' . $locale}); ?> <?php echo e($user->{'fname_' . $locale}); ?> <?php echo e($user->{'lname_' . $locale}); ?>
 
-                        <br>
+                            <br>
                         <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </h2>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"> <?php echo e($rg->{'group_name_'.app()->getLocale()}); ?></>
-                    </h5>
-                    <h3 class="card-text"><?php echo e($rg->{'group_detail_'.app()->getLocale()}); ?>
-
-                    </h3>
+                    <?php
+                        $locale = app()->getLocale();
+                        $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                    ?>
+                    <h5 class="card-title"><?php echo e($rg->{'group_name_' . $locale}); ?></h5>
+                    <h3 class="card-text"><?php echo e(Str::limit($rg->{'group_desc_' . $locale}, 350)); ?></h3>
                 </div>
                 
             </div>
