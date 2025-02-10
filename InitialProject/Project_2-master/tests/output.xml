@@ -1,274 +1,374 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-02-09T19:37:08.006468" rpa="false" schemaversion="5">
-<suite id="s1" name="test checkInfo" source="D:\SE\git-group-repository-sec1-group1\InitialProject\Project_2-master\tests\test_checkInfo.robot">
-<test id="s1-t1" name="Check Researcher Group" line="5">
+<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-02-10T16:54:09.767626" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Language" source="D:\SE\git-group-repository-sec1-group1\InitialProject\Project_2-master\tests\test_language.robot">
+<test id="s1-t1" name="Change to Thai" line="5">
 <kw name="Open Web" owner="resource">
 <kw name="Open Custom Chrome Browser" owner="resource">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:08.198542" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002564D4E9FD0&gt;</msg>
+<msg time="2025-02-10T16:54:10.216953" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000014B51163460&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:08.198542" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:10.215953" elapsed="0.001000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>binary_location</arg>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-09T19:37:08.198542" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:10.217961" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:08.199541" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000002564D4FC430&gt;</msg>
+<msg time="2025-02-10T16:54:10.218956" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000014B51163760&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:08.199541" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:10.217961" elapsed="0.000995"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:08.200541" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-10T16:54:10.219956" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-02-09T19:37:08.199541" elapsed="1.103867"/>
+<status status="PASS" start="2025-02-10T16:54:10.218956" elapsed="1.573397"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:09.304410" level="INFO">Opening url 'http://localhost:8000'</msg>
+<msg time="2025-02-10T16:54:11.793352" level="INFO">Opening url 'https://cs0167.cpkkuhost.com/'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-09T19:37:09.304410" elapsed="1.808611"/>
+<status status="PASS" start="2025-02-10T16:54:11.793352" elapsed="11.191790"/>
 </kw>
 <arg>${BASE_URL}</arg>
-<status status="PASS" start="2025-02-09T19:37:08.197543" elapsed="2.916477"/>
+<status status="PASS" start="2025-02-10T16:54:10.214956" elapsed="12.770186"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-09T19:37:11.114020" elapsed="0.037003"/>
+<status status="PASS" start="2025-02-10T16:54:22.986142" elapsed="0.046551"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-09T19:37:11.152021" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:23.032693" elapsed="0.000000"/>
 </kw>
 <kw name="Home Should Be Open" owner="resource">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:12.162567" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<msg time="2025-02-10T16:54:24.048632" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
 <arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-09T19:37:11.152021" elapsed="1.010546"/>
+<status status="PASS" start="2025-02-10T16:54:23.033695" elapsed="1.014937"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:11.152021" elapsed="1.010546"/>
+<status status="PASS" start="2025-02-10T16:54:23.033695" elapsed="1.014937"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:08.197543" elapsed="3.965024"/>
+<status status="PASS" start="2025-02-10T16:54:10.213955" elapsed="13.835677"/>
 </kw>
-<kw name="Go To Researcher Group" owner="resource">
+<kw name="Go To Researcher" owner="resource">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:12.163530" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
-<arg>xpath=//a[@href='/researchgroup']</arg>
+<msg time="2025-02-10T16:54:24.051631" level="INFO">Clicking element 'id=navbarDropdown'.</msg>
+<arg>id=navbarDropdown</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:12.163530" elapsed="3.899308"/>
+<status status="PASS" start="2025-02-10T16:54:24.050632" elapsed="2.115382"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:17.109684" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
-<arg>xpath=//p[contains(text(), 'Research Group')]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-02-09T19:37:16.062838" elapsed="1.046846"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:54:26.167030" level="INFO">Clicking element 'xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a'.</msg>
+<arg>xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:54:26.167030" elapsed="4.268695"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:12.163530" elapsed="4.947154"/>
+<status status="PASS" start="2025-02-10T16:54:24.050632" elapsed="6.385093"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:08.196554" elapsed="8.914130"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:54:30.437644" level="INFO">Clicking element 'xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]'.</msg>
+<arg>xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:54:30.436657" elapsed="3.268137"/>
+</kw>
+<kw name="Change Language" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:54:33.707744" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<arg>id=navbarDropdownMenuLink</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:54:33.706743" elapsed="2.145260"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:54:35.854009" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
+<arg>xpath=//a[contains(text(), '${LANGUAGE}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:54:35.852991" elapsed="4.356398"/>
+</kw>
+<arg>ไทย</arg>
+<status status="PASS" start="2025-02-10T16:54:33.705742" elapsed="6.504488"/>
+</kw>
+<kw name="Verify Page Text" owner="resource">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:54:42.443648" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-10T16:54:42.444649" level="FAIL">Element with locator 'xpath=//h6[@class='card-title'][contains(text(), 'การศึกษา')]' not found.</msg>
+<arg>xpath=//h6[@class='card-title'][contains(text(), '${EXPECTED_TEXT}')]</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="FAIL" start="2025-02-10T16:54:40.213228" elapsed="2.241983">Element with locator 'xpath=//h6[@class='card-title'][contains(text(), 'การศึกษา')]' not found.</status>
+</kw>
+<arg>การศึกษา</arg>
+<status status="FAIL" start="2025-02-10T16:54:40.211267" elapsed="2.245991">Element with locator 'xpath=//h6[@class='card-title'][contains(text(), 'การศึกษา')]' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-10T16:54:42.459231" elapsed="3.591989"/>
+</kw>
+<status status="FAIL" start="2025-02-10T16:54:10.212956" elapsed="35.839250">Element with locator 'xpath=//h6[@class='card-title'][contains(text(), 'การศึกษา')]' not found.</status>
 </test>
-<test id="s1-t2" name="Check Group Detail" line="9">
+<test id="s1-t2" name="Change to English" line="14">
 <kw name="Open Web" owner="resource">
 <kw name="Open Custom Chrome Browser" owner="resource">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:17.112695" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002564D5527C0&gt;</msg>
+<msg time="2025-02-10T16:54:46.061490" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000014B511BDB50&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:17.112695" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:46.060574" elapsed="0.000916"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>binary_location</arg>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-09T19:37:17.112695" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:46.062490" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:17.113686" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000002564D552AC0&gt;</msg>
+<msg time="2025-02-10T16:54:46.065498" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000014B51221610&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:17.113686" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:46.063532" elapsed="0.001966"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:17.113686" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-10T16:54:46.066525" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-02-09T19:37:17.113686" elapsed="1.066144"/>
+<status status="PASS" start="2025-02-10T16:54:46.066525" elapsed="1.299336"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:18.179830" level="INFO">Opening url 'http://localhost:8000'</msg>
+<msg time="2025-02-10T16:54:47.367861" level="INFO">Opening url 'https://cs0167.cpkkuhost.com/'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-09T19:37:18.179830" elapsed="1.944849"/>
+<status status="PASS" start="2025-02-10T16:54:47.366861" elapsed="1.201190"/>
 </kw>
 <arg>${BASE_URL}</arg>
-<status status="PASS" start="2025-02-09T19:37:17.112695" elapsed="3.011984"/>
+<status status="PASS" start="2025-02-10T16:54:46.059560" elapsed="2.508491"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-09T19:37:20.124679" elapsed="0.037895"/>
+<status status="PASS" start="2025-02-10T16:54:48.568051" elapsed="7.423346"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-09T19:37:20.162574" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:54:55.992396" elapsed="0.000000"/>
 </kw>
 <kw name="Home Should Be Open" owner="resource">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:21.170133" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<msg time="2025-02-10T16:54:57.009237" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
 <arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-09T19:37:20.163581" elapsed="1.006552"/>
+<status status="PASS" start="2025-02-10T16:54:55.993396" elapsed="1.015841"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:20.163581" elapsed="1.006552"/>
+<status status="PASS" start="2025-02-10T16:54:55.993396" elapsed="1.015841"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:17.111686" elapsed="4.058447"/>
+<status status="PASS" start="2025-02-10T16:54:46.057473" elapsed="10.952763"/>
 </kw>
-<kw name="Go To Researcher Group" owner="resource">
+<kw name="Go To Researcher" owner="resource">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:21.172032" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
-<arg>xpath=//a[@href='/researchgroup']</arg>
+<msg time="2025-02-10T16:54:57.012234" level="INFO">Clicking element 'id=navbarDropdown'.</msg>
+<arg>id=navbarDropdown</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:21.171033" elapsed="3.886441"/>
-</kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:26.081214" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
-<arg>xpath=//p[contains(text(), 'Research Group')]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-02-09T19:37:25.057474" elapsed="1.023740"/>
-</kw>
-<status status="PASS" start="2025-02-09T19:37:21.171033" elapsed="4.910181"/>
+<status status="PASS" start="2025-02-10T16:54:57.011218" elapsed="2.136920"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:26.082185" level="INFO">Clicking element 'xpath=(//a[contains(@href, 'researchgroupdetail')])[1]'.</msg>
-<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[1]</arg>
+<msg time="2025-02-10T16:54:59.149139" level="INFO">Clicking element 'xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a'.</msg>
+<arg>xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:26.082185" elapsed="3.393123"/>
+<status status="PASS" start="2025-02-10T16:54:59.149139" elapsed="4.830661"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:17.111686" elapsed="12.363622"/>
+<status status="PASS" start="2025-02-10T16:54:57.011218" elapsed="6.968582"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:03.981805" level="INFO">Clicking element 'xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]'.</msg>
+<arg>xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:55:03.980802" elapsed="3.519741"/>
+</kw>
+<kw name="Change Language" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:07.504401" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<arg>id=navbarDropdownMenuLink</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:55:07.503477" elapsed="2.162713"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:09.667200" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
+<arg>xpath=//a[contains(text(), '${LANGUAGE}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:55:09.666190" elapsed="4.155532"/>
+</kw>
+<arg>ไทย</arg>
+<status status="PASS" start="2025-02-10T16:55:07.502439" elapsed="6.320254"/>
+</kw>
+<kw name="Change Language" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:13.826689" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<arg>id=navbarDropdownMenuLink</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:55:13.825729" elapsed="2.142654"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:15.969368" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
+<msg time="2025-02-10T16:55:18.281329" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-10T16:55:18.282339" level="FAIL">Element with locator 'xpath=//a[contains(text(), 'English')]' not found.</msg>
+<arg>xpath=//a[contains(text(), '${LANGUAGE}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-10T16:55:15.968383" elapsed="2.314987">Element with locator 'xpath=//a[contains(text(), 'English')]' not found.</status>
+</kw>
+<arg>English</arg>
+<status status="FAIL" start="2025-02-10T16:55:13.824694" elapsed="4.458676">Element with locator 'xpath=//a[contains(text(), 'English')]' not found.</status>
+</kw>
+<kw name="Verify Page Text" owner="resource">
+<arg>Education</arg>
+<status status="NOT RUN" start="2025-02-10T16:55:18.284337" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-10T16:55:18.285350" elapsed="3.496401"/>
+</kw>
+<status status="FAIL" start="2025-02-10T16:54:46.056828" elapsed="35.725953">Element with locator 'xpath=//a[contains(text(), 'English')]' not found.</status>
 </test>
-<test id="s1-t3" name="Check Researcher Info" line="14">
+<test id="s1-t3" name="Change to Chinese" line="23">
 <kw name="Open Web" owner="resource">
 <kw name="Open Custom Chrome Browser" owner="resource">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:29.478285" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002564D55F6D0&gt;</msg>
+<msg time="2025-02-10T16:55:21.791836" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000014B51188D30&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:29.477286" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-10T16:55:21.790837" elapsed="0.000999"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>binary_location</arg>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-09T19:37:29.478285" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:55:21.792794" elapsed="0.001002"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-09T19:37:29.479304" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000002564D55F9D0&gt;</msg>
+<msg time="2025-02-10T16:55:21.795836" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000014B5122E940&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-09T19:37:29.478285" elapsed="0.001019"/>
+<status status="PASS" start="2025-02-10T16:55:21.793796" elapsed="0.002040"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:29.479304" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-10T16:55:21.796878" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-02-09T19:37:29.479304" elapsed="1.050554"/>
+<status status="PASS" start="2025-02-10T16:55:21.795836" elapsed="1.305919"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:30.529858" level="INFO">Opening url 'http://localhost:8000'</msg>
+<msg time="2025-02-10T16:55:23.103262" level="INFO">Opening url 'https://cs0167.cpkkuhost.com/'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-09T19:37:30.529858" elapsed="1.656702"/>
+<status status="PASS" start="2025-02-10T16:55:23.102754" elapsed="7.894318"/>
 </kw>
 <arg>${BASE_URL}</arg>
-<status status="PASS" start="2025-02-09T19:37:29.477286" elapsed="2.709274"/>
+<status status="PASS" start="2025-02-10T16:55:21.789797" elapsed="9.207275"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-09T19:37:32.186560" elapsed="0.068524"/>
+<status status="PASS" start="2025-02-10T16:55:30.997072" elapsed="0.035551"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-09T19:37:32.256085" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-10T16:55:31.033626" elapsed="0.000000"/>
 </kw>
 <kw name="Home Should Be Open" owner="resource">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:33.270582" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<msg time="2025-02-10T16:55:32.052767" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
 <arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-09T19:37:32.257090" elapsed="1.013492"/>
+<status status="PASS" start="2025-02-10T16:55:31.034620" elapsed="1.018147"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:32.256085" elapsed="1.014497"/>
+<status status="PASS" start="2025-02-10T16:55:31.033626" elapsed="1.020072"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:29.477286" elapsed="3.793296"/>
+<status status="PASS" start="2025-02-10T16:55:21.788795" elapsed="10.264903"/>
 </kw>
-<kw name="Go To Researcher Group" owner="resource">
+<kw name="Go To Researcher" owner="resource">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:33.272586" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
-<arg>xpath=//a[@href='/researchgroup']</arg>
+<msg time="2025-02-10T16:55:32.055795" level="INFO">Clicking element 'id=navbarDropdown'.</msg>
+<arg>id=navbarDropdown</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:33.271586" elapsed="3.878465"/>
-</kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:38.173945" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
-<arg>xpath=//p[contains(text(), 'Research Group')]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-02-09T19:37:37.150051" elapsed="1.023894"/>
-</kw>
-<status status="PASS" start="2025-02-09T19:37:33.271586" elapsed="4.902359"/>
+<status status="PASS" start="2025-02-10T16:55:32.054785" elapsed="2.178139"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:38.174951" level="INFO">Clicking element 'xpath=(//a[contains(@href, 'researchgroupdetail')])[1]'.</msg>
-<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[1]</arg>
+<msg time="2025-02-10T16:55:34.234862" level="INFO">Clicking element 'xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a'.</msg>
+<arg>xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:38.174951" elapsed="3.414945"/>
+<status status="PASS" start="2025-02-10T16:55:34.233854" elapsed="4.527530"/>
+</kw>
+<status status="PASS" start="2025-02-10T16:55:32.053698" elapsed="6.708593"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-09T19:37:41.590904" level="INFO">Clicking element 'xpath=(//a[contains(@href, '/detail/')])[1]'.</msg>
-<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<msg time="2025-02-10T16:55:38.764258" level="INFO">Clicking element 'xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]'.</msg>
+<arg>xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-09T19:37:41.590904" elapsed="3.868469"/>
+<status status="PASS" start="2025-02-10T16:55:38.763275" elapsed="3.640067"/>
 </kw>
-<status status="PASS" start="2025-02-09T19:37:29.476287" elapsed="15.984087"/>
+<kw name="Change Language" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:42.406302" level="INFO">Clicking element 'id=navbarDropdownMenuLink'.</msg>
+<arg>id=navbarDropdownMenuLink</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-10T16:55:42.406302" elapsed="2.149530"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-10T16:55:44.557805" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Chinese')]'.</msg>
+<msg time="2025-02-10T16:55:46.794130" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-10T16:55:46.794130" level="FAIL">Element with locator 'xpath=//a[contains(text(), 'Chinese')]' not found.</msg>
+<arg>xpath=//a[contains(text(), '${LANGUAGE}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-10T16:55:44.556796" elapsed="2.239331">Element with locator 'xpath=//a[contains(text(), 'Chinese')]' not found.</status>
+</kw>
+<arg>Chinese</arg>
+<status status="FAIL" start="2025-02-10T16:55:42.405306" elapsed="4.390821">Element with locator 'xpath=//a[contains(text(), 'Chinese')]' not found.</status>
+</kw>
+<kw name="Verify Page Text" owner="resource">
+<arg>教育</arg>
+<status status="NOT RUN" start="2025-02-10T16:55:46.798142" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-10T16:55:46.800131" elapsed="3.400295"/>
+</kw>
+<status status="FAIL" start="2025-02-10T16:55:21.786797" elapsed="28.414649">Element with locator 'xpath=//a[contains(text(), 'Chinese')]' not found.</status>
 </test>
-<status status="PASS" start="2025-02-09T19:37:08.007432" elapsed="37.453944"/>
+<status status="FAIL" start="2025-02-10T16:54:09.770623" elapsed="100.434835"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="test checkInfo">test checkInfo</stat>
+<stat pass="0" fail="3" skip="0" id="s1" name="Test Language">Test Language</stat>
 </suite>
 </statistics>
 <errors>

@@ -7,7 +7,8 @@ Documentation     A resource file with reusable keywords and variables.
 Library           SeleniumLibrary
 
 ***Variables***
-${BASE_URL}         http://localhost:8000
+# ${BASE_URL}         http://localhost:8000  #เทส local
+${BASE_URL}    https://cs0167.cpkkuhost.com/
 ${BROWSER}        custom_chrome
 ${CHROME_BROWSER_PATH}     C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe
 ${CHROME_DRIVER_PATH}      C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe
