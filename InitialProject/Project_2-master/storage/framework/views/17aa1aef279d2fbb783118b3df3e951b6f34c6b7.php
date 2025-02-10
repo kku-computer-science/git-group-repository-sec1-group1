@@ -81,7 +81,7 @@
 
                     <td style="vertical-align: top;text-align: left;">
                         <div style="padding-bottom: 10px;">
-                            <span><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <span><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> //Change the name based on using language that time.  
                             <?php
                             $locale = App::getLocale(); // Get current language
                             // Check if the attribute exists, otherwise fallback to 'en'

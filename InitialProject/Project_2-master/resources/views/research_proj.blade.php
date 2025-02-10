@@ -74,7 +74,7 @@
 
                     <td style="vertical-align: top;text-align: left;">
                         <div style="padding-bottom: 10px;">
-                            <span>@foreach($re->user as $user) //Change the name based on using language that time.  
+                            <span>@foreach($re->user as $user) 
                             @php
                             $locale = App::getLocale(); // Get current language
                             // Check if the attribute exists, otherwise fallback to 'en'
