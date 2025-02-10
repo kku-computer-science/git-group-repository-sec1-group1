@@ -27,5 +27,6 @@ return [
 'submitted' => 'Submitted',
 'in_progress' => 'In Progress',
 'project_closed' => 'Project Closed',
+'login' => 'Login',
 
 ];

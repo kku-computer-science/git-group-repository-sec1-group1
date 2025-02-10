@@ -28,5 +28,6 @@ return [
     'submitted' => '已提交',
     'in_progress' => '进行中',
     'project_closed' => '项目关闭',
+    'login' => ' 登录',
 ];
 

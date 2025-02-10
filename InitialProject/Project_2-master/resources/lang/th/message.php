@@ -28,5 +28,6 @@ return [
 'submitted' => 'ยื่นขอ',
 'in_progress' => 'ดำเนินการ',
 'project_closed' => 'ปิดโครงการ',
+'login' => 'เข้าสู่ระบบ',
 
 ];

@@ -122,7 +122,7 @@
                 </span>
                 <?php else: ?>
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">Login</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank"><?php echo e(trans('message.login')); ?></a>
                 </span>
                 <?php endif; ?>
                 <?php endif; ?>
