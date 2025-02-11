@@ -20,7 +20,7 @@
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="..." class="img-fluid">
-                    <h1 class="card-text-1">Laboratory Supervisor</h1>
+                    <h1 class="card-text-1"> <?php echo e(trans('message.Lab_supervisor')); ?> </h1>
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($r->hasRole('teacher')): ?>
@@ -47,12 +47,15 @@
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </h2>
-                    <?php if(collect($rg->user)->contains(fn($user) => $user->hasRole('student'))): ?>
-                        <h1 class="card-text-1">Student</h1>
-                        <h2 class="card-text-2">
-                            <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($user->hasRole('student')): ?>
-                                    <?php echo e($user->{'position_'.app()->getLocale()}); ?> <?php echo e($user->{'fname_'.app()->getLocale()}); ?> <?php echo e($user->{'lname_'.app()->getLocale()}); ?>
+                    <h1 class="card-text-1"> <?php echo e(trans('message.student')); ?> </h1>
+                    <h2 class="card-text-2">
+                        <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($user->hasRole('student')): ?>
+                                <?php
+                                    $locale = app()->getLocale();
+                                    $locale = in_array($locale, ['en', 'th', 'zh']) ? $locale : 'en'; // Set 'en' as default if not found
+                             ?>
+                            <?php echo e($user->{'position_' . $locale}); ?> <?php echo e($user->{'fname_' . $locale}); ?> <?php echo e($user->{'lname_' . $locale}); ?>
 
                                     <br>
                                 <?php endif; ?>

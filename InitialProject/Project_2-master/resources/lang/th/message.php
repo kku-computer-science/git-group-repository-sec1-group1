@@ -168,4 +168,23 @@ return [
     'show' => 'แสดง',
     'edit' => 'แก้ไข',
     'delete' => 'ลบ',
+    //home
+    'Report_total' => 'รายงานจำนวนบทความทั้งหมด (5 ปี : สะสม)',
+    'number' => 'ตัวเลข',
+    'before' => 'ก่อน',
+    'summary' => 'สรุป',
+    'reference' => 'อ้างอิง',
+
+
+    //REPORTS
+    'TotalArticle' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
+    'StatisticsArticle' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'กลุ่มวิจัย',
+    'Lab_supervisor' => 'หัวหน้าแลป',
+
+    //RESEARCH GROUP Details
+    'student' => 'นักศึกษา',
+    
 ];

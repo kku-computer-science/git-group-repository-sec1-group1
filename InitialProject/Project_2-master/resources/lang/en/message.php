@@ -31,6 +31,7 @@ return [
     'search' => 'Search',
     'show_entries' => 'Show :entries entries',
     'dashboard' => 'Dashboard',
+    
 
     // Additional terms from the image
     'profile' => 'Profile',
@@ -166,4 +167,23 @@ return [
     'show' => 'Show',
     'edit' => 'Edit',
     'delete' => 'Delete',
+
+    //home
+    'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
+    'number' => 'Number',
+    'before' => 'Before',
+    'summary' => 'Summary',
+    'reference' => 'Reference',
+
+
+    //REPORTS
+    'TotalArticle' => 'Total Article Statistics for 5 Years',
+    'StatisticsArticle' => 'Statistics of Articles Referenced',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'RESEARCH GROUP',
+    'Lab_supervisor' => 'Laboratory Supervisor',
+
+    //RESEARCH GROUP Details
+    'student' => 'Student',
 ];

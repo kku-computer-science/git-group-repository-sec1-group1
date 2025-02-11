@@ -21,7 +21,7 @@
                             <h5 class="card-title">{{ $rg->{'group_name_' . $locale} }}</h5>
                             <h3 class="card-text">{{ Str::limit($rg->{'group_desc_' . $locale}, 350) }}</h3>
 
-                            <h2 class="card-text-1 mt-3 ml-0">Laboratory Supervisor</h2>
+                            <h2 class="card-text-1 mt-3 ml-0">{{ trans('message.Lab_supervisor') }}</h2>
                             <h2 class="card-text-2 ml-0">
                                 @foreach ($rg->user as $r)
                                 @if($r->hasRole('teacher'))

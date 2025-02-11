@@ -140,5 +140,27 @@ return [
     'show' => '查看',
     'edit' => '编辑',
     'delete' => '删除',
-];
 
+    'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
+
+    //home
+    'Report_total' => '報告文章總數（ 5年 ：累計）',
+    'number' => '數位',
+    'before' => '前',
+    'summary' => '概括',
+    'reference' => '参考',
+
+    //REPORTS
+    'TotalArticle' => '5 年总文章统计',
+    'StatisticsArticle' => '引用文章统计',
+
+    
+    //RESEARCH GROUP
+    'Research_Group' => '研究小组',
+    'Lab_supervisor' => '实验室主管',
+
+    //RESEARCH GROUP Details
+    'student' => '大学生',
+
+
+];
