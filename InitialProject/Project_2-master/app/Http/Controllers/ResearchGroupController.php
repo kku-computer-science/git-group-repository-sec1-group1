@@ -9,10 +9,7 @@ use App\Models\Fund;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-<<<<<<< HEAD
-=======
 use Stichoza\GoogleTranslate\GoogleTranslate;
->>>>>>> efedd09b45912f7fbca3c2a766aa03d63c4b2261
 
 class ResearchGroupController extends Controller
 {
