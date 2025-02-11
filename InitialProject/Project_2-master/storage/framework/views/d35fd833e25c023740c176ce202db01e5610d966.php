@@ -16,10 +16,11 @@
         </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header"><?php echo e(trans('message.departments')); ?>
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('departments-create')): ?>
 
-                <a class="btn btn-primary" href="<?php echo e(route('departments.create')); ?>">New department</a>
+                <a class="btn btn-primary" href="<?php echo e(route('departments.create')); ?>"><?php echo e(trans('message.new_department')); ?></a>
 
                 <?php endif; ?>
             </div>
@@ -27,9 +28,11 @@
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                        <tr>
+                            <th><?php echo e(trans('message.no')); ?></th>
+                            <th><?php echo e(trans('message.name')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.action')); ?></th>
+                        </tr>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +42,6 @@
                             <td><?php echo e($department->department_name_th); ?></td>
                             <td>
                                 <form action="<?php echo e(route('departments.destroy',$department->id)); ?>" method="POST">
-                                    
 
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="<?php echo e(route('departments.show',$department->id)); ?>"><i class="mdi mdi-eye"></i></a>
 

@@ -15,7 +15,7 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ trans('message.research_project') }}</h4>
+            <h4 class="card-title">{{ trans('message.ResearchProj') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('message.add') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
@@ -56,7 +56,7 @@
                                     <form action="{{ route('researchProjects.destroy',$researchProject->id) }}"method="POST">
                                     <li class="list-inline-item">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="view"
+                                            data-placement="top" title="{{ trans('message.view') }}"
                                             href="{{ route('researchProjects.show',$researchProject->id) }}"><i
                                                 class="mdi mdi-eye"></i></a>
                                     </li>
@@ -68,7 +68,7 @@
                                         @if(Auth::user()->can('update',$researchProject)) 
                                         <li class="list-inline-item">
                                         <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="Edit"
+                                            data-placement="top" title="{{ trans('message.edit') }}"
                                             href="{{ route('researchProjects.edit',$researchProject->id) }}"><i
                                                 class="mdi mdi-pencil"></i></a>
                                              </li>
@@ -80,7 +80,7 @@
 
                                         <li class="list-inline-item">
                                             <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                                data-toggle="tooltip" data-placement="top" title="{{ trans('message.delete') }}"><i
                                                     class="mdi mdi-delete"></i></button>
                                         </li>
                                         @endif
@@ -107,6 +107,17 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}",
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
     });
 </script>
@@ -116,15 +127,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ __('message.are_you_sure') }}`,
+                text: "{{ __('message.delete_warning') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('message.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

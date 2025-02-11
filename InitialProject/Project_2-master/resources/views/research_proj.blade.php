@@ -117,6 +117,10 @@
 
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "{{ __('message.search') }}" ,
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}"
+            }
         });
     });
 </script>

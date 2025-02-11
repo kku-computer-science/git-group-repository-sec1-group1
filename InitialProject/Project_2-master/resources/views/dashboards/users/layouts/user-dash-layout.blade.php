@@ -136,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                        document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
+                        document.getElementById ('logout-form').submit();"> {{ __('message.logout') }} <i class="mdi mdi-logout"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('researchProjects.index')}}">
                             <i class="menu-icon mdi mdi-book-outline"></i>
-                            <span class="menu-title">{{ trans('message.research_project') }}</span>
+                            <span class="menu-title">{{ trans('message.ResearchProj') }}</span>
 
                         </a>
                     </li>
@@ -204,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('researchGroups.index')}}">
                             <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
-                            <span class="menu-title">{{ trans('message.research_group') }}</span>
+                            <span class="menu-title">{{ trans('message.ResearchGroup') }}</span>
 
                         </a>
                     </li>
@@ -220,7 +220,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{ route('papers.index')}}">{{ trans('message.published_researchs') }}</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="/books">{{ trans('message.book') }}</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/patents">ผลงานวิชาการอื่นๆ</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/patents">{{ __('message.other_academic_works') }}</a></li>
                             </ul>
                         </div>
                     </li>

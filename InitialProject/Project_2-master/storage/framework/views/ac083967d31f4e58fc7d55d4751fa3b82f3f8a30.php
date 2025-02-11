@@ -33,17 +33,17 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
+            <h4 class="card-title" style="text-align: start;"><?php echo e(trans('message.teacher_expertise')); ?></h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th><?php echo e(trans('message.id')); ?></th>
                         <?php if(Auth::user()->hasRole('admin')): ?>
-                        <th>Teacher Name</th>
+                        <th><?php echo e(trans('message.teacher_name')); ?></th>
                         <?php endif; ?>
-                        <th>Name</th>
+                        <th><?php echo e(trans('message.name')); ?></th>
 
-                        <th>Action</th>
+                        <th><?php echo e(trans('message.action')); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@
                     <tr id="expert_id_<?php echo e($expert->id); ?>">
                         <td><?php echo e($i+1); ?></td>
                         <?php if(Auth::user()->hasRole('admin')): ?>
-                        <td><?php echo e($expert->user->fname_en); ?> <?php echo e($expert->user->lname_en); ?></td>
+                        <td><?php echo e($expert->user->{'fname_' . app()->getLocale()}); ?> <?php echo e($expert->user->{'lname_' . app()->getLocale()}); ?></td>
                         <?php endif; ?>
                         <td><?php echo e($expert->expert_name); ?></td>
 
