@@ -15,7 +15,7 @@
 <div class="container">
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong><?php echo e(__('message.whoops')); ?></strong> <?php echo e(__('message.errors')); ?><br><br>
         <ul>
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li><?php echo e($error); ?></li>
@@ -23,53 +23,52 @@
         </ul>
     </div>
     <?php endif; ?>
-    <!-- <a class="btn btn-primary" href="<?php echo e(route('funds.index')); ?>"> Back </a> -->
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มทุนวิจัย</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดทุนงานวิจัย</p>
+                <h4 class="card-title"><?php echo e(__('message.add_research_fund')); ?></h4>
+                <p class="card-description"><?php echo e(__('message.fill_in_fund_details')); ?></p>
                 <form class="forms-sample" action="<?php echo e(route('funds.store')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="form-group row">
-                        <label for="exampleInputfund_type" class="col-sm-2 ">ประเภททุนวิจัย</label>
+                        <label for="exampleInputfund_type" class="col-sm-2 "><?php echo e(__('message.fund_type_label')); ?></label>
                         <div class="col-sm-4">
                             <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required>
-                                <option value="" disabled selected >---- โปรดระบุประเภททุน ----</option>
-                                <option value="ทุนภายใน">ทุนภายใน</option>
-                                <option value="ทุนภายนอก">ทุนภายนอก</option>
+                                <option value="" disabled selected >---- <?php echo e(__('message.please_specify_fund_type')); ?> ----</option>
+                                <option value="ทุนภายใน"><?php echo e(__('message.internal_fund')); ?></option>
+                                <option value="ทุนภายนอก"><?php echo e(__('message.external_fund')); ?></option>
                             </select>
                         </div>
                     </div>
                     <div id="fund_code">
                         <div class="form-group row">
-                            <label for="exampleInputfund_level" class="col-sm-2 ">ระดับทุน</label>
+                            <label for="exampleInputfund_level" class="col-sm-2 "><?php echo e(__('message.fund_level_label')); ?></label>
                             <div class="col-sm-4">
                                 <select name="fund_level" class="custom-select my-select">
-                                <option value="" disabled selected >---- โปรดระบุระดับทุน ----</option>
-                                    <option value="">ไม่ระบุ</option>
-                                    <option value="สูง">สูง</option>
-                                    <option value="กลาง">กลาง</option>
-                                    <option value="ล่าง">ล่าง</option>
+                                    <option value="" disabled selected >---- <?php echo e(__('message.please_specify_fund_level')); ?> ----</option>
+                                    <option value=""><?php echo e(__('message.not_specified')); ?></option>
+                                    <option value="สูง"><?php echo e(__('message.high')); ?></option>
+                                    <option value="กลาง"><?php echo e(__('message.medium')); ?></option>
+                                    <option value="ล่าง"><?php echo e(__('message.low')); ?></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">ชื่อทุน</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 "><?php echo e(__('message.fund_name_label')); ?></label>
                         <div class="col-sm-8">
-                            <input type="text" name="fund_name" class="form-control" placeholder="name">
+                            <input type="text" name="fund_name" class="form-control" placeholder="<?php echo e(__('message.fund_name_placeholder')); ?>">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="exampleInputsupport_resource" class="col-sm-2 ">หน่วยงานที่สนับสนุน / โครงการวิจัย </label>
+                        <label for="exampleInputsupport_resource" class="col-sm-2 "><?php echo e(__('message.support_resource_label')); ?></label>
                         <div class="col-sm-8">
-                            <input type="text" name="support_resource" class="form-control" placeholder="Support Resource">
+                            <input type="text" name="support_resource" class="form-control" placeholder="<?php echo e(__('message.support_resource_placeholder')); ?>">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="<?php echo e(route('funds.index')); ?>">Cancel</a>
+                    <button type="submit" class="btn btn-primary me-2"><?php echo e(__('message.submit')); ?></button>
+                    <a class="btn btn-light" href="<?php echo e(route('funds.index')); ?>"><?php echo e(__('message.cancel')); ?></a>
                 </form>
             </div>
         </div>
@@ -77,11 +76,11 @@
 </div>
 <script>
     const ac = document.getElementById("fund_code");
-    //ac.style.display = "none";
 
     function toggleDropdown(selObj) {
         ac.style.display = selObj.value === "ทุนภายใน" ? "block" : "none";
     }
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('dashboards.users.layouts.user-dash-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/funds/create.blade.php ENDPATH**/ ?>

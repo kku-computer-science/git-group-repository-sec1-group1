@@ -168,4 +168,32 @@ return [
     'show' => 'แสดง',
     'edit' => 'แก้ไข',
     'delete' => 'ลบ',
+
+    //fund 
+    'whoops' => 'โอ๊ะ!',
+    'errors' => 'มีบางอย่างผิดพลาดกับข้อมูลของคุณ',
+    'add_research_fund' => 'เพิ่มทุนวิจัย',
+    'fill_in_fund_details' => 'กรอกข้อมูลรายละเอียดทุนงานวิจัย',
+    'fund_type_label' => 'ประเภททุนวิจัย',
+    'please_specify_fund_type' => 'โปรดระบุประเภททุน',
+    'internal_fund' => 'ทุนภายใน',
+    'external_fund' => 'ทุนภายนอก',
+    'fund_level_label' => 'ระดับทุน',
+    'please_specify_fund_level' => 'โปรดระบุระดับทุน',
+    'not_specified' => 'ไม่ระบุ',
+    'high' => 'สูง',
+    'medium' => 'กลาง',
+    'low' => 'ล่าง',
+    'fund_name_label' => 'ชื่อทุน',
+    'fund_name_placeholder' => 'ชื่อทุน',
+    'support_resource_label' => 'หน่วยงานที่สนับสนุน / โครงการวิจัย',
+    'support_resource_placeholder' => 'หน่วยงานที่สนับสนุน',
+    'submit' => 'บันทึก',
+    'cancel' => 'ยกเลิก',
+
+    'fund_detail' => 'รายละเอียดทุน',
+    'fund_details_info' => 'ข้อมูลรายละเอียดทุน',
+    'added_by' => 'เพิ่มรายละเอียดโดย',
+    'fund_details' => 'รายละเอียดทุน',
+
 ];

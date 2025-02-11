@@ -42,11 +42,11 @@
                                 <?php echo csrf_field(); ?>
                                 <form action="<?php echo e(route('funds.destroy',$fund->id)); ?>" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="<?php echo e(route('funds.show',$fund->id)); ?>"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="<?php echo e(trans('message.view')); ?>" href="<?php echo e(route('funds.show',$fund->id)); ?>"><i class="mdi mdi-eye"></i></a>
                                     </li>
                                     <?php if(Auth::user()->can('update',$fund)): ?>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo e(route('funds.edit',Crypt::encrypt($fund->id))); ?>"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="<?php echo e(trans('message.edit')); ?>" href="<?php echo e(route('funds.edit',Crypt::encrypt($fund->id))); ?>"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     <?php endif; ?>
 
@@ -56,7 +56,7 @@
 
                                     <li class="list-inline-item">
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="<?php echo e(trans('message.delete')); ?>"><i class="mdi mdi-delete"></i></button>
                                     </li>
 
 
@@ -79,7 +79,18 @@
 <script>
     $(document).ready(function() {
         var table = $('#example1').DataTable({
-            fixedHeader: true
+            fixedHeader: true ,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>",
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
     });
 </script>
@@ -89,15 +100,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(__('message.are_you_sure')); ?>`,
+                text: "<?php echo e(__('message.delete_warning')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(__('message.delete_success')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

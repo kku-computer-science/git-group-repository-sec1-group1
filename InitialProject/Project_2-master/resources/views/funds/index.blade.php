@@ -42,11 +42,11 @@
                                 @csrf
                                 <form action="{{ route('funds.destroy',$fund->id) }}" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('funds.show',$fund->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('message.view') }}" href="{{ route('funds.show',$fund->id) }}"><i class="mdi mdi-eye"></i></a>
                                     </li>
                                     @if(Auth::user()->can('update',$fund))
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('message.edit') }}" href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endif
 
@@ -56,7 +56,7 @@
 
                                     <li class="list-inline-item">
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="{{ trans('message.delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
 
 
@@ -79,7 +79,18 @@
 <script>
     $(document).ready(function() {
         var table = $('#example1').DataTable({
-            fixedHeader: true
+            fixedHeader: true ,
+            language: {
+                search: "{{ __('message.search') }}",
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
+            }
         });
     });
 </script>
@@ -89,15 +100,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{ __('message.are_you_sure') }}`,
+                text: "{{ __('message.delete_warning') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('message.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
