@@ -28,5 +28,13 @@ return [
     'submitted' => '已提交',
     'in_progress' => '进行中',
     'project_closed' => '项目关闭',
+    'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
+
+    //home
+    'Report_total' => '報告文章總數（ 5年 ：累計）',
+    'number' => '數位',
+    'before' => '前',
+    'summary' => '概括',
+    'reference' => '参考',
 ];
 

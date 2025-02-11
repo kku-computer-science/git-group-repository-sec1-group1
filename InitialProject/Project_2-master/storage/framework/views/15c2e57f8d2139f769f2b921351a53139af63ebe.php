@@ -141,7 +141,7 @@
                         <?php echo e($n); ?>
 
                         <?php else: ?>
-                        Before <?php echo e($n); ?>
+                        <?php echo e(trans('message.before')); ?> <?php echo e($n); ?>
 
                         <?php endif; ?>
 
@@ -163,7 +163,7 @@
                                     <!-- <a href="<?php echo e(route('bibtex',['id'=>$p['id']])); ?>">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="<?php echo e($p['id']); ?>">[อ้างอิง]</button>
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="<?php echo e($p['id']); ?>">[<?php echo e(trans('message.reference')); ?>]</button>
                                 </p>
                             </div>
                         </div>
@@ -262,7 +262,7 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                    labelString: '<?php echo e(trans('message.number')); ?>',
 
                 },
                 ticks: {
@@ -273,14 +273,14 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: '<?php echo e(trans('message.year')); ?>'
                 }
             }]
         },
 
         title: {
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: '<?php echo e(trans('message.Report_total')); ?>',
             fontSize: 20
         }
 
@@ -309,7 +309,7 @@
         document.getElementById("all").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text "><?php echo e(trans('message.summary')); ?></p>`
         document.getElementById("scopus").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

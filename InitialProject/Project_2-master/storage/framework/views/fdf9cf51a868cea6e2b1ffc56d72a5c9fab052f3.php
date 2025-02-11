@@ -67,7 +67,8 @@
                     <li class="nav-item <?php echo e(request()->is('/') ? 'active' : ''); ?> ">
                         <a class="nav-link" href="/"><?php echo e(trans('message.Home')); ?></a>
                     </li>
-                    <li class="nav-item dropdown <?php echo e(Request::routeIs('researchers') ? 'active' : ''); ?> <?php echo e(request()->is('detail*') ? 'active' : ''); ?>">
+                    <li
+                        class="nav-item dropdown <?php echo e(Request::routeIs('researchers') ? 'active' : ''); ?> <?php echo e(request()->is('detail*') ? 'active' : ''); ?> ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <?php echo e(trans('message.Researchers')); ?>

@@ -40,6 +40,7 @@ return [
     'education' => 'Education',
     'publications2' => 'Publications',
     'dashboard' => 'Dashboard',
+    
 
     // Additional terms from the image
     'profile' => 'Profile',
@@ -105,5 +106,13 @@ return [
     'teacher_expertise' => "Teacher's Expertise",
     'teacher_name' => "Teacher Name",
     'id' => 'ID',
+
+
+    //home
+    'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
+    'number' => 'Number',
+    'before' => 'Before',
+    'summary' => 'Summary',
+    'reference' => 'Reference',
 
 ];
