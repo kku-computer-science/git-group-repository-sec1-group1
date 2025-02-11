@@ -28,18 +28,8 @@ return [
     'in_progress' => 'In Progress',
     'project_closed' => 'Project Closed',
     'login' => 'Login',
-
-
-    'Home' => 'Home',
-    'Researchers' => 'Researchers',
-    'ResearchProj' => 'Research Project',
-    'ResearchGroup' => 'Research Group',
-    'Report' => 'Reports',
-    'details' => 'More details',
-    'expertise' => 'Research interests',
-    'publications' => 'Publications (In the Last 5 Years)',
-    'education' => 'Education',
-    'publications2' => 'Publications',
+    'search' => 'Search',
+    'show_entries' => 'Show :entries entries',
     'dashboard' => 'Dashboard',
 
     // Additional terms from the image

@@ -124,6 +124,10 @@
 
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>"
+            }
         });
     });
 </script>

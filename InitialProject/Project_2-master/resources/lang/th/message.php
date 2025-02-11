@@ -29,18 +29,8 @@ return [
     'in_progress' => 'ดำเนินการ',
     'project_closed' => 'ปิดโครงการ',
     'login' => 'เข้าสู่ระบบ',
-
-
-    'Home' => 'หน้าแรก',
-    'Researchers' => 'ผู้วิจัย',
-    'ResearchProj' => 'โครงการวิจัย',
-    'ResearchGroup' => 'กลุ่มวิจัย',
-    'Report' => 'รายงาน',
-    'details' => 'รายละเอียดเพิ่มเติม',
-    'expertise' => 'ความเชี่ยวชาญ',
-    'publications' => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
-    'education' => 'การศึกษา',
-    'publications2' => 'ผลงานตีพิมพ์',
+    'search' => 'ค้นหา',
+    'show_entries' => 'แสดง :entries รายการ',
     'dashboard' => 'แดชบอร์ด',
 
 
