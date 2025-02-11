@@ -119,5 +119,11 @@ return [
     //REPORTS
     'TotalArticle' => 'Total Article Statistics for 5 Years',
     'StatisticsArticle' => 'Statistics of Articles Referenced',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'RESEARCH GROUP',
+    'Lab_supervisor' => 'Laboratory Supervisor',
 
+    //RESEARCH GROUP Details
+    'student' => 'Student',
 ];

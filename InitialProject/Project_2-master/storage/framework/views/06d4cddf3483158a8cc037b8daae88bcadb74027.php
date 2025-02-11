@@ -1,14 +1,14 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container card-3 ">
-    <p>Research Group</p>
+    <p><?php echo e(trans('message.Research_Group')); ?></p>
     <?php $__currentLoopData = $resg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="...">
-                    <h2 class="card-text-1"> Laboratory Supervisor </h2>
+                    <h2 class="card-text-1"> <?php echo e(trans('message.Lab_supervisor')); ?> </h2>
                     
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

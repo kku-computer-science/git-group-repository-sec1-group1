@@ -40,6 +40,14 @@ return [
     //REPORTS
     'TotalArticle' => '5 年总文章统计',
     'StatisticsArticle' => '引用文章统计',
-    
-];
 
+    
+    //RESEARCH GROUP
+    'Research_Group' => '研究小组',
+    'Lab_supervisor' => '实验室主管',
+
+    //RESEARCH GROUP Details
+    'student' => '大学生',
+
+
+];

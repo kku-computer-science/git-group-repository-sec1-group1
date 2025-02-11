@@ -118,4 +118,12 @@ return [
     //REPORTS
     'TotalArticle' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
     'StatisticsArticle' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'กลุ่มวิจัย',
+    'Lab_supervisor' => 'หัวหน้าแลป',
+
+    //RESEARCH GROUP Details
+    'student' => 'นักศึกษา',
+    
 ];
