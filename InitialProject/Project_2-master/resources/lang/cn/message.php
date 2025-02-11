@@ -162,5 +162,24 @@ return [
     //RESEARCH GROUP Details
     'student' => '大学生',
 
+    'paper_name' => '论文名称',
+    'author' => '作者',
+    'document_type' => '文档类型',
+    'page' => '页码',
+    'journals_transactions' => '期刊/交易',
+    'citations' => '引用',
+    'doi' => 'DOI',
+    'name' => '名称',
+    'author' => '作者',
+    'publication_place' => '出版地',
+    'page' => '页码',
+    'author' => '作者',
+    'type' => '类别',
+    'registration_number' => '注册号',
+    'registration_date' => '注册日期',
+
+    'source' => '来源',
+    'export_to_excel' => '导出到 Excel',
+
 
 ];
