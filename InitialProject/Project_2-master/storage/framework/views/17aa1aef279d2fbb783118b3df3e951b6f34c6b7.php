@@ -81,9 +81,16 @@
 
                     <td style="vertical-align: top;text-align: left;">
                         <div style="padding-bottom: 10px;">
-                            <span><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php echo e($user->position_th); ?> <?php echo e($user->fname_th); ?> <?php echo e($user->lname_th); ?><br>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></span>
+                            <span><?php $__currentLoopData = $re->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                            <?php
+                            $locale = App::getLocale(); // Get current language
+                            // Check if the attribute exists, otherwise fallback to 'en'
+                            $position = $user->{'position_' . $locale} ?? $user->position_en;
+                            $fname = $user->{'fname_' . $locale} ?? $user->fname_en;
+                            $lname = $user->{'lname_' . $locale} ?? $user->lname_en;
+                        ?>     
+                        <?php echo e($position); ?> <?php echo e($fname); ?> <?php echo e($lname); ?><br>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></span>
                         </div>
                     </td>
                     <?php if($re->status == 1): ?>

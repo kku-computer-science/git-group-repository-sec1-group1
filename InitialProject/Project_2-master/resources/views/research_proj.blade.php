@@ -74,9 +74,16 @@
 
                     <td style="vertical-align: top;text-align: left;">
                         <div style="padding-bottom: 10px;">
-                            <span>@foreach($re->user as $user)
-                                {{$user->position_th }} {{$user->fname_th}} {{$user->lname_th}}<br>
-                                @endforeach</span>
+                            <span>@foreach($re->user as $user) 
+                            @php
+                            $locale = App::getLocale(); // Get current language
+                            // Check if the attribute exists, otherwise fallback to 'en'
+                            $position = $user->{'position_' . $locale} ?? $user->position_en;
+                            $fname = $user->{'fname_' . $locale} ?? $user->fname_en;
+                            $lname = $user->{'lname_' . $locale} ?? $user->lname_en;
+                        @endphp     
+                        {{$position}} {{$fname}} {{$lname}}<br>
+                            @endforeach</span>
                         </div>
                     </td>
                     @if($re->status == 1)
