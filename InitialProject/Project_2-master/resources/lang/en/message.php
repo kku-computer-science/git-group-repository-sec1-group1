@@ -186,4 +186,22 @@ return [
 
     //RESEARCH GROUP Details
     'student' => 'Student',
+    'paper_name' => 'Paper Name',
+    'author' => 'Author',
+    'document_type' => 'Document Type',
+    'page' => 'Page',
+    'journals_transactions' => 'Journals/Transactions',
+    'citations' => 'Citations',
+    'doi' => 'DOI',
+    'name' => 'Name',
+    'author' => 'Author',
+    'publication_place' => 'Publication Place',
+    'page' => 'Page',
+    'author' => 'Author',
+    'type' => 'Type',
+    'registration_number' => 'Registration Number',
+    'registration_date' => 'Registration Date',
+
+    'source' => 'Source',
+    'export_to_excel' => 'Export to Excel',
 ];

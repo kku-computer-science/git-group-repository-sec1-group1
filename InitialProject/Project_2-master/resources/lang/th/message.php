@@ -186,5 +186,22 @@ return [
 
     //RESEARCH GROUP Details
     'student' => 'นักศึกษา',
-    
+    'no' => 'ลำดับ',
+    'year' => 'ปี',
+    'paper_name' => 'ชื่อบทความ',
+    'author' => 'ผู้แต่ง',
+    'document_type' => 'ประเภทเอกสาร',
+    'page' => 'หน้า',
+    'journals_transactions' => 'วารสาร/ธุรกรรม',
+    'citations' => 'การอ้างอิง',
+    'doi' => 'DOI',
+    'name' => 'ชื่อ',
+    'author' => 'ผู้แต่ง',
+    'publication_place' => 'สถานที่พิมพ์',
+    'page' => 'หน้า',
+    'type' => 'ประเภท',
+    'registration_number' => 'หมายเลขทะเบียน',
+    'registration_date' => 'วันที่จดทะเบียน',
+    'source' => 'แหล่งที่มา',
+    'export_to_excel' => 'ส่งออกเป็น Excel',
 ];
