@@ -24,6 +24,6 @@ Change to Chinese
     Open Web
     Go To Researcher   
     Click Element    xpath=(//div[@class='row row-cols-1 row-cols-md-2 g-0']//a)[2]  
-    Change Language    Chinese
+    Change Language    中文
     Verify Page Text    教育
     [Teardown]    Close Browser
