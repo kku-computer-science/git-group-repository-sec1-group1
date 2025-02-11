@@ -15,18 +15,18 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">โครงการวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchProjects.create')); ?>"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title"><?php echo e(trans('message.ResearchProj')); ?></h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchProjects.create')); ?>"><i class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.add')); ?></a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
-                            <th>Project name</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="auto">Action</th>
+                            <th><?php echo e(trans('message.no')); ?></th>
+                            <th><?php echo e(trans('message.year')); ?></th>
+                            <th><?php echo e(trans('message.project_name')); ?></th>
+                            <th><?php echo e(trans('message.head')); ?></th>
+                            <th><?php echo e(trans('message.member')); ?></th>
+                            <th width="auto"><?php echo e(trans('message.action')); ?></th>
                         </tr>
                         <thead>
                         <tbody>
@@ -39,7 +39,7 @@
                                 <td>
                                     <?php $__currentLoopData = $researchProject->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if( $user->pivot->role == 1): ?>
-                                    <?php echo e($user->fname_en); ?>
+                                    <?php echo e($user->{'fname_' . app()->getLocale()}); ?>
 
                                     <?php endif; ?>
 
@@ -48,7 +48,7 @@
                                 <td>
                                     <?php $__currentLoopData = $researchProject->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if( $user->pivot->role == 2): ?>
-                                    <?php echo e($user->fname_en); ?>
+                                    <?php echo e($user->{'fname_' . app()->getLocale()}); ?>
 
                                     <?php endif; ?>
 
@@ -58,7 +58,7 @@
                                     <form action="<?php echo e(route('researchProjects.destroy',$researchProject->id)); ?>"method="POST">
                                     <li class="list-inline-item">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="view"
+                                            data-placement="top" title="<?php echo e(trans('message.view')); ?>"
                                             href="<?php echo e(route('researchProjects.show',$researchProject->id)); ?>"><i
                                                 class="mdi mdi-eye"></i></a>
                                     </li>
@@ -70,7 +70,7 @@
                                         <?php if(Auth::user()->can('update',$researchProject)): ?> 
                                         <li class="list-inline-item">
                                         <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="Edit"
+                                            data-placement="top" title="<?php echo e(trans('message.edit')); ?>"
                                             href="<?php echo e(route('researchProjects.edit',$researchProject->id)); ?>"><i
                                                 class="mdi mdi-pencil"></i></a>
                                              </li>
@@ -82,7 +82,7 @@
 
                                         <li class="list-inline-item">
                                             <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                                data-toggle="tooltip" data-placement="top" title="<?php echo e(trans('message.delete')); ?>"><i
                                                     class="mdi mdi-delete"></i></button>
                                         </li>
                                         <?php endif; ?>
@@ -109,6 +109,17 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>",
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
     });
 </script>
@@ -118,15 +129,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `<?php echo e(__('message.are_you_sure')); ?>`,
+                text: "<?php echo e(__('message.delete_warning')); ?>",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("<?php echo e(__('message.delete_success')); ?>", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

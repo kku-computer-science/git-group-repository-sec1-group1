@@ -11,10 +11,11 @@
         </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">Permissions
+            <div class="card-header"><?php echo e(trans('message.permission')); ?>
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('permission-create')): ?>
                 <span class="float-right">
-                    <a class="btn btn-primary" href="<?php echo e(route('permissions.create')); ?>">New Permission</a>
+                    <a class="btn btn-primary" href="<?php echo e(route('permissions.create')); ?>"><?php echo e(trans('message.new_permission')); ?></a>
                 </span>
                 <?php endif; ?>
             </div>
@@ -22,9 +23,9 @@
                 <table id ="example1" class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th><?php echo e(trans('message.no')); ?></th>
+                            <th><?php echo e(trans('message.name')); ?></th>
+                            <th width="280px"><?php echo e(trans('message.action')); ?></th>
                         </tr>
                     </thead>
                     <tbody>
