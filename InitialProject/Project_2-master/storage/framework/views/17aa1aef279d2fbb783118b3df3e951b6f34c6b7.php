@@ -126,7 +126,14 @@
             responsive: true,
             language: {
                 search: "<?php echo e(__('message.search')); ?>" ,
-                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>"
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => '_MENU_'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
             }
         });
     });

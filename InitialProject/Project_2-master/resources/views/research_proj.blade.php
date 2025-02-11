@@ -119,7 +119,14 @@
             responsive: true,
             language: {
                 search: "{{ __('message.search') }}" ,
-                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}"
+                lengthMenu: "{{ __('message.show_entries', ['entries' => '_MENU_']) }}",
+                info: "{{ __('message.showing_entries', ['start' => '_START_', 'end' => '_END_', 'total' => '_TOTAL_']) }}",
+                paginate: {
+                    first: "{{ __('message.first') }}",
+                    last: "{{ __('message.last') }}",
+                    next: "{{ __('message.next') }}",
+                    previous: "{{ __('message.previous') }}"
+                }
             }
         });
     });
