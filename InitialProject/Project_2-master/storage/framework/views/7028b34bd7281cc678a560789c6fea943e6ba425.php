@@ -15,7 +15,7 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title"><?php echo e(trans('message.research_project')); ?></h4>
+            <h4 class="card-title"><?php echo e(trans('message.ResearchProj')); ?></h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchProjects.create')); ?>"><i class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.add')); ?></a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">

@@ -42,11 +42,20 @@
                         <a href="{{ route('detail', Crypt::encrypt($r->id)) }}">
                             {{ str_replace('Dr.', ' ', $r->{'position_' . $locale}) }} {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}, Ph.D.
                         </a><br>
+                        @elseif($locale == 'th' && isset($r->{'fname_th'}) && isset($r->{'lname_th'}))
+                        <a href="{{ route('detail', Crypt::encrypt($r->id)) }}">
+                            {{ $r->{'fname_th'} }} {{ $r->{'lname_th'} }}
+                        </a><br>
+                        @elseif($locale == 'th' && isset($r->{'fname_th'}) && isset($r->{'lname_th'}) && isset($r->{'position_th'}))
+                        <a href="{{ route('detail', Crypt::encrypt($r->id)) }}">
+                            {{ $r->{'position_th'} }} {{ $r->{'fname_th'} }} {{ $r->{'lname_th'} }}
+                        </a><br>
                         @else
                         {{ $r->{'position_' . $locale} }} {{ $r->{'fname_' . $locale} }} {{ $r->{'lname_' . $locale} }}<br>
                         @endif
                         @endif
                         @endforeach
+
                     </h2>
                     @if(collect($rg->user)->contains(fn($user) => $user->hasRole('student')))
                     <h1 class="card-text-1">Student</h1>
@@ -60,7 +69,7 @@
                         {{ $user->{'position_' . $locale} }} {{ $user->{'fname_' . $locale} }} {{ $user->{'lname_' . $locale} }}
                         <br>
                         @endif
-                        @endforeach 
+                        @endforeach
                     </h2>
                     @endif
                 </div>

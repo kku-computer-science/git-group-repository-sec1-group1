@@ -1,9 +1,10 @@
 
 <?php $__env->startSection('content'); ?>
-<div class="container card-3 ">
-    <p><?php echo e(trans('message.Research_Group')); ?></p>
+<div class="container card-3">
+    <p>Research Group</p>
+    <div class="row g-4">
         <?php $__currentLoopData = $resg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 ">
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">

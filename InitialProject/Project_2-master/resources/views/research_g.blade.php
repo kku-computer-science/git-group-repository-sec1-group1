@@ -4,7 +4,7 @@
     <p>Research Group</p>
     <div class="row g-4">
         @foreach ($resg as $rg)
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 ">
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">

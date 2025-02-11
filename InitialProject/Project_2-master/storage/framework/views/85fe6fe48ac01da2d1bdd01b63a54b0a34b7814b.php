@@ -43,14 +43,25 @@
                         <a href="<?php echo e(route('detail', Crypt::encrypt($r->id))); ?>">
                             <?php echo e(str_replace('Dr.', ' ', $r->{'position_' . $locale})); ?> <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?>, Ph.D.
                         </a><br>
+                        <?php elseif($locale == 'th' && isset($r->{'fname_th'}) && isset($r->{'lname_th'})): ?>
+                        <a href="<?php echo e(route('detail', Crypt::encrypt($r->id))); ?>">
+                            <?php echo e($r->{'fname_th'}); ?> <?php echo e($r->{'lname_th'}); ?>
+
+                        </a><br>
+                        <?php elseif($locale == 'th' && isset($r->{'fname_th'}) && isset($r->{'lname_th'}) && isset($r->{'position_th'})): ?>
+                        <a href="<?php echo e(route('detail', Crypt::encrypt($r->id))); ?>">
+                            <?php echo e($r->{'position_th'}); ?> <?php echo e($r->{'fname_th'}); ?> <?php echo e($r->{'lname_th'}); ?>
+
+                        </a><br>
                         <?php else: ?>
                         <?php echo e($r->{'position_' . $locale}); ?> <?php echo e($r->{'fname_' . $locale}); ?> <?php echo e($r->{'lname_' . $locale}); ?><br>
                         <?php endif; ?>
                         <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                     </h2>
                     <?php if(collect($rg->user)->contains(fn($user) => $user->hasRole('student'))): ?>
-                    <h1 class="card-text-1">?php echo e(trans('message.student')); ?</h1>
+                    <h1 class="card-text-1">Student</h1>
                     <h2 class="card-text-2">
                         <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($user->hasRole('student')): ?>
@@ -62,7 +73,7 @@
 
                         <br>
                         <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </h2>
                     <?php endif; ?>
                 </div>
