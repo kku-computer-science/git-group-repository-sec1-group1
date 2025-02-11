@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('researchProjects.index')); ?>">
                             <i class="menu-icon mdi mdi-book-outline"></i>
-                            <span class="menu-title"><?php echo e(trans('message.research_project')); ?></span>
+                            <span class="menu-title"><?php echo e(trans('message.ResearchProj')); ?></span>
 
                         </a>
                     </li>
@@ -205,7 +205,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo e(route('researchGroups.index')); ?>">
                             <i class="menu-icon mdi mdi-view-dashboard-outline"></i>
-                            <span class="menu-title"><?php echo e(trans('message.research_group')); ?></span>
+                            <span class="menu-title"><?php echo e(trans('message.ResearchGroup')); ?></span>
 
                         </a>
                     </li>
