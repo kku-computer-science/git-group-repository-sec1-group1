@@ -8,8 +8,8 @@
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">
-                        <div class="card-body">
-                            <img src="{{ asset('img/'.$rg->group_image) }}" alt="..." class="img-fluid">
+                        <div class="card-body p-2 ">
+                            <img src="{{ asset('img/'.$rg->group_image) }}" alt="..." class="img-fluid ml-0">
                         </div>
                     </div>
                     <div class="col-md-8 d-flex flex-column">
