@@ -99,15 +99,9 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-<<<<<<< HEAD
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
-=======
             <h4 class="card-title">{{ trans('message.user') }}</h4>
             <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{ trans('message.new_user') }}</a>
             <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{ trans('message.import_user') }}</a>
->>>>>>> efedd09b45912f7fbca3c2a766aa03d63c4b2261
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -119,21 +113,12 @@
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-<<<<<<< HEAD
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
-=======
                             <th>{{ trans('message.no') }}</th>
                             <th>{{ trans('message.name') }}</th>
                             <th>{{ trans('message.departments') }}</th>
                             <th>{{ trans('message.email') }}</th>
                             <th>{{ trans('message.roles') }}</th>
                             <th width="280px">{{ trans('message.action') }}</th>
->>>>>>> efedd09b45912f7fbca3c2a766aa03d63c4b2261
                         </tr>
                     </thead>
 
@@ -141,13 +126,8 @@
                         @foreach ($data as $key => $user)
                         <tr>
                             <td>{{ $key++ }}</td>
-<<<<<<< HEAD
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
-=======
                             <td>{{ $user->{'fname_' . app()->getLocale()} }} {{ $user->{'lname_' . app()->getLocale()} }} </td>
                             <td>{{ Str::limit($user->program->{'program_name_' . app()->getLocale()}, 20) }}</td>
->>>>>>> efedd09b45912f7fbca3c2a766aa03d63c4b2261
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))

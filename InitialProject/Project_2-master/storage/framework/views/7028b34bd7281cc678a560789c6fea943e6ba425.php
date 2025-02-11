@@ -15,18 +15,18 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">โครงการวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchProjects.create')); ?>"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title"><?php echo e(trans('message.research_project')); ?></h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="<?php echo e(route('researchProjects.create')); ?>"><i class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.add')); ?></a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
-                            <th>Project name</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="auto">Action</th>
+                            <th><?php echo e(trans('message.no')); ?></th>
+                            <th><?php echo e(trans('message.year')); ?></th>
+                            <th><?php echo e(trans('message.project_name')); ?></th>
+                            <th><?php echo e(trans('message.head')); ?></th>
+                            <th><?php echo e(trans('message.member')); ?></th>
+                            <th width="auto"><?php echo e(trans('message.action')); ?></th>
                         </tr>
                         <thead>
                         <tbody>
@@ -39,7 +39,7 @@
                                 <td>
                                     <?php $__currentLoopData = $researchProject->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if( $user->pivot->role == 1): ?>
-                                    <?php echo e($user->fname_en); ?>
+                                    <?php echo e($user->{'fname_' . app()->getLocale()}); ?>
 
                                     <?php endif; ?>
 
@@ -48,7 +48,7 @@
                                 <td>
                                     <?php $__currentLoopData = $researchProject->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if( $user->pivot->role == 2): ?>
-                                    <?php echo e($user->fname_en); ?>
+                                    <?php echo e($user->{'fname_' . app()->getLocale()}); ?>
 
                                     <?php endif; ?>
 

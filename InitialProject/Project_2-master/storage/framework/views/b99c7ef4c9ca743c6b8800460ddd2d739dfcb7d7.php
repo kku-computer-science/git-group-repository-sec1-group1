@@ -30,25 +30,23 @@
     <?php endif; ?>
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">หลักสูตร</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
+            <h4 class="card-title" style="text-align: start;"><?php echo e(trans('message.program')); ?></h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> <?php echo e(trans('message.add')); ?> </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>Name (ไทย)</th>
-                        <!-- <th>Name (Eng)</th> -->
-                        <th>Degree</th>
-                        <th>Action</th>
+                        <th><?php echo e(trans('message.no')); ?></th>
+                        <th><?php echo e(trans('message.name')); ?></th>
+                        <th><?php echo e(trans('message.degree')); ?></th>
+                        <th><?php echo e(trans('message.action')); ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $__currentLoopData = $programs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $program): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr id="program_id_<?php echo e($program->id); ?>">
                         <td><?php echo e($i+1); ?></td>
-                        <td><?php echo e($program->program_name_th); ?></td>
-                        <!-- <td><?php echo e($program->program_name_en); ?></td> -->
-                        <td><?php echo e($program->degree->degree_name_en); ?></td>
+                        <td><?php echo e($program->{'program_name_' . app()->getLocale()}); ?></td>
+                        <td><?php echo e($program->degree->{'degree_name_' . app()->getLocale()}); ?></td>
                         <td>
                             <form action="<?php echo e(route('programs.destroy',$program->id)); ?>" method="POST">
                                 <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="<?php echo e($program->id); ?>">Show</a> -->
