@@ -19,42 +19,54 @@
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
                         @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                            </a>
                             <br>
                             @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                            {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                            </a>
                             <br>
                             @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                            {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                            <a href="{{ route('detail',Crypt::encrypt($r->id))}}">
+                                {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                            </a>
                             <br>
-                            @else                            
+                            @else
                             {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
                             <br>
                             @endif
+                            
                         
                         @endif
                         @endforeach
                     </h2>
-                    <h1 class="card-text-1"> Student </h1>
-                    <h2 class="card-text-2">
-                        @foreach ($rg->user as $user)
-                        @if($user->hasRole('student'))
-                        {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
-                        <br>
-                        @endif
-                        @endforeach
-                    </h2>
+                    @if(collect($rg->user)->contains(fn($user) => $user->hasRole('student')))
+                        <h1 class="card-text-1"> Student </h1>
+                        <h2 class="card-text-2">
+                            @foreach ($rg->user as $user)
+                            @if($user->hasRole('student'))
+                            {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </h2>
+                    @endif
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"> {{ $rg->{'group_name_'.app()->getLocale()} }}</>
+                    <h5 class="card-title"><b> {{ $rg->{'group_name_'.app()->getLocale()} }}</b> </>
                     </h5>
                     <h3  class="card-text">{{$rg->{'group_detail_'.app()->getLocale()} }}
                     </h3>
+                    
                 </div>
-                
+
             </div>
+
+        </div>
             @endforeach
             <!-- <div id="loadMore">
                 <a href="#"> Load More </a>
