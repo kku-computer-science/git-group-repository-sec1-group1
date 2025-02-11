@@ -29,5 +29,7 @@ return [
 'in_progress' => 'ดำเนินการ',
 'project_closed' => 'ปิดโครงการ',
 'login' => 'เข้าสู่ระบบ',
+'search' => 'ค้นหา',
+'show_entries' => 'แสดง :entries รายการ',
 
 ];

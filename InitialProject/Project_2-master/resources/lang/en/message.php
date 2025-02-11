@@ -28,5 +28,7 @@ return [
 'in_progress' => 'In Progress',
 'project_closed' => 'Project Closed',
 'login' => 'Login',
+'search' => 'Search',
+'show_entries' => 'Show :entries entries',
 
 ];

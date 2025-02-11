@@ -29,5 +29,7 @@ return [
     'in_progress' => '进行中',
     'project_closed' => '项目关闭',
     'login' => ' 登录',
+    'search' => '搜索',
+    'show_entries' => '显示 :entries 条',
 ];
 
