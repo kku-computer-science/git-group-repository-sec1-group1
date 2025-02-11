@@ -1,19 +1,27 @@
--- MySQL dump 10.13  Distrib 5.7.38, for Linux (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: laraveldb
--- ------------------------------------------------------
--- Server version	5.7.38-0ubuntu0.18.04.1
+-- Host: mysql:3306
+-- Generation Time: Feb 11, 2025 at 06:28 PM
+-- Server version: 8.0.32
+-- PHP Version: 8.2.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mydatabase`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `academicworks`
@@ -3439,7 +3447,8 @@ INSERT INTO `programs` (`id`, `program_name_th`, `program_name_en`, `program_nam
 (24, 'สาขาวิชาวิทยาการคอมพิวเตอร์และเทคโนโลยีสารสนเทศ หลักสูตรนานาชาติ', 'Computer Science and Information Technology (International Program)', '计算机科学与信息技术（国际项目)', 3, 1, '2022-04-20 16:06:16', '2025-02-09 16:06:16'),
 (25, 'สาขาวิชาภูมิสารสนเทศศาสตร์', 'Geo-Informatics', '地理信息科学 ', 3, 1, '2022-04-20 16:07:18', '2025-02-09 16:07:18'),
 (26, 'สาขาวิชาปัญญาประดิษฐ์', 'Artificial Intelligence', '人工智能', 1, 1, '2025-02-09 04:17:10', '2025-02-09 04:17:10'),
-(27, 'สาขาวิชาความมั่นคงปลอดภัยไซเบอร์', 'Cybersecurity', '网络安全', 1, 1, '2025-02-09 04:24:18', '2025-02-09 04:24:18');
+(27, 'สาขาวิชาความมั่นคงปลอดภัยไซเบอร์', 'Cybersecurity', '网络安全', 1, 1, '2025-02-09 04:24:18', '2025-02-09 04:24:18'),
+(28, 'เกษียณ', 'Retirement', '退休', 3, 1, '2025-02-11 00:50:27', '2025-02-11 00:50:27');
 
 -- --------------------------------------------------------
 
@@ -3452,10 +3461,13 @@ CREATE TABLE `research_groups` (
   `id` bigint UNSIGNED NOT NULL,
   `group_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `group_name_en` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `group_name_cn` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `group_detail_th` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_detail_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `group_detail_cn` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_desc_th` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_desc_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `group_desc_cn` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_image` varchar(155) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3465,12 +3477,12 @@ CREATE TABLE `research_groups` (
 -- Dumping data for table `research_groups`
 --
 
-INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_detail_th`, `group_detail_en`, `group_desc_th`, `group_desc_en`, `group_image`, `created_at`, `updated_at`) VALUES
-(3, 'เทคโนโลยี GIS ขั้นสูง (AGT)', 'Advanced GIS Technology (AGT)', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', '1651386391.jpg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
-(5, 'ห้องปฏิบัติการการคำนวณแบบฉลาดขั้นสูง (ASC)', 'Advanced Intelligent Computing Laboratory (ASC)', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', '1651386384.jpg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
-(8, 'ห้องปฏิบัติการวิจัย ระบบอัจฉริยะและการเรียนรู้เครื่อง (MLIS)', 'Intelligent Systems and Machine Learning Research Laboratory (MLIS)', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', '1651386369.jpg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
-(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Natural Language Processing and Sound Processing Laboratory (NLSP)', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', '1651386363.jpg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
-(10, 'ปัญญาประยุกต์และการวิเคราะห์ข้อมูล (AIDA)', 'Applied Intelligence and Data Analytics (AIDA)', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', '1651386357.jpg', '2022-03-05 11:20:32', '2022-05-15 07:07:40');
+INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_name_cn`, `group_detail_th`, `group_detail_en`, `group_detail_cn`, `group_desc_th`, `group_desc_en`, `group_desc_cn`, `group_image`, `created_at`, `updated_at`) VALUES
+(3, 'เทคโนโลยี GIS ขั้นสูง (AGT)', 'Advanced GIS Technology (AGT)', '', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', NULL, 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', NULL, '1651386391.jpg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
+(5, 'ห้องปฏิบัติการการคำนวณแบบฉลาดขั้นสูง (ASC)', 'Advanced Intelligent Computing Laboratory (ASC)', '', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', NULL, 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', NULL, '1651386384.jpg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
+(8, 'ห้องปฏิบัติการวิจัย ระบบอัจฉริยะและการเรียนรู้เครื่อง (MLIS)', 'Intelligent Systems and Machine Learning Research Laboratory (MLIS)', '', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', NULL, 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', NULL, '1651386369.jpg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
+(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Natural Language Processing and Sound Processing Laboratory (NLSP)', '', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', NULL, 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', NULL, '1651386363.jpg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
+(10, 'ปัญญาประยุกต์และการวิเคราะห์ข้อมูล (AIDA)', 'Applied Intelligence and Data Analytics (AIDA)', '', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, '1651386357.jpg', '2022-03-05 11:20:32', '2022-05-15 07:07:40');
 
 -- --------------------------------------------------------
 
@@ -4349,13 +4361,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `fname_en`, `lname_en`, `fname_th`, `lname_th`, `doctoral_degree`, `academic_ranks_en`, `academic_ranks_th`, `position_en`, `position_th`, `title_name_th`, `title_name_en`, `picture`, `status`, `email_verified_at`, `program_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin@gmail.com', NULL, '$2y$10$nrI/W9tolkEdeA8N21TECOmr06MgEbr8q6lN2duMxn5PaHBsnt7Ci', 'admin', '-', 'ผู้ดูแลระบบ', '-', NULL, NULL, NULL, NULL, NULL, 'นาย', 'Mr.', 'UIMG_202203296242bbe5c8689.jpg', 0, NULL, 1, NULL, '2022-01-31 03:06:42', '2022-05-01 15:41:57'),
-(2, 'ngamnij@kku.ac.th', NULL, '$2y$10$3VzoHQXXQlsMNF0hxuY.JeemtM1EUpJC2YWTKlqV9dP3Tl3wcwhJq', 'Ngamnij', 'Arch-int', 'งามนิจ', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'UIMG_20220501626e51e056dd9.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:35', '2022-05-01 16:24:48'),
-(3, 'chakso@kku.ac.th', NULL, '$2y$10$NY/HwFcQfL80AV7Lg2dVNew2YNY39ZWoP/DjbE0iZEZuO.X.Er55a', 'Chakchai', 'So-In', 'จักรชัย', 'โสอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e2980847fa.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2022-05-01 13:32:32'),
-(4, 'somjit@kku.ac.th', NULL, '$2y$10$VLo1ptYZiXRpwGSfPfLXwekJu/KDflul0P0Havd6jd9tsMg8DeRYC', 'Somjit', 'Arch-int', 'สมจิตร', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'Somjit.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2022-02-01 11:52:36'),
+(2, 'ngamnij@kku.ac.th', NULL, '$2y$10$3VzoHQXXQlsMNF0hxuY.JeemtM1EUpJC2YWTKlqV9dP3Tl3wcwhJq', 'Ngamnij', 'Arch-int', 'งามนิจ', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'Ngamnij.png', 0, NULL, 2, NULL, '2022-02-01 11:52:35', '2025-02-11 16:24:48'),
+(3, 'chakso@kku.ac.th', NULL, '$2y$10$NY/HwFcQfL80AV7Lg2dVNew2YNY39ZWoP/DjbE0iZEZuO.X.Er55a', 'Chakchai', 'So-In', 'จักรชัย', 'โสอินทร์', 'Ph.D.', 'Professor', 'ศาสตราจารย์', 'Prof. Dr.', 'ศ.ดร.', 'นาย', 'Mr.', 'Chakchai2.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2025-02-11 00:34:57'),
+(4, 'somjit@kku.ac.th', NULL, '$2y$10$VLo1ptYZiXRpwGSfPfLXwekJu/KDflul0P0Havd6jd9tsMg8DeRYC', 'Somjit', 'Arch-int', 'สมจิตร', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'Somjit.jpg', 0, NULL, 28, NULL, '2022-02-01 11:52:36', '2025-02-11 00:42:04'),
 (5, 'chaiyapon@kku.ac.th', NULL, '$2y$10$HBWg2AQIgFCE447R9eQnSOj22IbDbc1rCwgHjpDRXkxMjFTenF6GC', 'Chaiyapon', 'Keeratikasikorn', 'ชัยพล', 'กีรติกสิกร', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e31154570f.jpg', 0, NULL, 3, NULL, '2022-02-01 11:52:36', '2022-05-01 14:04:53'),
-(6, 'punhor1@kku.ac.th', NULL, '$2y$10$apfvn7nchbetMKpiZvycQ.oHLnEEt/oh0/3godLz4T72AAqv/YYpm', 'Punyaphol', 'Horata', 'ปัญญาพล', 'หอระตะ', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220407624e7e943c5cd.jpg', 1, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-04-29 05:58:24'),
+(6, 'punhor1@kku.ac.th', NULL, '$2y$10$apfvn7nchbetMKpiZvycQ.oHLnEEt/oh0/3godLz4T72AAqv/YYpm', 'Punyaphol', 'Horata', 'ปัญญาพล', 'หอระตะ', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220407624e7e943c5cd.jpg', 1, NULL, 1, NULL, '2022-02-01 11:52:36', '2025-02-11 05:58:24'),
 (7, 'wongsar@kku.ac.th', NULL, '$2y$10$/Ehw6gvhl5qdde/YrW1II.YMQ18LZZwUGVjdJ0NJexdlkAFYXH8fC', 'Sartra', 'Wongthanavasu', 'ศาสตรา', 'วงศ์ธนวสุ', 'Ph.D.', 'Professor', 'ศาสตราจารย์', 'Prof. Dr.', 'ศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e3428e04a5.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 14:18:00'),
-(8, 'sunkra@kku.ac.th', NULL, '$2y$10$c05Ozs3UCjtrNFRtQoMVAu2ZwFopfehohFW4mw9NfhYOVfnddREXa', 'Sirapat', 'Chiewchanwattana', 'สิรภัทร', 'เชี่ยวชาญวัฒนา', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'UIMG_20220501626e51a4f33be.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 16:23:49'),
+(8, 'sunkra@kku.ac.th', NULL, '$2y$10$c05Ozs3UCjtrNFRtQoMVAu2ZwFopfehohFW4mw9NfhYOVfnddREXa', 'Sirapat', 'Chiewchanwattana', 'สิรภัทร', 'เชี่ยวชาญวัฒนา', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'Sirapat.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2025-02-11 00:59:01'),
 (9, 'skhamron@kku.ac.th', NULL, '$2y$10$6CRhXm7BX53KWSlCLKriXei7qg7CFFIawhrKQPid9u5te9RvgpN/i', 'Khamron', 'Sunat', 'คำรณ', 'สุนัติ', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e5173a8e05.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 16:22:59'),
 (10, 'chitsutha@kku.ac.th', NULL, '$2y$10$heItHIMc4rUYiH7LyvASXeJtXsDXkCe.0bVe3Qy8bKC1ug0JOcULa', 'Chitsutha', 'Soomlek', 'ชิตสุธา', 'สุ่มเล็ก', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นางสาว', 'Miss', 'UIMG_20220501626e36d5756d1.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 14:29:25'),
 (11, 'nagon@kku.ac.th', NULL, '$2y$10$s3jKoRZR7aG8RAe2dUPffOm2bWq3l81SyCyP1qqq2YcWHj2lW.ki.', 'Nagon', 'Watanakij', 'ณกร', 'วัฒนกิจ', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e52e51a74a.jpg', 0, NULL, 3, NULL, '2022-02-01 11:52:36', '2022-05-01 16:29:09'),
@@ -5696,13 +5708,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `research_groups`
 --
 ALTER TABLE `research_groups`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `research_projects`
@@ -5750,7 +5762,7 @@ ALTER TABLE `user_papers`
 -- AUTO_INCREMENT for table `work_of_research_groups`
 --
 ALTER TABLE `work_of_research_groups`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `work_of_research_projects`
