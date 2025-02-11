@@ -36,5 +36,10 @@ return [
     'before' => '前',
     'summary' => '概括',
     'reference' => '参考',
+
+    //REPORTS
+    'TotalArticle' => '5 年总文章统计',
+    'StatisticsArticle' => '引用文章统计',
+    
 ];
 

@@ -115,4 +115,9 @@ return [
     'summary' => 'Summary',
     'reference' => 'Reference',
 
+
+    //REPORTS
+    'TotalArticle' => 'Total Article Statistics for 5 Years',
+    'StatisticsArticle' => 'Statistics of Articles Referenced',
+
 ];

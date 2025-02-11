@@ -113,4 +113,9 @@ return [
     'before' => 'ก่อน',
     'summary' => 'สรุป',
     'reference' => 'อ้างอิง',
+
+
+    //REPORTS
+    'TotalArticle' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
+    'StatisticsArticle' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
 ];
