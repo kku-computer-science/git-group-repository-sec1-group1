@@ -16,10 +16,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header">{{ trans('message.departments') }}
                 @can('departments-create')
 
-                <a class="btn btn-primary" href="{{ route('departments.create') }}">New department</a>
+                <a class="btn btn-primary" href="{{ route('departments.create') }}">{{ trans('message.new_department') }}</a>
 
                 @endcan
             </div>
@@ -27,9 +27,11 @@
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                        <tr>
+                            <th>{{ trans('message.no') }}</th>
+                            <th>{{ trans('message.name') }}</th>
+                            <th width="280px">{{ trans('message.action') }}</th>
+                        </tr>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +41,6 @@
                             <td>{{ $department->department_name_th }}</td>
                             <td>
                                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
-                                    
 
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('departments.show',$department->id) }}"><i class="mdi mdi-eye"></i></a>
 

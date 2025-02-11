@@ -44,7 +44,7 @@
                 <p class="card-text col-sm-3"><b>ผู้รับผิดชอบโครงการ</b></p>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 1)
-                <p class="card-text col-sm-9">{{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}}
+                <p class="card-text col-sm-9">{{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}}</p>
                 @endif
                 @endforeach
             </div>
