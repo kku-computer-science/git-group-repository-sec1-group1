@@ -67,6 +67,12 @@
                                         href="<?php echo e(route('researchGroups.edit',$researchGroup->id)); ?>"><i
                                             class="mdi mdi-pencil"></i></a>
                                     <?php endif; ?>
+                                    <?php if(Auth::user()->can('update',$researchGroup)): ?>
+                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
+                                        data-placement="top" title="Appliaction"
+                                        href="<?php echo e(route('researchGroups.edit',$researchGroup->id)); ?>"><i
+                                            class="mdi mdi-account-plus"></i></a>
+                                    <?php endif; ?>
 
                                     <?php if(Auth::user()->can('delete',$researchGroup)): ?>
                                     <?php echo csrf_field(); ?>
