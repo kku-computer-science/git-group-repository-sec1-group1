@@ -168,34 +168,6 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
 
-<<<<<<< HEAD
-    //fund
-    'whoops' => 'Whoops!',
-    'errors' => 'There were some problems with your input',
-    'add_research_fund' => 'Add Research Fund',
-    'fill_in_fund_details' => 'Fill in the details of the research fund',
-    'fund_type_label' => 'Fund Type',
-    'please_specify_fund_type' => 'Please specify the fund type',
-    'internal_fund' => 'Internal Fund',
-    'external_fund' => 'External Fund',
-    'fund_level_label' => 'Fund Level',
-    'please_specify_fund_level' => 'Please specify the fund level',
-    'not_specified' => 'Not specified',
-    'high' => 'High',
-    'medium' => 'Medium',
-    'low' => 'Low',
-    'fund_name_label' => 'Fund Name',
-    'fund_name_placeholder' => 'Fund Name',
-    'support_resource_label' => 'Supporting Agency / Research Project',
-    'support_resource_placeholder' => 'Supporting Agency',
-    'submit' => 'Submit',
-    'cancel' => 'Cancel',
-    'fund_detail' => 'Fund Detail',
-    'fund_details_info' => 'Fund Detail Information',
-    'added_by' => 'Added by',
-    'fund_details' => 'Fund Details',
-    
-=======
     //home
     'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
     'number' => 'Number',
@@ -232,5 +204,4 @@ return [
 
     'source' => 'Source',
     'export_to_excel' => 'Export to Excel',
->>>>>>> main
 ];

@@ -140,38 +140,6 @@ return [
     'show' => '查看',
     'edit' => '编辑',
     'delete' => '删除',
-<<<<<<< HEAD
-
-    //fund
-    'whoops' => '哎呀！',
-    'errors' => '您的输入存在一些问题',
-    'add_research_fund' => '添加研究资金',
-    'fill_in_fund_details' => '填写研究资金的详细信息',
-    'fund_type_label' => '资金类型',
-    'please_specify_fund_type' => '请指定资金类型',
-    'internal_fund' => '内部资金',
-    'external_fund' => '外部资金',
-    'fund_level_label' => '资金级别',
-    'please_specify_fund_level' => '请指定资金级别',
-    'not_specified' => '未指定',
-    'high' => '高',
-    'medium' => '中',
-    'low' => '低',
-    'fund_name_label' => '资金名称',
-    'fund_name_placeholder' => '资金名称',
-    'support_resource_label' => '支持单位/研究项目',
-    'support_resource_placeholder' => '支持单位',
-    'submit' => '提交',
-    'cancel' => '取消',
-
-    'fund_detail' => '基金详情',
-    'fund_details_info' => '基金详细信息',
-    'added_by' => '添加者',
-    'fund_details' => '基金详细信息',
-
-];
-=======
->>>>>>> main
 
     'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
 

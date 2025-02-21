@@ -168,7 +168,6 @@ return [
     'show' => 'แสดง',
     'edit' => 'แก้ไข',
     'delete' => 'ลบ',
-<<<<<<< HEAD
 
     //fund 
     'whoops' => 'โอ๊ะ!',
@@ -197,7 +196,6 @@ return [
     'added_by' => 'เพิ่มรายละเอียดโดย',
     'fund_details' => 'รายละเอียดทุน',
 
-=======
     //home
     'Report_total' => 'รายงานจำนวนบทความทั้งหมด (5 ปี : สะสม)',
     'number' => 'ตัวเลข',
@@ -234,5 +232,4 @@ return [
     'registration_date' => 'วันที่จดทะเบียน',
     'source' => 'แหล่งที่มา',
     'export_to_excel' => 'ส่งออกเป็น Excel',
->>>>>>> main
 ];
