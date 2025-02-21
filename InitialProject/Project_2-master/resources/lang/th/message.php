@@ -168,6 +168,7 @@ return [
     'show' => 'แสดง',
     'edit' => 'แก้ไข',
     'delete' => 'ลบ',
+<<<<<<< HEAD
 
     //fund 
     'whoops' => 'โอ๊ะ!',
@@ -196,4 +197,42 @@ return [
     'added_by' => 'เพิ่มรายละเอียดโดย',
     'fund_details' => 'รายละเอียดทุน',
 
+=======
+    //home
+    'Report_total' => 'รายงานจำนวนบทความทั้งหมด (5 ปี : สะสม)',
+    'number' => 'ตัวเลข',
+    'before' => 'ก่อน',
+    'summary' => 'สรุป',
+    'reference' => 'อ้างอิง',
+
+
+    //REPORTS
+    'TotalArticle' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
+    'StatisticsArticle' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'กลุ่มวิจัย',
+    'Lab_supervisor' => 'หัวหน้าแลป',
+
+    //RESEARCH GROUP Details
+    'student' => 'นักศึกษา',
+    'no' => 'ลำดับ',
+    'year' => 'ปี',
+    'paper_name' => 'ชื่อบทความ',
+    'author' => 'ผู้แต่ง',
+    'document_type' => 'ประเภทเอกสาร',
+    'page' => 'หน้า',
+    'journals_transactions' => 'วารสาร/ธุรกรรม',
+    'citations' => 'การอ้างอิง',
+    'doi' => 'DOI',
+    'name' => 'ชื่อ',
+    'author' => 'ผู้แต่ง',
+    'publication_place' => 'สถานที่พิมพ์',
+    'page' => 'หน้า',
+    'type' => 'ประเภท',
+    'registration_number' => 'หมายเลขทะเบียน',
+    'registration_date' => 'วันที่จดทะเบียน',
+    'source' => 'แหล่งที่มา',
+    'export_to_excel' => 'ส่งออกเป็น Excel',
+>>>>>>> main
 ];

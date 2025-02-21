@@ -4,12 +4,12 @@
     <p>Research Group</p>
     <div class="row g-4">
         <?php $__currentLoopData = $resg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 ">
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">
-                        <div class="card-body">
-                            <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="..." class="img-fluid">
+                        <div class="card-body p-2 ">
+                            <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="..." class="img-fluid ml-0">
                         </div>
                     </div>
                     <div class="col-md-8 d-flex flex-column">
@@ -21,7 +21,7 @@
                             <h5 class="card-title"><?php echo e($rg->{'group_name_' . $locale}); ?></h5>
                             <h3 class="card-text"><?php echo e(Str::limit($rg->{'group_desc_' . $locale}, 350)); ?></h3>
 
-                            <h2 class="card-text-1 mt-3 ml-0">Laboratory Supervisor</h2>
+                            <h2 class="card-text-1 mt-3 ml-0"><?php echo e(trans('message.Lab_supervisor')); ?></h2>
                             <h2 class="card-text-2 ml-0">
                                 <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if($r->hasRole('teacher')): ?>

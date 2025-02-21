@@ -31,6 +31,7 @@ return [
     'search' => 'Search',
     'show_entries' => 'Show :entries entries',
     'dashboard' => 'Dashboard',
+    
 
     // Additional terms from the image
     'profile' => 'Profile',
@@ -167,6 +168,7 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
 
+<<<<<<< HEAD
     //fund
     'whoops' => 'Whoops!',
     'errors' => 'There were some problems with your input',
@@ -193,4 +195,42 @@ return [
     'added_by' => 'Added by',
     'fund_details' => 'Fund Details',
     
+=======
+    //home
+    'Report_total' => 'Report the total number of articles ( 5 years : cumulative)',
+    'number' => 'Number',
+    'before' => 'Before',
+    'summary' => 'Summary',
+    'reference' => 'Reference',
+
+
+    //REPORTS
+    'TotalArticle' => 'Total Article Statistics for 5 Years',
+    'StatisticsArticle' => 'Statistics of Articles Referenced',
+    
+    //RESEARCH GROUP
+    'Research_Group' => 'RESEARCH GROUP',
+    'Lab_supervisor' => 'Laboratory Supervisor',
+
+    //RESEARCH GROUP Details
+    'student' => 'Student',
+    'paper_name' => 'Paper Name',
+    'author' => 'Author',
+    'document_type' => 'Document Type',
+    'page' => 'Page',
+    'journals_transactions' => 'Journals/Transactions',
+    'citations' => 'Citations',
+    'doi' => 'DOI',
+    'name' => 'Name',
+    'author' => 'Author',
+    'publication_place' => 'Publication Place',
+    'page' => 'Page',
+    'author' => 'Author',
+    'type' => 'Type',
+    'registration_number' => 'Registration Number',
+    'registration_date' => 'Registration Date',
+
+    'source' => 'Source',
+    'export_to_excel' => 'Export to Excel',
+>>>>>>> main
 ];

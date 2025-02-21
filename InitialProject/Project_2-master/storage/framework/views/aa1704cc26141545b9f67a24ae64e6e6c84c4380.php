@@ -132,7 +132,7 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><?php echo e(__('message.summary')); ?></button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -144,10 +144,10 @@
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false"><?php echo e(__('message.book')); ?></button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false"><?php echo e(__('message.other_academic_works')); ?></button>
         </li>
     </ul>
     <br>
@@ -155,7 +155,7 @@
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank"><?php echo e(__('message.export_to_excel')); ?></a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
@@ -163,16 +163,16 @@
                         <th><a href="<?php echo e(route('excel', ['id' => $res->id])); ?>" target="_blank">#Export</a></td>
                     </tr> -->
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
+                        <th><?php echo e(trans('message.no')); ?></th>
+                        <th><?php echo e(trans('message.year')); ?></th>
+                        <th><?php echo e(trans('message.paper_name')); ?></th>
+                        <th><?php echo e(trans('message.author')); ?></th>
+                        <th><?php echo e(trans('message.document_type')); ?></th>
+                        <th><?php echo e(trans('message.page')); ?></th>
+                        <th><?php echo e(trans('message.journals_transactions')); ?></th>
+                        <th><?php echo e(trans('message.citations')); ?></th>
+                        <th><?php echo e(trans('message.doi')); ?></th>
+                        <th><?php echo e(trans('message.source')); ?></th>
                     </tr>
                 </thead>
 
@@ -221,15 +221,16 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.no')); ?></th>
+                        <th><?php echo e(trans('message.year')); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.paper_name')); ?></th>
+                        <th><?php echo e(trans('message.author')); ?></th>
+                        <th><?php echo e(trans('message.document_type')); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.page')); ?></th>
+                        <th><?php echo e(trans('message.journals_transactions')); ?></th>
+                        <th><?php echo e(trans('message.citations')); ?></th>
+                        <th><?php echo e(trans('message.doi')); ?></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -272,15 +273,16 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.no')); ?></th>
+                        <th><?php echo e(trans('message.year')); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.paper_name')); ?></th>
+                        <th><?php echo e(trans('message.author')); ?></th>
+                        <th><?php echo e(trans('message.document_type')); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.page')); ?></th>
+                        <th><?php echo e(trans('message.journals_transactions')); ?></th>
+                        <th><?php echo e(trans('message.citations')); ?></th>
+                        <th><?php echo e(trans('message.doi')); ?></th>
+
                     </tr>
                 </thead>
 
@@ -324,15 +326,16 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th><?php echo e(trans('message.no')); ?></th>
+                        <th><?php echo e(trans('message.year')); ?></th>
+                        <th style="width:90%;"><?php echo e(trans('message.paper_name')); ?></th>
+                        <th><?php echo e(trans('message.author')); ?></th>
+                        <th><?php echo e(trans('message.document_type')); ?></th>
+                        <th style="width:100%;"><?php echo e(trans('message.page')); ?></th>
+                        <th><?php echo e(trans('message.journals_transactions')); ?></th>
+                        <th><?php echo e(trans('message.citations')); ?></th>
+                        <th><?php echo e(trans('message.doi')); ?></th>
+
                     </tr>
                 </thead>
 
@@ -372,12 +375,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th scope="col"><?php echo e(trans('message.number')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.year')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.name')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.author')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.publication_place')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.page')); ?></th>
 
                     </tr>
                 </thead>
@@ -414,12 +417,13 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th scope="col"><?php echo e(trans('message.number')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.name')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.author')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.type')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.registration_number')); ?></th>
+                        <th scope="col"><?php echo e(trans('message.registration_date')); ?></th>
+
 
                     </tr>
                 </thead>
@@ -469,22 +473,88 @@
 
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
 
         var table2 = $('#example2').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table3 = $('#example3').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table4 = $('#example4').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table5 = $('#example5').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
         var table6 = $('#example6').DataTable({
             responsive: true,
+            language: {
+                search: "<?php echo e(__('message.search')); ?>" ,
+                lengthMenu: "<?php echo e(__('message.show_entries', ['entries' => 'MENU'])); ?>",
+                info: "<?php echo e(__('message.showing_entries', ['start' => 'START', 'end' => 'END', 'total' => 'TOTAL'])); ?>",
+                paginate: {
+                    first: "<?php echo e(__('message.first')); ?>",
+                    last: "<?php echo e(__('message.last')); ?>",
+                    next: "<?php echo e(__('message.next')); ?>",
+                    previous: "<?php echo e(__('message.previous')); ?>"
+                }
+            }
         });
 
 
@@ -664,7 +734,7 @@
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text "><?php echo e(__('message.summary')); ?></p>`
 
         document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

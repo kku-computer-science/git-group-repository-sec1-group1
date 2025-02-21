@@ -4,12 +4,12 @@
     <p>Research Group</p>
     <div class="row g-4">
         @foreach ($resg as $rg)
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 ">
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">
-                        <div class="card-body">
-                            <img src="{{ asset('img/'.$rg->group_image) }}" alt="..." class="img-fluid">
+                        <div class="card-body p-2 ">
+                            <img src="{{ asset('img/'.$rg->group_image) }}" alt="..." class="img-fluid ml-0">
                         </div>
                     </div>
                     <div class="col-md-8 d-flex flex-column">
@@ -21,7 +21,7 @@
                             <h5 class="card-title">{{ $rg->{'group_name_' . $locale} }}</h5>
                             <h3 class="card-text">{{ Str::limit($rg->{'group_desc_' . $locale}, 350) }}</h3>
 
-                            <h2 class="card-text-1 mt-3 ml-0">Laboratory Supervisor</h2>
+                            <h2 class="card-text-1 mt-3 ml-0">{{ trans('message.Lab_supervisor') }}</h2>
                             <h2 class="card-text-2 ml-0">
                                 @foreach ($rg->user as $r)
                                 @if($r->hasRole('teacher'))
