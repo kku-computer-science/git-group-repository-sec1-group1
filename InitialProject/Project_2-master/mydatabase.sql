@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Feb 11, 2025 at 06:28 PM
+-- Generation Time: Feb 21, 2025 at 05:58 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.2.27
 
@@ -104,6 +104,23 @@ INSERT INTO `academicworks` (`id`, `ac_name`, `ac_type`, `ac_sourcetitle`, `ac_y
 (73, 'ผจญภัยในโลกนิทาน (Advance in the Fairytale World)', 'ลิขสิทธิ์', NULL, '2559-12-02', '349046', NULL, '2022-05-15 06:37:09', '2022-05-15 06:37:09'),
 (74, 'เว็บแอปพลิเคชันเพื่อแนะนำการลงทะเบียนและตรวจสอบจบ', 'ลิขสิทธิ์', NULL, '2559-12-14', '349040', NULL, '2022-05-15 06:38:25', '2022-05-15 06:38:25'),
 (75, 'โปรแกรมระบบสังเคราะห์เสียงพูดภาษาถิ่นอีสาน', 'ลิขสิทธิ์', NULL, '2558-05-18', '323716', NULL, '2022-05-15 06:40:41', '2022-05-15 06:40:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application_detail`
+--
+
+DROP TABLE IF EXISTS `application_detail`;
+CREATE TABLE `application_detail` (
+  `id` bigint UNSIGNED NOT NULL,
+  `app_deadline` datetime NOT NULL,
+  `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` int NOT NULL,
+  `app_detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_condition` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -3453,6 +3470,77 @@ INSERT INTO `programs` (`id`, `program_name_th`, `program_name_en`, `program_nam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project_application`
+--
+
+DROP TABLE IF EXISTS `project_application`;
+CREATE TABLE `project_application` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_app_detail`
+--
+
+DROP TABLE IF EXISTS `project_app_detail`;
+CREATE TABLE `project_app_detail` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL,
+  `app_detail_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_app_re_group`
+--
+
+DROP TABLE IF EXISTS `project_app_re_group`;
+CREATE TABLE `project_app_re_group` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_research`
+--
+
+DROP TABLE IF EXISTS `related_research`;
+CREATE TABLE `related_research` (
+  `id` bigint UNSIGNED NOT NULL,
+  `re_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `public_date` datetime NOT NULL,
+  `source_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `re_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_research_group`
+--
+
+DROP TABLE IF EXISTS `related_research_group`;
+CREATE TABLE `related_research_group` (
+  `id` bigint UNSIGNED NOT NULL,
+  `related_id` bigint UNSIGNED NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `research_groups`
 --
 
@@ -3478,11 +3566,15 @@ CREATE TABLE `research_groups` (
 --
 
 INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_name_cn`, `group_detail_th`, `group_detail_en`, `group_detail_cn`, `group_desc_th`, `group_desc_en`, `group_desc_cn`, `group_image`, `created_at`, `updated_at`) VALUES
-(3, 'เทคโนโลยี GIS ขั้นสูง (AGT)', 'Advanced GIS Technology (AGT)', '', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', NULL, 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', NULL, '1651386391.jpg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
-(5, 'ห้องปฏิบัติการการคำนวณแบบฉลาดขั้นสูง (ASC)', 'Advanced Intelligent Computing Laboratory (ASC)', '', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', NULL, 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', NULL, '1651386384.jpg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
-(8, 'ห้องปฏิบัติการวิจัย ระบบอัจฉริยะและการเรียนรู้เครื่อง (MLIS)', 'Intelligent Systems and Machine Learning Research Laboratory (MLIS)', '', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', NULL, 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', NULL, '1651386369.jpg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
-(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Natural Language Processing and Sound Processing Laboratory (NLSP)', '', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', NULL, 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', NULL, '1651386363.jpg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
-(10, 'ปัญญาประยุกต์และการวิเคราะห์ข้อมูล (AIDA)', 'Applied Intelligence and Data Analytics (AIDA)', '', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, '1651386357.jpg', '2022-03-05 11:20:32', '2022-05-15 07:07:40');
+(3, 'กลุ่มปฏิบัติการเทคโนโลยีภูมิสารสนเทศขั้นสูง (AGT)', 'Laboratory, Advanced GIS Technology (AGT)', '', 'เพื่อดำเนินการศึกษาและวิจัยขั้นสูงโดยใช้เทคโนโลยีภูมิสารสนเทศและวิทยาการข้อมูลเชิงพื้นที่ในการ รวบรวม วิเคราะห์ และแสดงผลข้อมูลเชิงพื้นที่เพื่อการติดตามและแก้ปัญหาต่างๆ ของโลก', 'To conduct advanced research and cutting-edge study based on Geoinformatics Technology and Spatial Data Science to capture, analyze, and visualize Geospatial data for monitoring and solving real-world problems.', NULL, 'เพื่อดำเนินการศึกษาและวิจัยขั้นสูงโดยใช้เทคโนโลยีภูมิสารสนเทศและวิทยาการข้อมูลเชิงพื้นที่ในการ รวบรวม วิเคราะห์ และแสดงผลข้อมูลเชิงพื้นที่เพื่อการติดตามและแก้ปัญหาต่างๆ ของโลก', 'To conduct advanced research and cutting-edge study based on Geoinformatics Technology and Spatial Data Science to capture, analyze, and visualize Geospatial data for monitoring and solving real-world problems.', NULL, 'AGT.jpeg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
+(5, 'กลุ่มวิจัยการคำนวณแบบฉลาดชั้นนำ (ASC)', 'Laboratory, Advanced Smart Computing  (ASC)', '', 'เพื่อการพัฒนารากฐานการคำนวณทางคอมพิวเตอร์ขั้นสูงและการประยุกต์ใช้งาน', 'To development of a novel avanced computing approches and applications', NULL, 'เพื่อการพัฒนารากฐานการคำนวณทางคอมพิวเตอร์ขั้นสูงและการประยุกต์ใช้งาน', 'To development of a novel avanced computing approches and applications', NULL, 'ASC.jpeg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
+(8, 'ห้องปฏิบัติการวิจัย การเรียนรู้ของเครื่องและระบบอัจฉริยะ (MLIS)', 'Laboratory, Machine Learning and Intelligent Systems (MLIS)', '', 'เพื่อพัฒนาอัลกอริธึมการเรียนรู้ของเครื่องและระบบอัจฉริยะเพื่อรองรับการประมวลผลข้อมูลขนาดใหญ่ การตัดสินใจแบบเรียลไทม์ และระบบอัตโนมัติที่ทำงานได้อย่างอิสระ เพื่อตอบสนองความต้องการในอุตสาหกรรม เช่น การเงิน การดูแลสุขภาพ และการขนส่ง โดยเน้นเพิ่มประสิทธิภาพ ความแม่นยำ และลดต้นทุนผ่านเทคโนโลยีอัจฉริยะ', 'To develop machine learning algorithms and intelligent systems to support large-scale data processing, real-time decision-making, and autonomous systems. The goal is to meet the demands of industries such as finance, healthcare, and transportation by enhancing efficiency, accuracy, and cost reduction through intelligent technology.', NULL, 'เพื่อพัฒนาอัลกอริธึมการเรียนรู้ของเครื่องและระบบอัจฉริยะเพื่อรองรับการประมวลผลข้อมูลขนาดใหญ่ การตัดสินใจแบบเรียลไทม์ และระบบอัตโนมัติที่ทำงานได้อย่างอิสระ เพื่อตอบสนองความต้องการในอุตสาหกรรม เช่น การเงิน การดูแลสุขภาพ และการขนส่ง โดยเน้นเพิ่มประสิทธิภาพ ความแม่นยำ และลดต้นทุนผ่านเทคโนโลยีอัจฉริยะ', 'To develop machine learning algorithms and intelligent systems to support large-scale data processing, real-time decision-making, and autonomous systems. The goal is to meet the demands of industries such as finance, healthcare, and transportation by enhancing efficiency, accuracy, and cost reduction through intelligent technology.', NULL, 'MLIS.jpeg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
+(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Laboratory, Natural Language and Speech Processing (NLSP)', '', 'กลุ่มวิจัยมุ่งเน้นในการสร้างงานวิจัยและนวัตกรรมใหม่ด้านการประมวลผลภาษาธรรมชาติและเสียงพูดด้วยคอมพิวเตอร์ เช่น การแปลภาษาด้วยเครื่อง การสืบค้นสารสนเทศ การสังเคราะห์เสียง การรู้จำเสียงพูด การรู้จำตัวอักษรโบราณ รวมไปถึงการนำไปประยุกต์ใช้ในศาสตร์อื่นๆ ', 'Research groups focus on creating new research and innovation in natural language and speech processing with computers, such as machine translation, information retrieval, speech synthesis, speech recognition, ancient character recognition,  construction and development of working system to integrate natural language and speech processing with business work system, and to create academic works on natural processing.', NULL, 'กลุ่มวิจัยมุ่งเน้นในการสร้างงานวิจัยและนวัตกรรมใหม่ด้านการประมวลผลภาษาธรรมชาติและเสียงพูดด้วยคอมพิวเตอร์ เช่น การแปลภาษาด้วยเครื่อง การสืบค้นสารสนเทศ การสังเคราะห์เสียง การรู้จำเสียงพูด การรู้จำตัวอักษรโบราณ รวมไปถึงการนำไปประยุกต์ใช้ในศาสตร์อื่นๆ ', 'Research groups focus on creating new research and innovation in natural language and speech processing with computers, such as machine translation, information retrieval, speech synthesis, speech recognition, ancient character recognition,  construction and development of working system to integrate natural language and speech processing with business work system, and to create academic works on natural processing.', NULL, 'NLSP.jpeg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
+(10, 'การประยุกต์อัฉริยะและการวิเคราะห์ข้อมูล (AIDA)', 'Laboratory, Applied Intelligence and Data Analytics (AIDA)', '', 'กลุ่มงานวิจัยนี้ได้เกิดจากการบูรณาการงานวิจัยจากหลากหลายสาขา เช่น งานวิจัยด้านวิทยาศาสตร์ข้อมูลและการวิเคราะห์ข้อมูล (Data Science & Data Analytics) เหมืองข้อมูล (Data Mining) เหมืองข้อความ (Text Mining) เหมืองความคิด (Opinion Mining) ธุรกิจอัฉริยะ (Business Intelligence) ระบบการวางแผนจัดการห่วงโซ่อุปทาน (ERP Systems) การบริหารด้านเทคโนโลยีสารสนเทศ (IT Management) เว็บแบบสื่อความหมาย (Semantic Web) การวิเคราะห์อารมณ์หรือความรู้สึก (Sentiment Analysis) การประมวลผลภาพ (Image Processing) การเรียนรู้ในสภาพแวดล้อมคอมพิวเตอร์ทุกแห่งหนและทุกเวลา (Ubiquitous Learning), การเรียนรู้แบบผสมผสาน (Blended Learning) และชีวสารสนเทศ (Bioinformatics)', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP Systems, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'กลุ่มงานวิจัยนี้ได้เกิดจากการบูรณาการงานวิจัยจากหลากหลายสาขา เช่น งานวิจัยด้านวิทยาศาสตร์ข้อมูลและการวิเคราะห์ข้อมูล (Data Science & Data Analytics) เหมืองข้อมูล (Data Mining) เหมืองข้อความ (Text Mining) เหมืองความคิด (Opinion Mining) ธุรกิจอัฉริยะ (Business Intelligence) ระบบการวางแผนจัดการห่วงโซ่อุปทาน (ERP Systems) การบริหารด้านเทคโนโลยีสารสนเทศ (IT Management) เว็บแบบสื่อความหมาย (Semantic Web) การวิเคราะห์อารมณ์หรือความรู้สึก (Sentiment Analysis) การประมวลผลภาพ (Image Processing) การเรียนรู้ในสภาพแวดล้อมคอมพิวเตอร์ทุกแห่งหนและทุกเวลา (Ubiquitous Learning), การเรียนรู้แบบผสมผสาน (Blended Learning) และชีวสารสนเทศ (Bioinformatics)', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP Systems, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'AIDA.jpeg', '2022-03-05 11:20:32', '2022-05-15 07:07:40'),
+(13, 'ห้องปฏิบัติการอินเตอร์เฟสระหว่างฮาร์ดแวร์กับมนุษย์และการสื่อสาร (H²I-Comm)', 'Laboratory, Hardware-Human Interface and Communications (H²I-Comm)', NULL, 'กลุ่มวิจัย Hardware-Human Interface and Communications (H2I-Comm) มีเป้าหมายในการออกแบบ สร้าง และประเมินเครื่องมือต่างๆ ที่ใช้งานง่าย มีประโยชน์ และสร้างสรรค์ โดยมุ่งเน้นพัฒนาความก้าวหน้าในด้านเทคโนโลยีอินเทอร์เน็ต การสื่อสารไร้สาย การเข้ารหัสและความปลอดภัย หุ่นยนต์ การประมวลผลสัญญาณดิจิทัลสำหรับหุ่นยนต์ การออกแบบ UX/UI คอมพิวเตอร์เพื่อสังคม สารสนเทศด้านสุขภาพ อินเทอร์เฟซบนอุปกรณ์พกพา และการพัฒนาอุปกรณ์ฮาร์ดแวร์ กลุ่มวิจัย H2I-Comm ให้ความสำคัญกับการบูรณาการข้ามสาขาวิชา เนื่องจากเราทำงานร่วมกับศาสตร์และกลุ่มผู้สนใจที่หลากหลาย เพื่อให้เกิดผลลัพธ์ที่สร้างสรรค์และมีประสิทธิภาพสูงสุด', 'Hardware-Human Interface and Communications (H2I-Comm) research group is to design, build, and evaluate tools that are user-friendly, useful, and innovative. Our intellectual goals to continue to advance the fields of Internet technologies, wireless communications, cryptography and security, robotics, digital signal processing for robotics, UX/UI design, social computing, health informatics, mobile interfaces, and hardware implementation. The H2I-Comm research group focuses on interdisciplinary aspects as we work on different disciplines that deal with different sciences and interest groups in order to maximize constructive outcomes.', NULL, 'กลุ่มวิจัย Hardware-Human Interface and Communications (H2I-Comm) มีเป้าหมายในการออกแบบ สร้าง และประเมินเครื่องมือต่างๆ ที่ใช้งานง่าย มีประโยชน์ และสร้างสรรค์ โดยมุ่งเน้นพัฒนาความก้าวหน้าในด้านเทคโนโลยีอินเทอร์เน็ต การสื่อสารไร้สาย การเข้ารหัสและความปลอดภัย หุ่นยนต์ การประมวลผลสัญญาณดิจิทัลสำหรับหุ่นยนต์ การออกแบบ UX/UI คอมพิวเตอร์เพื่อสังคม สารสนเทศด้านสุขภาพ อินเทอร์เฟซบนอุปกรณ์พกพา และการพัฒนาอุปกรณ์ฮาร์ดแวร์ กลุ่มวิจัย H2I-Comm ให้ความสำคัญกับการบูรณาการข้ามสาขาวิชา เนื่องจากเราทำงานร่วมกับศาสตร์และกลุ่มผู้สนใจที่หลากหลาย เพื่อให้เกิดผลลัพธ์ที่สร้างสรรค์และมีประสิทธิภาพสูงสุด', 'Hardware-Human Interface and Communications (H2I-Comm) research group is to design, build, and evaluate tools that are user-friendly, useful, and innovative. Our intellectual goals to continue to advance the fields of Internet technologies, wireless communications, cryptography and security, robotics, digital signal processing for robotics, UX/UI design, social computing, health informatics, mobile interfaces, and hardware implementation. The H2I-Comm research group focuses on interdisciplinary aspects as we work on different disciplines that deal with different sciences and interest groups in order to maximize constructive outcomes.', NULL, 'H2I-Comm.jpeg', '2025-02-21 20:25:53', '2025-02-21 20:25:53'),
+(14, 'การบูรณาการสหวิทยาการอัจฉริยะขั้นสูง (AIII)', 'Laboratory, Advanced Intelligent Interdisciplinary Integration (AIII)', NULL, 'ห้องปฏิบัติการการบูรณาการสหวิทยาการอัจฉริยะขั้นสูง มุ่งเน้นที่การพัฒนาการคำนวณอัจฉริยะและประยุกต์ใช้ในศาสตร์ด้านต่างๆ', 'The goal of Advanced Intelligent Interdisciplinary Integration Laboratory is to advance intelligent computing and employ it in a variety of interdisciplinary domains.', NULL, 'ห้องปฏิบัติการการบูรณาการสหวิทยาการอัจฉริยะขั้นสูง มุ่งเน้นที่การพัฒนาการคำนวณอัจฉริยะและประยุกต์ใช้ในศาสตร์ด้านต่างๆ', 'The goal of Advanced Intelligent Interdisciplinary Integration Laboratory is to advance intelligent computing and employ it in a variety of interdisciplinary domains.', NULL, 'AIII.jpeg', '2025-02-21 20:32:20', '2025-02-21 20:32:20'),
+(15, 'ห้องปฏิบัติการเทคโนโลยีเครือข่ายประยุกต์ (ANT)', 'Laboratory, Applied Network Technology (ANT)', NULL, 'กลุ่มวิจัย ANT มีเป้าหมายในการพัฒนา เทคโนโลยีเครือข่ายที่ล้ำสมัย, ความมั่นคงปลอดภัยไซเบอร์, และการประมวลผลข้อมูลขั้นสูง พร้อมทั้งบูรณาการเทคโนโลยีเหล่านี้กับอุตสาหกรรมและสนับสนุนการพัฒนาบุคลากรให้สามารถนำความรู้ไปประยุกต์ใช้ได้จริง', 'The ANT research group aims to develop cutting-edge network technology, cybersecurity, and advanced data processing while integrating these technologies into various industries and supporting human resource development to apply knowledge in real-world applications.', NULL, 'กลุ่มวิจัย ANT มีเป้าหมายในการพัฒนา เทคโนโลยีเครือข่ายที่ล้ำสมัย, ความมั่นคงปลอดภัยไซเบอร์, และการประมวลผลข้อมูลขั้นสูง พร้อมทั้งบูรณาการเทคโนโลยีเหล่านี้กับอุตสาหกรรมและสนับสนุนการพัฒนาบุคลากรให้สามารถนำความรู้ไปประยุกต์ใช้ได้จริง', 'The ANT research group aims to develop cutting-edge network technology, cybersecurity, and advanced data processing while integrating these technologies into various industries and supporting human resource development to apply knowledge in real-world applications.', NULL, 'ANT.jpeg', '2025-02-21 20:34:35', '2025-02-21 20:34:35'),
+(16, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะ (I-SERG)', 'Laboratory, Intelligent Software Engineering Research Group (I-SERG)', NULL, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะเน้นการวิจัยเชิงประจักษ์ โดยมีหัวข้อวิจัยหลักได้แก่ AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering และ Software development practices', 'The Intelligent Software Engineering Research Group focuses on empirical research.  Topics of interest include AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering, and Software Development Practices.', NULL, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะเน้นการวิจัยเชิงประจักษ์ โดยมีหัวข้อวิจัยหลักได้แก่ AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering และ Software development practices', 'The Intelligent Software Engineering Research Group focuses on empirical research.  Topics of interest include AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering, and Software Development Practices.', NULL, 'I-SERG.jpeg', '2025-02-21 20:41:08', '2025-02-21 20:41:08');
 
 -- --------------------------------------------------------
 
@@ -5400,6 +5492,13 @@ ALTER TABLE `academicworks`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_detail_id` (`project_app_id`);
+
+--
 -- Indexes for table `authors`
 --
 ALTER TABLE `authors`
@@ -5529,6 +5628,45 @@ ALTER TABLE `programs`
   ADD KEY `department_id` (`department_id`);
 
 --
+-- Indexes for table `project_application`
+--
+ALTER TABLE `project_application`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `app_group_id` (`re_group_id`);
+
+--
+-- Indexes for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_detail_app_id` (`project_app_id`),
+  ADD KEY `project_app_detail_detail_id` (`app_detail_id`);
+
+--
+-- Indexes for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_id` (`project_app_id`),
+  ADD KEY `project_app_re_group_id` (`re_group_id`);
+
+--
+-- Indexes for table `related_research`
+--
+ALTER TABLE `related_research`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `re_group_id` (`re_group_id`),
+  ADD KEY `re_user_id` (`user_id`);
+
+--
+-- Indexes for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `related_research_id` (`related_id`),
+  ADD KEY `related_re_group_id` (`re_group_id`);
+
+--
 -- Indexes for table `research_groups`
 --
 ALTER TABLE `research_groups`
@@ -5621,6 +5759,12 @@ ALTER TABLE `academicworks`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
+-- AUTO_INCREMENT for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
@@ -5711,10 +5855,40 @@ ALTER TABLE `programs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `project_application`
+--
+ALTER TABLE `project_application`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `related_research`
+--
+ALTER TABLE `related_research`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `research_groups`
 --
 ALTER TABLE `research_groups`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `research_projects`
@@ -5775,6 +5949,12 @@ ALTER TABLE `work_of_research_projects`
 --
 
 --
+-- Constraints for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  ADD CONSTRAINT `project_app_detail_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `author_of_academicworks`
 --
 ALTER TABLE `author_of_academicworks`
@@ -5831,6 +6011,40 @@ ALTER TABLE `outsiders_work_of_project`
 ALTER TABLE `programs`
   ADD CONSTRAINT `department_id` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   ADD CONSTRAINT `programs_degree_id_foreign` FOREIGN KEY (`degree_id`) REFERENCES `degrees` (`id`);
+
+--
+-- Constraints for table `project_application`
+--
+ALTER TABLE `project_application`
+  ADD CONSTRAINT `app_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  ADD CONSTRAINT `project_app_detail_app_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `project_app_detail_detail_id` FOREIGN KEY (`app_detail_id`) REFERENCES `application_detail` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  ADD CONSTRAINT `project_app_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `project_app_re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `related_research`
+--
+ALTER TABLE `related_research`
+  ADD CONSTRAINT `re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `re_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  ADD CONSTRAINT `related_re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `related_research_id` FOREIGN KEY (`related_id`) REFERENCES `related_research` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `research_projects`
