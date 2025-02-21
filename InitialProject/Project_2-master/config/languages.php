@@ -11,8 +11,8 @@ return [
         'flag-icon' => 'th'
     ],
     'cn' => [
-        'display' => 'Chinese',
+        'display' => '中文',
         'flag-icon' => 'cn'
-    ],
+    ]
     
 ];

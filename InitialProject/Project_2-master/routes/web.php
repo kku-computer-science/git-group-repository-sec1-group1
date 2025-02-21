@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -65,6 +65,25 @@ use App\Http\Controllers\TcicallController;
 //     return view('welcome');
 // });
 
+// clear cache
+Route::get('/clear-all', function () {
+    Artisan::call('cache:clear');     // Clear Cache facade
+    Artisan::call('route:clear');     // Clear Route cache 
+    Artisan::call('view:clear');      // Clear View cache
+    Artisan::call('config:clear');    // Clear Config cache
+
+    Artisan::call('optimize');        // Reoptimize class loader
+    Artisan::call('route:cache');     // Cache Routes
+    Artisan::call('config:cache');    // Cache Config
+
+    return response()->json([
+        'cache' => 'Cache facade cleared',
+        'route' => 'Routes cached',
+        'view' => 'View cache cleared',
+        'config' => 'Config cached',
+        'optimize' => 'Class loader optimized'
+    ], 200);
+});
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();

@@ -12,18 +12,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">กลุ่มวิจัย</h4>
+            <h4 class="card-title">{{ trans('message.research_group') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchGroups.create') }}"><i
-                    class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+                    class="mdi mdi-plus btn-icon-prepend"></i>{{ trans('message.add') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Group name (ไทย)</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="280px">Action</th>
+                            <th>{{ trans('message.no') }}</th>
+                            <th>{{ trans('message.group_name') }}</th>
+                            <th>{{ trans('message.head') }}</th>
+                            <th>{{ trans('message.member') }}</th>
+                            <th width="280px">{{ trans('message.action') }}</th>
                         </tr>
                     </thead>
                     
@@ -31,12 +31,12 @@
                         @foreach ($researchGroups as $i=>$researchGroup)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td>{{ Str::limit($researchGroup->group_name_th,50) }}</td>
+                            <td>{{ Str::limit($researchGroup->{'group_name_' . app()->getLocale()}, 50) }}</td>
                             <td>
                                 @foreach($researchGroup->user as $user)
                                 @if ( $user->pivot->role == 1)
 
-                                {{ $user->fname_th}}
+                                {{ $user->{'fname_' . app()->getLocale()} }}
 
                                 @endif
 
@@ -45,7 +45,7 @@
                             <td>
                                 @foreach($researchGroup->user as $user)
                                 @if ( $user->pivot->role == 2)
-                                {{ $user->fname_th}}
+                                {{ $user->{'fname_' . app()->getLocale()} }}
                                 @if (!$loop->last),@endif
                                 @endif
 
