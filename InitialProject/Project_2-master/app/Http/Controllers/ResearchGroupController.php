@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
+
 class ResearchGroupController extends Controller
 {
     /**
@@ -24,6 +25,11 @@ class ResearchGroupController extends Controller
         $this->middleware('permission:groups-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:groups-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:groups-delete', ['only' => ['destroy']]);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(ApplicationProject::class, 're_group_id');
     }
 
     public function index()

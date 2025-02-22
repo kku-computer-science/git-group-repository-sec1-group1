@@ -162,8 +162,10 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::resource('ApplicationProject', ApplicationProjectController::class);
     Route::get('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'index'])
     ->name('application_project.index');
-    Route::get('/researchGroups/application-project/{group_id}/create', [ApplicationProjectController::class, 'create'])
-    ->name('application_project.create');
+    // Route::get('/researchGroups/application-project/{group_id}/create', [ApplicationProjectController::class, 'create'])
+    // ->name('application_project.create');
+    Route::post('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'store'])
+    ->name('application_project.store');
 
 
 });

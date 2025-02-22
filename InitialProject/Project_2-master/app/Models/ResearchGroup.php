@@ -12,6 +12,11 @@ class ResearchGroup extends Model
         'group_name_th', 'group_name_en', 'group_detail_th', 'group_detail_en', 'group_desc_th', 'group_desc_en', 'group_image','group_desc_cn', 'group_detail_cn',
     ];
 
+    public function projects()
+    {
+        return $this->hasMany(ProjectApplication::class, 're_group_id');
+    }
+
     public function user()
     {
         return $this->belongsToMany(User::class,'work_of_research_groups')->withPivot('role');
