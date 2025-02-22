@@ -56,6 +56,7 @@
                     @endif
                     @endforeach</p>
             </div>
+            
             <a class="btn btn-primary mt-5" href="{{ route('researchGroups.index') }}"> Back</a>
         </div>
     </div>
