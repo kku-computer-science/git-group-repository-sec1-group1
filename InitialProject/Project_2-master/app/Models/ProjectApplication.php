@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProjectApplication extends Model
 {
@@ -22,4 +23,9 @@ class ProjectApplication extends Model
     {
         return $this->belongsTo(ResearchGroup::class, 're_group_id');
     }
+
+    public function applications(): HasMany
+{
+    return $this->hasMany(Application::class, 'project_app_id');
+}
 }

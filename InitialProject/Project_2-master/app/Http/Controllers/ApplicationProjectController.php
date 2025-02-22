@@ -56,5 +56,50 @@ class ApplicationProjectController extends Controller
     
         return redirect()->route('application_project.index', $group_id);
     }
+
+    public function show($id)
+    {
+        $project = ProjectApplication::with('applications')->find($id);
+    
+        if (!$project) {
+            abort(404, 'Project not found');
+        }
+    
+        return view('application_project.show', compact('project'));
+    }
+    
+
+
+public function update(Request $request, $id)
+{
+    $project = ProjectApplication::find($id);
+
+    if (!$project) {
+        abort(404, 'Project not found');
+    }
+
+    $request->validate([
+        'project_title' => 'required',
+        'project_details' => 'required',
+        'contact' => 'required',
+    ]);
+
+    $project->update($request->all());
+
+    return redirect()->route('application_project.show', $project->id)->with('success', 'Project updated successfully.');
+}
+
+public function destroy($id)
+{
+    $project = ProjectApplication::find($id);
+
+    if (!$project) {
+        abort(404, 'Project not found');
+    }
+
+    $project->delete();
+
+    return redirect()->route('application_project.index', $project->re_group_id)->with('success', 'Project deleted successfully.');
+}
     
 }

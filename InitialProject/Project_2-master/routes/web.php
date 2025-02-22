@@ -39,6 +39,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 use App\Http\Controllers\ApplicationProjectController;
+use App\Http\Controllers\ApplicationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -119,7 +120,7 @@ Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class
 
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
-    
+
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
@@ -161,12 +162,17 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
 
     Route::resource('ApplicationProject', ApplicationProjectController::class);
     Route::get('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'index'])
-    ->name('application_project.index');
-    // Route::get('/researchGroups/application-project/{group_id}/create', [ApplicationProjectController::class, 'create'])
-    // ->name('application_project.create');
+        ->name('application_project.index');
+    Route::get('/application-project/{id}', [ApplicationProjectController::class, 'show'])->name('application_project.show');
     Route::post('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'store'])
-    ->name('application_project.store');
+        ->name('application_project.store');
 
+    Route::put('/application-project/{id}', [ApplicationProjectController::class, 'update'])->name('application_project.update');
+    Route::delete('/application-project/{id}', [ApplicationProjectController::class, 'destroy'])->name('application_project.destroy');
+
+    Route::get('/application/create/{project_id}', [ApplicationController::class, 'create'])->name('application.create');
+    Route::post('/application/store/{project_id}', [ApplicationController::class, 'store'])->name('application.store');
+    Route::delete('/application/destroy/{id}', [ApplicationController::class, 'destroy'])->name('application.destroy');
 
 });
 

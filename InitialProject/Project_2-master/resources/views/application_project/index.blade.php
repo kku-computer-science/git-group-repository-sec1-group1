@@ -21,7 +21,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                    <form action="{{ route('application_project.store', $researchGroup->id) }}" method="POST">
+                  <form action="{{ route('application_project.store', $researchGroup->id) }}" method="POST">
                      @csrf
                      <div class="mb-3">
                         <label for="projectName" class="form-label">Project Name</label>
@@ -53,24 +53,48 @@
 
 <div class="row">
    @if($projects->isEmpty())
-      <div class="col-md-12 text-center">
-         <p class="alert alert-warning">No projects available at the moment.</p>
-      </div>
+   <div class="col-md-12 text-center">
+      <p class="alert alert-warning">No projects available at the moment.</p>
+   </div>
    @else
-      @foreach($projects as $project)
-         <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0" style="border-radius: 10px; cursor: pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to view more details">
+   @foreach($projects as $project)
+   <div class="col-md-6 mb-4">
+      <a href="{{ route('application_project.show', $project->id) }}" class="text-decoration-none text-dark">
+         <div class="card shadow-sm border-0" style="border-radius: 10px; cursor: pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to view more details">
+            <div class="card hover-zoom" style="border-radius: 10px;">
                <div class="card-body">
                   <h5 class="card-title text-primary" style="font-size:1.2rem;">{{ $project->project_title }}</h5>
-                  <p class="card-text text-muted" style="font-size:1rem;">{{ $project->project_details }}</p>
-                  <p class="card-text mt-2"><strong>Status:</strong> {{ $project->status ?? 'N/A' }}</p>
-                  <p class="card-text"><strong>Open for application:</strong> {{ $project->roles ?? 'Not specified' }}</p>
+                  <p class="card-text text-muted" style="font-size:1rem;">{{ Str::limit($project->project_details, 200) }}</p>
+                  <p class="card-text mt-2">
+                     <strong>Status:</strong>
+                     @if($project->applications->isNotEmpty())
+                     @if($project->applications->max('app_deadline') >= now())
+                     Open
+                     @else
+                     Closed
+                     @endif
+                     @else
+                     No Applications Yet
+                     @endif
+                  </p>
+
+                  <p class="card-text"><strong>Open for application:</strong>
+                     @if($project->applications->isNotEmpty())
+                     {{ $project->applications->pluck('role')->join(', ') }}
+                     @else
+                     Not specified
+                     @endif
+                  </p>
+
                </div>
             </div>
          </div>
-      @endforeach
+      </a>
+   </div>
+   @endforeach
    @endif
 </div>
+
 
 <style>
    .hover-zoom {
@@ -96,10 +120,10 @@
 
    }
 
-   .alert{
+   .alert {
       font-size: 1rem;
       margin: 0 1rem;
-   
+
    }
 
    .modal-content {
@@ -124,11 +148,12 @@
    #projectDescription {
       height: 15vh;
    }
+
    #projectContact {
       height: 10vh;
    }
 
-   footer{
+   footer {
       display: none;
    }
 
