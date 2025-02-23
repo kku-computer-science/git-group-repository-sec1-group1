@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-02-23T22:12:15.466056" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Application" source="d:\SE\git-group-repository-sec1-group1\InitialProject\test\test_researchgroup\test_application.robot">
+<test id="s1-t1" name="Input Text" line="32">
+<kw name="xpath=(//input[@name=&quot;amount[]&quot;])[1]">
+<msg time="2025-02-23T22:12:15.723360" level="FAIL">No keyword with name 'xpath=(//input[@name="amount[]"])[1]' found.</msg>
+<arg>1000</arg>
+<status status="FAIL" start="2025-02-23T22:12:15.723360" elapsed="0.002977">No keyword with name 'xpath=(//input[@name="amount[]"])[1]' found.</status>
+</kw>
+<status status="FAIL" start="2025-02-23T22:12:15.720847" elapsed="0.006490">No keyword with name 'xpath=(//input[@name="amount[]"])[1]' found.</status>
+</test>
+<test id="s1-t2" name="Input Text" line="33">
+<kw name="xpath=(//textarea[@name=&quot;app_detail[]&quot;])[1]">
+<msg time="2025-02-23T22:12:15.731335" level="FAIL">No keyword with name 'xpath=(//textarea[@name="app_detail[]"])[1]' found.</msg>
+<arg>Provide details here...</arg>
+<status status="FAIL" start="2025-02-23T22:12:15.730337" elapsed="0.000998">No keyword with name 'xpath=(//textarea[@name="app_detail[]"])[1]' found.</status>
+</kw>
+<status status="FAIL" start="2025-02-23T22:12:15.728336" elapsed="0.004002">No keyword with name 'xpath=(//textarea[@name="app_detail[]"])[1]' found.</status>
+</test>
+<test id="s1-t3" name="Input Text" line="34">
+<kw name="xpath=(//input[@name=&quot;app_condition[]&quot;])[1]">
+<msg time="2025-02-23T22:12:15.736345" level="FAIL">No keyword with name 'xpath=(//input[@name="app_condition[]"])[1]' found.</msg>
+<arg>Conditions apply...</arg>
+<status status="FAIL" start="2025-02-23T22:12:15.736345" elapsed="0.000000">No keyword with name 'xpath=(//input[@name="app_condition[]"])[1]' found.</status>
+</kw>
+<status status="FAIL" start="2025-02-23T22:12:15.734337" elapsed="0.002999">No keyword with name 'xpath=(//input[@name="app_condition[]"])[1]' found.</status>
+</test>
+<status status="FAIL" start="2025-02-23T22:12:15.473348" elapsed="0.264989"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="3" skip="0" id="s1" name="Test Application">Test Application</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-23T22:12:15.728336" level="WARN">Multiple tests with name 'Input Text' executed in suite 'Test Application'.</msg>
+<msg time="2025-02-23T22:12:15.733337" level="WARN">Multiple tests with name 'Input Text' executed in suite 'Test Application'.</msg>
+</errors>
+</robot>

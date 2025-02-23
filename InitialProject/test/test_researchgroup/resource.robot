@@ -2,11 +2,11 @@
 Library           SeleniumLibrary
 
 *** Variables ***
-${BROWSER}        Chrome
-${BASE_URL}    https://cs0167.cpkkuhost.com/
-${CHROME_BROWSER_PATH}    ${EXECDIR}${/}..${/}ChromeForTesting${/}chrome${/}chrome.exe
-${CHROME_DRIVER_PATH}     ${EXECDIR}${/}..${/}ChromeForTesting${/}chromedriver${/}chromedriver.exe
-${DELAY}          1
+${BROWSER}    custom_chrome
+${BASE_URL}    http://localhost:8000   #https://cs0167.cpkkuhost.com/
+${CHROME_BROWSER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chrome${/}chrome.exe
+${CHROME_DRIVER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chromedriver${/}chromedriver.exe
+${DELAY}    1
 
 ***Keywords***
 Open Custom Chrome Browser
@@ -26,19 +26,18 @@ Open Web
 Home Should Be Open
     Title Should Be    ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์
 
-Go To Researcher
-    Click Element    id=navbarDropdown   
-    Click Element    xpath=//ul[@aria-labelledby='navbarDropdown']/li[1]/a
 Go To Researcher Group
     Click Element    xpath=//a[@href='/researchgroup']
     Page Should Contain Element    xpath=//p[contains(text(), 'Research Group')]
 
-Change Language
-    [Arguments]      ${LANGUAGE}
-    Click Element    id=navbarDropdownMenuLink
-    Click Element    xpath=//a[contains(text(), '${LANGUAGE}')]
+Click Login
+    Click Element    xpath= //a[@href='/login']
+    ${handles}=    Get Window Handles 
+    Switch Window    ${handles}[1]
+    Title Should Be    Login
 
-Verify Page Text
-    [Arguments]    ${EXPECTED_TEXT}
-    Element Should Contain    xpath=//h6[@class='card-title'][contains(text(), '${EXPECTED_TEXT}')]    ${EXPECTED_TEXT}
+Input Email
+    [Arguments]    ${EMAIL}
+    Input Text    id:username    ${EMAIL}
+
 
