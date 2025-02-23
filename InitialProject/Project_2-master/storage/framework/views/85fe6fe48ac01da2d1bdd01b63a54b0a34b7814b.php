@@ -5,12 +5,58 @@
         font-size: 20px;
     }
 
-    .card-text-1 {
+    .card-text-2 {
+        font-size: 16px;
+    }
+
+    .no-job-openings {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        padding: 0;
+    }
+
+    th, td {
+        padding: 12px; 
+        text-align: center; 
+        vertical-align: middle;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
         font-weight: bold;
     }
 
-    .card-text-2 {
-        font-size: 16px;
+    td {
+        font-size: 14px;
+    }
+
+    table th:nth-child(1), table td:nth-child(1) {
+        width: 30%;
+    }
+
+    table th:nth-child(2), table td:nth-child(2),
+    table th:nth-child(3), table td:nth-child(3),
+    table th:nth-child(4), table td:nth-child(4), {
+        width: 15%;
+    }
+
+    table th:nth-child(5), table td:nth-child(5),
+    table th:nth-child(6), table td:nth-child(6) {
+        width: 20%;
+    }
+
+    .card-body {
+        padding-top: 0px;
+    }
+
+    .table {
+        margin-top: 0px;
     }
 </style>
 
@@ -58,7 +104,6 @@
                         <?php endif; ?>
                         <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
                     </h2>
                     <?php if(collect($rg->user)->contains(fn($user) => $user->hasRole('student'))): ?>
                     <h1 class="card-text-1">Student</h1>
@@ -99,5 +144,40 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
+
+<div class="container card-4 mt-5">
+    <div class="card">
+        <h4 class="card-text-1">เปิดรับสมัคร</h4>
+        <div class="row g-0">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ชื่อโปรเจ็ค</th>
+                            <th>ตำแหน่ง</th>
+                            <th>จำนวนที่รับ</th>
+                            <th>เงินเดือน</th>
+                            <th>สิ้นสุดวันรับสมัคร</th>
+                            <th>รายละเอียด</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>โปรเจ็คของคนดี</td>
+                            <td>ผู้ช่วย</td>
+                            <td>3 คน</td>
+                            <td>35,000 บาท</td>
+                            <td>10/04/2025</td>
+                            <td>
+                            <a href="<?php echo e(route('researchgroupdetail', ['id' => $rg->id])); ?>" class="btn btn-outline-info "><?php echo e(trans('message.details')); ?></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/researchgroupdetail.blade.php ENDPATH**/ ?>

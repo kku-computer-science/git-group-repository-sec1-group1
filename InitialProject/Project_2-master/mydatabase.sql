@@ -1,25 +1,32 @@
--- MySQL dump 10.13  Distrib 5.7.38, for Linux (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: laraveldb
--- ------------------------------------------------------
--- Server version	5.7.38-0ubuntu0.18.04.1
+-- Host: mysql:3306
+-- Generation Time: Feb 22, 2025 at 01:19 PM
+-- Server version: 8.0.32
+-- PHP Version: 8.2.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mydatabase`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `academicworks`
 --
 
-DROP TABLE IF EXISTS `academicworks`;
 CREATE TABLE `academicworks` (
   `id` bigint UNSIGNED NOT NULL,
   `ac_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -100,10 +107,25 @@ INSERT INTO `academicworks` (`id`, `ac_name`, `ac_type`, `ac_sourcetitle`, `ac_y
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `application_detail`
+--
+
+CREATE TABLE `application_detail` (
+  `id` bigint UNSIGNED NOT NULL,
+  `app_deadline` datetime NOT NULL,
+  `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` int NOT NULL,
+  `app_detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_condition` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `authors`
 --
 
-DROP TABLE IF EXISTS `authors`;
 CREATE TABLE `authors` (
   `id` bigint UNSIGNED NOT NULL,
   `author_fname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -829,7 +851,6 @@ INSERT INTO `authors` (`id`, `author_fname`, `author_lname`, `created_at`, `upda
 -- Table structure for table `author_of_academicworks`
 --
 
-DROP TABLE IF EXISTS `author_of_academicworks`;
 CREATE TABLE `author_of_academicworks` (
   `id` bigint UNSIGNED NOT NULL,
   `author_type` int DEFAULT NULL,
@@ -914,7 +935,6 @@ INSERT INTO `author_of_academicworks` (`id`, `author_type`, `author_id`, `academ
 -- Table structure for table `author_of_papers`
 --
 
-DROP TABLE IF EXISTS `author_of_papers`;
 CREATE TABLE `author_of_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `author_id` bigint UNSIGNED NOT NULL,
@@ -2042,7 +2062,6 @@ INSERT INTO `author_of_papers` (`id`, `author_id`, `paper_id`, `author_type`) VA
 -- Table structure for table `degrees`
 --
 
-DROP TABLE IF EXISTS `degrees`;
 CREATE TABLE `degrees` (
   `id` bigint UNSIGNED NOT NULL,
   `degree_name_th` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2068,7 +2087,6 @@ INSERT INTO `degrees` (`id`, `degree_name_th`, `degree_name_en`, `title_th`, `ti
 -- Table structure for table `departments`
 --
 
-DROP TABLE IF EXISTS `departments`;
 CREATE TABLE `departments` (
   `id` bigint UNSIGNED NOT NULL,
   `department_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2090,7 +2108,6 @@ INSERT INTO `departments` (`id`, `department_name_th`, `department_name_en`, `cr
 -- Table structure for table `education`
 --
 
-DROP TABLE IF EXISTS `education`;
 CREATE TABLE `education` (
   `id` bigint UNSIGNED NOT NULL,
   `uname` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2198,7 +2215,6 @@ INSERT INTO `education` (`id`, `uname`, `qua_name`, `level`, `user_id`, `year`, 
 -- Table structure for table `expertises`
 --
 
-DROP TABLE IF EXISTS `expertises`;
 CREATE TABLE `expertises` (
   `id` bigint UNSIGNED NOT NULL,
   `expert_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2345,7 +2361,6 @@ INSERT INTO `expertises` (`id`, `expert_name`, `user_id`, `created_at`, `updated
 -- Table structure for table `failed_jobs`
 --
 
-DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
   `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2362,7 +2377,6 @@ CREATE TABLE `failed_jobs` (
 -- Table structure for table `files`
 --
 
-DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2377,7 +2391,6 @@ CREATE TABLE `files` (
 -- Table structure for table `funds`
 --
 
-DROP TABLE IF EXISTS `funds`;
 CREATE TABLE `funds` (
   `id` bigint UNSIGNED NOT NULL,
   `fund_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2432,7 +2445,6 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_level
 -- Table structure for table `migrations`
 --
 
-DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2482,7 +2494,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `model_has_permissions`
 --
 
-DROP TABLE IF EXISTS `model_has_permissions`;
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2495,7 +2506,6 @@ CREATE TABLE `model_has_permissions` (
 -- Table structure for table `model_has_roles`
 --
 
-DROP TABLE IF EXISTS `model_has_roles`;
 CREATE TABLE `model_has_roles` (
   `role_id` bigint UNSIGNED NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2662,7 +2672,6 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- Table structure for table `outsiders`
 --
 
-DROP TABLE IF EXISTS `outsiders`;
 CREATE TABLE `outsiders` (
   `id` bigint UNSIGNED NOT NULL,
   `fname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2689,7 +2698,6 @@ INSERT INTO `outsiders` (`id`, `fname`, `lname`, `title_name`, `created_at`, `up
 -- Table structure for table `outsiders_work_of_project`
 --
 
-DROP TABLE IF EXISTS `outsiders_work_of_project`;
 CREATE TABLE `outsiders_work_of_project` (
   `id` bigint UNSIGNED NOT NULL,
   `outsider_id` bigint UNSIGNED NOT NULL,
@@ -2703,7 +2711,6 @@ CREATE TABLE `outsiders_work_of_project` (
 -- Table structure for table `papers`
 --
 
-DROP TABLE IF EXISTS `papers`;
 CREATE TABLE `papers` (
   `id` bigint UNSIGNED NOT NULL,
   `paper_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3331,7 +3338,6 @@ INSERT INTO `papers` (`id`, `paper_name`, `abstract`, `paper_type`, `paper_subty
 -- Table structure for table `password_resets`
 --
 
-DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE `password_resets` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3344,7 +3350,6 @@ CREATE TABLE `password_resets` (
 -- Table structure for table `permissions`
 --
 
-DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE `permissions` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3413,7 +3418,6 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 -- Table structure for table `programs`
 --
 
-DROP TABLE IF EXISTS `programs`;
 CREATE TABLE `programs` (
   `id` bigint UNSIGNED NOT NULL,
   `program_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3439,7 +3443,82 @@ INSERT INTO `programs` (`id`, `program_name_th`, `program_name_en`, `program_nam
 (24, 'สาขาวิชาวิทยาการคอมพิวเตอร์และเทคโนโลยีสารสนเทศ หลักสูตรนานาชาติ', 'Computer Science and Information Technology (International Program)', '计算机科学与信息技术（国际项目)', 3, 1, '2022-04-20 16:06:16', '2025-02-09 16:06:16'),
 (25, 'สาขาวิชาภูมิสารสนเทศศาสตร์', 'Geo-Informatics', '地理信息科学 ', 3, 1, '2022-04-20 16:07:18', '2025-02-09 16:07:18'),
 (26, 'สาขาวิชาปัญญาประดิษฐ์', 'Artificial Intelligence', '人工智能', 1, 1, '2025-02-09 04:17:10', '2025-02-09 04:17:10'),
-(27, 'สาขาวิชาความมั่นคงปลอดภัยไซเบอร์', 'Cybersecurity', '网络安全', 1, 1, '2025-02-09 04:24:18', '2025-02-09 04:24:18');
+(27, 'สาขาวิชาความมั่นคงปลอดภัยไซเบอร์', 'Cybersecurity', '网络安全', 1, 1, '2025-02-09 04:24:18', '2025-02-09 04:24:18'),
+(28, 'เกษียณ', 'Retirement', '退休', 3, 1, '2025-02-11 00:50:27', '2025-02-11 00:50:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_application`
+--
+
+CREATE TABLE `project_application` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `project_application`
+--
+
+INSERT INTO `project_application` (`id`, `project_title`, `contact`, `re_group_id`) VALUES
+(1, 'Chicochachi', 'kondee@kkumail.com', 3),
+(2, 'naipaieyeyaknorn', 'sleep@gmail.com', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_app_detail`
+--
+
+CREATE TABLE `project_app_detail` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL,
+  `app_detail_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_app_re_group`
+--
+
+CREATE TABLE `project_app_re_group` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_app_id` bigint UNSIGNED NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_research`
+--
+
+CREATE TABLE `related_research` (
+  `id` bigint UNSIGNED NOT NULL,
+  `re_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `public_date` datetime NOT NULL,
+  `source_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `re_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_research_group`
+--
+
+CREATE TABLE `related_research_group` (
+  `id` bigint UNSIGNED NOT NULL,
+  `related_id` bigint UNSIGNED NOT NULL,
+  `re_group_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -3447,15 +3526,17 @@ INSERT INTO `programs` (`id`, `program_name_th`, `program_name_en`, `program_nam
 -- Table structure for table `research_groups`
 --
 
-DROP TABLE IF EXISTS `research_groups`;
 CREATE TABLE `research_groups` (
   `id` bigint UNSIGNED NOT NULL,
   `group_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `group_name_en` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `group_name_cn` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `group_detail_th` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_detail_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `group_detail_cn` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_desc_th` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_desc_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `group_desc_cn` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `group_image` varchar(155) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3465,12 +3546,16 @@ CREATE TABLE `research_groups` (
 -- Dumping data for table `research_groups`
 --
 
-INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_detail_th`, `group_detail_en`, `group_desc_th`, `group_desc_en`, `group_image`, `created_at`, `updated_at`) VALUES
-(3, 'เทคโนโลยี GIS ขั้นสูง (AGT)', 'Advanced GIS Technology (AGT)', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', 'เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS', 'To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.', '1651386391.jpg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
-(5, 'ห้องปฏิบัติการการคำนวณแบบฉลาดขั้นสูง (ASC)', 'Advanced Intelligent Computing Laboratory (ASC)', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', 'ห้องปฏิบัติการนี้มีจุดมุ่งหมายเพื่อศึกษาและวิจัยเกี่ยวกับเทคโนโลยีอัจฉริยะสำหรับการประมวลผลประสิทธิภาพสูงซึ่งเลียนแบบพฤติกรรมที่ได้รับแรงบันดาลใจจากธรรมชาติ', 'This laboratory aims to study and research on the smart technology for high performance computing which imitates the nature-inspired behaviors.', '1651386384.jpg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
-(8, 'ห้องปฏิบัติการวิจัย ระบบอัจฉริยะและการเรียนรู้เครื่อง (MLIS)', 'Intelligent Systems and Machine Learning Research Laboratory (MLIS)', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', 'วัตถุประสงค์หลักของโครงการนี้คือการทำวิจัยและสร้างความรู้ใหม่เกี่ยวกับการเรียนรู้ของเครื่องและระบบอัจฉริยะตลอดจนการใช้งาน', 'The main purpose of this project is to conduct research and build new knowledge concerning machine learning and intelligent systems as well as their applications.', '1651386369.jpg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
-(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Natural Language Processing and Sound Processing Laboratory (NLSP)', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', 'จุดมุ่งหมายหลักของโครงการนี้คือ การวิจัยเกี่ยวกับภาษาธรรมชาติและการประมวลผลเสียงพูดในระบบคอมพิวเตอร์ ระบบแทนสเลชันด้วยเครื่อง ระบบคอมพิวเตอร์สังเคราะห์เสียงพูดและการรู้จำเสียง การรู้จำอักขระและการค้นหาข้อมูล การสร้างและพัฒนาระบบการทำงานเพื่อบูรณาการทางธรรมชาติ การประมวลผลภาษาและคำพูดด้วยระบบงานทางธุรกิจและเพื่อสร้างผลงานทางวิชาการเกี่ยวกับการประมวลผลตามธรรมชาติ', 'The main aims of this project are to conduct research concerning natural language and speech processing in the computer system, Machine Tanslation system, Speech Synthesis and Speech Recognition computer system, Char- acter Recognition and information searching, construction and development of working system to integrate natural language and speech processing with business work system,and to create academic works on natural processing.', '1651386363.jpg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
-(10, 'ปัญญาประยุกต์และการวิเคราะห์ข้อมูล (AIDA)', 'Applied Intelligence and Data Analytics (AIDA)', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', 'ห้องปฏิบัติการวิจัยนี้รวบรวมสาขาการวิจัยแบบสหวิทยาการ เช่น Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning และ Bioinformatics.', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP System, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', '1651386357.jpg', '2022-03-05 11:20:32', '2022-05-15 07:07:40');
+INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_name_cn`, `group_detail_th`, `group_detail_en`, `group_detail_cn`, `group_desc_th`, `group_desc_en`, `group_desc_cn`, `group_image`, `created_at`, `updated_at`) VALUES
+(3, 'กลุ่มปฏิบัติการเทคโนโลยีภูมิสารสนเทศขั้นสูง (AGT)', 'Laboratory, Advanced GIS Technology (AGT)', '', 'เพื่อดำเนินการศึกษาและวิจัยขั้นสูงโดยใช้เทคโนโลยีภูมิสารสนเทศและวิทยาการข้อมูลเชิงพื้นที่ในการ รวบรวม วิเคราะห์ และแสดงผลข้อมูลเชิงพื้นที่เพื่อการติดตามและแก้ปัญหาต่างๆ ของโลก', 'To conduct advanced research and cutting-edge study based on Geoinformatics Technology and Spatial Data Science to capture, analyze, and visualize Geospatial data for monitoring and solving real-world problems.', NULL, 'เพื่อดำเนินการศึกษาและวิจัยขั้นสูงโดยใช้เทคโนโลยีภูมิสารสนเทศและวิทยาการข้อมูลเชิงพื้นที่ในการ รวบรวม วิเคราะห์ และแสดงผลข้อมูลเชิงพื้นที่เพื่อการติดตามและแก้ปัญหาต่างๆ ของโลก', 'To conduct advanced research and cutting-edge study based on Geoinformatics Technology and Spatial Data Science to capture, analyze, and visualize Geospatial data for monitoring and solving real-world problems.', NULL, 'AGT.jpeg', '2022-02-26 07:10:44', '2022-05-15 07:10:10'),
+(5, 'กลุ่มวิจัยการคำนวณแบบฉลาดชั้นนำ (ASC)', 'Laboratory, Advanced Smart Computing  (ASC)', '', 'เพื่อการพัฒนารากฐานการคำนวณทางคอมพิวเตอร์ขั้นสูงและการประยุกต์ใช้งาน', 'To development of a novel avanced computing approches and applications', NULL, 'เพื่อการพัฒนารากฐานการคำนวณทางคอมพิวเตอร์ขั้นสูงและการประยุกต์ใช้งาน', 'To development of a novel avanced computing approches and applications', NULL, 'ASC.jpeg', '2022-03-05 09:53:27', '2022-05-15 07:08:25'),
+(8, 'ห้องปฏิบัติการวิจัย การเรียนรู้ของเครื่องและระบบอัจฉริยะ (MLIS)', 'Laboratory, Machine Learning and Intelligent Systems (MLIS)', '', 'เพื่อพัฒนาอัลกอริธึมการเรียนรู้ของเครื่องและระบบอัจฉริยะเพื่อรองรับการประมวลผลข้อมูลขนาดใหญ่ การตัดสินใจแบบเรียลไทม์ และระบบอัตโนมัติที่ทำงานได้อย่างอิสระ เพื่อตอบสนองความต้องการในอุตสาหกรรม เช่น การเงิน การดูแลสุขภาพ และการขนส่ง โดยเน้นเพิ่มประสิทธิภาพ ความแม่นยำ และลดต้นทุนผ่านเทคโนโลยีอัจฉริยะ', 'To develop machine learning algorithms and intelligent systems to support large-scale data processing, real-time decision-making, and autonomous systems. The goal is to meet the demands of industries such as finance, healthcare, and transportation by enhancing efficiency, accuracy, and cost reduction through intelligent technology.', NULL, 'เพื่อพัฒนาอัลกอริธึมการเรียนรู้ของเครื่องและระบบอัจฉริยะเพื่อรองรับการประมวลผลข้อมูลขนาดใหญ่ การตัดสินใจแบบเรียลไทม์ และระบบอัตโนมัติที่ทำงานได้อย่างอิสระ เพื่อตอบสนองความต้องการในอุตสาหกรรม เช่น การเงิน การดูแลสุขภาพ และการขนส่ง โดยเน้นเพิ่มประสิทธิภาพ ความแม่นยำ และลดต้นทุนผ่านเทคโนโลยีอัจฉริยะ', 'To develop machine learning algorithms and intelligent systems to support large-scale data processing, real-time decision-making, and autonomous systems. The goal is to meet the demands of industries such as finance, healthcare, and transportation by enhancing efficiency, accuracy, and cost reduction through intelligent technology.', NULL, 'MLIS.jpeg', '2022-03-05 09:59:08', '2022-05-15 07:08:01'),
+(9, 'ห้องปฎิบัติการประมวลผลภาษาธรรมชาติและการประมวลผลด้านเสียง (NLSP)', 'Laboratory, Natural Language and Speech Processing (NLSP)', '', 'กลุ่มวิจัยมุ่งเน้นในการสร้างงานวิจัยและนวัตกรรมใหม่ด้านการประมวลผลภาษาธรรมชาติและเสียงพูดด้วยคอมพิวเตอร์ เช่น การแปลภาษาด้วยเครื่อง การสืบค้นสารสนเทศ การสังเคราะห์เสียง การรู้จำเสียงพูด การรู้จำตัวอักษรโบราณ รวมไปถึงการนำไปประยุกต์ใช้ในศาสตร์อื่นๆ ', 'Research groups focus on creating new research and innovation in natural language and speech processing with computers, such as machine translation, information retrieval, speech synthesis, speech recognition, ancient character recognition,  construction and development of working system to integrate natural language and speech processing with business work system, and to create academic works on natural processing.', NULL, 'กลุ่มวิจัยมุ่งเน้นในการสร้างงานวิจัยและนวัตกรรมใหม่ด้านการประมวลผลภาษาธรรมชาติและเสียงพูดด้วยคอมพิวเตอร์ เช่น การแปลภาษาด้วยเครื่อง การสืบค้นสารสนเทศ การสังเคราะห์เสียง การรู้จำเสียงพูด การรู้จำตัวอักษรโบราณ รวมไปถึงการนำไปประยุกต์ใช้ในศาสตร์อื่นๆ ', 'Research groups focus on creating new research and innovation in natural language and speech processing with computers, such as machine translation, information retrieval, speech synthesis, speech recognition, ancient character recognition,  construction and development of working system to integrate natural language and speech processing with business work system, and to create academic works on natural processing.', NULL, 'NLSP.jpeg', '2022-03-05 10:03:41', '2022-05-15 07:07:51'),
+(10, 'การประยุกต์อัฉริยะและการวิเคราะห์ข้อมูล (AIDA)', 'Laboratory, Applied Intelligence and Data Analytics (AIDA)', '', 'กลุ่มงานวิจัยนี้ได้เกิดจากการบูรณาการงานวิจัยจากหลากหลายสาขา เช่น งานวิจัยด้านวิทยาศาสตร์ข้อมูลและการวิเคราะห์ข้อมูล (Data Science & Data Analytics) เหมืองข้อมูล (Data Mining) เหมืองข้อความ (Text Mining) เหมืองความคิด (Opinion Mining) ธุรกิจอัฉริยะ (Business Intelligence) ระบบการวางแผนจัดการห่วงโซ่อุปทาน (ERP Systems) การบริหารด้านเทคโนโลยีสารสนเทศ (IT Management) เว็บแบบสื่อความหมาย (Semantic Web) การวิเคราะห์อารมณ์หรือความรู้สึก (Sentiment Analysis) การประมวลผลภาพ (Image Processing) การเรียนรู้ในสภาพแวดล้อมคอมพิวเตอร์ทุกแห่งหนและทุกเวลา (Ubiquitous Learning), การเรียนรู้แบบผสมผสาน (Blended Learning) และชีวสารสนเทศ (Bioinformatics)', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP Systems, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'กลุ่มงานวิจัยนี้ได้เกิดจากการบูรณาการงานวิจัยจากหลากหลายสาขา เช่น งานวิจัยด้านวิทยาศาสตร์ข้อมูลและการวิเคราะห์ข้อมูล (Data Science & Data Analytics) เหมืองข้อมูล (Data Mining) เหมืองข้อความ (Text Mining) เหมืองความคิด (Opinion Mining) ธุรกิจอัฉริยะ (Business Intelligence) ระบบการวางแผนจัดการห่วงโซ่อุปทาน (ERP Systems) การบริหารด้านเทคโนโลยีสารสนเทศ (IT Management) เว็บแบบสื่อความหมาย (Semantic Web) การวิเคราะห์อารมณ์หรือความรู้สึก (Sentiment Analysis) การประมวลผลภาพ (Image Processing) การเรียนรู้ในสภาพแวดล้อมคอมพิวเตอร์ทุกแห่งหนและทุกเวลา (Ubiquitous Learning), การเรียนรู้แบบผสมผสาน (Blended Learning) และชีวสารสนเทศ (Bioinformatics)', 'This research lab brings together interdisciplinary research fields, such as, Data Science & Data Analytics, Data Mining, Text Mining, Opinion Mining, Business Intelligence, ERP Systems, IT Management, Semantic Web, Sentiment Analysis, Image Processing, Ubiquitous Learning, Blended Learning, and Bioinformatics.', NULL, 'AIDA.jpeg', '2022-03-05 11:20:32', '2022-05-15 07:07:40'),
+(13, 'ห้องปฏิบัติการอินเตอร์เฟสระหว่างฮาร์ดแวร์กับมนุษย์และการสื่อสาร (H²I-Comm)', 'Laboratory, Hardware-Human Interface and Communications (H²I-Comm)', NULL, 'กลุ่มวิจัย Hardware-Human Interface and Communications (H2I-Comm) มีเป้าหมายในการออกแบบ สร้าง และประเมินเครื่องมือต่างๆ ที่ใช้งานง่าย มีประโยชน์ และสร้างสรรค์ โดยมุ่งเน้นพัฒนาความก้าวหน้าในด้านเทคโนโลยีอินเทอร์เน็ต การสื่อสารไร้สาย การเข้ารหัสและความปลอดภัย หุ่นยนต์ การประมวลผลสัญญาณดิจิทัลสำหรับหุ่นยนต์ การออกแบบ UX/UI คอมพิวเตอร์เพื่อสังคม สารสนเทศด้านสุขภาพ อินเทอร์เฟซบนอุปกรณ์พกพา และการพัฒนาอุปกรณ์ฮาร์ดแวร์ กลุ่มวิจัย H2I-Comm ให้ความสำคัญกับการบูรณาการข้ามสาขาวิชา เนื่องจากเราทำงานร่วมกับศาสตร์และกลุ่มผู้สนใจที่หลากหลาย เพื่อให้เกิดผลลัพธ์ที่สร้างสรรค์และมีประสิทธิภาพสูงสุด', 'Hardware-Human Interface and Communications (H2I-Comm) research group is to design, build, and evaluate tools that are user-friendly, useful, and innovative. Our intellectual goals to continue to advance the fields of Internet technologies, wireless communications, cryptography and security, robotics, digital signal processing for robotics, UX/UI design, social computing, health informatics, mobile interfaces, and hardware implementation. The H2I-Comm research group focuses on interdisciplinary aspects as we work on different disciplines that deal with different sciences and interest groups in order to maximize constructive outcomes.', NULL, 'กลุ่มวิจัย Hardware-Human Interface and Communications (H2I-Comm) มีเป้าหมายในการออกแบบ สร้าง และประเมินเครื่องมือต่างๆ ที่ใช้งานง่าย มีประโยชน์ และสร้างสรรค์ โดยมุ่งเน้นพัฒนาความก้าวหน้าในด้านเทคโนโลยีอินเทอร์เน็ต การสื่อสารไร้สาย การเข้ารหัสและความปลอดภัย หุ่นยนต์ การประมวลผลสัญญาณดิจิทัลสำหรับหุ่นยนต์ การออกแบบ UX/UI คอมพิวเตอร์เพื่อสังคม สารสนเทศด้านสุขภาพ อินเทอร์เฟซบนอุปกรณ์พกพา และการพัฒนาอุปกรณ์ฮาร์ดแวร์ กลุ่มวิจัย H2I-Comm ให้ความสำคัญกับการบูรณาการข้ามสาขาวิชา เนื่องจากเราทำงานร่วมกับศาสตร์และกลุ่มผู้สนใจที่หลากหลาย เพื่อให้เกิดผลลัพธ์ที่สร้างสรรค์และมีประสิทธิภาพสูงสุด', 'Hardware-Human Interface and Communications (H2I-Comm) research group is to design, build, and evaluate tools that are user-friendly, useful, and innovative. Our intellectual goals to continue to advance the fields of Internet technologies, wireless communications, cryptography and security, robotics, digital signal processing for robotics, UX/UI design, social computing, health informatics, mobile interfaces, and hardware implementation. The H2I-Comm research group focuses on interdisciplinary aspects as we work on different disciplines that deal with different sciences and interest groups in order to maximize constructive outcomes.', NULL, 'H2I-Comm.jpeg', '2025-02-21 20:25:53', '2025-02-21 20:25:53'),
+(14, 'การบูรณาการสหวิทยาการอัจฉริยะขั้นสูง (AIII)', 'Laboratory, Advanced Intelligent Interdisciplinary Integration (AIII)', NULL, 'ห้องปฏิบัติการการบูรณาการสหวิทยาการอัจฉริยะขั้นสูง มุ่งเน้นที่การพัฒนาการคำนวณอัจฉริยะและประยุกต์ใช้ในศาสตร์ด้านต่างๆ', 'The goal of Advanced Intelligent Interdisciplinary Integration Laboratory is to advance intelligent computing and employ it in a variety of interdisciplinary domains.', NULL, 'ห้องปฏิบัติการการบูรณาการสหวิทยาการอัจฉริยะขั้นสูง มุ่งเน้นที่การพัฒนาการคำนวณอัจฉริยะและประยุกต์ใช้ในศาสตร์ด้านต่างๆ', 'The goal of Advanced Intelligent Interdisciplinary Integration Laboratory is to advance intelligent computing and employ it in a variety of interdisciplinary domains.', NULL, 'AIII.jpeg', '2025-02-21 20:32:20', '2025-02-21 20:32:20'),
+(15, 'ห้องปฏิบัติการเทคโนโลยีเครือข่ายประยุกต์ (ANT)', 'Laboratory, Applied Network Technology (ANT)', NULL, 'กลุ่มวิจัย ANT มีเป้าหมายในการพัฒนา เทคโนโลยีเครือข่ายที่ล้ำสมัย, ความมั่นคงปลอดภัยไซเบอร์, และการประมวลผลข้อมูลขั้นสูง พร้อมทั้งบูรณาการเทคโนโลยีเหล่านี้กับอุตสาหกรรมและสนับสนุนการพัฒนาบุคลากรให้สามารถนำความรู้ไปประยุกต์ใช้ได้จริง', 'The ANT research group aims to develop cutting-edge network technology, cybersecurity, and advanced data processing while integrating these technologies into various industries and supporting human resource development to apply knowledge in real-world applications.', NULL, 'กลุ่มวิจัย ANT มีเป้าหมายในการพัฒนา เทคโนโลยีเครือข่ายที่ล้ำสมัย, ความมั่นคงปลอดภัยไซเบอร์, และการประมวลผลข้อมูลขั้นสูง พร้อมทั้งบูรณาการเทคโนโลยีเหล่านี้กับอุตสาหกรรมและสนับสนุนการพัฒนาบุคลากรให้สามารถนำความรู้ไปประยุกต์ใช้ได้จริง', 'The ANT research group aims to develop cutting-edge network technology, cybersecurity, and advanced data processing while integrating these technologies into various industries and supporting human resource development to apply knowledge in real-world applications.', NULL, 'ANT.jpeg', '2025-02-21 20:34:35', '2025-02-21 20:34:35'),
+(16, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะ (I-SERG)', 'Laboratory, Intelligent Software Engineering Research Group (I-SERG)', NULL, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะเน้นการวิจัยเชิงประจักษ์ โดยมีหัวข้อวิจัยหลักได้แก่ AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering และ Software development practices', 'The Intelligent Software Engineering Research Group focuses on empirical research.  Topics of interest include AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering, and Software Development Practices.', NULL, 'กลุ่มวิจัยวิศวกรรมซอฟต์แวร์อัจฉริยะเน้นการวิจัยเชิงประจักษ์ โดยมีหัวข้อวิจัยหลักได้แก่ AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering และ Software development practices', 'The Intelligent Software Engineering Research Group focuses on empirical research.  Topics of interest include AI4SE, SE4AI, Computational Intelligence for Software Engineering, Formal verification, Software Analytics, Software Quality, Secure Software Engineering, and Software Development Practices.', NULL, 'I-SERG.jpeg', '2025-02-21 20:41:08', '2025-02-21 20:41:08');
 
 -- --------------------------------------------------------
 
@@ -3478,7 +3563,6 @@ INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_de
 -- Table structure for table `research_projects`
 --
 
-DROP TABLE IF EXISTS `research_projects`;
 CREATE TABLE `research_projects` (
   `id` bigint UNSIGNED NOT NULL,
   `project_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3531,7 +3615,6 @@ INSERT INTO `research_projects` (`id`, `project_name`, `project_start`, `project
 -- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3557,7 +3640,6 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 -- Table structure for table `role_has_permissions`
 --
 
-DROP TABLE IF EXISTS `role_has_permissions`;
 CREATE TABLE `role_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL
@@ -3665,7 +3747,6 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- Table structure for table `source_data`
 --
 
-DROP TABLE IF EXISTS `source_data`;
 CREATE TABLE `source_data` (
   `id` bigint UNSIGNED NOT NULL,
   `source_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3688,7 +3769,6 @@ INSERT INTO `source_data` (`id`, `source_name`, `created_at`, `updated_at`) VALU
 -- Table structure for table `source_papers`
 --
 
-DROP TABLE IF EXISTS `source_papers`;
 CREATE TABLE `source_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `source_data_id` bigint UNSIGNED NOT NULL,
@@ -4317,7 +4397,6 @@ INSERT INTO `source_papers` (`id`, `source_data_id`, `paper_id`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4349,13 +4428,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `fname_en`, `lname_en`, `fname_th`, `lname_th`, `doctoral_degree`, `academic_ranks_en`, `academic_ranks_th`, `position_en`, `position_th`, `title_name_th`, `title_name_en`, `picture`, `status`, `email_verified_at`, `program_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin@gmail.com', NULL, '$2y$10$nrI/W9tolkEdeA8N21TECOmr06MgEbr8q6lN2duMxn5PaHBsnt7Ci', 'admin', '-', 'ผู้ดูแลระบบ', '-', NULL, NULL, NULL, NULL, NULL, 'นาย', 'Mr.', 'UIMG_202203296242bbe5c8689.jpg', 0, NULL, 1, NULL, '2022-01-31 03:06:42', '2022-05-01 15:41:57'),
-(2, 'ngamnij@kku.ac.th', NULL, '$2y$10$3VzoHQXXQlsMNF0hxuY.JeemtM1EUpJC2YWTKlqV9dP3Tl3wcwhJq', 'Ngamnij', 'Arch-int', 'งามนิจ', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'UIMG_20220501626e51e056dd9.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:35', '2022-05-01 16:24:48'),
-(3, 'chakso@kku.ac.th', NULL, '$2y$10$NY/HwFcQfL80AV7Lg2dVNew2YNY39ZWoP/DjbE0iZEZuO.X.Er55a', 'Chakchai', 'So-In', 'จักรชัย', 'โสอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e2980847fa.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2022-05-01 13:32:32'),
-(4, 'somjit@kku.ac.th', NULL, '$2y$10$VLo1ptYZiXRpwGSfPfLXwekJu/KDflul0P0Havd6jd9tsMg8DeRYC', 'Somjit', 'Arch-int', 'สมจิตร', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'Somjit.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2022-02-01 11:52:36'),
+(2, 'ngamnij@kku.ac.th', NULL, '$2y$10$3VzoHQXXQlsMNF0hxuY.JeemtM1EUpJC2YWTKlqV9dP3Tl3wcwhJq', 'Ngamnij', 'Arch-int', 'งามนิจ', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'Ngamnij.png', 0, NULL, 2, NULL, '2022-02-01 11:52:35', '2025-02-11 16:24:48'),
+(3, 'chakso@kku.ac.th', NULL, '$2y$10$NY/HwFcQfL80AV7Lg2dVNew2YNY39ZWoP/DjbE0iZEZuO.X.Er55a', 'Chakchai', 'So-In', 'จักรชัย', 'โสอินทร์', 'Ph.D.', 'Professor', 'ศาสตราจารย์', 'Prof. Dr.', 'ศ.ดร.', 'นาย', 'Mr.', 'Chakchai2.jpg', 0, NULL, 2, NULL, '2022-02-01 11:52:36', '2025-02-11 00:34:57'),
+(4, 'somjit@kku.ac.th', NULL, '$2y$10$VLo1ptYZiXRpwGSfPfLXwekJu/KDflul0P0Havd6jd9tsMg8DeRYC', 'Somjit', 'Arch-int', 'สมจิตร', 'อาจอินทร์', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'Somjit.jpg', 0, NULL, 28, NULL, '2022-02-01 11:52:36', '2025-02-11 00:42:04'),
 (5, 'chaiyapon@kku.ac.th', NULL, '$2y$10$HBWg2AQIgFCE447R9eQnSOj22IbDbc1rCwgHjpDRXkxMjFTenF6GC', 'Chaiyapon', 'Keeratikasikorn', 'ชัยพล', 'กีรติกสิกร', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e31154570f.jpg', 0, NULL, 3, NULL, '2022-02-01 11:52:36', '2022-05-01 14:04:53'),
-(6, 'punhor1@kku.ac.th', NULL, '$2y$10$apfvn7nchbetMKpiZvycQ.oHLnEEt/oh0/3godLz4T72AAqv/YYpm', 'Punyaphol', 'Horata', 'ปัญญาพล', 'หอระตะ', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220407624e7e943c5cd.jpg', 1, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-04-29 05:58:24'),
+(6, 'punhor1@kku.ac.th', NULL, '$2y$10$apfvn7nchbetMKpiZvycQ.oHLnEEt/oh0/3godLz4T72AAqv/YYpm', 'Punyaphol', 'Horata', 'ปัญญาพล', 'หอระตะ', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220407624e7e943c5cd.jpg', 1, NULL, 1, NULL, '2022-02-01 11:52:36', '2025-02-11 05:58:24'),
 (7, 'wongsar@kku.ac.th', NULL, '$2y$10$/Ehw6gvhl5qdde/YrW1II.YMQ18LZZwUGVjdJ0NJexdlkAFYXH8fC', 'Sartra', 'Wongthanavasu', 'ศาสตรา', 'วงศ์ธนวสุ', 'Ph.D.', 'Professor', 'ศาสตราจารย์', 'Prof. Dr.', 'ศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e3428e04a5.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 14:18:00'),
-(8, 'sunkra@kku.ac.th', NULL, '$2y$10$c05Ozs3UCjtrNFRtQoMVAu2ZwFopfehohFW4mw9NfhYOVfnddREXa', 'Sirapat', 'Chiewchanwattana', 'สิรภัทร', 'เชี่ยวชาญวัฒนา', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'UIMG_20220501626e51a4f33be.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 16:23:49'),
+(8, 'sunkra@kku.ac.th', NULL, '$2y$10$c05Ozs3UCjtrNFRtQoMVAu2ZwFopfehohFW4mw9NfhYOVfnddREXa', 'Sirapat', 'Chiewchanwattana', 'สิรภัทร', 'เชี่ยวชาญวัฒนา', 'Ph.D.', 'Associate Professor', 'รองศาสตราจารย์', 'Assoc. Prof. Dr.', 'รศ.ดร.', 'นาง', 'Mrs.', 'Sirapat.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2025-02-11 00:59:01'),
 (9, 'skhamron@kku.ac.th', NULL, '$2y$10$6CRhXm7BX53KWSlCLKriXei7qg7CFFIawhrKQPid9u5te9RvgpN/i', 'Khamron', 'Sunat', 'คำรณ', 'สุนัติ', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e5173a8e05.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 16:22:59'),
 (10, 'chitsutha@kku.ac.th', NULL, '$2y$10$heItHIMc4rUYiH7LyvASXeJtXsDXkCe.0bVe3Qy8bKC1ug0JOcULa', 'Chitsutha', 'Soomlek', 'ชิตสุธา', 'สุ่มเล็ก', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นางสาว', 'Miss', 'UIMG_20220501626e36d5756d1.jpg', 0, NULL, 1, NULL, '2022-02-01 11:52:36', '2022-05-01 14:29:25'),
 (11, 'nagon@kku.ac.th', NULL, '$2y$10$s3jKoRZR7aG8RAe2dUPffOm2bWq3l81SyCyP1qqq2YcWHj2lW.ki.', 'Nagon', 'Watanakij', 'ณกร', 'วัฒนกิจ', 'Ph.D.', 'Assistant Professor', 'ผู้ช่วยศาสตราจารย์', 'Asst. Prof. Dr.', 'ผศ.ดร.', 'นาย', 'Mr.', 'UIMG_20220501626e52e51a74a.jpg', 0, NULL, 3, NULL, '2022-02-01 11:52:36', '2022-05-01 16:29:09'),
@@ -4496,7 +4575,6 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `fname_en`, `lname_e
 -- Table structure for table `user_of_academicworks`
 --
 
-DROP TABLE IF EXISTS `user_of_academicworks`;
 CREATE TABLE `user_of_academicworks` (
   `user_id` bigint UNSIGNED NOT NULL,
   `author_type` int DEFAULT NULL,
@@ -4575,7 +4653,6 @@ INSERT INTO `user_of_academicworks` (`user_id`, `author_type`, `academicwork_id`
 -- Table structure for table `user_papers`
 --
 
-DROP TABLE IF EXISTS `user_papers`;
 CREATE TABLE `user_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
@@ -5298,7 +5375,6 @@ INSERT INTO `user_papers` (`id`, `user_id`, `paper_id`, `author_type`) VALUES
 -- Table structure for table `work_of_research_groups`
 --
 
-DROP TABLE IF EXISTS `work_of_research_groups`;
 CREATE TABLE `work_of_research_groups` (
   `id` bigint UNSIGNED NOT NULL,
   `role` int NOT NULL,
@@ -5335,7 +5411,6 @@ INSERT INTO `work_of_research_groups` (`id`, `role`, `user_id`, `research_group_
 -- Table structure for table `work_of_research_projects`
 --
 
-DROP TABLE IF EXISTS `work_of_research_projects`;
 CREATE TABLE `work_of_research_projects` (
   `id` bigint UNSIGNED NOT NULL,
   `role` int NOT NULL,
@@ -5386,6 +5461,13 @@ INSERT INTO `work_of_research_projects` (`id`, `role`, `user_id`, `research_proj
 --
 ALTER TABLE `academicworks`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_detail_id` (`project_app_id`);
 
 --
 -- Indexes for table `authors`
@@ -5517,6 +5599,45 @@ ALTER TABLE `programs`
   ADD KEY `department_id` (`department_id`);
 
 --
+-- Indexes for table `project_application`
+--
+ALTER TABLE `project_application`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `app_group_id` (`re_group_id`);
+
+--
+-- Indexes for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_detail_app_id` (`project_app_id`),
+  ADD KEY `project_app_detail_detail_id` (`app_detail_id`);
+
+--
+-- Indexes for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_app_id` (`project_app_id`),
+  ADD KEY `project_app_re_group_id` (`re_group_id`);
+
+--
+-- Indexes for table `related_research`
+--
+ALTER TABLE `related_research`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `re_group_id` (`re_group_id`),
+  ADD KEY `re_user_id` (`user_id`);
+
+--
+-- Indexes for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `related_research_id` (`related_id`),
+  ADD KEY `related_re_group_id` (`re_group_id`);
+
+--
 -- Indexes for table `research_groups`
 --
 ALTER TABLE `research_groups`
@@ -5609,6 +5730,12 @@ ALTER TABLE `academicworks`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
+-- AUTO_INCREMENT for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
@@ -5696,13 +5823,43 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `project_application`
+--
+ALTER TABLE `project_application`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `related_research`
+--
+ALTER TABLE `related_research`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `research_groups`
 --
 ALTER TABLE `research_groups`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `research_projects`
@@ -5750,7 +5907,7 @@ ALTER TABLE `user_papers`
 -- AUTO_INCREMENT for table `work_of_research_groups`
 --
 ALTER TABLE `work_of_research_groups`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `work_of_research_projects`
@@ -5761,6 +5918,12 @@ ALTER TABLE `work_of_research_projects`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `application_detail`
+--
+ALTER TABLE `application_detail`
+  ADD CONSTRAINT `project_app_detail_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `author_of_academicworks`
@@ -5819,6 +5982,40 @@ ALTER TABLE `outsiders_work_of_project`
 ALTER TABLE `programs`
   ADD CONSTRAINT `department_id` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   ADD CONSTRAINT `programs_degree_id_foreign` FOREIGN KEY (`degree_id`) REFERENCES `degrees` (`id`);
+
+--
+-- Constraints for table `project_application`
+--
+ALTER TABLE `project_application`
+  ADD CONSTRAINT `app_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `project_app_detail`
+--
+ALTER TABLE `project_app_detail`
+  ADD CONSTRAINT `project_app_detail_app_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `project_app_detail_detail_id` FOREIGN KEY (`app_detail_id`) REFERENCES `application_detail` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `project_app_re_group`
+--
+ALTER TABLE `project_app_re_group`
+  ADD CONSTRAINT `project_app_id` FOREIGN KEY (`project_app_id`) REFERENCES `project_application` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `project_app_re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `related_research`
+--
+ALTER TABLE `related_research`
+  ADD CONSTRAINT `re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `re_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `related_research_group`
+--
+ALTER TABLE `related_research_group`
+  ADD CONSTRAINT `related_re_group_id` FOREIGN KEY (`re_group_id`) REFERENCES `research_groups` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `related_research_id` FOREIGN KEY (`related_id`) REFERENCES `related_research` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `research_projects`

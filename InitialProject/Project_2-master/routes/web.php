@@ -38,6 +38,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\ProjectApplicationController;
+
+Route::get('/project-applications', [ProjectApplicationController::class, 'index'])->name('projectApplications.index');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
