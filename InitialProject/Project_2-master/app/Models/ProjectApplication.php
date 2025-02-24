@@ -7,14 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectApplication extends Model
 {
+    use HasFactory;
+    protected $table = 'project_application';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'project_title', 'contact', 're_group_id'
+        'project_title',
+        'contact',
+        're_group_id',
     ];
 
-    protected $table = 'project_application';
-
-    public function group()
+    public function researchGroup()
     {
-        return $this->belongsTo(Group::class, 're_group_id');
+        return $this->belongsTo(ResearchGroup::class, 're_group_id');
     }
 }

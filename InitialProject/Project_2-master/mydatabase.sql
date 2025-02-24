@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Feb 22, 2025 at 01:19 PM
+-- Generation Time: Feb 24, 2025 at 12:06 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.2.27
 
@@ -3464,8 +3464,8 @@ CREATE TABLE `project_application` (
 --
 
 INSERT INTO `project_application` (`id`, `project_title`, `contact`, `re_group_id`) VALUES
-(1, 'Chicochachi', 'kondee@kkumail.com', 3),
-(2, 'naipaieyeyaknorn', 'sleep@gmail.com', 3);
+(1, 'โปรเจ็คของคนดี', 'kondee@kkumail.com', 3),
+(2, 'โปรเจ็คของดีซี', 'cd@kkumail.com', 5);
 
 -- --------------------------------------------------------
 
@@ -3501,7 +3501,7 @@ CREATE TABLE `related_research` (
   `id` bigint UNSIGNED NOT NULL,
   `re_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `re_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `public_date` datetime NOT NULL,
+  `public_date` date NOT NULL,
   `source_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `re_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `re_group_id` bigint UNSIGNED NOT NULL,

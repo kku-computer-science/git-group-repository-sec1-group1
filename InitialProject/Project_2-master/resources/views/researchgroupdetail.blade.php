@@ -144,30 +144,36 @@
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
         <div class="row g-0">
             <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ชื่อโปรเจ็ค</th>
-                            <th>ตำแหน่ง</th>
-                            <th>จำนวนที่รับ</th>
-                            <th>เงินเดือน</th>
-                            <th>สิ้นสุดวันรับสมัคร</th>
-                            <th>รายละเอียด</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>โปรเจ็คของคนดี</td>
-                            <td>ผู้ช่วย</td>
-                            <td>3 คน</td>
-                            <td>35,000 บาท</td>
-                            <td>10/04/2025</td>
-                            <td>
-                            <a href="{{ route('researchgroupdetail', ['id' => $rg->id]) }}" class="btn btn-outline-info ">{{ trans('message.details') }}</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                @if($projectApplications->isEmpty())
+                    <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
+                @else
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ชื่อโปรเจ็ค</th>
+                                <th>ตำแหน่ง</th>
+                                <th>จำนวนที่รับ</th>
+                                <th>เงินเดือน</th>
+                                <th>สิ้นสุดวันรับสมัคร</th>
+                                <th>รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($projectApplications as $app)
+                            <tr>
+                                <td>{{$app->project_title }}</td>
+                                <td>ผู้ช่วย</td>
+                                <td>3 คน</td>
+                                <td>35,000 บาท</td>
+                                <td>10/04/2025</td>
+                                <td>
+                                    <a href="{{ route('researchgroupdetail', ['id' => $researchGroup->id]) }}" class="btn btn-outline-info ">{{ trans('message.details') }}</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>
