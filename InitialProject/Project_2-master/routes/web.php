@@ -38,7 +38,10 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
 use App\Http\Controllers\applicationdetailController;
+use App\Http\Controllers\projectapplicationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,7 +93,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
 //applicationdetail page
-Route::get('/applicationdetail', [applicationdetailController::class, 'index'])->name('applicationdetail');
+Route::get('/applicationdetail', [App\Http\Controllers\applicationdetailController::class, 'index'])->name('applicationdetail');
+Route::get('/projectapplication', [App\Http\Controllers\projectapplicationController::class, 'index'])->name('projectapplication');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
