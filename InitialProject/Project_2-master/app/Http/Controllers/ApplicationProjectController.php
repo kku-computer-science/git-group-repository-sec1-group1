@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\ResearchGroup;
 use Illuminate\Http\Request;
 use App\Models\ProjectApplication;
+use App\Models\Application;
 
 class ApplicationProjectController extends Controller
 {
@@ -91,15 +92,17 @@ public function update(Request $request, $id)
 
 public function destroy($id)
 {
-    $project = ProjectApplication::find($id);
+    $projectApplication = ProjectApplication::findOrFail($id);
 
-    if (!$project) {
-        abort(404, 'Project not found');
-    }
+    // Delete related application records first
+    Application::where('project_app_id', $projectApplication->id)->delete();
 
-    $project->delete();
+    // Now delete the project application
+    $projectApplication->delete();
 
-    return redirect()->route('application_project.index', $project->re_group_id)->with('success', 'Project deleted successfully.');
+    return redirect()->route('application_project.index', $projectApplication->re_group_id)
+        ->with('success', 'Project deleted successfully');
 }
+
     
 }

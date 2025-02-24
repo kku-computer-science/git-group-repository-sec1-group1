@@ -173,6 +173,11 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/application/create/{project_id}', [ApplicationController::class, 'create'])->name('application.create');
     Route::post('/application/store/{project_id}', [ApplicationController::class, 'store'])->name('application.store');
     Route::delete('/application/destroy/{id}', [ApplicationController::class, 'destroy'])->name('application.destroy');
+    Route::get('/application/{id}/edit', [ApplicationController::class, 'edit'])->name('application.edit');
+    Route::get('/application/{id}/show', [ApplicationController::class, 'show'])->name('application.show');
+    Route::put('/application/update/{id}', [ApplicationController::class, 'update'])->name('application.update');
+    
+
 
 });
 
