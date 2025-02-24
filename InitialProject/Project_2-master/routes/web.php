@@ -10,6 +10,8 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileuserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RelatedResearchController;
+
 
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +40,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -159,6 +162,10 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
 
 });
+Route::post('/researchGroup/{id}', [RelatedResearchController::class, 'store'])->name('relatedResearch.store');
+Route::get('/researchGroup/{id}', [RelatedResearchController::class, 'index'])->name('relatedResearch.index');
+Route::delete('/researchGroup/{id}/relatedResearch/{relatedResearchId}', [RelatedResearchController::class, 'destroy'])->name('relatedResearch.destroy');
+
 
 
 

@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="card col-md-10" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title">รายละเอียดกลุ่มวิจัย</h4>
@@ -57,11 +67,143 @@
                     @endforeach</p>
             </div>
             
+            <!-- หน้าเพิ่มงานวิจัยที่เกี่ยวข้อง -->
+            <form action="{{ route('relatedResearch.store', ['id' => $researchGroup->id]) }}" method="POST" onsubmit="return validateForm()">
+                @csrf
+                @if(Auth::user()->can('update',$researchGroup))
+                <div class="form-group row">
+                    <p class="col-sm-3 pt-4"><b>เพิ่มงานวิจัยที่เกี่ยวข้อง</b></p>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label><b>ชื่องานวิจัย</b></label>
+                            <input name="re_title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label><b>คำอธิบาย</b></label>
+                            <textarea name="re_desc" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label><b>วันที่ตีพิมพ์</b></label>
+                            <input type="date" name="public_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label><b>URL</b></label>
+                            <input type="text" name="source_url" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร</b></label>
+                            <div class="col-sm-9">
+                                <select class="custom-select my-select"  name="re_type">
+                                    <option value="Journal">Journal</option>
+                                    <option value="Conference Proceeding">Conference Proceeding</option>
+                                    <option value="Book Series">Book Series</option>
+                                    <option value="Book">Book</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                        <p class="col-sm-3 pt-4"><b>สมาชิกกลุ่มวิจัย</b></p>
+                            <div class="col-sm-10">
+                                <table class="table" id="dynamicAddRemove">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อสมาชิก</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userTableBody">
+                                        <tr>
+                                        <td>
+                                        <select class="form-control user-select" name="user_ids[]" multiple="multiple">
+                                            @foreach($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                            @endforeach
+                                        </select>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="and_author" value="1">
+                                        และคณะ
+                                    </label>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <input type="hidden" name="re_group_id" value="{{ $researchGroup->id }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">บันทึก</button>
+                    </div>
+                </div>
+                @endif
+            </form>
+            
+           <!-- แสดงผลงานวิจัยที่เกี่ยวข้อง -->
+            <div class="form-group row">
+                <p class="col-sm-3 pt-4"><b>งานวิจัยที่เกี่ยวข้อง</b></p>
+                <div class="col-sm-8">
+                    <ul style="list-style: none; padding: 0;">
+                        @foreach ($relatedResearch->sortByDesc('public_date') as $research)
+                        <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px 0;">
+                            <div>
+                                [<strong>{{ $research->re_type }}</strong>]
+                                <strong>{{ $research->re_title }}</strong><br>
+                                <span style="margin-left: 20px;">
+                                    @php
+                                        $userNames = $research->users->map(fn($user) => $user->fname_en . ' ' . $user->lname_en)->join(', ');
+                                    @endphp
+                                    {{ $userNames ?: 'ไม่ระบุ' }}
+                                    @if ($research->and_author == 1)
+                                        <span> และคณะ</span>
+                                    @endif
+                                </span><br>
+                                <span style="margin-left: 20px;">{{ $research->re_desc }}</span><br>
+                                <span style="margin-left: 20px;">
+                                    {{ $research->public_date }} | 
+                                    <a href="{{ $research->source_url }}" target="_blank">[url]</a>
+                                </span>
+                            </div>
+                            @if(Auth::user()->can('update',$researchGroup))
+                            <!-- ปุ่มลบ -->
+                            <form action="{{ route('relatedResearch.destroy', ['id' => $researchGroup->id, 'relatedResearchId' => $research->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">ลบ</button>
+                            </form>
+                            @endif
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+
+
+
             <a class="btn btn-primary mt-5" href="{{ route('researchGroups.index') }}"> Back</a>
         </div>
     </div>
+
+    <style>
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+}
+    </style>
     
 @stop
+
+
+
+
 @section('javascript')
 <script>
 $(document).ready(function() {
@@ -81,6 +223,90 @@ $(document).ready(function() {
         $('#crud-modal').modal('show');
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let addButton = document.getElementById("add-btn2");
+    let userTableBody = document.getElementById("userTableBody");
+
+    // ฟังก์ชันตรวจสอบค่าที่ซ้ำกัน
+    function checkDuplicateSelections() {
+        let selects = userTableBody.querySelectorAll('select[name="user_ids[]"]');
+        let selectedValues = new Set();
+
+        selects.forEach(select => {
+            Array.from(select.selectedOptions).forEach(option => {
+                if (selectedValues.has(option.value)) {
+                    alert("ไม่สามารถเลือกสมาชิกซ้ำกันได้");
+                    option.selected = false; // ยกเลิกการเลือก
+                } else {
+                    selectedValues.add(option.value);
+                }
+            });
+        });
+    }
+
+    // เพิ่ม Event Listener ให้กับ select ทุกตัว
+    function addSelectChangeListener(select) {
+        select.addEventListener("change", function () {
+            checkDuplicateSelections();
+        });
+    }
+
+    // เพิ่มแถวใหม่
+    addButton.addEventListener("click", function () {
+        let newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>
+                <select class="form-control user-select" name="user_ids[]" multiple="multiple">
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                    @endforeach
+                </select>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger remove-btn">ลบ</button>
+            </td>
+        `;
+
+        userTableBody.appendChild(newRow);
+
+        // เรียกใช้ Select2 สำหรับ select ใหม่
+        $(newRow.querySelector('.user-select')).select2({
+            placeholder: "เลือกสมาชิก",
+            allowClear: true
+        });
+
+        // เพิ่ม Event Listener ให้กับ select ใหม่
+        let newSelect = newRow.querySelector('select[name="user_ids[]"]');
+        addSelectChangeListener(newSelect);
+
+        // เพิ่ม Event ให้ปุ่มลบ
+        newRow.querySelector(".remove-btn").addEventListener("click", function () {
+            userTableBody.removeChild(newRow);
+            checkDuplicateSelections(); // ตรวจสอบค่าที่ซ้ำกันอีกครั้งหลังจากลบแถว
+        });
+    });
+
+    // เพิ่ม Event Listener ให้กับ select ที่มีอยู่แล้ว
+    let existingSelects = userTableBody.querySelectorAll('select[name="user_ids[]"]');
+    existingSelects.forEach(select => {
+        $(select).select2({
+            placeholder: "เลือกสมาชิก",
+            allowClear: true
+        });
+        addSelectChangeListener(select);
+    });
+});
+
+$(document).ready(function() {
+        $('.user-select').select2({
+            placeholder: "เลือกผู้ใช้",
+            // allowClear: true
+        });
+    });
+
+
 </script>
 
 @stop

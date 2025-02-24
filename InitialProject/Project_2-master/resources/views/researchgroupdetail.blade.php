@@ -88,6 +88,39 @@
                         {{ Str::limit($rg->{'group_desc_' . $locale}, 350) }}
                     </h3>
                 </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">งานวิจัยที่เกี่ยวข้อง</h5>
+                        <ul>
+                        <h3 class="card-text">
+                        @foreach ($relatedResearch->sortByDesc('public_date') as $research)
+    <li>
+        <strong>[{{ $research->re_type }}]</strong>
+        <strong>{{ $research->re_title }}</strong><br>
+        <span style="margin-left: 20px;">
+            @php
+                $userNames = $research->users->map(fn($user) => $user->fname_en . ' ' . $user->lname_en)->join(', ');
+            @endphp
+            {{ $userNames ?: 'ไม่ระบุ' }}
+            @if ($research->and_author == 1)
+                <span> และคณะ</span>
+            @endif
+        </span><br>
+
+        <span style="margin-left: 20px;">{{ $research->re_desc }}</span><br>
+        <span style="margin-left: 20px;">
+            <em>{{ $research->public_date }}</em> | 
+            <a href="{{ $research->source_url }}" target="_blank">[url]</a>
+        </span>
+    </li>
+@endforeach
+
+                        </h3>
+                        <div class="pagination">
+                            {{ $relatedResearch->links() }}
+                        </div>
+                        </ul>
+                    </div>
             </div>
         </div>
         @endforeach

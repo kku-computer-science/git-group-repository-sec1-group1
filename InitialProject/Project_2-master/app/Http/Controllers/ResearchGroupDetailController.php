@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Paper;
+use App\Models\User;
 use App\Models\ResearchGroup;
+use App\Models\RelatedResearch;
 use Illuminate\Http\Request;
 
 class ResearchGroupDetailController extends Controller
@@ -29,8 +31,10 @@ class ResearchGroupDetailController extends Controller
         // })->get();
         // $author = collect($author);
         //return  $author;
-
-        return view('researchgroupdetail', compact('resgd'));
+        $relatedResearch = RelatedResearch::with('User')
+            ->where('re_group_id', $id)
+            ->paginate(3);
+        return view('researchgroupdetail', compact('resgd', 'relatedResearch'));
         //return $resgd;
 
     }
