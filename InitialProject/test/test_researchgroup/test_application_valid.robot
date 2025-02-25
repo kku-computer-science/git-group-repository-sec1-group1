@@ -211,7 +211,7 @@ Project Closed
     Sleep    2s
 
 Go To Project Detail
-    Click Element    xpath=//h5[contains(text(),'Project')]/ancestor::a
+    Click Element    xpath=//h5[contains(text(),'Create Application for AI & Machine Learning Innovations')]/ancestor::a
 
 Update Project 
     #Click Edit Button
