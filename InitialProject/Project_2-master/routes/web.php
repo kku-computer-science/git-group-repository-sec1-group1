@@ -179,7 +179,7 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/application/{id}/show', [ApplicationController::class, 'show'])->name('application.show');
     Route::put('/application/update/{id}', [ApplicationController::class, 'update'])->name('application.update');
 
-    Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
+
 
 
     
@@ -189,6 +189,7 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
 Route::post('/researchGroup/{id}', [RelatedResearchController::class, 'store'])->name('relatedResearch.store');
 Route::get('/researchGroup/{id}', [RelatedResearchController::class, 'index'])->name('relatedResearch.index');
 Route::delete('/researchGroup/{id}/relatedResearch/{relatedResearchId}', [RelatedResearchController::class, 'destroy'])->name('relatedResearch.destroy');
+Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
 
 
 
