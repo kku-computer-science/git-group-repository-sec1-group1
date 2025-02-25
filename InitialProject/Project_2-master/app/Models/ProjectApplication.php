@@ -14,6 +14,7 @@ class ProjectApplication extends Model
         'project_title',
         'contact',
         're_group_id',
+        'status'
     ];
 
     public function researchGroup()

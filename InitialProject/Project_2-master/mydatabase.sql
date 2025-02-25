@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Feb 24, 2025 at 12:06 PM
+-- Generation Time: Feb 24, 2025 at 08:31 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.2.27
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `academicworks`
 --
 
+DROP TABLE IF EXISTS `academicworks`;
 CREATE TABLE `academicworks` (
   `id` bigint UNSIGNED NOT NULL,
   `ac_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -110,6 +111,7 @@ INSERT INTO `academicworks` (`id`, `ac_name`, `ac_type`, `ac_sourcetitle`, `ac_y
 -- Table structure for table `application_detail`
 --
 
+DROP TABLE IF EXISTS `application_detail`;
 CREATE TABLE `application_detail` (
   `id` bigint UNSIGNED NOT NULL,
   `app_deadline` datetime NOT NULL,
@@ -126,6 +128,7 @@ CREATE TABLE `application_detail` (
 -- Table structure for table `authors`
 --
 
+DROP TABLE IF EXISTS `authors`;
 CREATE TABLE `authors` (
   `id` bigint UNSIGNED NOT NULL,
   `author_fname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -851,6 +854,7 @@ INSERT INTO `authors` (`id`, `author_fname`, `author_lname`, `created_at`, `upda
 -- Table structure for table `author_of_academicworks`
 --
 
+DROP TABLE IF EXISTS `author_of_academicworks`;
 CREATE TABLE `author_of_academicworks` (
   `id` bigint UNSIGNED NOT NULL,
   `author_type` int DEFAULT NULL,
@@ -935,6 +939,7 @@ INSERT INTO `author_of_academicworks` (`id`, `author_type`, `author_id`, `academ
 -- Table structure for table `author_of_papers`
 --
 
+DROP TABLE IF EXISTS `author_of_papers`;
 CREATE TABLE `author_of_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `author_id` bigint UNSIGNED NOT NULL,
@@ -2062,6 +2067,7 @@ INSERT INTO `author_of_papers` (`id`, `author_id`, `paper_id`, `author_type`) VA
 -- Table structure for table `degrees`
 --
 
+DROP TABLE IF EXISTS `degrees`;
 CREATE TABLE `degrees` (
   `id` bigint UNSIGNED NOT NULL,
   `degree_name_th` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2087,6 +2093,7 @@ INSERT INTO `degrees` (`id`, `degree_name_th`, `degree_name_en`, `title_th`, `ti
 -- Table structure for table `departments`
 --
 
+DROP TABLE IF EXISTS `departments`;
 CREATE TABLE `departments` (
   `id` bigint UNSIGNED NOT NULL,
   `department_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2108,6 +2115,7 @@ INSERT INTO `departments` (`id`, `department_name_th`, `department_name_en`, `cr
 -- Table structure for table `education`
 --
 
+DROP TABLE IF EXISTS `education`;
 CREATE TABLE `education` (
   `id` bigint UNSIGNED NOT NULL,
   `uname` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2215,6 +2223,7 @@ INSERT INTO `education` (`id`, `uname`, `qua_name`, `level`, `user_id`, `year`, 
 -- Table structure for table `expertises`
 --
 
+DROP TABLE IF EXISTS `expertises`;
 CREATE TABLE `expertises` (
   `id` bigint UNSIGNED NOT NULL,
   `expert_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2361,6 +2370,7 @@ INSERT INTO `expertises` (`id`, `expert_name`, `user_id`, `created_at`, `updated
 -- Table structure for table `failed_jobs`
 --
 
+DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
   `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2377,6 +2387,7 @@ CREATE TABLE `failed_jobs` (
 -- Table structure for table `files`
 --
 
+DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2391,6 +2402,7 @@ CREATE TABLE `files` (
 -- Table structure for table `funds`
 --
 
+DROP TABLE IF EXISTS `funds`;
 CREATE TABLE `funds` (
   `id` bigint UNSIGNED NOT NULL,
   `fund_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2445,6 +2457,7 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_level
 -- Table structure for table `migrations`
 --
 
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2494,6 +2507,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `model_has_permissions`
 --
 
+DROP TABLE IF EXISTS `model_has_permissions`;
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2506,6 +2520,7 @@ CREATE TABLE `model_has_permissions` (
 -- Table structure for table `model_has_roles`
 --
 
+DROP TABLE IF EXISTS `model_has_roles`;
 CREATE TABLE `model_has_roles` (
   `role_id` bigint UNSIGNED NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2672,6 +2687,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- Table structure for table `outsiders`
 --
 
+DROP TABLE IF EXISTS `outsiders`;
 CREATE TABLE `outsiders` (
   `id` bigint UNSIGNED NOT NULL,
   `fname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2698,6 +2714,7 @@ INSERT INTO `outsiders` (`id`, `fname`, `lname`, `title_name`, `created_at`, `up
 -- Table structure for table `outsiders_work_of_project`
 --
 
+DROP TABLE IF EXISTS `outsiders_work_of_project`;
 CREATE TABLE `outsiders_work_of_project` (
   `id` bigint UNSIGNED NOT NULL,
   `outsider_id` bigint UNSIGNED NOT NULL,
@@ -2711,6 +2728,7 @@ CREATE TABLE `outsiders_work_of_project` (
 -- Table structure for table `papers`
 --
 
+DROP TABLE IF EXISTS `papers`;
 CREATE TABLE `papers` (
   `id` bigint UNSIGNED NOT NULL,
   `paper_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3338,6 +3356,7 @@ INSERT INTO `papers` (`id`, `paper_name`, `abstract`, `paper_type`, `paper_subty
 -- Table structure for table `password_resets`
 --
 
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE `password_resets` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3350,6 +3369,7 @@ CREATE TABLE `password_resets` (
 -- Table structure for table `permissions`
 --
 
+DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE `permissions` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3418,6 +3438,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 -- Table structure for table `programs`
 --
 
+DROP TABLE IF EXISTS `programs`;
 CREATE TABLE `programs` (
   `id` bigint UNSIGNED NOT NULL,
   `program_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3452,20 +3473,22 @@ INSERT INTO `programs` (`id`, `program_name_th`, `program_name_en`, `program_nam
 -- Table structure for table `project_application`
 --
 
+DROP TABLE IF EXISTS `project_application`;
 CREATE TABLE `project_application` (
   `id` bigint UNSIGNED NOT NULL,
   `project_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `contact` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `re_group_id` bigint UNSIGNED NOT NULL
+  `re_group_id` bigint UNSIGNED NOT NULL,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `project_application`
 --
 
-INSERT INTO `project_application` (`id`, `project_title`, `contact`, `re_group_id`) VALUES
-(1, 'โปรเจ็คของคนดี', 'kondee@kkumail.com', 3),
-(2, 'โปรเจ็คของดีซี', 'cd@kkumail.com', 5);
+INSERT INTO `project_application` (`id`, `project_title`, `contact`, `re_group_id`, `status`) VALUES
+(1, 'โปรเจ็คของคนดี', 'kondee@kkumail.com', 3, 'have'),
+(2, 'โปรเจ็คของดีซี', 'cd@kkumail.com', 5, 'have');
 
 -- --------------------------------------------------------
 
@@ -3473,6 +3496,7 @@ INSERT INTO `project_application` (`id`, `project_title`, `contact`, `re_group_i
 -- Table structure for table `project_app_detail`
 --
 
+DROP TABLE IF EXISTS `project_app_detail`;
 CREATE TABLE `project_app_detail` (
   `id` bigint UNSIGNED NOT NULL,
   `project_app_id` bigint UNSIGNED NOT NULL,
@@ -3485,11 +3509,19 @@ CREATE TABLE `project_app_detail` (
 -- Table structure for table `project_app_re_group`
 --
 
+DROP TABLE IF EXISTS `project_app_re_group`;
 CREATE TABLE `project_app_re_group` (
   `id` bigint UNSIGNED NOT NULL,
   `project_app_id` bigint UNSIGNED NOT NULL,
   `re_group_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `project_app_re_group`
+--
+
+INSERT INTO `project_app_re_group` (`id`, `project_app_id`, `re_group_id`) VALUES
+(1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -3497,6 +3529,7 @@ CREATE TABLE `project_app_re_group` (
 -- Table structure for table `related_research`
 --
 
+DROP TABLE IF EXISTS `related_research`;
 CREATE TABLE `related_research` (
   `id` bigint UNSIGNED NOT NULL,
   `re_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3514,6 +3547,7 @@ CREATE TABLE `related_research` (
 -- Table structure for table `related_research_group`
 --
 
+DROP TABLE IF EXISTS `related_research_group`;
 CREATE TABLE `related_research_group` (
   `id` bigint UNSIGNED NOT NULL,
   `related_id` bigint UNSIGNED NOT NULL,
@@ -3526,6 +3560,7 @@ CREATE TABLE `related_research_group` (
 -- Table structure for table `research_groups`
 --
 
+DROP TABLE IF EXISTS `research_groups`;
 CREATE TABLE `research_groups` (
   `id` bigint UNSIGNED NOT NULL,
   `group_name_th` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3563,6 +3598,7 @@ INSERT INTO `research_groups` (`id`, `group_name_th`, `group_name_en`, `group_na
 -- Table structure for table `research_projects`
 --
 
+DROP TABLE IF EXISTS `research_projects`;
 CREATE TABLE `research_projects` (
   `id` bigint UNSIGNED NOT NULL,
   `project_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3615,6 +3651,7 @@ INSERT INTO `research_projects` (`id`, `project_name`, `project_start`, `project
 -- Table structure for table `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3640,6 +3677,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 -- Table structure for table `role_has_permissions`
 --
 
+DROP TABLE IF EXISTS `role_has_permissions`;
 CREATE TABLE `role_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL
@@ -3747,6 +3785,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- Table structure for table `source_data`
 --
 
+DROP TABLE IF EXISTS `source_data`;
 CREATE TABLE `source_data` (
   `id` bigint UNSIGNED NOT NULL,
   `source_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3769,6 +3808,7 @@ INSERT INTO `source_data` (`id`, `source_name`, `created_at`, `updated_at`) VALU
 -- Table structure for table `source_papers`
 --
 
+DROP TABLE IF EXISTS `source_papers`;
 CREATE TABLE `source_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `source_data_id` bigint UNSIGNED NOT NULL,
@@ -4397,6 +4437,7 @@ INSERT INTO `source_papers` (`id`, `source_data_id`, `paper_id`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4575,6 +4616,7 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `fname_en`, `lname_e
 -- Table structure for table `user_of_academicworks`
 --
 
+DROP TABLE IF EXISTS `user_of_academicworks`;
 CREATE TABLE `user_of_academicworks` (
   `user_id` bigint UNSIGNED NOT NULL,
   `author_type` int DEFAULT NULL,
@@ -4653,6 +4695,7 @@ INSERT INTO `user_of_academicworks` (`user_id`, `author_type`, `academicwork_id`
 -- Table structure for table `user_papers`
 --
 
+DROP TABLE IF EXISTS `user_papers`;
 CREATE TABLE `user_papers` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
@@ -5375,6 +5418,7 @@ INSERT INTO `user_papers` (`id`, `user_id`, `paper_id`, `author_type`) VALUES
 -- Table structure for table `work_of_research_groups`
 --
 
+DROP TABLE IF EXISTS `work_of_research_groups`;
 CREATE TABLE `work_of_research_groups` (
   `id` bigint UNSIGNED NOT NULL,
   `role` int NOT NULL,
@@ -5411,6 +5455,7 @@ INSERT INTO `work_of_research_groups` (`id`, `role`, `user_id`, `research_group_
 -- Table structure for table `work_of_research_projects`
 --
 
+DROP TABLE IF EXISTS `work_of_research_projects`;
 CREATE TABLE `work_of_research_projects` (
   `id` bigint UNSIGNED NOT NULL,
   `role` int NOT NULL,
@@ -5841,7 +5886,7 @@ ALTER TABLE `project_app_detail`
 -- AUTO_INCREMENT for table `project_app_re_group`
 --
 ALTER TABLE `project_app_re_group`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `related_research`

@@ -40,8 +40,6 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 use App\Http\Controllers\ProjectApplicationController;
 
-Route::get('researchgroupdetail/{id}', [ProjectApplicationController::class, 'showResearchGroupDetail'])->name('researchgroupdetail');
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

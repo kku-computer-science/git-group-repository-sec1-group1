@@ -42,7 +42,7 @@
 
     table th:nth-child(2), table td:nth-child(2),
     table th:nth-child(3), table td:nth-child(3),
-    table th:nth-child(4), table td:nth-child(4), {
+    table th:nth-child(4), table td:nth-child(4) {
         width: 15%;
     }
 
@@ -145,6 +145,7 @@
     </div>
 </div>
 
+<?php $__currentLoopData = $projectApplications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
@@ -172,9 +173,7 @@
                                 <td>3 คน</td>
                                 <td>35,000 บาท</td>
                                 <td>10/04/2025</td>
-                                <td>
-                                    <a href="<?php echo e(route('researchgroupdetail', ['id' => $researchGroup->id])); ?>" class="btn btn-outline-info "><?php echo e(trans('message.details')); ?></a>
-                                </td>
+
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
@@ -184,6 +183,7 @@
         </div>
     </div>
 </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/researchgroupdetail.blade.php ENDPATH**/ ?>

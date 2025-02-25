@@ -1,14 +1,14 @@
    
+
 <?php $__env->startSection('content'); ?>
 <div class="container card-3">
     <p>Research Group</p>
     <div class="row g-4">
         <?php $__currentLoopData = $resg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-md-6">
-            <?php if($rg->projectApplications->isNotEmpty()): ?>
-                <label class="badge p-2" style="background-color: #17a2b8; color: white; font-weight: bold; margin-bottom: 0;">เปิดรับสมัคร</label>
-            <?php endif; ?>
-            
+        <?php if($rg->projectApplications->isNotEmpty() && $rg->projectApplications->contains('status', 'have')): ?>
+            <label class="badge p-2" style="background-color: #17a2b8; color: white; font-weight: bold; margin-bottom: 0;">เปิดรับสมัคร</label>
+        <?php endif; ?>
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">
@@ -64,4 +64,5 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/research_g.blade.php ENDPATH**/ ?>

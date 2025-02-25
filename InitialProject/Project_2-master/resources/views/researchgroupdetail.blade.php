@@ -42,7 +42,7 @@
 
     table th:nth-child(2), table td:nth-child(2),
     table th:nth-child(3), table td:nth-child(3),
-    table th:nth-child(4), table td:nth-child(4), {
+    table th:nth-child(4), table td:nth-child(4) {
         width: 15%;
     }
 
@@ -139,6 +139,7 @@
     </div>
 </div>
 
+@foreach ($projectApplications as $app)
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
@@ -166,9 +167,7 @@
                                 <td>3 คน</td>
                                 <td>35,000 บาท</td>
                                 <td>10/04/2025</td>
-                                <td>
-                                    <a href="{{ route('researchgroupdetail', ['id' => $researchGroup->id]) }}" class="btn btn-outline-info ">{{ trans('message.details') }}</a>
-                                </td>
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -178,4 +177,5 @@
         </div>
     </div>
 </div>
+@endforeach
 @stop

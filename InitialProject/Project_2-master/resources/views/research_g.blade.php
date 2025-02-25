@@ -1,14 +1,14 @@
 @extends('layouts.layout')   
+
 @section('content')
 <div class="container card-3">
     <p>Research Group</p>
     <div class="row g-4">
         @foreach ($resg as $rg)
         <div class="col-md-6">
-            @if($rg->projectApplications->isNotEmpty())
-                <label class="badge p-2" style="background-color: #17a2b8; color: white; font-weight: bold; margin-bottom: 0;">เปิดรับสมัคร</label>
-            @endif
-            
+        @if($rg->projectApplications->isNotEmpty() && $rg->projectApplications->contains('status', 'have'))
+            <label class="badge p-2" style="background-color: #17a2b8; color: white; font-weight: bold; margin-bottom: 0;">เปิดรับสมัคร</label>
+        @endif
             <div class="card mb-4 d-flex flex-column h-100 shadow-sm">
                 <div class="row g-0 flex-grow-1">
                     <div class="col-md-4">
