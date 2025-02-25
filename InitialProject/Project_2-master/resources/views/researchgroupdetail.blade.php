@@ -5,12 +5,65 @@
         font-size: 20px;
     }
 
-    .card-text-1 {
+    .card-text-2 {
+        font-size: 16px;
+    }
+
+    .no-job-openings {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        padding: 0;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
         font-weight: bold;
     }
 
-    .card-text-2 {
-        font-size: 16px;
+    td {
+        font-size: 14px;
+    }
+
+    table th:nth-child(1),
+    table td:nth-child(1) {
+        width: 30%;
+    }
+
+    table th:nth-child(2),
+    table td:nth-child(2),
+    table th:nth-child(3),
+    table td:nth-child(3),
+    table th:nth-child(4),
+    table td:nth-child(4) {
+        width: 15%;
+    }
+
+    table th:nth-child(5),
+    table td:nth-child(5),
+    table th:nth-child(6),
+    table td:nth-child(6) {
+        width: 20%;
+    }
+
+    .card-body {
+        padding-top: 0px;
+    }
+
+    .table {
+        margin-top: 0px;
     }
 </style>
 
@@ -55,7 +108,6 @@
                         @endif
                         @endif
                         @endforeach
-
                     </h2>
                     @if(collect($rg->user)->contains(fn($user) => $user->hasRole('student')))
                     <h1 class="card-text-1">Student</h1>
@@ -91,39 +143,78 @@
 
                 <div class="card-body">
                     <h5 class="card-title">งานวิจัยที่เกี่ยวข้อง</h5>
-                        <ul>
+                    <ul>
                         <h3 class="card-text">
-                        @foreach ($relatedResearch->sortByDesc('public_date') as $research)
-    <li>
-        <strong>[{{ $research->re_type }}]</strong>
-        <strong>{{ $research->re_title }}</strong><br>
-        <span style="margin-left: 20px;">
-            @php
-                $userNames = $research->users->map(fn($user) => $user->fname_en . ' ' . $user->lname_en)->join(', ');
-            @endphp
-            {{ $userNames ?: 'ไม่ระบุ' }}
-            @if ($research->and_author == 1)
-                <span> และคณะ</span>
-            @endif
-        </span><br>
+                            @foreach ($relatedResearch->sortByDesc('public_date') as $research)
+                            <li>
+                                <strong>[{{ $research->re_type }}]</strong>
+                                <strong>{{ $research->re_title }}</strong><br>
+                                <span style="margin-left: 20px;">
+                                    @php
+                                    $userNames = $research->users->map(fn($user) => $user->fname_en . ' ' . $user->lname_en)->join(', ');
+                                    @endphp
+                                    {{ $userNames ?: 'ไม่ระบุ' }}
+                                    @if ($research->and_author == 1)
+                                    <span> และคณะ</span>
+                                    @endif
+                                </span><br>
 
-        <span style="margin-left: 20px;">{{ $research->re_desc }}</span><br>
-        <span style="margin-left: 20px;">
-            <em>{{ $research->public_date }}</em> | 
-            <a href="{{ $research->source_url }}" target="_blank">[url]</a>
-        </span>
-    </li>
-@endforeach
+                                <span style="margin-left: 20px;">{{ $research->re_desc }}</span><br>
+                                <span style="margin-left: 20px;">
+                                    <em>{{ $research->public_date }}</em> |
+                                    <a href="{{ $research->source_url }}" target="_blank">[url]</a>
+                                </span>
+                            </li>
+                            @endforeach
 
                         </h3>
                         <div class="pagination">
                             {{ $relatedResearch->links() }}
                         </div>
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>
+
+@foreach ($projectApplications as $app)
+<div class="container card-4 mt-5">
+    <div class="card">
+        <h4 class="card-text-1">เปิดรับสมัคร</h4>
+        <div class="row g-0">
+            <div class="card-body">
+                @if($projectApplications->isEmpty())
+                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
+                @else
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ชื่อโปรเจ็ค</th>
+                            <th>ตำแหน่ง</th>
+                            <th>จำนวนที่รับ</th>
+                            <th>เงินเดือน</th>
+                            <th>สิ้นสุดวันรับสมัคร</th>
+                            <th>รายละเอียด</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($projectApplications as $app)
+                        <tr>
+                            <td>{{ $app->project_title }}</td>
+                            <td>{{ $app->applicationDetail->role}}</td>
+                            <td>{{ $app->applicationDetail->amount}}</td>
+                            <td>{{ $app->applicationDetail->salary_range}}</td>
+                            <td>{{ $app->applicationDetail->end_date}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @stop

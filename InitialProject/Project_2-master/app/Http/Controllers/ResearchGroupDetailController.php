@@ -7,35 +7,25 @@ use App\Models\Paper;
 use App\Models\User;
 use App\Models\ResearchGroup;
 use App\Models\RelatedResearch;
+use App\Models\ProjectApplication;
 use Illuminate\Http\Request;
 
 class ResearchGroupDetailController extends Controller
 {
     public function request($id)
     {
-        $resgd = ResearchGroup::with(['User.paper' => function ($query) {
-            return $query->orderBy('paper_yearpub','DESC');
-        }])->where('id','=',$id)->get();
+        $resgd = ResearchGroup::with(['user.paper' => function ($query) {
+            return $query->orderBy('paper_yearpub', 'DESC');
+        }])->where('id', $id)->get();
 
-        //return $resgd;
-        // $std = ResearchGroup::hasRole('student')::with(['User.paper' => function ($query) {
-        //     return $query->orderBy('paper_yearpub','DESC');
-        // }])->where('id','=',$id)->get();
-        // $ref = $resgd[0]->user[1]->fname_en;
-        // $rel = $resgd[0]->user[1]->lname_en;
-        // $author = Author::where([['author_fname', '=', $ref], ['author_lname', '=', $rel]])->get();
-        //return  $author;
+        // ใช้ eager loading เพื่อดึงข้อมูลจาก ProjectApplication พร้อมกับ ApplicationDetail
+        $projectApplications = ProjectApplication::with('applicationDetail') // eager load กับ applicationDetail
+            ->where('re_group_id', $id)
+            ->get();
 
-        // $author = Paper::whereHas('author', function($q){
-        //     $q->where('author_fname', '=', 'Pongsathon');
-        // })->get();
-        // $author = collect($author);
-        //return  $author;
         $relatedResearch = RelatedResearch::with('User')
             ->where('re_group_id', $id)
             ->paginate(3);
-        return view('researchgroupdetail', compact('resgd', 'relatedResearch'));
-        //return $resgd;
-
+        return view('researchgroupdetail', compact('resgd', 'relatedResearch', 'projectApplications'));
     }
 }

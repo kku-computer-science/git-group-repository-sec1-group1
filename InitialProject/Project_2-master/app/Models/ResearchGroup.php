@@ -32,5 +32,16 @@ class ResearchGroup extends Model
 
     public function users() {
         return $this->belongsToMany(User::class)->withPivot('role');
+
+    }
+    
+    public function projectApplications()
+    {
+        return $this->hasMany(ProjectApplication::class, 're_group_id');
+    }
+
+    public function applicationDetail()
+    {
+    return $this->hasOne(ApplicationDetail::class, 'application_id');
     }
 }
