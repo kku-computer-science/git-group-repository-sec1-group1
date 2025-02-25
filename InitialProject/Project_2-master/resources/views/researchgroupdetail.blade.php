@@ -20,9 +20,10 @@
         padding: 0;
     }
 
-    th, td {
-        padding: 12px; 
-        text-align: center; 
+    th,
+    td {
+        padding: 12px;
+        text-align: center;
         vertical-align: middle;
         border: 1px solid #ddd;
     }
@@ -36,18 +37,24 @@
         font-size: 14px;
     }
 
-    table th:nth-child(1), table td:nth-child(1) {
+    table th:nth-child(1),
+    table td:nth-child(1) {
         width: 30%;
     }
 
-    table th:nth-child(2), table td:nth-child(2),
-    table th:nth-child(3), table td:nth-child(3),
-    table th:nth-child(4), table td:nth-child(4), {
+    table th:nth-child(2),
+    table td:nth-child(2),
+    table th:nth-child(3),
+    table td:nth-child(3),
+    table th:nth-child(4),
+    table td:nth-child(4) {
         width: 15%;
     }
 
-    table th:nth-child(5), table td:nth-child(5),
-    table th:nth-child(6), table td:nth-child(6) {
+    table th:nth-child(5),
+    table td:nth-child(5),
+    table th:nth-child(6),
+    table td:nth-child(6) {
         width: 20%;
     }
 
@@ -133,12 +140,46 @@
                         {{ Str::limit($rg->{'group_desc_' . $locale}, 350) }}
                     </h3>
                 </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">งานวิจัยที่เกี่ยวข้อง</h5>
+                    <ul>
+                        <h3 class="card-text">
+                            @foreach ($relatedResearch->sortByDesc('public_date') as $research)
+                            <li>
+                                <strong>[{{ $research->re_type }}]</strong>
+                                <strong>{{ $research->re_title }}</strong><br>
+                                <span style="margin-left: 20px;">
+                                    @php
+                                    $userNames = $research->users->map(fn($user) => $user->fname_en . ' ' . $user->lname_en)->join(', ');
+                                    @endphp
+                                    {{ $userNames ?: 'ไม่ระบุ' }}
+                                    @if ($research->and_author == 1)
+                                    <span> และคณะ</span>
+                                    @endif
+                                </span><br>
+
+                                <span style="margin-left: 20px;">{{ $research->re_desc }}</span><br>
+                                <span style="margin-left: 20px;">
+                                    <em>{{ $research->public_date }}</em> |
+                                    <a href="{{ $research->source_url }}" target="_blank">[url]</a>
+                                </span>
+                            </li>
+                            @endforeach
+
+                        </h3>
+                        <div class="pagination">
+                            {{ $relatedResearch->links() }}
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>
 
+@if($projectApplications->isNotEmpty())
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
@@ -156,20 +197,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($projectApplications as $app)
+                        @foreach($app->applications as $application)
                         <tr>
-                            <td>โปรเจ็คของคนดี</td>
-                            <td>ผู้ช่วย</td>
-                            <td>3 คน</td>
-                            <td>35,000 บาท</td>
-                            <td>10/01/2025</td>
-                            <td>
-                            <a href="{{ route('researchgroupdetail', ['id' => $rg->id]) }}" class="btn btn-outline-info ">{{ trans('message.details') }}</a>
-                            </td>
+                            <td>{{ $app->project_title }}</td>
+                            <td>{{ $application->role }}</td>
+                            <td>{{ $application->amount }}</td>
+                            <td>{{ $application->salary_range }}</td>
+                            <td>{{ $application->end_date }}</td>
+                            <td><a href="{{ route('applicationdetail', $application->id) }}">รายละเอียด</a></td>
                         </tr>
+                        @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+@else
+<div class="container card-4 mt-5">
+    <div class="card">
+        <h4 class="card-text-1">เปิดรับสมัคร</h4>
+        <div class="row g-0">
+            <div class="card-body">
+                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 @stop

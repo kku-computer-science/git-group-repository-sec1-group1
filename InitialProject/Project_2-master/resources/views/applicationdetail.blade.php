@@ -1,179 +1,188 @@
+
 @extends('layouts.layout')
 
-<style>
-    .recruitment-container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: 'Prompt', sans-serif;
-    }
-    
-    .page-title {
-        color: #3c4858;
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 28px;
-        font-weight: 600;
-        position: relative;
-        padding-bottom: 15px;
-    }
-    
-    .page-title:after {
-        content: '';
-        position: absolute;
-        width: 100px;
-        height: 3px;
-        background: #007bff;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .project-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-left: 5px solid #007bff;
-    }
-    
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    .project-title {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 15px;
-        font-weight: 600;
-    }
-    
-    .project-contact {
-        background: #f8f9fa;
-        padding: 12px 15px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .project-contact i {
-        margin-right: 10px;
-        color: #007bff;
-    }
-    
-    .position-card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        margin-bottom: 20px;
-        padding: 20px;
-        border-top: 3px solid #28a745;
-    }
-    
-    .position-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .position-role {
-        font-size: 20px;
-        font-weight: 600;
-        color: #343a40;
-    }
-    
-    .position-amount {
-        background: #28a745;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 14px;
-        font-weight: 500;
-    }
-    
-    .position-section {
-        margin-bottom: 15px;
-    }
-    
-    .section-title {
-        font-weight: 600;
-        color: #495057;
-        margin-bottom: 8px;
-        font-size: 16px;
-    }
-    
-    .section-content {
-        color: #6c757d;
-        line-height: 1.6;
-    }
-    
-    .deadline {
-        background: #fff3cd;
-        color: #856404;
-        padding: 12px 15px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-        margin-top: 20px;
-    }
-    
-    .deadline i {
-        margin-right: 10px;
-    }
-</style>
-
 @section('content')
-<div class="recruitment-container">
-    <h2 class="page-title">ข้อมูลการรับสมัคร</h2>
-    
-    @foreach($proj_app as $app2)
-    <div class="project-card">
-        <h3 class="project-title">{{ $app2->project_title }}</h3>
-        
-        <div class="project-contact">
-            <i class="fas fa-envelope"></i>
-            <span>ช่องทางการสมัคร: {{ $app2->contact }}</span>
+<div class="container py-5">
+    <div class="card border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
+        <div class="card-header bg-primary text-white p-4">
+            <h3 class="mb-0">{{ $application->role }} Application Details</h3>
         </div>
-        
-        @foreach($app_detail as $app)
-        @if($app->project_app_id == $app2->id)
-        <div class="position-card">
-            <div class="position-header">
-                <div class="position-role">{{ $app->role }}</div>
-                <div class="position-amount">รับ {{ $app->amount }} ตำแหน่ง</div>
+        <div class="card-body p-4">
+            <!-- Project Information -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">Project Information</h4>
+                <p><strong>Project Title:</strong> {{ $application->project->project_title }}</p>
+                <p><strong>Description:</strong></p>
+                @php
+                    $projectDetails = $application->project->project_details ?? 'No description available';
+                    if (strpos($projectDetails, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $projectDetails)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($projectDetails)) . '</p>';
+                    }
+                @endphp
+                <p><strong>Contact:</strong> {{ $application->project->contact }}</p>
             </div>
-            
-            <div class="position-section">
-                <div class="section-title">รายละเอียด:</div>
-                <div class="section-content">{{ $app->app_detail }}</div>
+
+            <!-- General Information -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">General Information</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Role:</strong> {{ $application->role }}</p>
+                        <p><strong>Deadline:</strong> {{ \Carbon\Carbon::parse($application->app_deadline)->format('F d, Y') }}</p>
+                        <p><strong>Vacancies:</strong> {{ $application->amount }}</p>
+                        <p><strong>Salary Range:</strong> {{ $application->salary_range }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Working Time:</strong> {{ $application->working_time }}</p>
+                        <p><strong>Location:</strong> {{ $application->work_location }}</p>
+                        <p><strong>Start Date:</strong> {{ \Carbon\Carbon::parse($application->start_date)->format('F d, Y') }}</p>
+                        <p><strong>End Date:</strong> {{ $application->end_date ? \Carbon\Carbon::parse($application->end_date)->format('F d, Y') : 'N/A' }}</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="position-section">
-                <div class="section-title">เงื่อนไขการสมัคร:</div>
-                <div class="section-content">{{ $app->app_condition }}</div>
+
+            <!-- Qualifications -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">Qualifications</h4>
+                <p><strong>Required:</strong></p>
+                @php
+                    $qualifications = $application->qualifications ?: 'Not specified';
+                    if (strpos($qualifications, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $qualifications)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($qualifications)) . '</p>';
+                    }
+                @endphp
+                <p><strong>Preferred:</strong></p>
+                @php
+                    $preferredQualifications = $application->preferred_qualifications ?: 'Not specified';
+                    if (strpos($preferredQualifications, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $preferredQualifications)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($preferredQualifications)) . '</p>';
+                    }
+                @endphp
             </div>
-            
-            <div class="deadline">
-                <i class="far fa-calendar-alt"></i>
-                <span>เปิดรับสมัครถึง: {{ $app->app_deadline }}</span>
+
+            <!-- Application Process -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">Application Process</h4>
+                @php
+                    $applicationProcess = $application->application_process;
+                    if (strpos($applicationProcess, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $applicationProcess)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($applicationProcess)) . '</p>';
+                    }
+                @endphp
+            </div>
+
+            <!-- Required Documents -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">Required Documents</h4>
+                @php
+                    $requiredDocuments = $application->required_documents;
+                    if (strpos($requiredDocuments, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $requiredDocuments)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($requiredDocuments)) . '</p>';
+                    }
+                @endphp
+            </div>
+
+            <!-- Additional Details -->
+            <div class="section mt-4 p-4 bg-light rounded-3 shadow-sm">
+                <h4 class="text-primary">Additional Details</h4>
+                @php
+                    $appDetail = $application->app_detail;
+                    if (strpos($appDetail, '•') === 0) {
+                        $items = array_filter(array_map('trim', explode('•', $appDetail)));
+                        echo '<ul class="text-muted">';
+                        foreach ($items as $item) {
+                            if (!empty($item)) {
+                                echo '<li>' . e($item) . '</li>';
+                            }
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">' . nl2br(e($appDetail)) . '</p>';
+                    }
+                @endphp
             </div>
         </div>
-        @endif
-        @endforeach
     </div>
-    @endforeach
 </div>
 
-<!-- เพิ่ม Font Awesome สำหรับไอคอน -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<!-- เพิ่ม Font Prompt (ฟอนต์ไทย) จาก Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    .card {
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .section {
+        border: 1px solid #e9ecef;
+    }
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+    h4 {
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .text-primary {
+        color: #007bff !important;
+    }
+    p strong {
+        color: #343a40;
+    }
+    ul {
+        padding-left: 20px;
+        margin-bottom: 0;
+    }
+    ul li {
+        margin-bottom: 5px;
+    }
+</style>
 @endsection

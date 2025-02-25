@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\ResearchGroup;
+use App\Models\RelatedResearch;
 use Illuminate\Http\Request;
 use App\Models\Fund;
 use App\Models\Product;
@@ -36,6 +37,8 @@ class ResearchGroupController extends Controller
     {
         //$researchGroups = ResearchGroup::latest()->paginate(5);
         $researchGroups = ResearchGroup::with('User')->get();
+
+
         return view('research_groups.index', compact('researchGroups'));
     }
 
@@ -109,7 +112,12 @@ class ResearchGroupController extends Controller
         //$data=ResearchGroup::find($researchGroup->id)->get(); 
 
         //return $data;
-        return view('research_groups.show', compact('researchGroup'));
+        // $relatedResearch = $researchGroup->relatedResearch;
+        $relatedResearch = RelatedResearch::with('User') 
+        ->where('re_group_id', $researchGroup->id)
+        ->get();
+        $users = User::role(['teacher', 'student'])->get();
+        return view('research_groups.show', compact('researchGroup','relatedResearch', 'users'));
     }
 
     /**
@@ -172,6 +180,7 @@ class ResearchGroupController extends Controller
 
         return redirect()->route('researchGroups.index')->with('success', 'Research group updated successfully.');
     }
+    
 
 
     /**

@@ -25,4 +25,23 @@ class ResearchGroup extends Model
     public function product(){
         return $this->hasOne(Product::class,'group_id');
     }
+    public function relatedResearch()
+    {
+        return $this->hasMany(RelatedResearch::class, 're_group_id');
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class)->withPivot('role');
+
+    }
+    
+    public function projectApplications()
+    {
+        return $this->hasMany(ProjectApplication::class, 're_group_id');
+    }
+
+    public function applicationDetail()
+    {
+    return $this->hasOne(ApplicationDetail::class, 'application_id');
+    }
 }

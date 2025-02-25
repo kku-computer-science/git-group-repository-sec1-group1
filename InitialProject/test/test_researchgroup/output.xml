@@ -1,368 +1,384 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-02-25T17:15:23.122789" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-02-25T22:48:12.030988" rpa="false" schemaversion="5">
 <suite id="s1" name="Test Application Valid" source="D:\SE\git-group-repository-sec1-group1\InitialProject\test\test_researchgroup\test_application_valid.robot">
 <test id="s1-t1" name="Open Website" line="13">
 <kw name="Open Web" owner="resource">
 <kw name="Open Custom Chrome Browser" owner="resource">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-25T17:15:23.350357" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000193D3E3CA90&gt;</msg>
+<msg time="2025-02-25T22:48:12.256368" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001E796895A00&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-25T17:15:23.349378" elapsed="0.000979"/>
+<status status="PASS" start="2025-02-25T22:48:12.256368" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>binary_location</arg>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-25T17:15:23.350357" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:48:12.256368" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-25T17:15:23.351333" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x00000193D3E3CD90&gt;</msg>
+<msg time="2025-02-25T22:48:12.257379" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000001E796895D00&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-25T17:15:23.350357" elapsed="0.000976"/>
+<status status="PASS" start="2025-02-25T22:48:12.256368" elapsed="0.001011"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:23.351333" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-25T22:48:12.258351" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-02-25T17:15:23.351333" elapsed="1.136718"/>
+<status status="PASS" start="2025-02-25T22:48:12.257379" elapsed="1.154902"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:24.489050" level="INFO">Opening url 'http://localhost:8000'</msg>
+<msg time="2025-02-25T22:48:13.413282" level="INFO">Opening url 'http://localhost:8000'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-25T17:15:24.489050" elapsed="1.644167"/>
+<status status="PASS" start="2025-02-25T22:48:13.412281" elapsed="1.690579"/>
 </kw>
 <arg>${BASE_URL}</arg>
-<status status="PASS" start="2025-02-25T17:15:23.349378" elapsed="2.783839"/>
+<status status="PASS" start="2025-02-25T22:48:12.255351" elapsed="2.847509"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-25T17:15:26.133217" elapsed="0.024515"/>
+<status status="PASS" start="2025-02-25T22:48:15.103863" elapsed="0.026196"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-02-25T17:15:26.157732" elapsed="0.001001"/>
+<status status="PASS" start="2025-02-25T22:48:15.130059" elapsed="0.000000"/>
 </kw>
 <kw name="Home Should Be Open" owner="resource">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:26.371547" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<msg time="2025-02-25T22:48:15.937616" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
 <arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-25T17:15:26.158733" elapsed="0.212814"/>
+<status status="PASS" start="2025-02-25T22:48:15.131047" elapsed="0.806569"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:26.158733" elapsed="0.213818"/>
+<status status="PASS" start="2025-02-25T22:48:15.130059" elapsed="0.807557"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:23.349378" elapsed="3.023173"/>
+<status status="PASS" start="2025-02-25T22:48:12.255351" elapsed="3.682265"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:23.348328" elapsed="3.024223"/>
+<status status="PASS" start="2025-02-25T22:48:12.254442" elapsed="3.684169"/>
 </test>
 <test id="s1-t2" name="Go To ResearchGroup Page" line="16">
 <kw name="Go To Researcher Group" owner="resource">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:26.376548" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
+<msg time="2025-02-25T22:48:15.952609" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
 <arg>xpath=//a[@href='/researchgroup']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:26.375555" elapsed="2.947427"/>
+<status status="PASS" start="2025-02-25T22:48:15.940609" elapsed="4.005693"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:29.538913" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
+<msg time="2025-02-25T22:48:20.784176" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
 <arg>xpath=//p[contains(text(), 'Research Group')]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-02-25T17:15:29.322982" elapsed="0.215931"/>
+<status status="PASS" start="2025-02-25T22:48:19.946302" elapsed="0.837874"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:26.374550" elapsed="3.164363"/>
+<status status="PASS" start="2025-02-25T22:48:15.940609" elapsed="4.843567"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:26.373551" elapsed="3.166380"/>
+<status status="PASS" start="2025-02-25T22:48:15.939610" elapsed="4.845580"/>
 </test>
 <test id="s1-t3" name="Go To Login" line="19">
 <kw name="Click Login" owner="resource">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:29.541936" level="INFO">Clicking element 'xpath= //a[@href='/login']'.</msg>
+<msg time="2025-02-25T22:48:20.787189" level="INFO">Clicking element 'xpath= //a[@href='/login']'.</msg>
 <arg>xpath= //a[@href='/login']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:29.541936" elapsed="0.495180"/>
+<status status="PASS" start="2025-02-25T22:48:20.787189" elapsed="1.782251"/>
 </kw>
 <kw name="Switch Tab" owner="resource">
 <kw name="Get Window Handles" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:30.252909" level="INFO">${handles} = ['2AB2D626DCA5866F7BAD5733B0A73C20', '1BBFED8E3D77E195D80541239F82B956']</msg>
+<msg time="2025-02-25T22:48:23.378603" level="INFO">${handles} = ['881EBB477A5AB97397D60F6112B68A00', 'C0BE8DE3C0F1C2EE256393E813A40BA5']</msg>
 <var>${handles}</var>
 <doc>Returns all child window handles of the selected browser as a list.</doc>
-<status status="PASS" start="2025-02-25T17:15:30.037116" elapsed="0.215793"/>
+<status status="PASS" start="2025-02-25T22:48:22.570416" elapsed="0.808187"/>
 </kw>
 <kw name="Switch Window" owner="SeleniumLibrary">
 <arg>${handles}[${INDEX}]</arg>
 <doc>Switches to browser window matching ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:30.252909" elapsed="1.927754"/>
+<status status="PASS" start="2025-02-25T22:48:23.378603" elapsed="7.347639"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2025-02-25T17:15:30.037116" elapsed="2.144548"/>
+<status status="PASS" start="2025-02-25T22:48:22.569440" elapsed="8.156802"/>
 </kw>
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:32.397925" level="INFO">Page title is 'Login'.</msg>
+<msg time="2025-02-25T22:48:31.533273" level="INFO">Page title is 'Login'.</msg>
 <arg>Login</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-25T17:15:32.181664" elapsed="0.216261"/>
+<status status="PASS" start="2025-02-25T22:48:30.726242" elapsed="0.807031"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:29.540938" elapsed="2.856987"/>
+<status status="PASS" start="2025-02-25T22:48:20.787189" elapsed="10.746084"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:29.540938" elapsed="2.857938"/>
+<status status="PASS" start="2025-02-25T22:48:20.786189" elapsed="10.748087"/>
 </test>
 <test id="s1-t4" name="Login" line="22">
 <kw name="Input Email" owner="resource">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:32.400876" level="INFO">Typing text 'admin@gmail.com' into text field 'id:username'.</msg>
+<msg time="2025-02-25T22:48:31.536276" level="INFO">Typing text 'wongsar@kku.ac.th' into text field 'id:username'.</msg>
 <arg>id:username</arg>
 <arg>${EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:32.400876" elapsed="0.695670"/>
+<status status="PASS" start="2025-02-25T22:48:31.536276" elapsed="2.514029"/>
 </kw>
-<arg>admin@gmail.com</arg>
-<status status="PASS" start="2025-02-25T17:15:32.400876" elapsed="0.695670"/>
+<arg>wongsar@kku.ac.th</arg>
+<status status="PASS" start="2025-02-25T22:48:31.536276" elapsed="2.514029"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:33.097531" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-02-25T17:15:33.529092" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2025-02-25T22:48:34.051255" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-02-25T22:48:35.697819" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id:password</arg>
-<arg>12345678</arg>
+<arg>123456789</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:33.097531" elapsed="0.680731"/>
+<status status="PASS" start="2025-02-25T22:48:34.051255" elapsed="2.502140"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:33.778262" level="INFO">Clicking button 'Log In'.</msg>
+<msg time="2025-02-25T22:48:36.554409" level="INFO">Clicking button 'Log In'.</msg>
 <arg>Log In</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:33.778262" elapsed="3.660545"/>
+<status status="PASS" start="2025-02-25T22:48:36.554409" elapsed="6.046704"/>
 </kw>
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:37.655883" level="INFO">Page title is 'Dashboard'.</msg>
+<msg time="2025-02-25T22:48:43.435211" level="INFO">Page title is 'Dashboard'.</msg>
 <arg>Dashboard</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-25T17:15:37.439321" elapsed="0.216562"/>
+<status status="PASS" start="2025-02-25T22:48:42.602129" elapsed="0.833082"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:32.399876" elapsed="5.256969"/>
+<status status="PASS" start="2025-02-25T22:48:31.535275" elapsed="11.900791"/>
 </test>
 <test id="s1-t5" name="Go To Application" line="28">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:37.657852" level="INFO">Clicking element 'xpath=//a[contains(@href, 'researchGroups')]'.</msg>
+<msg time="2025-02-25T22:48:43.437056" level="INFO">Clicking element 'xpath=//a[contains(@href, 'researchGroups')]'.</msg>
 <arg>xpath=//a[contains(@href, 'researchGroups')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:37.657852" elapsed="2.603270"/>
+<status status="PASS" start="2025-02-25T22:48:43.437056" elapsed="3.803675"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:40.261722" level="INFO">Clicking element 'xpath=(//a[@title="Application"])[1]'.</msg>
+<msg time="2025-02-25T22:48:47.241744" level="INFO">Clicking element 'xpath=(//a[@title="Application"])[1]'.</msg>
 <arg>xpath=(//a[@title="Application"])[1]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:40.261722" elapsed="2.532354"/>
+<status status="PASS" start="2025-02-25T22:48:47.241744" elapsed="3.745620"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:37.657852" elapsed="5.136224"/>
+<status status="PASS" start="2025-02-25T22:48:43.437056" elapsed="7.550308"/>
 </test>
 <test id="s1-t6" name="Create Project" line="32">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:42.795079" level="INFO">Clicking element 'css:button.create-project-btn'.</msg>
+<msg time="2025-02-25T22:48:50.989382" level="INFO">Clicking element 'css:button.create-project-btn'.</msg>
 <arg>css:button.create-project-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:42.795079" elapsed="0.467614"/>
+<status status="PASS" start="2025-02-25T22:48:50.988372" elapsed="1.706326"/>
 </kw>
 <kw name="Input Project" owner="resource">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:43.263671" level="INFO">Typing text 'Project' into text field 'id:projectName'.</msg>
+<msg time="2025-02-25T22:48:52.696690" level="INFO">Typing text 'Project' into text field 'id:projectName'.</msg>
 <arg>id:projectName</arg>
 <arg>${NAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:43.263671" elapsed="0.697545"/>
+<status status="PASS" start="2025-02-25T22:48:52.695690" elapsed="2.499352"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:43.962218" level="INFO">Typing text 'Description' into text field 'id:projectDescription'.</msg>
+<msg time="2025-02-25T22:48:55.196042" level="INFO">Typing text 'Description' into text field 'id:projectDescription'.</msg>
 <arg>id:projectDescription</arg>
 <arg>${DESCRIPTION}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:43.961216" elapsed="0.695768"/>
+<status status="PASS" start="2025-02-25T22:48:55.195042" elapsed="2.503806"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:44.656984" level="INFO">Typing text '111-1111-111' into text field 'id:projectContact'.</msg>
+<msg time="2025-02-25T22:48:57.698848" level="INFO">Typing text '111-1111-111' into text field 'id:projectContact'.</msg>
 <arg>id:projectContact</arg>
 <arg>${CONTACT}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:44.656984" elapsed="0.683100"/>
+<status status="PASS" start="2025-02-25T22:48:57.698848" elapsed="2.496500"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:45.340084" level="INFO">Clicking button 'Create'.</msg>
+<msg time="2025-02-25T22:49:00.195348" level="INFO">Clicking button 'Create'.</msg>
 <arg>Create</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:45.340084" elapsed="3.248346"/>
+<status status="PASS" start="2025-02-25T22:49:00.195348" elapsed="5.618638"/>
 </kw>
 <arg>Project</arg>
 <arg>Description</arg>
 <arg>111-1111-111</arg>
-<status status="PASS" start="2025-02-25T17:15:43.263671" elapsed="5.324759"/>
+<status status="PASS" start="2025-02-25T22:48:52.695690" elapsed="13.118296"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:42.795079" elapsed="5.794355"/>
+<status status="PASS" start="2025-02-25T22:48:50.988372" elapsed="14.825614"/>
 </test>
 <test id="s1-t7" name="Go To Project Detail" line="36">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:48.590432" level="INFO">Clicking element 'xpath=//h5[contains(text(),'Project')]/ancestor::a'.</msg>
+<msg time="2025-02-25T22:49:05.816041" level="INFO">Clicking element 'xpath=//h5[contains(text(),'Project')]/ancestor::a'.</msg>
 <arg>xpath=//h5[contains(text(),'Project')]/ancestor::a</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:48.590432" elapsed="2.530647"/>
+<status status="PASS" start="2025-02-25T22:49:05.816041" elapsed="3.800538"/>
 </kw>
-<status status="PASS" start="2025-02-25T17:15:48.590432" elapsed="2.530647"/>
+<status status="PASS" start="2025-02-25T22:49:05.814998" elapsed="3.801581"/>
 </test>
-<test id="s1-t8" name="Create Application for ResearchAssistant" line="39">
+<test id="s1-t8" name="Create Three Application" line="140">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:51.123083" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Create Application')]'.</msg>
+<msg time="2025-02-25T22:49:09.618850" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Create Application')]'.</msg>
 <arg>xpath=//a[contains(text(), 'Create Application')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:51.122101" elapsed="2.539957"/>
+<status status="PASS" start="2025-02-25T22:49:09.618850" elapsed="3.746489"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:53.663031" level="INFO">Clicking element 'xpath=//label[@for='researchAssistant']'.</msg>
+<msg time="2025-02-25T22:49:13.366355" level="INFO">Clicking element 'xpath=//label[@for='researchAssistant']'.</msg>
 <arg>xpath=//label[@for='researchAssistant']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:53.662058" elapsed="0.466389"/>
+<status status="PASS" start="2025-02-25T22:49:13.365339" elapsed="1.692783"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-25T17:15:55.137058" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-25T17:15:54.128447" elapsed="1.008611"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:49:15.059001" level="INFO">Clicking element 'xpath=//label[@for='phd']'.</msg>
+<arg>xpath=//label[@for='phd']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:49:15.059001" elapsed="1.667587"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:49:16.727609" level="INFO">Clicking element 'xpath=//label[@for='postdoc']'.</msg>
+<arg>xpath=//label[@for='postdoc']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:49:16.726588" elapsed="1.673942"/>
 </kw>
 <kw name="Input Application" owner="resource">
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
 <arg>xpath=${FORM_XPATH}//input[@name='app_deadline[]']</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-02-25T17:15:55.138967" elapsed="0.682784"/>
+<status status="PASS" start="2025-02-25T22:49:18.401379" elapsed="1.894501"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:55.823715" level="INFO">Executing JavaScript:
-var el = document.evaluate("(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='app_deadline[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-02-28';
+<msg time="2025-02-25T22:49:20.296747" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='app_deadline[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-08-20';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:15:55.822714" elapsed="0.214619"/>
+<status status="PASS" start="2025-02-25T22:49:20.296747" elapsed="0.805639"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>app_deadline[]</arg>
 <arg>${DEADLINE}</arg>
-<status status="PASS" start="2025-02-25T17:15:55.822714" elapsed="0.214619"/>
+<status status="PASS" start="2025-02-25T22:49:20.295880" elapsed="0.806506"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:56.037333" level="INFO">Typing text '5' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='amount[]']'.</msg>
+<msg time="2025-02-25T22:49:21.102386" level="INFO">Typing text '5' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='amount[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='amount[]']</arg>
 <arg>${VACANCIES}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:56.037333" elapsed="0.672747"/>
+<status status="PASS" start="2025-02-25T22:49:21.102386" elapsed="2.496392"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:56.711055" level="INFO">Typing text '• CV/Resume
+<msg time="2025-02-25T22:49:23.598778" level="INFO">Typing text '• CV/Resume
 • Cover Letter
 • Research Statement' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='required_documents[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='required_documents[]']</arg>
 <arg>${DOCUMENTS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:56.710080" elapsed="0.729529"/>
+<status status="PASS" start="2025-02-25T22:49:23.598778" elapsed="2.560221"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:57.440580" level="INFO">Typing text '65,000 - 80,000 per month' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='salary_range[]']'.</msg>
+<msg time="2025-02-25T22:49:26.160006" level="INFO">Typing text '65,000 - 80,000 per month' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='salary_range[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='salary_range[]']</arg>
 <arg>${SALARY}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:57.439609" elapsed="0.695520"/>
+<status status="PASS" start="2025-02-25T22:49:26.160006" elapsed="2.526470"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:58.135129" level="INFO">Typing text '• Ph.D. in relevant field
-• Research experience
+<msg time="2025-02-25T22:49:28.687454" level="INFO">Typing text '• Research experience
 • Strong publication record' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='qualifications[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='qualifications[]']</arg>
 <arg>${QUALIFICATION}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:58.135129" elapsed="0.774156"/>
+<status status="PASS" start="2025-02-25T22:49:28.686476" elapsed="2.551813"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:58.909285" level="INFO">Typing text '• Teaching experience
+<msg time="2025-02-25T22:49:31.239334" level="INFO">Typing text '• Teaching experience
 • Industry collaboration experience' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='preferred_qualifications[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='preferred_qualifications[]']</arg>
 <arg>${PREFERRED_QUALIFICATIONS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:58.909285" elapsed="0.758389"/>
+<status status="PASS" start="2025-02-25T22:49:31.238289" elapsed="2.578994"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:15:59.667674" level="INFO">Typing text 'Full-time' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='working_time[]']'.</msg>
+<msg time="2025-02-25T22:49:33.817283" level="INFO">Typing text 'Full-time' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='working_time[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='working_time[]']</arg>
 <arg>${WORKING_TIME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:15:59.667674" elapsed="0.679303"/>
+<status status="PASS" start="2025-02-25T22:49:33.817283" elapsed="2.497475"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:00.346977" level="INFO">Typing text 'Home' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='work_location[]']'.</msg>
+<msg time="2025-02-25T22:49:36.315783" level="INFO">Typing text 'Home' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='work_location[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='work_location[]']</arg>
 <arg>${WORK_LOCATION}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:00.346977" elapsed="0.682565"/>
+<status status="PASS" start="2025-02-25T22:49:36.314758" elapsed="2.515344"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${FORM_XPATH}//input[@name='start_date[]']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:49:38.830102" elapsed="1.874682"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:49:41.716039" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:49:40.704784" elapsed="1.011255"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:01.030518" level="INFO">Executing JavaScript:
+<msg time="2025-02-25T22:49:41.717052" level="INFO">Executing JavaScript:
 var el = document.evaluate("(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='start_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-03-10';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:01.030518" elapsed="0.214520"/>
+<status status="PASS" start="2025-02-25T22:49:41.717052" elapsed="0.816100"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>start_date[]</arg>
 <arg>${START_DATE}</arg>
-<status status="PASS" start="2025-02-25T17:16:01.029542" elapsed="0.215496"/>
+<status status="PASS" start="2025-02-25T22:49:41.716039" elapsed="0.817113"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:01.246002" level="INFO">Executing JavaScript:
+<msg time="2025-02-25T22:49:42.534025" level="INFO">Executing JavaScript:
 var el = document.evaluate("(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='end_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-07-07';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:01.246002" elapsed="0.216423"/>
+<status status="PASS" start="2025-02-25T22:49:42.534025" elapsed="0.806850"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>end_date[]</arg>
 <arg>${END_DATE}</arg>
-<status status="PASS" start="2025-02-25T17:16:01.245038" elapsed="0.217387"/>
+<status status="PASS" start="2025-02-25T22:49:42.533152" elapsed="0.807723"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:01.463345" level="INFO">Typing text '• Submit application through the online portal
+<msg time="2025-02-25T22:49:43.341869" level="INFO">Typing text '• Submit application through the online portal
 • Initial screening
 • Interviews' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='application_process[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='application_process[]']</arg>
 <arg>${PROCESS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:01.462425" elapsed="0.796640"/>
+<status status="PASS" start="2025-02-25T22:49:43.340875" elapsed="2.609292"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:02.259065" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='app_detail[]']'.</msg>
+<msg time="2025-02-25T22:49:45.950167" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=(//h4[contains(text(),'Research Assistant Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='app_detail[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='app_detail[]']</arg>
 <arg>${DETAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:02.259065" elapsed="0.742306"/>
+<status status="PASS" start="2025-02-25T22:49:45.950167" elapsed="2.557468"/>
 </kw>
 <arg>${FORM_RESEARCHASSISTANT_PATH}</arg>
-<arg>2025-02-28</arg>
+<arg>2025-08-20</arg>
 <arg>5</arg>
 <arg>• CV/Resume\n• Cover Letter\n• Research Statement</arg>
 <arg>65,000 - 80,000 per month</arg>
-<arg>• Ph.D. in relevant field\n• Research experience\n• Strong publication record</arg>
+<arg>• Research experience\n• Strong publication record</arg>
 <arg>• Teaching experience\n• Industry collaboration experience</arg>
 <arg>Full-time</arg>
 <arg>Home</arg>
@@ -370,318 +386,582 @@ Without any arguments.</msg>
 <arg>2025-07-07</arg>
 <arg>• Submit application through the online portal\n• Initial screening\n• Interviews</arg>
 <arg>This is an exciting opportunity for this position.</arg>
-<status status="PASS" start="2025-02-25T17:15:55.137973" elapsed="7.863398"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:03.002339" level="INFO">Executing JavaScript:
-window.scrollTo(0, document.body.scrollHeight);
-Without any arguments.</msg>
-<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:03.002339" elapsed="0.215772"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:03.218111" level="INFO">Clicking button 'Submit All Applications'.</msg>
-<arg>Submit All Applications</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:03.218111" elapsed="3.148864"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:06.367977" level="INFO">Executing JavaScript:
-window.scrollTo(0, document.body.scrollHeight);
-Without any arguments.</msg>
-<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:06.366975" elapsed="0.217992"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:07.019467" level="INFO">${Role_Text} = Research Assistant</msg>
-<var>${Role_Text}</var>
-<arg>xpath=(//h5[contains(@class, 'role-title')])[1]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:06.584967" elapsed="0.434500"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${Role_Text}</arg>
-<arg>Research Assistant</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-25T17:16:07.020221" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:07.021232" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[1]'.</msg>
-<arg>xpath=(//a[contains(., 'View Details')])[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:07.021232" elapsed="2.570521"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:10.026628" level="INFO">${Detail_Role} = Research Assistant Position</msg>
-<var>${Detail_Role}</var>
-<arg>xpath=//h3[contains(@class,'text-primary')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:09.591753" elapsed="0.434875"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${Detail_Role}</arg>
-<arg>Research Assistant Position</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-25T17:16:10.026628" elapsed="0.001012"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:10.027933" level="INFO">Clicking element 'css:.btn.btn-secondary.mt-3.ct-btn'.</msg>
-<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:10.027933" elapsed="2.526669"/>
+<status status="PASS" start="2025-02-25T22:49:18.401379" elapsed="30.106256"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-25T17:16:13.566116" level="INFO">Slept 1 second.</msg>
+<msg time="2025-02-25T22:49:49.516407" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-25T17:16:12.554602" elapsed="1.011514"/>
-</kw>
-<status status="PASS" start="2025-02-25T17:15:51.122101" elapsed="22.445039"/>
-</test>
-<test id="s1-t9" name="Create Application for Ph.D" line="55">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:13.569162" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Create Application')]'.</msg>
-<arg>xpath=//a[contains(text(), 'Create Application')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:13.569162" elapsed="2.525912"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:16.096072" level="INFO">Clicking element 'xpath=//label[@for='phd']'.</msg>
-<arg>xpath=//label[@for='phd']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:16.096072" elapsed="0.462662"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-25T17:16:17.565888" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-25T17:16:16.559698" elapsed="1.006190"/>
+<status status="PASS" start="2025-02-25T22:49:48.508650" elapsed="1.007757"/>
 </kw>
 <kw name="Input Application" owner="resource">
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
 <arg>xpath=${FORM_XPATH}//input[@name='app_deadline[]']</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-02-25T17:16:17.567873" elapsed="0.692583"/>
+<status status="PASS" start="2025-02-25T22:49:49.517277" elapsed="1.877444"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:18.261422" level="INFO">Executing JavaScript:
-var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='app_deadline[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-02-28';
+<msg time="2025-02-25T22:49:51.395708" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='app_deadline[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-12-28';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:18.261422" elapsed="0.218136"/>
+<status status="PASS" start="2025-02-25T22:49:51.394721" elapsed="0.806665"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>app_deadline[]</arg>
 <arg>${DEADLINE}</arg>
-<status status="PASS" start="2025-02-25T17:16:18.260456" elapsed="0.219102"/>
+<status status="PASS" start="2025-02-25T22:49:51.394721" elapsed="0.806665"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:18.480487" level="INFO">Typing text '5' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='amount[]']'.</msg>
+<msg time="2025-02-25T22:49:52.202385" level="INFO">Typing text '3' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='amount[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='amount[]']</arg>
 <arg>${VACANCIES}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:18.479558" elapsed="0.681062"/>
+<status status="PASS" start="2025-02-25T22:49:52.201386" elapsed="2.477267"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:19.160620" level="INFO">Typing text '• CV/Resume
+<msg time="2025-02-25T22:49:54.679655" level="INFO">Typing text '• CV/Resume
 • Cover Letter
 • Research Statement' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='required_documents[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='required_documents[]']</arg>
 <arg>${DOCUMENTS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:19.160620" elapsed="0.743460"/>
+<status status="PASS" start="2025-02-25T22:49:54.678653" elapsed="2.551032"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:19.904080" level="INFO">Typing text '65,000 - 80,000 per month' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='salary_range[]']'.</msg>
+<msg time="2025-02-25T22:49:57.229685" level="INFO">Typing text '65,000 - 80,000 per month' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='salary_range[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='salary_range[]']</arg>
 <arg>${SALARY}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:19.904080" elapsed="0.713242"/>
+<status status="PASS" start="2025-02-25T22:49:57.229685" elapsed="2.527103"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:20.617322" level="INFO">Typing text '• Ph.D. in relevant field
+<msg time="2025-02-25T22:49:59.756788" level="INFO">Typing text '• Ph.D. in relevant field
 • Research experience
 • Strong publication record' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='qualifications[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='qualifications[]']</arg>
 <arg>${QUALIFICATION}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:20.617322" elapsed="0.791694"/>
+<status status="PASS" start="2025-02-25T22:49:59.756788" elapsed="2.565101"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:21.409978" level="INFO">Typing text '• Teaching experience
+<msg time="2025-02-25T22:50:02.322891" level="INFO">Typing text '• Teaching experience
 • Industry collaboration experience' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='preferred_qualifications[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='preferred_qualifications[]']</arg>
 <arg>${PREFERRED_QUALIFICATIONS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:21.409016" elapsed="0.765847"/>
+<status status="PASS" start="2025-02-25T22:50:02.321889" elapsed="2.561583"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:22.174863" level="INFO">Typing text 'Full-time' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='working_time[]']'.</msg>
+<msg time="2025-02-25T22:50:04.884534" level="INFO">Typing text 'Full-time' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='working_time[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='working_time[]']</arg>
 <arg>${WORKING_TIME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:22.174863" elapsed="0.697448"/>
+<status status="PASS" start="2025-02-25T22:50:04.883472" elapsed="2.510187"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:22.873320" level="INFO">Typing text 'Home' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='work_location[]']'.</msg>
+<msg time="2025-02-25T22:50:07.394550" level="INFO">Typing text 'Office' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='work_location[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//input[@name='work_location[]']</arg>
 <arg>${WORK_LOCATION}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:22.872311" elapsed="0.681890"/>
+<status status="PASS" start="2025-02-25T22:50:07.393659" elapsed="2.502376"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${FORM_XPATH}//input[@name='start_date[]']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:50:09.896035" elapsed="1.890408"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:50:12.798485" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:50:11.786443" elapsed="1.012042"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:23.555190" level="INFO">Executing JavaScript:
-var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='start_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-03-10';
+<msg time="2025-02-25T22:50:12.799498" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='start_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-05-02';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:23.554201" elapsed="0.218063"/>
+<status status="PASS" start="2025-02-25T22:50:12.799498" elapsed="0.808332"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>start_date[]</arg>
 <arg>${START_DATE}</arg>
-<status status="PASS" start="2025-02-25T17:16:23.554201" elapsed="0.218063"/>
+<status status="PASS" start="2025-02-25T22:50:12.798485" elapsed="0.809345"/>
 </kw>
 <kw name="Input Date Type" owner="resource">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:23.773240" level="INFO">Executing JavaScript:
-var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='end_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-07-07';
+<msg time="2025-02-25T22:50:13.608701" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='end_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-11-10';
 Without any arguments.</msg>
 <arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
 <arg>if(el) el.value = '${DATE}';</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:23.772264" elapsed="0.217090"/>
+<status status="PASS" start="2025-02-25T22:50:13.608701" elapsed="0.806363"/>
 </kw>
 <arg>${FORM_XPATH}</arg>
 <arg>end_date[]</arg>
 <arg>${END_DATE}</arg>
-<status status="PASS" start="2025-02-25T17:16:23.772264" elapsed="0.217090"/>
+<status status="PASS" start="2025-02-25T22:50:13.607830" elapsed="0.807234"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:23.989354" level="INFO">Typing text '• Submit application through the online portal
+<msg time="2025-02-25T22:50:14.415931" level="INFO">Typing text '• Submit application through the online portal
 • Initial screening
 • Interviews' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='application_process[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='application_process[]']</arg>
 <arg>${PROCESS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:23.989354" elapsed="0.801847"/>
+<status status="PASS" start="2025-02-25T22:50:14.415064" elapsed="2.659901"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:24.792103" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='app_detail[]']'.</msg>
+<msg time="2025-02-25T22:50:17.076022" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=(//h4[contains(text(),'PhD Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='app_detail[]']'.</msg>
 <arg>xpath=${FORM_XPATH}//textarea[@name='app_detail[]']</arg>
 <arg>${DETAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:24.791201" elapsed="0.745189"/>
+<status status="PASS" start="2025-02-25T22:50:17.074965" elapsed="2.553471"/>
 </kw>
 <arg>${FORM_PhD_PATH}</arg>
-<arg>2025-02-28</arg>
-<arg>5</arg>
+<arg>2025-12-28</arg>
+<arg>3</arg>
 <arg>• CV/Resume\n• Cover Letter\n• Research Statement</arg>
 <arg>65,000 - 80,000 per month</arg>
 <arg>• Ph.D. in relevant field\n• Research experience\n• Strong publication record</arg>
 <arg>• Teaching experience\n• Industry collaboration experience</arg>
 <arg>Full-time</arg>
-<arg>Home</arg>
-<arg>2025-03-10</arg>
-<arg>2025-07-07</arg>
+<arg>Office</arg>
+<arg>2025-05-02</arg>
+<arg>2025-11-10</arg>
 <arg>• Submit application through the online portal\n• Initial screening\n• Interviews</arg>
 <arg>This is an exciting opportunity for this position.</arg>
-<status status="PASS" start="2025-02-25T17:16:17.566862" elapsed="7.969528"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:25.537350" level="INFO">Executing JavaScript:
-window.scrollTo(0, document.body.scrollHeight);
-Without any arguments.</msg>
-<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:25.537350" elapsed="0.214140"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:25.752487" level="INFO">Clicking button 'Submit All Applications'.</msg>
-<arg>Submit All Applications</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:25.751490" elapsed="3.204881"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:28.957363" level="INFO">Executing JavaScript:
-window.scrollTo(0, document.body.scrollHeight);
-Without any arguments.</msg>
-<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-02-25T17:16:28.956371" elapsed="0.215493"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:29.603336" level="INFO">${Role_Text} = PhD</msg>
-<var>${Role_Text}</var>
-<arg>xpath=(//h5[contains(@class, 'role-title')])[2]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:29.171864" elapsed="0.431472"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${Role_Text}</arg>
-<arg>PhD</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-25T17:16:29.604340" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:29.604974" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[2]'.</msg>
-<arg>xpath=(//a[contains(., 'View Details')])[2]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:29.604974" elapsed="2.539946"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-02-25T17:16:32.578598" level="INFO">${Detail_Role} = PhD Position</msg>
-<var>${Detail_Role}</var>
-<arg>xpath=//h3[contains(@class,'text-primary')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-25T17:16:32.144920" elapsed="0.433678"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-02-25T17:16:32.579593" level="FAIL">PhD Position != Ph.D. Position</msg>
-<arg>${Detail_Role}</arg>
-<arg>Ph.D. Position</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="FAIL" start="2025-02-25T17:16:32.579593" elapsed="0.000000">PhD Position != Ph.D. Position</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.579593" elapsed="0.001004"/>
+<status status="PASS" start="2025-02-25T22:49:49.517277" elapsed="30.111159"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:50:20.635612" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.580597" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//a[contains(text(), 'Create Application')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.580597" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//label[@for='postdoc']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.581591" elapsed="0.000000"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.581591" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:50:19.629307" elapsed="1.006305"/>
 </kw>
 <kw name="Input Application" owner="resource">
-<arg>${FORM_PostDoc_PATH}</arg>
-<arg>2025-02-28</arg>
-<arg>5</arg>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=${FORM_XPATH}//input[@name='app_deadline[]']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:50:20.636471" elapsed="1.883309"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:22.520645" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='app_deadline[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-12-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:50:22.520645" elapsed="0.818343"/>
+</kw>
+<arg>${FORM_XPATH}</arg>
+<arg>app_deadline[]</arg>
+<arg>${DEADLINE}</arg>
+<status status="PASS" start="2025-02-25T22:50:22.519780" elapsed="0.819208"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:23.339865" level="INFO">Typing text '3' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='amount[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//input[@name='amount[]']</arg>
+<arg>${VACANCIES}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:23.339865" elapsed="2.482646"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:25.823410" level="INFO">Typing text '• CV/Resume
+• Cover Letter
+• Research Statement' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='required_documents[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//textarea[@name='required_documents[]']</arg>
+<arg>${DOCUMENTS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:25.822511" elapsed="2.556882"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:28.380259" level="INFO">Typing text '85,000 - 100,000 per month' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='salary_range[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//input[@name='salary_range[]']</arg>
+<arg>${SALARY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:28.379393" elapsed="2.502996"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:30.882389" level="INFO">Typing text '• Teaching experience
+• Strong publication record' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='qualifications[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//textarea[@name='qualifications[]']</arg>
+<arg>${QUALIFICATION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:30.882389" elapsed="2.580552"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:33.463806" level="INFO">Typing text '• Research experience
+• Industry collaboration experience' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='preferred_qualifications[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//textarea[@name='preferred_qualifications[]']</arg>
+<arg>${PREFERRED_QUALIFICATIONS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:33.462941" elapsed="2.579128"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:36.042946" level="INFO">Typing text 'Part-time' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='working_time[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//input[@name='working_time[]']</arg>
+<arg>${WORKING_TIME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:36.042069" elapsed="2.496056"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:38.539138" level="INFO">Typing text 'USA' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='work_location[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//input[@name='work_location[]']</arg>
+<arg>${WORK_LOCATION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:38.538125" elapsed="2.496650"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${FORM_XPATH}//input[@name='start_date[]']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:50:41.034775" elapsed="1.888516"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:50:43.931750" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:50:42.923291" elapsed="1.008459"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:43.932750" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='start_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-04-20';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:50:43.932750" elapsed="0.819698"/>
+</kw>
+<arg>${FORM_XPATH}</arg>
+<arg>start_date[]</arg>
+<arg>${START_DATE}</arg>
+<status status="PASS" start="2025-02-25T22:50:43.931750" elapsed="0.820698"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:44.753464" level="INFO">Executing JavaScript:
+var el = document.evaluate("(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//input[@name='end_date[]']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-07-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:50:44.753464" elapsed="0.818784"/>
+</kw>
+<arg>${FORM_XPATH}</arg>
+<arg>end_date[]</arg>
+<arg>${END_DATE}</arg>
+<status status="PASS" start="2025-02-25T22:50:44.752448" elapsed="0.819800"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:45.573133" level="INFO">Typing text '• Submit application through the online portal
+• Initial screening
+• Interviews' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='application_process[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//textarea[@name='application_process[]']</arg>
+<arg>${PROCESS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:45.572248" elapsed="2.605580"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:48.178820" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=(//h4[contains(text(),'Postdoc Application')]/ancestor::div[@class='mt-4 p-4 border rounded bg-light position-relative'])//textarea[@name='app_detail[]']'.</msg>
+<arg>xpath=${FORM_XPATH}//textarea[@name='app_detail[]']</arg>
+<arg>${DETAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:48.177828" elapsed="2.560028"/>
+</kw>
+<arg>${FORM_Postdoc_PATH}</arg>
+<arg>2025-12-10</arg>
+<arg>3</arg>
+<arg>• CV/Resume\n• Cover Letter\n• Research Statement</arg>
+<arg>85,000 - 100,000 per month</arg>
+<arg>• Teaching experience\n• Strong publication record</arg>
+<arg>• Research experience\n• Industry collaboration experience</arg>
+<arg>Part-time</arg>
+<arg>USA</arg>
+<arg>2025-04-20</arg>
+<arg>2025-07-10</arg>
+<arg>• Submit application through the online portal\n• Initial screening\n• Interviews</arg>
+<arg>This is an exciting opportunity for this position.</arg>
+<status status="PASS" start="2025-02-25T22:50:20.636471" elapsed="30.101385"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:50.738852" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:50:50.738852" elapsed="0.806495"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:51.546361" level="INFO">Clicking button 'Submit All Applications'.</msg>
+<arg>Submit All Applications</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:51.546361" elapsed="5.628657"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:57.176002" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:50:57.175018" elapsed="0.804921"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:50:58.983601" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:50:57.980814" elapsed="1.002787"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:49:09.617834" elapsed="109.368779"/>
+</test>
+<test id="s1-t9" name="Check Application Detail In Group Page" line="155">
+<kw name="Switch Tab" owner="resource">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:50:59.792263" level="INFO">${handles} = ['881EBB477A5AB97397D60F6112B68A00', 'C0BE8DE3C0F1C2EE256393E813A40BA5']</msg>
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-02-25T22:50:58.988384" elapsed="0.803879"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>${handles}[${INDEX}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:50:59.792263" elapsed="3.243344"/>
+</kw>
+<arg>0</arg>
+<status status="PASS" start="2025-02-25T22:50:58.987380" elapsed="4.048227"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[8]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:51:03.035607" elapsed="1.908235"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:04.944856" level="INFO">Clicking element 'xpath=(//a[contains(@href, 'researchgroupdetail')])[8]'.</msg>
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[8]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:04.944856" elapsed="3.004598"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:07.950475" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:51:07.949454" elapsed="0.808150"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:50:58.987380" elapsed="9.771217"/>
+</test>
+<test id="s1-t10" name="Check Application Detail" line="161">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:08.759369" level="INFO">Clicking element 'xpath=(//a[contains(text(),'รายละเอียด')])[1]'.</msg>
+<arg>xpath=(//a[contains(text(),'รายละเอียด')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:08.759369" elapsed="2.845416"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:11.605701" level="INFO">Executing JavaScript:
+let scrollInterval = setInterval(() =&gt; { window.scrollBy(0, 250); }, 500);
+Without any arguments.</msg>
+<arg>let scrollInterval = setInterval(() =&gt; { window.scrollBy(0, 250); }, 500);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:51:11.604785" elapsed="0.806290"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:51:14.921859" level="INFO">Slept 2 seconds 500 milliseconds.</msg>
+<arg>2.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:51:12.412071" elapsed="2.509788"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2025-02-25T22:51:14.922499" elapsed="0.836026"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:51:08.759369" elapsed="6.999156"/>
+</test>
+<test id="s1-t11" name="Update ResearchAssistant Application" line="168">
+<kw name="Switch Tab" owner="resource">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:16.565658" level="INFO">${handles} = ['881EBB477A5AB97397D60F6112B68A00', 'C0BE8DE3C0F1C2EE256393E813A40BA5']</msg>
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-02-25T22:51:15.761173" elapsed="0.804485"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>${handles}[${INDEX}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:16.565658" elapsed="7.312000"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2025-02-25T22:51:15.760167" elapsed="8.117491"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(., 'View Details')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:51:23.878672" elapsed="1.885936"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:51:26.772619" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:51:25.765290" elapsed="1.007329"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:26.773486" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[1]'.</msg>
+<arg>xpath=(//a[contains(., 'View Details')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:26.773486" elapsed="3.522238"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:30.296588" level="INFO">Clicking element 'css:.btn.btn-warning.mt-3.ct-btn.me-2'.</msg>
+<arg>css:.btn.btn-warning.mt-3.ct-btn.me-2</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:30.296588" elapsed="3.785646"/>
+</kw>
+<kw name="Edit Application" owner="resource">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='app_deadline']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:51:34.083243" elapsed="1.919123"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:36.003379" level="INFO">Executing JavaScript:
+var el = document.evaluate("//input[@name='app_deadline']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-10-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:51:36.003379" elapsed="0.805410"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>app_deadline</arg>
+<arg>${DEADLINE}</arg>
+<status status="PASS" start="2025-02-25T22:51:36.002366" elapsed="0.806423"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:36.809663" level="INFO">Typing text '2' into text field 'xpath=//input[@name='amount']'.</msg>
+<arg>xpath=//input[@name='amount']</arg>
+<arg>${VACANCIES}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:36.808789" elapsed="2.484037"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:39.292826" level="INFO">Typing text '• CV/Resume
+• Cover Letter
+• Research Statement' into text field 'xpath=//textarea[@name='required_documents']'.</msg>
+<arg>xpath=//textarea[@name='required_documents']</arg>
+<arg>${DOCUMENTS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:39.292826" elapsed="2.556652"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:41.849478" level="INFO">Typing text '65,000 - 80,000 per month' into text field 'xpath=//input[@name='salary_range']'.</msg>
+<arg>xpath=//input[@name='salary_range']</arg>
+<arg>${SALARY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:41.849478" elapsed="2.514715"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:44.364193" level="INFO">Typing text '• Research experience
+• Strong publication record' into text field 'xpath=//textarea[@name='qualifications']'.</msg>
+<arg>xpath=//textarea[@name='qualifications']</arg>
+<arg>${QUALIFICATION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:44.364193" elapsed="2.554943"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:46.919990" level="INFO">Typing text '• Teaching experience
+• Industry collaboration experience' into text field 'xpath=//textarea[@name='preferred_qualifications']'.</msg>
+<arg>xpath=//textarea[@name='preferred_qualifications']</arg>
+<arg>${PREFERRED_QUALIFICATIONS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:46.919136" elapsed="2.560639"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:49.479775" level="INFO">Typing text 'Full-time' into text field 'xpath=//input[@name='working_time']'.</msg>
+<arg>xpath=//input[@name='working_time']</arg>
+<arg>${WORKING_TIME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:49.479775" elapsed="2.525591"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:52.006233" level="INFO">Typing text 'Home' into text field 'xpath=//input[@name='work_location']'.</msg>
+<arg>xpath=//input[@name='work_location']</arg>
+<arg>${WORK_LOCATION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:52.005366" elapsed="2.484725"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//input[@name='start_date']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:51:54.490091" elapsed="1.891024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:51:57.387996" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:51:56.381115" elapsed="1.012900"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:57.397015" level="INFO">Executing JavaScript:
+var el = document.evaluate("//input[@name='start_date']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-03-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:51:57.396015" elapsed="0.813018"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>start_date</arg>
+<arg>${START_DATE}</arg>
+<status status="PASS" start="2025-02-25T22:51:57.395014" elapsed="0.814019"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:58.209922" level="INFO">Executing JavaScript:
+var el = document.evaluate("//input[@name='end_date']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-07-07';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:51:58.209922" elapsed="0.805894"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>end_date</arg>
+<arg>${END_DATE}</arg>
+<status status="PASS" start="2025-02-25T22:51:58.209033" elapsed="0.806783"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:51:59.016830" level="INFO">Typing text '• Submit application through the online portal
+• Initial screening
+• Interviews' into text field 'xpath=//textarea[@name='application_process']'.</msg>
+<arg>xpath=//textarea[@name='application_process']</arg>
+<arg>${PROCESS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:51:59.015816" elapsed="2.637583"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:01.653399" level="INFO">Typing text 'This is an exciting opportunity for this position.' into text field 'xpath=//textarea[@name='app_detail']'.</msg>
+<arg>xpath=//textarea[@name='app_detail']</arg>
+<arg>${DETAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:01.653399" elapsed="2.580321"/>
+</kw>
+<arg>2025-10-10</arg>
+<arg>2</arg>
 <arg>• CV/Resume\n• Cover Letter\n• Research Statement</arg>
 <arg>65,000 - 80,000 per month</arg>
-<arg>• Ph.D. in relevant field\n• Research experience\n• Strong publication record</arg>
+<arg>• Research experience\n• Strong publication record</arg>
 <arg>• Teaching experience\n• Industry collaboration experience</arg>
 <arg>Full-time</arg>
 <arg>Home</arg>
@@ -689,76 +969,329 @@ Without any arguments.</msg>
 <arg>2025-07-07</arg>
 <arg>• Submit application through the online portal\n• Initial screening\n• Interviews</arg>
 <arg>This is an exciting opportunity for this position.</arg>
-<status status="NOT RUN" start="2025-02-25T17:16:32.581591" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:51:34.083243" elapsed="30.150477"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:04.234728" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
 <arg>window.scrollTo(0, document.body.scrollHeight);</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.581591" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:52:04.234728" elapsed="0.819404"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<arg>Submit All Applications</arg>
+<msg time="2025-02-25T22:52:05.055139" level="INFO">Clicking button 'Save Changes'.</msg>
+<arg>Save Changes</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.582594" elapsed="0.000000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.582594" elapsed="0.000000"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${Role_Text}</var>
-<arg>xpath=(//h5[contains(@class, 'role-title')])[3]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.582594" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${Role_Text}</arg>
-<arg>Postdoc</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.582594" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=(//a[contains(., 'View Details')])[3]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.583594" elapsed="0.000000"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${Detail_Role}</var>
-<arg>xpath=//h3[contains(@class,'text-primary')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.583755" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${Detail_Role}</arg>
-<arg>Postdoc Position</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.583755" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.583755" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:52:05.055139" elapsed="5.679480"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:52:13.751257" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:52:10.735520" elapsed="3.015737"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:51:15.760167" elapsed="57.992110"/>
+</test>
+<test id="s1-t12" name="Back to Application Detail" line="180">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:13.754271" level="INFO">Clicking element 'css:.btn.btn-secondary.mt-3.ct-btn'.</msg>
+<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:13.753275" elapsed="3.739854"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:52:13.753275" elapsed="3.739854"/>
+</test>
+<test id="s1-t13" name="Delete Ph.D Application" line="183">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(., 'View Details')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:52:17.495417" elapsed="1.924692"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:19.421076" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[2]'.</msg>
+<arg>xpath=(//a[contains(., 'View Details')])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:19.420109" elapsed="3.778490"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:23.199601" level="INFO">Clicking button 'xpath=//button[contains(@class, 'btn-danger')]'.</msg>
+<arg>xpath=//button[contains(@class, 'btn-danger')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:23.199601" elapsed="4.126696"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:27.327312" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>action=ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-25T22:52:27.327312" elapsed="2.465589"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:52:30.802027" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-02-25T17:16:32.583755" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-25T22:52:29.792901" elapsed="1.009126"/>
 </kw>
-<status status="FAIL" start="2025-02-25T17:16:13.568075" elapsed="19.016685">PhD Position != Ph.D. Position</status>
+<status status="PASS" start="2025-02-25T22:52:17.495150" elapsed="13.307616"/>
 </test>
-<status status="FAIL" start="2025-02-25T17:15:23.124790" elapsed="69.459970"/>
+<test id="s1-t14" name="Postdoc Application Pass Deadline" line="190">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(., 'View Details')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:52:30.804771" elapsed="2.401337"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:33.207108" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[2]'.</msg>
+<arg>xpath=(//a[contains(., 'View Details')])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:33.207108" elapsed="3.718458"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:36.926573" level="INFO">Clicking element 'css:.btn.btn-warning.mt-3.ct-btn.me-2'.</msg>
+<arg>css:.btn.btn-warning.mt-3.ct-btn.me-2</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:36.926573" elapsed="3.785187"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:40.712615" level="INFO">Executing JavaScript:
+var el = document.evaluate("//input[@name='app_deadline']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-01-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:52:40.712615" elapsed="0.838435"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>app_deadline</arg>
+<arg>2025-01-10</arg>
+<status status="PASS" start="2025-02-25T22:52:40.711760" elapsed="0.839290"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:41.551943" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:52:41.551943" elapsed="0.805791"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:42.358499" level="INFO">Clicking button 'Save Changes'.</msg>
+<arg>Save Changes</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:42.358499" elapsed="5.605181"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:47.964701" level="INFO">Clicking element 'css:.btn.btn-secondary.mt-3.ct-btn'.</msg>
+<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:47.963680" elapsed="3.702370"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:52:52.673484" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:52:51.668063" elapsed="1.005421"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:52:30.803772" elapsed="21.870705"/>
+</test>
+<test id="s1-t15" name="Project Closed" line="200">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(., 'View Details')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-25T22:52:52.675478" elapsed="1.895239"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:54.571619" level="INFO">Clicking element 'xpath=(//a[contains(., 'View Details')])[1]'.</msg>
+<arg>xpath=(//a[contains(., 'View Details')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:54.571619" elapsed="3.721890"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:52:58.294383" level="INFO">Clicking element 'css:.btn.btn-warning.mt-3.ct-btn.me-2'.</msg>
+<arg>css:.btn.btn-warning.mt-3.ct-btn.me-2</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:52:58.294383" elapsed="3.743165"/>
+</kw>
+<kw name="Input Date Type" owner="resource">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:02.040548" level="INFO">Executing JavaScript:
+var el = document.evaluate("//input[@name='app_deadline']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;if(el) el.value = '2025-02-10';
+Without any arguments.</msg>
+<arg>var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;</arg>
+<arg>if(el) el.value = '${DATE}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:53:02.039548" elapsed="0.852927"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>app_deadline</arg>
+<arg>2025-02-10</arg>
+<status status="PASS" start="2025-02-25T22:53:02.038549" elapsed="0.853926"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:02.893496" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:53:02.893496" elapsed="0.805044"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:03.700543" level="INFO">Clicking button 'Save Changes'.</msg>
+<arg>Save Changes</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:03.700543" elapsed="5.591892"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:09.293423" level="INFO">Clicking element 'css:.btn.btn-secondary.mt-3.ct-btn'.</msg>
+<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:09.293423" elapsed="3.738458"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:13.032896" level="INFO">Clicking element 'css:.btn.btn-secondary.mt-3.ct-btn'.</msg>
+<arg>css:.btn.btn-secondary.mt-3.ct-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:13.031881" elapsed="3.788577"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:53:18.836002" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:53:16.821322" elapsed="2.014680"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:52:52.675478" elapsed="26.161540"/>
+</test>
+<test id="s1-t16" name="Go To Project Detail" line="211">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:18.839025" level="INFO">Clicking element 'xpath=//h5[contains(text(),'Project')]/ancestor::a'.</msg>
+<arg>xpath=//h5[contains(text(),'Project')]/ancestor::a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:18.838025" elapsed="3.740624"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:53:18.838025" elapsed="3.741508"/>
+</test>
+<test id="s1-t17" name="Update Project" line="214">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:22.581533" level="INFO">Clicking element 'xpath=//button[@data-bs-target='#editProjectModal']'.</msg>
+<arg>xpath=//button[@data-bs-target='#editProjectModal']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:22.581533" elapsed="1.657345"/>
+</kw>
+<kw name="Edit Project" owner="resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:24.239753" level="INFO">Typing text 'EditedProject' into text field 'id:project_title'.</msg>
+<arg>id:project_title</arg>
+<arg>${EDITED_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:24.239753" elapsed="2.537458"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:26.777211" level="INFO">Typing text 'EditedDescription' into text field 'id:project_details'.</msg>
+<arg>id:project_details</arg>
+<arg>${EDITED_DESCRIPTION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:26.777211" elapsed="2.501859"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:29.279582" level="INFO">Typing text '222-2222-222' into text field 'id:contact'.</msg>
+<arg>id:contact</arg>
+<arg>${EDITED_CONTACT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:29.279582" elapsed="2.512251"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:31.792730" level="INFO">Clicking button 'Save Changes'.</msg>
+<arg>Save Changes</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:31.791833" elapsed="5.618550"/>
+</kw>
+<arg>EditedProject</arg>
+<arg>EditedDescription</arg>
+<arg>222-2222-222</arg>
+<status status="PASS" start="2025-02-25T22:53:24.239753" elapsed="13.170630"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:39.029343" level="INFO">${Name_Text} = EditedProject</msg>
+<var>${Name_Text}</var>
+<arg>xpath=//h3[contains(@class, 'text-primary')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:37.411382" elapsed="1.617961"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Name_Text}</arg>
+<arg>EditedProject</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-25T22:53:39.030358" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:40.657398" level="INFO">${Detail_Text} = EditedDescription</msg>
+<var>${Detail_Text}</var>
+<arg>xpath=//p[@class='text-muted']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:39.030358" elapsed="1.627040"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Detail_Text}</arg>
+<arg>EditedDescription</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-25T22:53:40.659398" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:42.285116" level="INFO">${Contact_Text} = Contact: 222-2222-222</msg>
+<var>${Contact_Text}</var>
+<arg>xpath=//p[strong[text()='Contact:']]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:40.659398" elapsed="1.625718"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Contact_Text}</arg>
+<arg>Contact: 222-2222-222</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-25T22:53:42.286125" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:53:43.294609" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:53:42.286826" elapsed="1.007783"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:53:22.580548" elapsed="20.714922"/>
+</test>
+<test id="s1-t18" name="Delete Project" line="226">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:43.296477" level="INFO">Clicking button 'xpath=//button[contains(@class, 'btn-danger')]'.</msg>
+<arg>xpath=//button[contains(@class, 'btn-danger')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:53:43.296477" elapsed="4.125136"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:53:47.422531" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>action=ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-25T22:53:47.422531" elapsed="2.459381"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:53:51.884468" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:53:49.882902" elapsed="2.002431"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:53:43.295470" elapsed="8.590861"/>
+</test>
+<status status="PASS" start="2025-02-25T22:48:12.033000" elapsed="339.853331"/>
 </suite>
 <statistics>
 <total>
-<stat pass="8" fail="1" skip="0">All Tests</stat>
+<stat pass="18" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="8" fail="1" skip="0" id="s1" name="Test Application Valid">Test Application Valid</stat>
+<stat pass="18" fail="0" skip="0" id="s1" name="Test Application Valid">Test Application Valid</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-02-25T22:53:18.838025" level="WARN">Multiple tests with name 'Go To Project Detail' executed in suite 'Test Application Valid'.</msg>
 </errors>
 </robot>

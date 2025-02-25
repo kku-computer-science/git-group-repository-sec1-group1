@@ -9,9 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class ProjectApplication extends Model
 {
     use HasFactory;
-
     protected $table = 'project_application';
-
+    protected $primaryKey = 'id';
     protected $fillable = [
         'project_title',
         'project_details',
@@ -26,11 +25,17 @@ class ProjectApplication extends Model
 
     public function applications(): HasMany
     {
-    return $this->hasMany(Application::class, 'project_app_id');
+        return $this->hasMany(Application::class, 'project_app_id');
     }
-    
-    public function group()
+
+    public function applicationDetail()
     {
-        return $this->belongsTo(Group::class, 're_group_id');
+        return $this->hasOne(ApplicationDetail::class, 'project_app_id');
     }
+
+    public function projectApplication()
+{
+    return $this->belongsTo(ProjectApplication::class, 'project_app_id');
+}
+
 }

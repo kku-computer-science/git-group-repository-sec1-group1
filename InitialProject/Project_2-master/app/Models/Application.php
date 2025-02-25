@@ -20,8 +20,18 @@ class Application extends Model
         'role',
         'amount',
         'app_detail',
-        'app_condition'
+        'app_condition',
+        'qualifications',
+        'preferred_qualifications',
+        'required_documents',
+        'salary_range',
+        'working_time',
+        'work_location',
+        'start_date',
+        'end_date',
+        'application_process',
     ];
+    
 
     public function project()
     {

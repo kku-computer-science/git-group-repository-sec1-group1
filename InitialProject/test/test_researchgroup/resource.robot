@@ -6,7 +6,7 @@ ${BROWSER}    custom_chrome
 ${BASE_URL}    http://localhost:8000   #https://cs0167.cpkkuhost.com/
 ${CHROME_BROWSER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chrome${/}chrome.exe
 ${CHROME_DRIVER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chromedriver${/}chromedriver.exe
-${DELAY}    0.2
+${DELAY}    0.8
 
 ***Keywords***
 Open Custom Chrome Browser
@@ -69,6 +69,8 @@ Input Application
     Input Text  xpath=${FORM_XPATH}//textarea[@name='preferred_qualifications[]']    ${PREFERRED_QUALIFICATIONS}  #• Teaching experience\n• Industry collaboration experience
     Input Text  xpath=${FORM_XPATH}//input[@name='working_time[]']    ${WORKING_TIME}  #Full-time, 40 hours per week
     Input Text  xpath=${FORM_XPATH}//input[@name='work_location[]']    ${WORK_LOCATION}  #Cambridge, MA (Hybrid)
+    Scroll Element Into View    ${FORM_XPATH}//input[@name='start_date[]']
+    Sleep    1s
     Input Date Type    ${FORM_XPATH}    start_date[]    ${START_DATE}
     Input Date Type    ${FORM_XPATH}    end_date[]    ${END_DATE}
     Input Text  xpath=${FORM_XPATH}//textarea[@name='application_process[]']    ${PROCESS}  #• Submit application through the online portal\n• Initial screening\n• Interviews
@@ -79,3 +81,22 @@ Input Date Type
     Execute JavaScript  
     ...  var el = document.evaluate("${FORM_XPATH}//input[@name='${FIELD_NAME}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     ...  if(el) el.value = '${DATE}';
+
+Edit Application
+    [Arguments]    ${DEADLINE}    ${VACANCIES}    ${DOCUMENTS}    ${SALARY}    ${QUALIFICATION}    ${PREFERRED_QUALIFICATIONS}    ${WORKING_TIME}    ${WORK_LOCATION}    ${START_DATE}    ${END_DATE}    ${PROCESS}    ${DETAIL}      
+    # Fill fields
+    Scroll Element Into View    xpath=//input[@name='app_deadline']
+    Input Date Type    ${EMPTY}    app_deadline    ${DEADLINE}
+    Input Text  xpath=//input[@name='amount']    ${VACANCIES}
+    Input Text  xpath=//textarea[@name='required_documents']    ${DOCUMENTS}  # • CV/Resume\n• Cover Letter\n• Research Statement  
+    Input Text  xpath=//input[@name='salary_range']    ${SALARY}  #65,000 - 80,000 per month
+    Input Text  xpath=//textarea[@name='qualifications']    ${QUALIFICATION}  #• Ph.D. in relevant field\n• Research experience\n• Strong publication record
+    Input Text  xpath=//textarea[@name='preferred_qualifications']    ${PREFERRED_QUALIFICATIONS}  #• Teaching experience\n• Industry collaboration experience
+    Input Text  xpath=//input[@name='working_time']    ${WORKING_TIME}  #Full-time, 40 hours per week
+    Input Text  xpath=//input[@name='work_location']    ${WORK_LOCATION}  #Cambridge, MA (Hybrid)
+    Scroll Element Into View    //input[@name='start_date']
+    Sleep    1s
+    Input Date Type    ${EMPTY}    start_date    ${START_DATE}
+    Input Date Type    ${EMPTY}    end_date    ${END_DATE}
+    Input Text  xpath=//textarea[@name='application_process']    ${PROCESS}  #• Submit application through the online portal\n• Initial screening\n• Interviews
+    Input Text  xpath=//textarea[@name='app_detail']    ${DETAIL}  #This is an exciting opportunity for this position.
