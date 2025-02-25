@@ -15,6 +15,7 @@
         "laravel/ui": "^3.2",
         "laravelcollective/html": "^6.2",
         "maatwebsite/excel": "^3.1",
+        "myclabs/php-enum": "^1.8",
         "phattarachai/thaidate": "^12.1",
         "phpoffice/phpword": "^0.18.3",
         "renanbr/bibtex-parser": "^2.1",
