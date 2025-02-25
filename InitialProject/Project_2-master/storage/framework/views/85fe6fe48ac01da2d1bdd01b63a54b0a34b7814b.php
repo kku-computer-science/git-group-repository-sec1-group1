@@ -213,7 +213,7 @@
                             <td><?php echo e($application->amount); ?></td>
                             <td><?php echo e($application->salary_range); ?></td>
                             <td><?php echo e($application->end_date); ?></td>
-                            <td><a href="<?php echo e(route('application.show', $application->id)); ?>">รายละเอียด</a></td>
+                            <td><a href="<?php echo e(route('applicationdetail', $application->id)); ?>">รายละเอียด</a></td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

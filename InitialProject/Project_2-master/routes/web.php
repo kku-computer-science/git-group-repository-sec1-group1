@@ -178,6 +178,10 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/application/{id}/edit', [ApplicationController::class, 'edit'])->name('application.edit');
     Route::get('/application/{id}/show', [ApplicationController::class, 'show'])->name('application.show');
     Route::put('/application/update/{id}', [ApplicationController::class, 'update'])->name('application.update');
+
+    Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
+
+
     
 
 

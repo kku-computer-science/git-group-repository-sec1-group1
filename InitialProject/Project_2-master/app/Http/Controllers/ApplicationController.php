@@ -80,6 +80,13 @@ class ApplicationController extends Controller
 
         return view('application.show', compact('application', 'project'));
     }
+    public function usershow($application_id)
+    {
+        $application = Application::findOrFail($application_id);
+        $project = ProjectApplication::find($application->project_app_id); // Use correct foreign key
+
+        return view('applicationdetail', compact('application', 'project'));
+    }
 
     public function update(Request $request, $id)
 {

@@ -205,7 +205,7 @@
                             <td>{{ $application->amount }}</td>
                             <td>{{ $application->salary_range }}</td>
                             <td>{{ $application->end_date }}</td>
-                            <td><a href="{{ route('application.show', $application->id) }}">รายละเอียด</a></td>
+                            <td><a href="{{ route('applicationdetail', $application->id) }}">รายละเอียด</a></td>
                         </tr>
                         @endforeach
                         @endforeach
