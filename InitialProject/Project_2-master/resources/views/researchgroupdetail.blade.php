@@ -179,15 +179,12 @@
     </div>
 </div>
 
-@foreach ($projectApplications as $app)
+@if($projectApplications->isNotEmpty())
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
         <div class="row g-0">
             <div class="card-body">
-                @if($projectApplications->isEmpty())
-                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
-                @else
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -201,20 +198,34 @@
                     </thead>
                     <tbody>
                         @foreach ($projectApplications as $app)
+                        @foreach($app->applications as $application)
                         <tr>
                             <td>{{ $app->project_title }}</td>
-                            <td>{{ $app->applicationDetail->role}}</td>
-                            <td>{{ $app->applicationDetail->amount}}</td>
-                            <td>{{ $app->applicationDetail->salary_range}}</td>
-                            <td>{{ $app->applicationDetail->end_date}}</td>
+                            <td>{{ $application->role }}</td>
+                            <td>{{ $application->amount }}</td>
+                            <td>{{ $application->salary_range }}</td>
+                            <td>{{ $application->end_date }}</td>
+                            <td><a href="{{ route('application.show', $application->id) }}">รายละเอียด</a></td>
                         </tr>
+                        @endforeach
                         @endforeach
                     </tbody>
                 </table>
-                @endif
             </div>
         </div>
     </div>
 </div>
-@endforeach
+@else
+<div class="container card-4 mt-5">
+    <div class="card">
+        <h4 class="card-text-1">เปิดรับสมัคร</h4>
+        <div class="row g-0">
+            <div class="card-body">
+                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 @stop

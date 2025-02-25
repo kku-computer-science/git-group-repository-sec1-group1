@@ -82,34 +82,34 @@ class ApplicationController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        // Validate the request data
-        $validatedData = $request->validate([
-            'role' => 'required|string',
-            'app_deadline' => 'required|date',
-            'amount' => 'required|numeric',
-            'app_detail' => 'required|string',
-            'qualifications' => 'nullable|string',
-            'preferred_qualifications' => 'nullable|string',
-            'required_documents' => 'required|string',
-            'salary_range' => 'required|string',
-            'working_time' => 'required|string',
-            'work_location' => 'required|string',
-            'start_date' => 'required|date',
-            'end_date' => 'nullable|date',
-            'application_process' => 'required|string',
-        ]);
+{
+    // Find the application
+    $application = Application::findOrFail($id);
 
-        // Find the application by ID
-        $application = Application::findOrFail($id);
+    // Validate the request data
+    $validatedData = $request->validate([
+        'app_deadline' => 'required|date',
+        'role' => 'required|string',
+        'amount' => 'required|integer|min:1',
+        'app_detail' => 'required|string',
+        'qualifications' => 'nullable|string',
+        'preferred_qualifications' => 'nullable|string',
+        'required_documents' => 'nullable|string',
+        'salary_range' => 'required|string',
+        'working_time' => 'required|string',
+        'work_location' => 'required|string',
+        'start_date' => 'required|date',
+        'end_date' => 'nullable|date',
+        'application_process' => 'required|string',
+    ]);
 
-        // Update the application with the validated data
-        $application->update($validatedData);
+    // Update the application with validated data
+    $application->update($validatedData);
 
-        // Redirect back to the application show page with a success message
-        return redirect()->route('application.show', $application->id)
-            ->with('success', 'Application updated successfully!');
-    }
+    // Redirect with success message
+    return redirect()->route('application.show', $id)->with('success', 'Application updated successfully!');
+}
+    
 
 
 

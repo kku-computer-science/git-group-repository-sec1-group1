@@ -15,17 +15,19 @@ class ResearchGroupDetailController extends Controller
     public function request($id)
     {
         $resgd = ResearchGroup::with(['user.paper' => function ($query) {
-            return $query->orderBy('paper_yearpub', 'DESC');
+            $query->orderBy('paper_yearpub', 'DESC');
         }])->where('id', $id)->get();
-
-        // ใช้ eager loading เพื่อดึงข้อมูลจาก ProjectApplication พร้อมกับ ApplicationDetail
-        $projectApplications = ProjectApplication::with('applicationDetail') // eager load กับ applicationDetail
+    
+        // Eager load ProjectApplication with its ApplicationDetail and related Applications
+        $projectApplications = ProjectApplication::with(['applicationDetail', 'applications']) 
             ->where('re_group_id', $id)
             ->get();
-
-        $relatedResearch = RelatedResearch::with('User')
+    
+        $relatedResearch = RelatedResearch::with('user')
             ->where('re_group_id', $id)
             ->paginate(3);
+    
         return view('researchgroupdetail', compact('resgd', 'relatedResearch', 'projectApplications'));
     }
+    
 }

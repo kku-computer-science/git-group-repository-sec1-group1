@@ -187,15 +187,12 @@
     </div>
 </div>
 
-<?php $__currentLoopData = $projectApplications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<?php if($projectApplications->isNotEmpty()): ?>
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
         <div class="row g-0">
             <div class="card-body">
-                <?php if($projectApplications->isEmpty()): ?>
-                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
-                <?php else: ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -209,21 +206,35 @@
                     </thead>
                     <tbody>
                         <?php $__currentLoopData = $projectApplications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $app->applications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $application): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($app->project_title); ?>111</td>
-                            <td><?php echo e($app->applicationDetail->role); ?></td>
-                            <td><?php echo e($app->applicationDetail->amount); ?></td>
-                            <td><?php echo e($app->applicationDetail->salary_range); ?></td>
-                            <td><?php echo e($app->applicationDetail->end_date); ?></td>
+                            <td><?php echo e($app->project_title); ?></td>
+                            <td><?php echo e($application->role); ?></td>
+                            <td><?php echo e($application->amount); ?></td>
+                            <td><?php echo e($application->salary_range); ?></td>
+                            <td><?php echo e($application->end_date); ?></td>
+                            <td><a href="<?php echo e(route('application.show', $application->id)); ?>">รายละเอียด</a></td>
                         </tr>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
-                <?php endif; ?>
             </div>
         </div>
     </div>
 </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php else: ?>
+<div class="container card-4 mt-5">
+    <div class="card">
+        <h4 class="card-text-1">เปิดรับสมัคร</h4>
+        <div class="row g-0">
+            <div class="card-body">
+                <p class="no-job-openings">ไม่พบข้อมูลการรับสมัคร</p>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/researchgroupdetail.blade.php ENDPATH**/ ?>

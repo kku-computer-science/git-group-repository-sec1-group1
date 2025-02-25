@@ -32,4 +32,10 @@ class ProjectApplication extends Model
     {
         return $this->hasOne(ApplicationDetail::class, 'project_app_id');
     }
+
+    public function projectApplication()
+{
+    return $this->belongsTo(ProjectApplication::class, 'project_app_id');
+}
+
 }
