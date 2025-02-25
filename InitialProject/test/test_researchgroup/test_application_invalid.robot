@@ -38,10 +38,10 @@ Project Empty Contact
 
 Create Project
     Click Element    css:button.create-project-btn
-    Input Project    Project    Description    111-1111-111
-
+    Input Project    Create Application for AI & Machine Learning Innovations    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    111-1111-111
+    
 Go To Project Detail
-    Click Element    xpath=//h5[contains(text(),'Project')]/ancestor::a
+    Click Element    xpath=//h5[contains(text(),'Create Application for AI & Machine Learning Innovations')]/ancestor::a
 
 Open Form
     Click Element    xpath=//a[contains(text(), 'Create Application')]
