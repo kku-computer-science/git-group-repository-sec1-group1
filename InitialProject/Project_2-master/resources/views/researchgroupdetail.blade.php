@@ -139,7 +139,6 @@
     </div>
 </div>
 
-@foreach ($projectApplications as $app)
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
@@ -167,6 +166,11 @@
                                 <td>{{ $app->applicationDetail->amount}}</td>
                                 <td>{{ $app->applicationDetail->salary_range}}</td>
                                 <td>{{ $app->applicationDetail->end_date}}</td>
+                                <td>
+                                    <div class="mt-auto">
+                                        <a href="{{ route('applicationdetail', ['id' => $app->id]) }}" class="btn btn-outline-info">ดูรายละเอียด</a>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -176,5 +180,4 @@
         </div>
     </div>
 </div>
-@endforeach
 @stop

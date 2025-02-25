@@ -38,7 +38,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\ApplicationDetailController;
 
+Route::get('applicationdetail/{id}', [ApplicationDetailController::class, 'show'])->name('applicationdetail');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -145,7 +145,6 @@
     </div>
 </div>
 
-<?php $__currentLoopData = $projectApplications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="container card-4 mt-5">
     <div class="card">
         <h4 class="card-text-1">เปิดรับสมัคร</h4>
@@ -173,6 +172,11 @@
                                 <td><?php echo e($app->applicationDetail->amount); ?></td>
                                 <td><?php echo e($app->applicationDetail->salary_range); ?></td>
                                 <td><?php echo e($app->applicationDetail->end_date); ?></td>
+                                <td>
+                                    <div class="mt-auto">
+                                        <a href="<?php echo e(route('applicationdetail', ['id' => $app->id])); ?>" class="btn btn-outline-info">ดูรายละเอียด</a>
+                                    </div>
+                                </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
@@ -182,7 +186,5 @@
         </div>
     </div>
 </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/researchgroupdetail.blade.php ENDPATH**/ ?>

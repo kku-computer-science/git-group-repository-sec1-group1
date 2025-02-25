@@ -135,6 +135,7 @@ CREATE TABLE `application_detail` (
 --
 
 INSERT INTO `application_detail` (`id`, `app_deadline`, `role`, `amount`, `app_detail`, `created_at`, `updated_at`, `project_app_id`, `qualifications`, `preferred_qualifications`, `required_documents`, `salary_range`, `working_time`, `work_location`, `start_date`, `end_date`, `application_process`) VALUES
+(2, '2025-02-25 08:54:24', 'KON', 2, 'SHISOCHASHI', '2025-02-25 08:55:43', '2025-02-25 08:55:43', 2, 'MAIRU', 'MAIRU', 'MAIRU', '800', 'MAIRU', 'MAIRU', '2025-02-05', '2025-02-08', 'MAIRU'),
 (6, '2025-02-27 00:00:00', 'PhD', 2, 'I\'ll create show and edit pages for an application that appear after clicking the respective buttons. I\'ll design both interfaces to match your existing aesthetic and functionalit', '2025-02-24 22:30:05', '2025-02-24 23:52:39', 1, 'I\'ll create show and edit pages for an application that appear after clicking the respective buttons. I\'ll design both interfaces to match your existing aesthetic and functionality.', 'I\'ll create show and edit pages for an application that appear after clicking the respective buttons. I\'ll design both interfaces to match your existing aesthetic and functionality.', 'I\'ll create show and edit pages for an application that appear after clicking the respective buttons. I\'ll design both interfaces to match your existing aesthetic and functionality.', '65000', 'fulltime', 'มหาลัยขอนแก่น', '2025-02-24', '2025-02-28', 'I\'ll create show and edit pages for an application that appear after clicking the respective buttons. I\'ll design both interfaces to match your existing aesthetic and functionality.');
 
 -- --------------------------------------------------------
@@ -3484,8 +3485,8 @@ CREATE TABLE `project_application` (
 --
 
 INSERT INTO `project_application` (`id`, `project_title`, `project_details`, `updated_at`, `created_at`, `contact`, `re_group_id`) VALUES
-(1, 'AI & Machine Learning Innovation', 'AI and machine learning innovations are transforming industries by enabling smarter automation, real-time decision-making, and advanced data analysis. Recent advancements include generative AI models that create human-like text, images, and code, enhancing creativity and productivity.', '2025-02-24 23:52:50', '2025-02-24 14:23:59', 'wasi@gmail.comm', 10);
-
+(1, 'AI & Machine Learning Innovation', 'AI and machine learning innovations are transforming industries by enabling smarter automation, real-time decision-making, and advanced data analysis. Recent advancements include generative AI models that create human-like text, images, and code, enhancing creativity and productivity.', '2025-02-24 23:52:50', '2025-02-24 14:23:59', 'wasi@gmail.comm', 10),
+(2, 'Kondee!', 'CHICOSHASI', '2025-02-25 08:54:18', '2025-02-25 08:54:18', 'kondee@gmail.com', 3);
 -- --------------------------------------------------------
 
 --

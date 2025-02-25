@@ -16,8 +16,7 @@ class ResearchGroupDetailController extends Controller
         return $query->orderBy('paper_yearpub', 'DESC');
     }])->where('id', $id)->get();
 
-    // ใช้ eager loading เพื่อดึงข้อมูลจาก ProjectApplication พร้อมกับ ApplicationDetail
-    $projectApplications = ProjectApplication::with('applicationDetail') // eager load กับ applicationDetail
+    $projectApplications = ProjectApplication::with('applicationDetail')
                                               ->where('re_group_id', $id)
                                               ->get();
 
