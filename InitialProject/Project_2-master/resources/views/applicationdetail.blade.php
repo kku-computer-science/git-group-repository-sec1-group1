@@ -161,7 +161,7 @@
 
                 <div class="deadline">
                     <i class="far fa-calendar-alt"></i>
-                    <span>เปิดรับสมัครถึง: {{$applicationDetail->applicationDetail->app_deadline }}</span>
+                    <span>เปิดรับสมัครถึง: {{$applicationDetail->applicationDetail->end_date }}</span>
                 </div>
             </div>
         </div>
