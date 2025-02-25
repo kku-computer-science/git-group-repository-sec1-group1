@@ -228,3 +228,4 @@ Delete Project
     Click Button    xpath=//button[contains(@class, 'btn-danger')]
     Handle Alert    action=ACCEPT
     Sleep    2s
+    [Teardown]    Close Browser
