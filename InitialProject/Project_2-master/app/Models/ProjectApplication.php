@@ -25,7 +25,12 @@ class ProjectApplication extends Model
     }
 
     public function applications(): HasMany
-{
+    {
     return $this->hasMany(Application::class, 'project_app_id');
-}
+    }
+    
+    public function group()
+    {
+        return $this->belongsTo(Group::class, 're_group_id');
+    }
 }

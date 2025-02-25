@@ -40,4 +40,17 @@ Input Email
     [Arguments]    ${EMAIL}
     Input Text    id:username    ${EMAIL}
 
+Input Project
+    [Arguments]    ${NAME}    ${DESCRIPTION}    ${CONTACT}
+    Input Text    id:projectName    ${NAME}
+    Input Text    id:projectDescription    ${DESCRIPTION}
+    Input Text    id:projectContact    ${CONTACT}
+    Click Button    Create
 
+Input Application
+    [Arguments]    ${DEADLINE}    ${AMOUNT}    ${DETAIL}    ${CONDITION}
+    Execute JavaScript    document.querySelector("input[name='app_deadline[]']").value = '${DEADLINE}';
+    Input Text    xpath=(//input[@name="amount[]"])[1]    ${AMOUNT}
+    Input Text    xpath=(//textarea[@name="app_detail[]"])[1]    ${DETAIL}
+    Input Text    xpath=(//input[@name="app_condition[]"])[1]    ${CONDITION}
+    Click Button    Submit All Applications

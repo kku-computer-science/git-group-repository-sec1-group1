@@ -7,12 +7,17 @@ use App\Models\ProjectApplication;
 
 class ApplicationProjectController extends Controller
 {
-
+    // public function index()
+    // {
+    //     $applications = ProjectApplication::all();
+    //     return view('project_applications.index', compact('applications'));
+    // }
     
     public function index($group_id)
     {
         $researchGroup = ResearchGroup::find($group_id);
-    
+        $applications = ProjectApplication::all();
+
         if (!$researchGroup) {
             return abort(404, 'Research Group not found');
         }
@@ -20,6 +25,7 @@ class ApplicationProjectController extends Controller
         $projects = ProjectApplication::where('re_group_id', $group_id)->get();
 
         return view('application_project.index', compact('researchGroup', 'projects'));
+        return view('project_applications.index', compact('applications'));
     }
 
     public function create($group_id)
