@@ -14,11 +14,15 @@ class ProjectApplication extends Model
         'project_title',
         'contact',
         're_group_id',
-        'status'
     ];
 
     public function researchGroup()
     {
         return $this->belongsTo(ResearchGroup::class, 're_group_id');
+    }
+
+    public function applicationDetail()
+    {
+        return $this->hasOne(ApplicationDetail::class, 'project_app_id');
     }
 }

@@ -162,12 +162,11 @@
                         <tbody>
                             @foreach ($projectApplications as $app)
                             <tr>
-                                <td>{{$app->project_title }}</td>
-                                <td>ผู้ช่วย</td>
-                                <td>3 คน</td>
-                                <td>35,000 บาท</td>
-                                <td>10/04/2025</td>
-
+                                <td>{{ $app->project_title }}</td>
+                                <td>{{ $app->applicationDetail->role}}</td>
+                                <td>{{ $app->applicationDetail->amount}}</td>
+                                <td>{{ $app->applicationDetail->salary_range}}</td>
+                                <td>{{ $app->applicationDetail->end_date}}</td>
                             </tr>
                             @endforeach
                         </tbody>

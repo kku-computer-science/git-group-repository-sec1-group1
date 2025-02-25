@@ -9,8 +9,10 @@ class ResearchgroupsController extends Controller
 {
     public function index()
     {
-        $resg = ResearchGroup::with('User')->orderBy('group_name_en')->get();
-        $projectApplications = ProjectApplication::where('project_title')->get();
-        return view('research_g',compact('resg','projectApplications'));
-    }
+        $resg = ResearchGroup::with('user', 'projectApplications')
+        ->orderBy('group_name_en')
+        ->get();
+
+        return view('research_g', compact('resg'));
+    }   
 }

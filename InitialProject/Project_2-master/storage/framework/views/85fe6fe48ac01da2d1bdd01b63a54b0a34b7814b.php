@@ -169,11 +169,10 @@
                             <?php $__currentLoopData = $projectApplications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td><?php echo e($app->project_title); ?></td>
-                                <td>ผู้ช่วย</td>
-                                <td>3 คน</td>
-                                <td>35,000 บาท</td>
-                                <td>10/04/2025</td>
-
+                                <td><?php echo e($app->applicationDetail->role); ?></td>
+                                <td><?php echo e($app->applicationDetail->amount); ?></td>
+                                <td><?php echo e($app->applicationDetail->salary_range); ?></td>
+                                <td><?php echo e($app->applicationDetail->end_date); ?></td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
