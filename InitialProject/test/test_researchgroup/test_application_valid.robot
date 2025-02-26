@@ -35,6 +35,7 @@ Create Project
     
 Go To Project Detail
     Click Element    xpath=//h5[contains(text(),'Create Application for AI & Machine Learning Innovations')]/ancestor::a
+    Sleep    1s
 
 Create Application for ResearchAssistant
     Click Element    xpath=//a[contains(text(), 'Create Application')]
@@ -45,11 +46,13 @@ Create Application for ResearchAssistant
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Scroll Element Into View    xpath=(//a[contains(., 'View Details')])[1]
+    Sleep    0.5s
     ${Role_Text} =    Get Text    xpath=(//h5[contains(@class, 'role-title')])[1]
     Should Be Equal As Strings    ${Role_Text}    Research Assistant
     Click Element    xpath=(//a[contains(., 'View Details')])[1]  #Click View details
     ${Detail_Role}=  Get Text  xpath=//h3[contains(@class,'text-primary')]
     Should Be Equal As Strings  ${Detail_Role}  Research Assistant Position  #Check if show the right one
+    Sleep    1s
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Sleep    1s
     Execute Javascript    window.scrollTo(0, 0);
@@ -66,11 +69,13 @@ Create Application for Ph.D
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Scroll Element Into View    xpath=(//a[contains(., 'View Details')])[2]
+    Sleep    0.5s
     ${Role_Text} =    Get Text    xpath=(//h5[contains(@class, 'role-title')])[2]
     Should Be Equal As Strings    ${Role_Text}    PhD
     Click Element    xpath=(//a[contains(., 'View Details')])[2]  #Click View details
     ${Detail_Role}=  Get Text  xpath=//h3[contains(@class,'text-primary')]
     Should Be Equal As Strings  ${Detail_Role}  PhD Position  #Check if show the right one
+    Sleep    1s
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Sleep    1s
     Execute Javascript    window.scrollTo(0, 0);
@@ -87,11 +92,13 @@ Create Application for Postdoc
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Scroll Element Into View    xpath=(//a[contains(., 'View Details')])[3]
+    Sleep    0.5
     ${Role_Text} =    Get Text    xpath=(//h5[contains(@class, 'role-title')])[3]
     Should Be Equal As Strings    ${Role_Text}    Postdoc
     Click Element    xpath=(//a[contains(., 'View Details')])[3]  #Click View details
     ${Detail_Role}=  Get Text  xpath=//h3[contains(@class,'text-primary')]
     Should Be Equal As Strings  ${Detail_Role}  Postdoc Position  #Check if show the right one
+    Sleep    1s
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Sleep    1s
     Execute Javascript    window.scrollTo(0, 0);
@@ -158,6 +165,7 @@ Check Application Detail In Group Page
     Switch Tab    0
     Scroll Element Into View    xpath=(//a[contains(@href, 'researchgroupdetail')])[8]
     Click Element     xpath=(//a[contains(@href, 'researchgroupdetail')])[8]
+    Sleep    1s
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
 
 Check Application Detail

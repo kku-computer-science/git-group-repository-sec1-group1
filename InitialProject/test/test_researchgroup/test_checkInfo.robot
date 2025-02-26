@@ -8,6 +8,7 @@ Check Researcher Group
 
 
 Check Group Detail
-    Scroll Element Into View    xpath=(//a[contains(@href, 'researchgroupdetail')])[8]
+    Scroll Element Into View    xpath=(//a[contains(@href, 'researchgroupdetail')])[1]
     Click Element     xpath=(//a[contains(@href, 'researchgroupdetail')])[1]
+    Sleep    1s
     [Teardown]    Close Browser

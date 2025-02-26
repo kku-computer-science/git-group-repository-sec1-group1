@@ -17,8 +17,8 @@ Go To Login
     Title Should Be    Login
 
 Login
-    Input Email    admin@gmail.com
-    Input Password    id:password    12345678
+    Input Email    wongsar@kku.ac.th
+    Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
