@@ -172,7 +172,7 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::put('/application-project/{id}', [ApplicationProjectController::class, 'update'])->name('application_project.update');
     Route::delete('/application-project/{id}', [ApplicationProjectController::class, 'destroy'])->name('application_project.destroy');
 
-    Route::get('/application/create/{project_id}', [ApplicationController::class, 'create'])->name('application.create');
+    // Route::get('/application/create/{project_id}', [ApplicationController::class, 'create'])->name('application.create');
     Route::post('/application/store/{project_id}', [ApplicationController::class, 'store'])->name('application.store');
     Route::delete('/application/destroy/{id}', [ApplicationController::class, 'destroy'])->name('application.destroy');
     Route::get('/application/{id}/edit', [ApplicationController::class, 'edit'])->name('application.edit');
@@ -182,9 +182,34 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
 
 
-    
+    // Direct Research Group to Application Routes
+    // List applications for a research group
 
+    // Route::get('/researchGroups', [ResearchGroupController::class, 'index'])->name('research_groups.index');
+    Route::get('/research-group/{group_id}/applications', [ApplicationController::class, 'index'])
+        ->name('application.index');
 
+    Route::get('/research-group/{group_id}/applications', [ApplicationController::class, 'index'])
+        ->name('application.index');
+
+    // Create application for a research group
+    Route::get('/research-group/{group_id}/application/create', [ApplicationController::class, 'create'])->name('application.create');
+    Route::post('/research-group/{group_id}/application', [ApplicationController::class, 'store'])
+        ->name('application.store');
+
+    // Individual application routes
+    Route::get('/application/{id}', [ApplicationController::class, 'detail'])
+        ->name('application.detail');
+    Route::get('/application/{id}/edit', [ApplicationController::class, 'edit'])
+        ->name('application.edit');
+    Route::put('/application/{id}', [ApplicationController::class, 'update'])
+        ->name('application.update');
+    Route::delete('/application/{id}', [ApplicationController::class, 'destroy'])
+        ->name('application.destroy');
+
+    // Legacy route for backward compatibility
+    Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])
+        ->name('applicationdetail');
 });
 Route::post('/researchGroup/{id}', [RelatedResearchController::class, 'store'])->name('relatedResearch.store');
 Route::get('/researchGroup/{id}', [RelatedResearchController::class, 'index'])->name('relatedResearch.index');

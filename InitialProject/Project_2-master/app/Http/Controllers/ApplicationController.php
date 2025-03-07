@@ -4,132 +4,196 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Application;
-use App\Models\ProjectApplication;
+use App\Models\ResearchGroup;
 
 class ApplicationController extends Controller
 {
-    public function create($project_id)
+    /**
+     * Display applications for a research group
+     */
+
+     public function index($group_id)
+     {
+         $researchGroup = ResearchGroup::find($group_id);
+     
+         if (!$researchGroup) {
+             return abort(404, 'Research Group not found');
+         }
+     
+         $applications = Application::where('research_group_id', $group_id)->get();
+ 
+         return view('application.index', compact('researchGroup', 'applications'));
+     }
+
+    public function show($id)
     {
-        $project = ProjectApplication::findOrFail($project_id);
-        return view('application.create', compact('project'));
+        $researchGroup = ResearchGroup::findOrFail($id);
+    
+        // Get all applications for this research group
+        $application = Application::where('research_group_id', $id)
+            ->orderBy('created_at', 'desc')     
+            ->get();
+
+        return view('application.index', compact('researchGroup', 'application'));
     }
 
-    public function edit($application_id)
+    /**
+     * Show the form for creating a new application
+     */
+    public function create($group_id)
     {
-        $application = Application::findOrFail($application_id);
-        $project = ProjectApplication::find($application->project_app_id); // Use correct foreign key
-
-        return view('application.edit', compact('application', 'project'));
+        $researchGroup = ResearchGroup::findOrFail($group_id);
+        return view('application.create', compact('researchGroup'));
     }
 
+    /**
+     * Show application details
+     */
+    public function detail($id)
+    {
+        // Make sure we're getting the application by its primary key
+        $application = Application::findOrFail($id);
+        
+        // Ensure the research group exists
+        $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
 
+        // Pass both variables to the view
+        return view('application.detail', compact('application', 'researchGroup'));
+    }
+    
+    /**
+     * Legacy method for backward compatibility
+     */
+    public function usershow($id)
+    {
+        // Make sure we're getting the application by its primary key
+        $application = Application::findOrFail($id);
+        
+        // Ensure the research group exists
+        $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
 
-    public function store(Request $request, $projectId)
+        return view('applicationdetail', compact('application', 'researchGroup'));
+    }
+
+    /**
+     * Store a newly created application
+     */
+    public function store(Request $request, $group_id)
     {
         $validatedData = $request->validate([
-            'role.*'                   => 'required|string',
-            'app_deadline.*'           => 'required|date',
-            'amount.*'                 => 'required|numeric',
-            'app_detail.*'             => 'required|string',
-            'qualifications.*'         => 'nullable|string',
-            'preferred_qualifications.*' => 'nullable|string',
-            'required_documents.*'     => 'required|string',
-            'salary_range.*'           => 'required|string',
-            'working_time.*'           => 'required|string',
-            'work_location.*'          => 'required|string',
-            'start_date.*'             => 'required|date',
-            'end_date.*'               => 'nullable|date',
-            'application_process.*'    => 'required|string',
+            'role'                     => 'required|string',
+            'app_deadline'             => 'required|date',
+            'amount'                   => 'required|numeric',
+            'app_detail'               => 'required|string',
+            'qualifications'           => 'nullable|string',
+            'preferred_qualifications' => 'nullable|string',
+            'required_documents'       => 'required|string',
+            'salary_range'             => 'required|string',
+            'working_time'             => 'required|string',
+            'work_location'            => 'required|string',
+            'start_date'               => 'required|date',
+            'end_date'                 => 'nullable|date',
+            'application_process'      => 'required|string',
+            'contact_name'             => 'nullable|string',
+            'contact_email'            => 'nullable|email',
+            'contact_phone'            => 'nullable|string',
+            'custom_fields_config'     => 'nullable|json',
         ]);
 
-        $applications = [];
-        foreach ($request->role ?? [] as $index => $role) {
-            $applications[] = [
-                'project_app_id'         => $projectId,
-                'role'                   => $role,
-                'app_deadline'           => $request->app_deadline[$index] ?? null,
-                'amount'                 => $request->amount[$index] ?? 0,
-                'app_detail'             => $request->app_detail[$index] ?? '',
-                'qualifications'         => $request->qualifications[$index] ?? null,
-                'preferred_qualifications' => $request->preferred_qualifications[$index] ?? null,
-                'required_documents'     => $request->required_documents[$index] ?? '',
-                'salary_range'           => $request->salary_range[$index] ?? '',
-                'working_time'           => $request->working_time[$index] ?? '',
-                'work_location'          => $request->work_location[$index] ?? '',
-                'start_date'             => $request->start_date[$index] ?? null,
-                'end_date'               => $request->end_date[$index] ?? null,
-                'application_process'    => $request->application_process[$index] ?? '',
-                'created_at'             => now(),
-                'updated_at'             => now(),
-            ];
+        // Add research_group_id to the data
+        $validatedData['research_group_id'] = $group_id;
+
+        // Handle the structured salary fields if present
+        if ($request->has('salary_amount') && $request->has('salary_period')) {
+            $validatedData['salary_amount'] = $request->salary_amount;
+            $validatedData['salary_period'] = $request->salary_period;
         }
 
-        Application::insert($applications);
+        // Handle the structured working time fields if present
+        if ($request->has('working_type') && $request->has('working_hours') && $request->has('working_period')) {
+            $validatedData['working_type'] = $request->working_type;
+            $validatedData['working_hours'] = $request->working_hours;
+            $validatedData['working_period'] = $request->working_period;
+        }
 
-        return redirect()->route('application_project.show', $projectId)
-            ->with('success', 'Applications submitted successfully!');
+        // Create the application
+        $application = Application::create($validatedData);
+
+        return redirect()->route('application.index', $group_id)
+            ->with('success', 'Application created successfully!');
     }
 
-
-
-
-    public function show($application_id)
+    /**
+     * Show the form for editing an application
+     */
+    public function edit($id)
     {
-        $application = Application::findOrFail($application_id);
-        $project = ProjectApplication::find($application->project_app_id); // Use correct foreign key
+        $application = Application::findOrFail($id);
+        $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
 
-        return view('application.show', compact('application', 'project'));
-    }
-    public function usershow($application_id)
-    {
-        $application = Application::findOrFail($application_id);
-        $project = ProjectApplication::find($application->project_app_id); // Use correct foreign key
-
-        return view('applicationdetail', compact('application', 'project'));
+        return view('application.edit', compact('application', 'researchGroup'));
     }
 
+    /**
+     * Update the specified application
+     */
     public function update(Request $request, $id)
-{
-    // Find the application
-    $application = Application::findOrFail($id);
+    {
+        // Find the application
+        $application = Application::findOrFail($id);
 
-    // Validate the request data
-    $validatedData = $request->validate([
-        'app_deadline' => 'required|date',
-        'role' => 'required|string',
-        'amount' => 'required|integer|min:1',
-        'app_detail' => 'required|string',
-        'qualifications' => 'nullable|string',
-        'preferred_qualifications' => 'nullable|string',
-        'required_documents' => 'nullable|string',
-        'salary_range' => 'required|string',
-        'working_time' => 'required|string',
-        'work_location' => 'required|string',
-        'start_date' => 'required|date',
-        'end_date' => 'nullable|date',
-        'application_process' => 'required|string',
-    ]);
+        // Validate the request data
+        $validatedData = $request->validate([
+            'app_deadline'             => 'required|date',
+            'role'                     => 'required|string',
+            'amount'                   => 'required|integer|min:1',
+            'app_detail'               => 'required|string',
+            'qualifications'           => 'nullable|string',
+            'preferred_qualifications' => 'nullable|string',
+            'required_documents'       => 'nullable|string',
+            'salary_range'             => 'required|string',
+            'working_time'             => 'required|string',
+            'work_location'            => 'required|string',
+            'start_date'               => 'required|date',
+            'end_date'                 => 'nullable|date',
+            'application_process'      => 'required|string',
+            'contact_name'             => 'nullable|string',
+            'contact_email'            => 'nullable|email',
+            'contact_phone'            => 'nullable|string',
+            'custom_fields_config'     => 'nullable|json',
+        ]);
 
-    // Update the application with validated data
-    $application->update($validatedData);
+        // Handle the structured salary fields if present
+        if ($request->has('salary_amount') && $request->has('salary_period')) {
+            $validatedData['salary_amount'] = $request->salary_amount;
+            $validatedData['salary_period'] = $request->salary_period;
+        }
 
-    // Redirect with success message
-    return redirect()->route('application.show', $id)->with('success', 'Application updated successfully!');
-}
-    
+        // Handle the structured working time fields if present
+        if ($request->has('working_type') && $request->has('working_hours') && $request->has('working_period')) {
+            $validatedData['working_type'] = $request->working_type;
+            $validatedData['working_hours'] = $request->working_hours;
+            $validatedData['working_period'] = $request->working_period;
+        }
 
+        // Update the application with validated data
+        $application->update($validatedData);
 
+        // Redirect with success message
+        return redirect()->route('application.detail', $application->id)
+            ->with('success', 'Application updated successfully!');
+    }
 
-
-
-
+    /**
+     * Remove the specified application
+     */
     public function destroy($id)
     {
         $application = Application::findOrFail($id);
+        $group_id = $application->research_group_id;
         $application->delete();
-        $project = ProjectApplication::find($application->project_app_id);
 
-        return redirect()->route('application_project.show', $project)
+        return redirect()->route('application.show', $group_id)
             ->with('success', 'Application deleted successfully!');
     }
 }

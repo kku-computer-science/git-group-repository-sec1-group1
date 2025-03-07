@@ -13,9 +13,10 @@ class Application extends Model
     use HasFactory;
 
     protected $table = 'application_detail';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'project_app_id',
+        'research_group_id',
         'app_deadline',
         'role',
         'amount',
@@ -24,23 +25,31 @@ class Application extends Model
         'qualifications',
         'preferred_qualifications',
         'required_documents',
-        'salary_range',
-        'working_time',
+        'salary_range_old',
+        'salary_range_amount',
+        'salary_preriod',
+        'working_time_old',
+        'working_type',
+        'working_hours',
+        'working_period',
         'work_location',
         'start_date',
         'end_date',
         'application_process',
+        'contact_name',
+        'contact_email',
+        'contact_phone',
     ];
-    
 
-    public function project()
+    public function researchGroup()
     {
-        return $this->belongsTo(ProjectApplication::class, 'project_app_id');
+        return $this->belongsTo(ResearchGroup::class, 'research_group_id');
     }
+    
 
 
     public function applications(): HasMany
     {
-        return $this->hasMany(Application::class, 'project_app_id');
+        return $this->hasMany(Application::class, 'research_group_id');
     }
 }

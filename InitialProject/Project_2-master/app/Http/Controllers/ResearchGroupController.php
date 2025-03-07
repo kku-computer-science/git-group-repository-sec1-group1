@@ -30,7 +30,7 @@ class ResearchGroupController extends Controller
 
     public function projects()
     {
-        return $this->hasMany(ApplicationProject::class, 're_group_id');
+        return $this->hasMany(Application::class, 'research_group_id ');
     }
 
     public function index()

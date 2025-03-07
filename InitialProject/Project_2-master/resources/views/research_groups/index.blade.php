@@ -69,7 +69,7 @@
                                 @if(Auth::user()->can('update', $researchGroup))
                                 <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
                                     data-placement="top" title="Application"
-                                    href="{{ route('application_project.index', ['group_id' => $researchGroup->id]) }}">
+                                    href="{{ route('application.index', $researchGroup->id) }}">
                                     <i class="mdi mdi-account-plus"></i>
                                 </a>
                                 @endif
