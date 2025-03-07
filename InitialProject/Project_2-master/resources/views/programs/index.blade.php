@@ -31,23 +31,25 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: start;">{{ trans('message.program') }}</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('message.add') }} </a>
+            <h4 class="card-title" style="text-align: center;">หลักสูตร</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>{{ trans('message.no') }}</th>
-                        <th>{{ trans('message.name') }}</th>
-                        <th>{{ trans('message.degree') }}</th>
-                        <th>{{ trans('message.action') }}</th>
+                        <th>id</th>
+                        <th>Name (ไทย)</th>
+                        <!-- <th>Name (Eng)</th> -->
+                        <th>Degree</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{ $program->{'program_name_' . app()->getLocale()} }}</td>
-                        <td>{{ $program->degree->{'degree_name_' . app()->getLocale()} }}</td>
+                        <td>{{ $program->program_name_th }}</td>
+                        <!-- <td>{{ $program->program_name_en }}</td> -->
+                        <td>{{ $program->degree->degree_name_en}}</td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->

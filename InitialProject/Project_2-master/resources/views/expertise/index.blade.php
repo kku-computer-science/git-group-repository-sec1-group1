@@ -33,17 +33,17 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: start;">{{ trans('message.teacher_expertise') }}</h4>
+            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>{{ trans('message.id') }}</th>
+                        <th>ID</th>
                         @if(Auth::user()->hasRole('admin'))
-                        <th>{{ trans('message.teacher_name') }}</th>
+                        <th>Teacher Name</th>
                         @endif
-                        <th>{{ trans('message.name') }}</th>
+                        <th>Name</th>
 
-                        <th>{{ trans('message.action') }}</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@
                     <tr id="expert_id_{{ $expert->id }}">
                         <td>{{ $i+1 }}</td>
                         @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->{'fname_' . app()->getLocale()} }} {{ $expert->user->{'lname_' . app()->getLocale()} }}</td>
+                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
                         @endif
                         <td>{{ $expert->expert_name }}</td>
 
