@@ -1,98 +1,84 @@
 @extends('dashboards.users.layouts.user-dash-layout')
 
 @section('content')
-<div class="container">
-    <div class="card shadow-none border-0" style="border-radius: 10px;background-color:rgba(0, 0, 0, 0);">
-        <div class="card-body p-0">
 
-            <div class="d-flex justify-content-between">
-                <!-- Back Button -->
-                <a href="{{ route('researchGroups.index') }}" class="btn btn-secondary mt-3 ct-btn">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
 
+
+<!-- Applications List -->
+<div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+    <h3 class="mb-0">Applications</h3>
+    <a href="{{ route('application.create', $researchGroup->id) }}" class="btn btn-success ct-btn">
+        Create Application
+    </a>
+</div>
+
+
+
+@if($researchGroup->applications->isEmpty())
+<div class="alert alert-warning text-center p-4" role="alert">
+    <i class="fas fa-info-circle me-2"></i> No applications have been created yet.
+</div>
+@else
+<div class="row application-grid">
+    @foreach($researchGroup->applications as $application)
+    <div class="col-md-6 mb-4">
+        <div class="application-card">
+            <div class="application-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="role-title mb-0">{{ $application->role }}</h5>
+                    <span class="status-badge {{ strtotime($application->app_deadline) >= time() ? 'active' : 'expired' }}">
+                        {{ strtotime($application->app_deadline) >= time() ? 'Active' : 'Expired' }}
+                    </span>
+                </div>
+                <div class="deadline-info">
+                    <span class="me-3"><i class="fas fa-calendar-plus me-1"></i> Created: {{ \Carbon\Carbon::parse($application->created_at)->format('M d, Y') }}</span>
+                    <i class="far fa-clock me-1"></i>
+                    <span>Deadline: {{ \Carbon\Carbon::parse($application->app_deadline)->format('M d, Y') }}</span>
+                </div>
+            </div>
+
+            <div class="application-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="info-group">
+                            <label><i class="fas fa-users me-2"></i>Vacancies</label>
+                            <p class="mb-0">{{ $application->amount }}</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="info-group">
+                            <label><i class="fas fa-map-marker-alt me-2"></i>Location</label>
+                            <p class="mb-0">{{ $application->work_location ?? 'Not specified' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-group mt-3">
+                    <label><i class="fas fa-info-circle me-2"></i>Application Details</label>
+                    <p class="app-detail">{{ Str::limit($application->app_detail, 100) }}</p>
+                </div>
+
+                <div class="info-group">
+                    <label><i class="fas fa-list-ul me-2"></i>Required Qualifications</label>
+                    <p class="app-condition">{{ Str::limit($application->qualifications, 100) }}</p>
+                </div>
+            </div>
+
+            <div class="application-footer">
+                <div class="row">
+
+                    <div class="col-12">
+                        <a href="{{ route('application.show' ,$application->id) }}" class="btn btn-primary btn-sm w-100">
+                            <i class="fas fa-eye me-1"></i> View Details
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <hr>
-
-
-    <!-- Applications List -->
-    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
-        <h3 class="mb-0">Applications</h3>
-        <a href="{{ route('application.create', $researchGroup->id) }}" class="btn btn-success ct-btn">
-            Create Application
-        </a>
-    </div>
-
-
-
-    @if($researchGroup->applications->isEmpty())
-    <div class="alert alert-warning text-center p-4" role="alert">
-        <i class="fas fa-info-circle me-2"></i> No applications have been created yet. 
-    </div>
-@else
-    <div class="row application-grid">
-        @foreach($researchGroup->applications as $application)
-            <div class="col-md-6 mb-4">
-                <div class="application-card">
-                    <div class="application-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="role-title mb-0">{{ $application->role }}</h5>
-                            <span class="status-badge {{ strtotime($application->app_deadline) >= time() ? 'active' : 'expired' }}">
-                                {{ strtotime($application->app_deadline) >= time() ? 'Active' : 'Expired' }}
-                            </span>
-                        </div>
-                        <div class="deadline-info">
-                            <i class="far fa-clock me-1"></i>
-                            <span>Deadline: {{ \Carbon\Carbon::parse($application->app_deadline)->format('M d, Y h:i A') }}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="application-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="info-group">
-                                    <label><i class="fas fa-users me-2"></i>Vacancies</label>
-                                    <p class="mb-0">{{ $application->amount }}</p>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="info-group">
-                                    <label><i class="fas fa-map-marker-alt me-2"></i>Location</label>
-                                    <p class="mb-0">{{ $application->work_location ?? 'Not specified' }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="info-group mt-3">
-                            <label><i class="fas fa-info-circle me-2"></i>Description</label>
-                            <p class="app-detail">{{ Str::limit($application->app_detail, 100) }}</p>
-                        </div>
-                        
-                        <div class="info-group">
-                            <label><i class="fas fa-list-ul me-2"></i>Conditions</label>
-                            <p class="app-condition">{{ Str::limit($application->qualifications, 100) }}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="application-footer">
-                        <div class="row">
-
-                            <div class="col-12">
-                                <a href="{{ route('application.show' ,$application->id) }}" class="btn btn-primary btn-sm w-100">
-                                    <i class="fas fa-eye me-1"></i> View Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-    @endif
+    @endforeach
+</div>
+@endif
 
 
 

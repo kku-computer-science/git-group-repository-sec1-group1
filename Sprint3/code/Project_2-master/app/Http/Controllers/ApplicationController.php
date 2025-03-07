@@ -5,144 +5,193 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Application;
 use App\Models\ResearchGroup;
+use App\Models\ApplicationCustomField;
+use App\Models\ApplicationCustomFieldValue;
+use Illuminate\Support\Facades\DB;
 
 class ApplicationController extends Controller
 {
-    /**
-     * Display applications for a research group
-     */
 
-     public function index($group_id)
-     {
-         $researchGroup = ResearchGroup::find($group_id);
-     
-         if (!$researchGroup) {
-             return abort(404, 'Research Group not found');
-         }
-     
-         $applications = Application::where('research_group_id', $group_id)->get();
- 
-         return view('application.index', compact('researchGroup', 'applications'));
-     }
+    public function index($group_id)
+    {
+        $researchGroup = ResearchGroup::find($group_id);
+
+        if (!$researchGroup) {
+            return abort(404, 'Research Group not found');
+        }
+
+        $applications = Application::where('research_group_id', $group_id)->get();
+
+        return view('application.index', compact('researchGroup', 'applications'));
+    }
 
     public function show($id)
     {
-        $researchGroup = ResearchGroup::findOrFail($id);
-    
-        // Get all applications for this research group
-        $application = Application::where('research_group_id', $id)
-            ->orderBy('created_at', 'desc')     
-            ->get();
+        // Fetch the application
+        $application = Application::findOrFail($id);
 
-        return view('application.index', compact('researchGroup', 'application'));
+        // Fetch the research group
+        $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
+
+        // Fetch custom fields and their values
+        $applicationCustomFields = ApplicationCustomField::where('application_id', $id)->get();
+        $customFieldValues = ApplicationCustomFieldValue::where('application_id', $id)
+            ->pluck('field_value', 'custom_field_id')
+            ->toArray();
+
+        return view('application.show', compact(
+            'application',
+            'researchGroup',
+            'applicationCustomFields',
+            'customFieldValues'
+        ));
     }
+    
 
-    /**
-     * Show the form for creating a new application
-     */
     public function create($group_id)
     {
         $researchGroup = ResearchGroup::findOrFail($group_id);
         return view('application.create', compact('researchGroup'));
     }
 
-    /**
-     * Show application details
-     */
+
     public function detail($id)
     {
-        // Make sure we're getting the application by its primary key
         $application = Application::findOrFail($id);
-        
-        // Ensure the research group exists
+
         $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
 
-        // Pass both variables to the view
-        return view('application.detail', compact('application', 'researchGroup'));
+        return view('application.index', compact('application', 'researchGroup'));
     }
-    
-    /**
-     * Legacy method for backward compatibility
-     */
+
+
     public function usershow($id)
     {
-        // Make sure we're getting the application by its primary key
         $application = Application::findOrFail($id);
-        
-        // Ensure the research group exists
         $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
-
-        return view('applicationdetail', compact('application', 'researchGroup'));
+        
+        // เพิ่มการโหลด custom fields
+        $applicationCustomFields = ApplicationCustomField::where('application_id', $id)->get();
+        $customFieldValues = ApplicationCustomFieldValue::where('application_id', $id)
+            ->pluck('field_value', 'custom_field_id')
+            ->toArray();
+    
+        return view('applicationdetail', compact(
+            'application',
+            'researchGroup',
+            'applicationCustomFields',
+            'customFieldValues'
+        ));
     }
 
-    /**
-     * Store a newly created application
-     */
     public function store(Request $request, $group_id)
     {
-        $validatedData = $request->validate([
-            'role'                     => 'required|string',
-            'app_deadline'             => 'required|date',
-            'amount'                   => 'required|numeric',
-            'app_detail'               => 'required|string',
-            'qualifications'           => 'nullable|string',
-            'preferred_qualifications' => 'nullable|string',
-            'required_documents'       => 'required|string',
-            'salary_range'             => 'required|string',
-            'working_time'             => 'required|string',
-            'work_location'            => 'required|string',
-            'start_date'               => 'required|date',
-            'end_date'                 => 'nullable|date',
-            'application_process'      => 'required|string',
-            'contact_name'             => 'nullable|string',
-            'contact_email'            => 'nullable|email',
-            'contact_phone'            => 'nullable|string',
-            'custom_fields_config'     => 'nullable|json',
-        ]);
+        DB::beginTransaction();
+    
+        try {
+            $validatedData = $request->validate([
+                'role'                     => 'required|string',
+                'app_deadline'             => 'required|date',
+                'amount'                   => 'required|numeric',
+                'app_detail'               => 'required|string',
+                'qualifications'           => 'nullable|string',
+                'preferred_qualifications' => 'nullable|string',
+                'required_documents'       => 'required|string',
+                'salary_amount'            => 'required|string',
+                'salary_period'            => 'required|string',
+                'work_location'            => 'required|string',
+                'start_date'               => 'required|date',
+                'end_date'                 => 'nullable|date',
+                'application_process'      => 'required|string',
+                'contact_name'             => 'nullable|string',
+                'contact_email'            => 'nullable|email',
+                'contact_phone'            => 'nullable|string',
+                'custom_fields_config'     => 'nullable|json',
+            ]);
+    
+            $validatedData['research_group_id'] = $group_id;
+    
+            $validatedData['salary_range_old'] = $request->salary_amount . ' ' . $request->salary_period;
+    
+            $application = Application::create($validatedData);
+    
 
-        // Add research_group_id to the data
-        $validatedData['research_group_id'] = $group_id;
+            \Log::info('Creating application', [
+                'id' => $application->id, 
+                'salary_amount' => $validatedData['salary_amount'],
+                'salary_period' => $validatedData['salary_period'],
+                'salary_range_old' => $validatedData['salary_range_old']
+            ]);
 
-        // Handle the structured salary fields if present
-        if ($request->has('salary_amount') && $request->has('salary_period')) {
-            $validatedData['salary_amount'] = $request->salary_amount;
-            $validatedData['salary_period'] = $request->salary_period;
+            $application->salary_amount = $validatedData['salary_amount'];
+            $application->salary_period = $validatedData['salary_period'];
+            $application->salary_range_old = $validatedData['salary_range_old'];
+            $application->save(); 
+    
+
+            if ($request->has('custom_fields_config') && !empty($request->custom_fields_config)) {
+                $customFields = json_decode($request->custom_fields_config, true);
+    
+                if (is_array($customFields)) {
+                    foreach ($customFields as $field) {
+                        $customField = new ApplicationCustomField();
+                        $customField->application_id = $application->id;
+                        $customField->field_label = $field['label'];
+                        $customField->field_type = $field['type'];
+                        $customField->field_required = $field['required'] ? 1 : 0;
+                        $customField->field_placeholder = $field['placeholder'] ?? null;
+                        $customField->save();
+    
+                        $fieldName = 'custom_' . $field['id'];
+                        if ($request->has($fieldName)) {
+                            $fieldValue = new ApplicationCustomFieldValue();
+                            $fieldValue->application_id = $application->id;
+                            $fieldValue->custom_field_id = $customField->id;
+                            $fieldValue->field_value = $request->$fieldName;
+                            $fieldValue->save();
+                        }
+                    }
+                }
+            }
+    
+            DB::commit();
+    
+            return redirect()->route('application.index', $group_id)
+                ->with('success', 'Application created successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+    
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['error' => 'Failed to create application. ' . $e->getMessage()]);
         }
-
-        // Handle the structured working time fields if present
-        if ($request->has('working_type') && $request->has('working_hours') && $request->has('working_period')) {
-            $validatedData['working_type'] = $request->working_type;
-            $validatedData['working_hours'] = $request->working_hours;
-            $validatedData['working_period'] = $request->working_period;
-        }
-
-        // Create the application
-        $application = Application::create($validatedData);
-
-        return redirect()->route('application.index', $group_id)
-            ->with('success', 'Application created successfully!');
     }
 
-    /**
-     * Show the form for editing an application
-     */
+
     public function edit($id)
     {
         $application = Application::findOrFail($id);
         $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
 
-        return view('application.edit', compact('application', 'researchGroup'));
-    }
+        $existingCustomFields = ApplicationCustomField::where('application_id', $id)->get();
+        $existingCustomFieldValues = ApplicationCustomFieldValue::where('application_id', $id)->get();
 
-    /**
-     * Update the specified application
-     */
+        $customFieldValues = $existingCustomFieldValues->pluck('field_value', 'custom_field_id')->toArray();
+
+        return view('application.edit', compact(
+            'application',
+            'researchGroup',
+            'existingCustomFields',
+            'existingCustomFieldValues',
+            'customFieldValues'
+        ));
+    }
+    
+
     public function update(Request $request, $id)
     {
-        // Find the application
         $application = Application::findOrFail($id);
-
-        // Validate the request data
+    
         $validatedData = $request->validate([
             'app_deadline'             => 'required|date',
             'role'                     => 'required|string',
@@ -151,8 +200,8 @@ class ApplicationController extends Controller
             'qualifications'           => 'nullable|string',
             'preferred_qualifications' => 'nullable|string',
             'required_documents'       => 'nullable|string',
-            'salary_range'             => 'required|string',
-            'working_time'             => 'required|string',
+            'salary_amount'            => 'required|string',
+            'salary_period'            => 'required|string',
             'work_location'            => 'required|string',
             'start_date'               => 'required|date',
             'end_date'                 => 'nullable|date',
@@ -163,37 +212,83 @@ class ApplicationController extends Controller
             'custom_fields_config'     => 'nullable|json',
         ]);
 
-        // Handle the structured salary fields if present
-        if ($request->has('salary_amount') && $request->has('salary_period')) {
-            $validatedData['salary_amount'] = $request->salary_amount;
-            $validatedData['salary_period'] = $request->salary_period;
+        $validatedData['salary_range_old'] = $request->salary_amount . ' ' . $request->salary_period;
+    
+        DB::beginTransaction();
+    
+        try {
+            \Log::info('Updating application', [
+                'id' => $id,
+                'salary_amount' => $validatedData['salary_amount'],
+                'salary_period' => $validatedData['salary_period'],
+                'salary_range_old' => $validatedData['salary_range_old']
+            ]);
+
+            $application->salary_amount = $validatedData['salary_amount'];
+            $application->salary_period = $validatedData['salary_period'];
+            $application->salary_range_old = $validatedData['salary_range_old'];
+            
+            $application->update($validatedData);
+
+            if ($request->has('custom_fields_config') && !empty($request->custom_fields_config)) {
+                $customFields = json_decode($request->custom_fields_config, true);
+    
+                if (is_array($customFields)) {
+                    foreach ($customFields as $field) {
+                        $customField = ApplicationCustomField::updateOrCreate(
+                            [
+                                'application_id' => $application->id,
+                                'id' => $field['id'] ?? null, 
+                            ],
+                            [
+                                'field_label' => $field['field_label'],
+                                'field_type' => $field['field_type'],
+                                'field_required' => $field['field_required'],
+                                'field_placeholder' => $field['field_placeholder'] ?? null,
+                            ]
+                        );
+    
+
+                        $fieldName = 'custom_' . $field['id'];
+                        if ($request->has($fieldName)) {
+
+                            ApplicationCustomFieldValue::updateOrCreate(
+                                [
+                                    'application_id' => $application->id,
+                                    'custom_field_id' => $customField->id,
+                                ],
+                                [
+                                    'field_value' => $request->$fieldName,
+                                ]
+                            );
+                        }
+                    }
+                }
+            }
+    
+            $application->save();
+    
+            DB::commit();
+
+            return redirect()->route('application.show', $application->id)
+                ->with('success', 'Application updated successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+    
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['error' => 'Failed to update application. ' . $e->getMessage()]);
         }
-
-        // Handle the structured working time fields if present
-        if ($request->has('working_type') && $request->has('working_hours') && $request->has('working_period')) {
-            $validatedData['working_type'] = $request->working_type;
-            $validatedData['working_hours'] = $request->working_hours;
-            $validatedData['working_period'] = $request->working_period;
-        }
-
-        // Update the application with validated data
-        $application->update($validatedData);
-
-        // Redirect with success message
-        return redirect()->route('application.detail', $application->id)
-            ->with('success', 'Application updated successfully!');
     }
 
-    /**
-     * Remove the specified application
-     */
+
     public function destroy($id)
     {
         $application = Application::findOrFail($id);
         $group_id = $application->research_group_id;
         $application->delete();
 
-        return redirect()->route('application.show', $group_id)
+        return redirect()->route('application.index', $group_id)
             ->with('success', 'Application deleted successfully!');
     }
 }
