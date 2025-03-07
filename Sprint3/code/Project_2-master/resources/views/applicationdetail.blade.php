@@ -321,7 +321,7 @@
                     <div class="info-value">
                         @php
                             $deadline = \Carbon\Carbon::parse($application->app_deadline);
-                            $daysLeft = $deadline->diffInDays(now());
+                            $daysLeft = $deadline->diffInDays(now()) + 1;
                             $isPast = $deadline->isPast();
                         @endphp
                         
