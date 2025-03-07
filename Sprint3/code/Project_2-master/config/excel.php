@@ -50,11 +50,6 @@ return [
             'use_bom'                => false,
             'include_separator_line' => false,
             'excel_compatibility'    => false,
-<<<<<<< HEAD:InitialProject/Project_2-master/vendor/maatwebsite/excel/config/excel.php
-            'output_encoding'        => '',
-            'test_auto_detect'       => true,
-=======
->>>>>>> main:Sprint3/code/Project_2-master/config/excel.php
         ],
 
         /*
@@ -127,13 +122,8 @@ return [
         | Configure e.g. delimiter, enclosure and line ending for CSV imports.
         |
         */
-<<<<<<< HEAD:InitialProject/Project_2-master/vendor/maatwebsite/excel/config/excel.php
-        'csv'          => [
-            'delimiter'        => null,
-=======
         'csv'         => [
             'delimiter'        => ',',
->>>>>>> main:Sprint3/code/Project_2-master/config/excel.php
             'enclosure'        => '"',
             'escape_character' => '\\',
             'contiguous'       => false,
