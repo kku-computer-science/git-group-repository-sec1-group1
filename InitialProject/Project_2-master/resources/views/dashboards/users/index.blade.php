@@ -3,26 +3,8 @@
 
 @section('content')
 
-<h3 style="padding-top: 10px;">{{ __('message.welcome_message') }}</h3>
+<h3 style="padding-top: 10px;">ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์</h3>
 <br>
-<h4>
-    {{ __('message.hello') }} 
-    {{ 
-        App::getLocale() == 'cn' 
-        ? Auth::user()->{'position_en'} 
-        : Auth::user()->{'position_' . App::getLocale()} 
-    }} 
-    {{ 
-        App::getLocale() == 'cn' 
-        ? Auth::user()->{'fname_en'} 
-        : Auth::user()->{'fname_' . App::getLocale()} 
-    }} 
-    {{ 
-        App::getLocale() == 'cn' 
-        ? Auth::user()->{'lname_en'} 
-        : Auth::user()->{'lname_' . App::getLocale()} 
-    }}
-</h4>
+<h4>สวัสดี {{Auth::user()->position_th}} {{Auth::user()->fname_th}} {{Auth::user()->lname_th}}</h2>
 
 @endsection
-

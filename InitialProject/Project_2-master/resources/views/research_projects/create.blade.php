@@ -1,6 +1,7 @@
 @extends('dashboards.users.layouts.user-dash-layout')
 <!-- <link  rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 @section('content')
+
 <style>
     .my-select {
         background-color: #fff;
@@ -15,7 +16,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{ __('message.whoops') }}</strong> {{ __('message.problem_input') }}<br><br>
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -26,89 +27,164 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">{{ __('message.add_research_project') }}</h4>
-                <p class="card-description">{{ __('message.fill_research_details') }}</p>
+                <h4 class="card-title">เพิ่มข้อมูลโครงการวิจัย</h4>
+                <p class="card-description">กรอกข้อมูลรายละเอียดโครงการวิจัย</p>
                 <form action="{{ route('researchProjects.store') }}" method="POST">
                     @csrf
                     <div class="form-group row mt-5">
-                        <label class="col-sm-2 ">{{ __('message.project_name') }}</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">ชื่อโครงการวิจัย</label>
                         <div class="col-sm-8">
-                            <input type="text" name="project_name" class="form-control" placeholder="{{ __('message.project_name') }}" value="{{ old('project_name') }}">
+                            <input type="text" name="project_name" class="form-control" placeholder="ชื่อโครงการวิจัย" value="{{ old('project_name') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.start_date') }}</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">วันที่เริ่มต้น</label>
                         <div class="col-sm-4">
-                            <input type="date" name="project_start" class="form-control" value="{{ old('project_start') }}">
+                            <input type="date" name="project_start" id="Project_start" class="form-control" value="{{ old('project_start') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.end_date') }}</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">วันที่สิ้นสุด</label>
                         <div class="col-sm-4">
-                            <input type="date" name="project_end" class="form-control" value="{{ old('project_end') }}">
+                            <input type="date" name="project_end" id="Project_end" class="form-control" value="{{ old('project_end') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.select_fund') }}</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">เลือกทุน</label>
                         <div class="col-sm-4">
-                            <select class="custom-select my-select" name="fund">
-                                <option value='' disabled selected>{{ __('message.select_fund') }}</option>
-                                @foreach($funds as $fund)
-                                    <option value="{{ $fund->id }}">{{ $fund->fund_name }}</option>
-                                @endforeach
+                            <select id='fund' style='width: 200px;' class="custom-select my-select" name="fund">
+                                <option value='' disabled selected>เลือกทุนวิจัย</option>@foreach($funds as $fund)<option value="{{ $fund->id }}">{{ $fund->fund_name }}</option>@endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 ">{{ __('message.project_year') }}</label>
+                        <label for="exampleInputproject_year" class="col-sm-2 ">ปีที่ยื่น (ค.ศ.)</label>
                         <div class="col-sm-4">
-                            <input type="number" name="project_year" class="form-control" placeholder="{{ __('message.project_year') }}">
+                            <input type="year" name="project_year" class="form-control" placeholder="year">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.budget') }}</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">งบประมาณ</label>
                         <div class="col-sm-4">
-                            <input type="number" name="budget" class="form-control" placeholder="{{ __('message.budget_unit') }}" value="{{ old('budget') }}">
+                            <input type="int" name="budget" class="form-control" placeholder="หน่วยบาท" value="{{ old('budget') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.responsible_department') }}</label>
+                        <label for="exampleInputresponsible_department" class="col-sm-2 ">หน่วยงานที่รับผิดชอบ</label>
                         <div class="col-sm-9">
-                            <select class="custom-select my-select" name="responsible_department">
-                                <option value='' disabled selected>{{ __('message.select_department') }}</option>
-                                @foreach($deps as $dep)
-                                    <option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>
+                            <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
+                                <option value='' disabled selected>เลือกสาขาวิชา</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label for="exampleInputfund_details" class="col-sm-2 ">รายละเอียดโครงการ</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="Note" value="{{ old('note') }}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label for="exampleInputstatus" class="col-sm-2 ">สถานะ</label>
+                        <div class="col-sm-3">
+                            <select id='status' class="custom-select my-select" name="status">
+                                <option value="" disabled selected>โปรดระบุสถานะดำเนินงาน</option>
+                                <option value="1">ยื่นขอ</option>
+                                <option value="2">ดำเนินการ</option>
+                                <option value="3">ปิดโครงการ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <label for="exampleInputstatus" class="col-sm-2 ">สถานะ</label>
+                        <div class="col-sm-8">
+                            <select name="status" class="form-control" id="status">
+                                <option value="1">ยื่นขอ</option>
+                                <option value="2">ดำเนินการ</option>
+                                <option value="3">ปิดโครงการ</option>
+                            </select>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group row mt-2">
+                        <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ</label>
+                        <div class="col-sm-9">
+                            <select id='head0' style='width: 200px;' name="head">
+                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.project_details') }}</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายใน</label>
                         <div class="col-sm-9">
-                            <textarea name="note" class="form-control" style="height:150px" placeholder="{{ __('message.project_details') }}">{{ old('note') }}</textarea>
+                            <table class="table" id="dynamicAddRemove">
+                                <tr>
+                                    <th><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"><i class="mdi mdi-plus"></i></button></th>
+                                </tr>
+                                <tr>
+                                    <!-- <td><input type="text" name="moreFields[0][Budget]" placeholder="Enter title" class="form-control" /></td> -->
+                                    <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
+                                            <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                            @endforeach
+                                        </select></td>
+
+                                </tr>
+                            </table>
                         </div>
                     </div>
+                    <!-- <div class="form-group row mt-2">
+                        <label for="exampleInputpaper_doi" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
+                        <div class="col-sm-9">
+                            <div class="table-responsive">
+                                <table class="table table-bordered w-75" id="dynamic_field">
+                                    <tr>
+                                        <td>
+                                            <p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" placeholder="ตำแหน่งหรือคำนำหน้า" style='width: 200px;' class="form-control name_list" /><br>
+                                            <p>ชื่อ :</p><input type="text" name="fname[]" placeholder="ชื่อ" style='width: 300px;' class="form-control name_list" /><br>
+                                            <p>นามสกุล :</p><input type="text" name="lname[]" placeholder="นามสกุล" style='width: 300px;' class="form-control name_list" />
+                                        </td>
+                                        <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> 
+                            </div>
+                        </div>
+                    </div> -->
                     <div class="form-group row mt-2">
-                        <label class="col-sm-2 ">{{ __('message.status') }}</label>
-                        <div class="col-sm-3">
-                            <select class="custom-select my-select" name="status">
-                                <option value="" disabled selected>{{ __('message.select_status') }}</option>
-                                <option value="1">{{ __('message.status_pending') }}</option>
-                                <option value="2">{{ __('message.status_in_progress') }}</option>
-                                <option value="3">{{ __('message.status_closed') }}</option>
-                            </select>
+                        <label for="exampleInputpaper_doi" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
+                        <div class="col-sm-9">
+                            <div class="table-responsive">
+                                <table class="table table-hover small-text" id="tb">
+                                    <tr class="tr-header">
+                                        <th>ตำแหน่งหรือคำนำหน้า</th>
+                                        <th>ชื่อ</th>
+                                        <th>นามสกุล</th>
+                                        <!-- <th>Email Id</th> -->
+                                            <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
+                                        <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore2" title="Add More Person"><i class="mdi mdi-plus"></i></span></a></th>
+                                    <tr>
+                                        <td><input type="text" name="title_name[]" class="form-control" placeholder="ตำแหน่งหรือคำนำหน้า"></td>
+                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ" ></td>
+                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล" ></td>
+                                        <!-- <td><input type="text" name="emailid[]" class="form-control"></td> -->
+                                        <td><a href='javascript:void(0);' class='remove'><span><i class="mdi mdi-minus"></span></a></td>
+                                    </tr>
+                                </table>
+                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
+                            </div>
                         </div>
                     </div>
                     <div class="pt-4">
-                        <button type="submit" class="btn btn-primary me-2">{{ __('message.submit') }}</button>
-                        <a class="btn btn-light" href="{{ route('researchProjects.index')}}">{{ __('message.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <a class="btn btn-light" href="{{ route('researchProjects.index')}}">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-@stop
 
+    @stop
     @section('javascript')
     <script>
         $(document).ready(function() {
