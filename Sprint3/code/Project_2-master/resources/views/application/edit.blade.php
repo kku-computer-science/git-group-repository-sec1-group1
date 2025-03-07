@@ -125,18 +125,48 @@
 
             // Populate form fields with existing data
             populateExistingData();
+            
+            // Add bullet point functionality
+            setupBulletPointButtons();
         }
 
         // Call initial form setup
         setInitialForm();
+        
+        // Setup bullet point functionality for all bullet point buttons
+        function setupBulletPointButtons() {
+            const bulletButtons = document.querySelectorAll('.bullet-point-btn');
+            
+            bulletButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Find the associated textarea (next sibling after the button's parent)
+                    const inputGroup = this.closest('.input-group');
+                    const textarea = inputGroup.nextElementSibling;
+                    
+                    if (textarea) {
+                        // Get current cursor position
+                        const cursorPos = textarea.selectionStart;
+                        const textBefore = textarea.value.substring(0, cursorPos);
+                        const textAfter = textarea.value.substring(cursorPos);
+                        
+                        // Add bullet point at cursor position
+                        // If cursor is not at the start of a line, add a newline first
+                        const newLine = (cursorPos === 0 || textBefore.endsWith('\n')) ? '' : '\n';
+                        textarea.value = textBefore + newLine + '• ' + textAfter;
+                        
+                        // Set cursor position after the bullet point
+                        const newCursorPos = cursorPos + newLine.length + 2; // 2 for the '• '
+                        textarea.focus();
+                        textarea.setSelectionRange(newCursorPos, newCursorPos);
+                    }
+                });
+            });
+        }
 
         function populateExistingData() {
-
             // Populate basic fields
             document.querySelector('input[name="app_deadline"]').value = "{{ \Carbon\Carbon::parse($application->app_deadline)->format('Y-m-d') }}";
             document.querySelector('input[name="amount"]').value = "{{ $application->amount }}";
-
-            // document.querySelector('input[name="custom-fields-config"]').value = "{{ json_encode($existingCustomFields) }}";
 
             // Textarea fields
             document.querySelector('textarea[name="qualifications"]').value = `{!! addslashes($application->qualifications) !!}`;
@@ -147,8 +177,6 @@
             const salaryParts = "{{ $application->salary_range_old }}".split(' ');
             document.querySelector('input[name="salary_amount"]').value = salaryParts[0];
             document.querySelector('select[name="salary_period"]').value = "{{ $application->salary_period }}";
-
-    
 
             // Other fields
             document.querySelector('input[name="work_location"]').value = "{{ $application->work_location }}";
@@ -345,8 +373,8 @@
                             </div>
                             <textarea class="form-control mt-2 txtarea" name="qualifications" rows="4" required
                                     placeholder="• Ph.D. in relevant field
-• 3+ years research experience
-• Strong publication record"></textarea>
+- 3+ years research experience
+- Strong publication record"></textarea>
                         </div>
 
                         <div class="form-group mb-4">
@@ -362,8 +390,8 @@
                             </div>
                             <textarea class="form-control mt-2 txtarea" name="preferred_qualifications" rows="4"
                                     placeholder="• Experience with grant writing
-• Teaching experience
-• Industry collaboration experience"></textarea>
+- Teaching experience
+- Industry collaboration experience"></textarea>
                         </div>
 
                                                 <div class="form-group mb-4">
@@ -379,9 +407,9 @@
                             </div>
                             <textarea class="form-control mt-2 txtarea" name="application_process" rows="4" required
                                     placeholder="• Submit application through the online portal
-• Initial screening by committee
-• First round interviews
-• Final selection"></textarea>
+- Initial screening by committee
+- First round interviews
+- Final selection"></textarea>
                         </div>
 
                     </div>
@@ -401,9 +429,9 @@
                             </div>
                             <textarea class="form-control mt-2 txtarea" name="required_documents" rows="4" required
                                     placeholder="• CV/Resume
-• Cover Letter
-• Research Statement
-• References"></textarea>
+- Cover Letter
+- Research Statement
+- References"></textarea>
                         </div>
 
                         <div class="form-group mb-4">
@@ -471,11 +499,14 @@
 
                     <!-- Full Width Fields -->
                     <div class="col-12">
-
-
-                                                                    <div class="form-group mb-4">
+                        <div class="form-group mb-4">
                             <label class="form-label fw-bold">Additional Details</label>
-                            <textarea class="form-control txtarea" name="app_detail" rows="4" required
+                            <div class="input-group">
+                                <button type="button" class="btn btn-outline-secondary bullet-point-btn">
+                                    Add Bullet Point
+                                </button>
+                            </div>
+                            <textarea class="form-control mt-2 txtarea" name="app_detail" rows="4" required
                                     placeholder="Provide any additional information about the position, research project, or application requirements."></textarea>
                         </div>
 
@@ -485,7 +516,7 @@
                         <p class="text-muted small">Add additional topics or information fields that you want to include in this application.</p>
                         
                         <!-- This hidden input will store the custom fields configuration as JSON -->
-             <input type="hidden" name="custom_fields_config" id="custom-fields-config" value="{{ json_encode($existingCustomFields) }}">
+                        <input type="hidden" name="custom_fields_config" id="custom-fields-config" value="{{ json_encode($existingCustomFields) }}">
                         
                         <!-- Generated application fields will be displayed here -->
                         <div id="applicant-custom-fields-container">
@@ -500,6 +531,58 @@
                 </div>
             `;
         }
+
+        // Custom field functions
+        document.getElementById('save-custom-field').addEventListener('click', function() {
+            const label = document.getElementById('modal-field-label').value;
+            const type = document.getElementById('modal-field-type').value;
+            const required = document.getElementById('modal-field-required').checked;
+            const placeholder = document.getElementById('modal-field-placeholder').value;
+            
+            if (!label) {
+                alert('Field label is required');
+                return;
+            }
+            
+            // Get existing fields
+            let customFields = [];
+            const configInput = document.getElementById('custom-fields-config');
+            if (configInput.value) {
+                try {
+                    customFields = JSON.parse(configInput.value);
+                } catch (e) {
+                    console.error('Error parsing custom fields:', e);
+                }
+            }
+            
+            // Generate new field ID
+            const fieldId = Date.now(); // Simple timestamp-based ID
+            
+            // Add new field
+            customFields.push({
+                id: fieldId,
+                field_label: label,
+                field_type: type,
+                field_required: required ? 1 : 0,
+                field_placeholder: placeholder
+            });
+            
+            // Update the hidden input
+            configInput.value = JSON.stringify(customFields);
+            
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('customFieldModal'));
+            modal.hide();
+            
+            // Update the display
+            generateApplicantFields(customFields.map(field => ({
+                id: field.id,
+                label: field.field_label,
+                type: field.field_type,
+                required: field.field_required === 1,
+                placeholder: field.field_placeholder
+            })));
+        });
     });
 </script>
 @endsection

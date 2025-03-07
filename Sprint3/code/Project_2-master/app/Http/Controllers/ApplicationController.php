@@ -68,10 +68,20 @@ class ApplicationController extends Controller
     public function usershow($id)
     {
         $application = Application::findOrFail($id);
-
         $researchGroup = ResearchGroup::findOrFail($application->research_group_id);
-
-        return view('applicationdetail', compact('application', 'researchGroup'));
+        
+        // เพิ่มการโหลด custom fields
+        $applicationCustomFields = ApplicationCustomField::where('application_id', $id)->get();
+        $customFieldValues = ApplicationCustomFieldValue::where('application_id', $id)
+            ->pluck('field_value', 'custom_field_id')
+            ->toArray();
+    
+        return view('applicationdetail', compact(
+            'application',
+            'researchGroup',
+            'applicationCustomFields',
+            'customFieldValues'
+        ));
     }
 
     public function store(Request $request, $group_id)
