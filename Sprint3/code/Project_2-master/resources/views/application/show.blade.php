@@ -7,7 +7,7 @@
             <!-- Header with back button -->
             <div class="d-flex justify-content-between">
                 <!-- Back Button - Updated to link to research group applications -->
-                <a href="{{ route('application.show', $researchGroup->id) }}" class="btn btn-secondary mt-3 ct-btn">
+                <a href="{{ route('application.index', $researchGroup->id) }}" class="btn btn-secondary mt-3 ct-btn">
                     <i class="fas fa-arrow-left"></i>
                 </a>
 
@@ -63,7 +63,7 @@
                             </div>
                             <div class="info-content">
                                 <h6>Deadline</h6>
-                                <p>{{ \Carbon\Carbon::parse($application->app_deadline)->format('M d, Y h:i A') }}</p>
+                                <p>{{ \Carbon\Carbon::parse($application->app_deadline)->format('M d, Y') }}</p>
                             </div>
                         </div>
                     </div>
@@ -81,6 +81,7 @@
                                     @else
                                         {{ $application->salary_range }}
                                     @endif
+
                                 </p>
                             </div>
                         </div>
@@ -99,21 +100,6 @@
                     </div>
                 </div>
 
-                <!-- Working Time Section -->
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="detail-card">
-                            <h5><i class="far fa-clock me-2"></i>Working Time</h5>
-                            <div class="detail-content">
-                                @if(isset($application->working_type) && isset($application->working_hours) && isset($application->working_period))
-                                    {{ $application->working_type }}, {{ $application->working_hours }} {{ $application->working_period }}
-                                @else
-                                    {{ $application->working_time }}
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Detailed Information -->
                 <div class="row mb-4">
@@ -213,13 +199,13 @@
                                         <strong>Contact Person:</strong> {{ $application->contact_name }}
                                     </div>
                                     @endif
-                                    
+
                                     @if(isset($application->contact_email))
                                     <div class="col-md-4">
                                         <strong>Email:</strong> {{ $application->contact_email }}
                                     </div>
                                     @endif
-                                    
+
                                     @if(isset($application->contact_phone))
                                     <div class="col-md-4">
                                         <strong>Phone:</strong> {{ $application->contact_phone }}
@@ -232,40 +218,48 @@
                 </div>
                 @endif
 
-                <!-- Custom Fields (if defined) -->
-                @if(strpos($application->app_detail, 'CUSTOM_FIELDS:') !== false)
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="detail-card">
-                            <h5><i class="fas fa-list-alt me-2"></i>Custom Fields</h5>
-                            <div class="detail-content">
-                                @php
-                                    $customFieldsText = substr($application->app_detail, strpos($application->app_detail, 'CUSTOM_FIELDS:') + 14);
-                                    $customFields = json_decode(trim($customFieldsText), true);
-                                @endphp
-                                
-                                @if(is_array($customFields) && count($customFields) > 0)
-                                    <div class="row">
-                                    @foreach($customFields as $field)
-                                        <div class="col-md-4 mb-3">
-                                            <strong>{{ $field['label'] }}</strong>
-                                            @if(isset($field['placeholder']) && $field['placeholder'])
-                                            <p class="text-muted small">{{ $field['placeholder'] }}</p>
-                                            @endif
-                                        </div>
-                                    @endforeach
-                                    </div>
-                                @else
-                                    <p>No custom fields defined or invalid format.</p>
-                                @endif
-                            </div>
+            </div>
+
+            <!-- Custom Fields (if defined) -->
+            @if(isset($applicationCustomFields) && count($applicationCustomFields) > 0)
+            <div class="row mb-4">
+                @foreach($applicationCustomFields as $field)
+                <div class="col-12 mb-4">
+                    <div class="detail-card">
+                        <h5><i class="fas fa-clipboard-list me-2"></i>{{ $field->field_label }}</h5>
+                        <div class="detail-content">
+                            {{ $customFieldValues[$field->id] ?? 'No details provided.' }}
                         </div>
                     </div>
                 </div>
+                @endforeach
+            </div>
+            @elseif(strpos($application->app_detail, 'CUSTOM_FIELDS:') !== false)
+            <div class="row mb-4">
+                @php
+                $customFieldsText = substr($application->app_detail, strpos($application->app_detail, 'CUSTOM_FIELDS:') + 14);
+                $customFields = json_decode(trim($customFieldsText), true);
+                @endphp
+
+                @if(is_array($customFields) && count($customFields) > 0)
+                @foreach($customFields as $field)
+                <div class="col-md-6 mb-4">
+                    <div class="detail-card">
+                        <h5><i class="fas fa-clipboard-list me-2"></i>{{ $field['label'] }}</h5>
+                        <div class="detail-content">
+                            {{ $field['value'] ?? ($field['placeholder'] ?? 'No details provided.') }}
+                        </div>
+                    </div>
+                </div>
+                @endforeach
                 @endif
             </div>
+            @endif
+
+
         </div>
     </div>
+</div>
 </div>
 
 <style>
@@ -397,4 +391,6 @@
         margin-top: 20px;
     }
 </style>
+
+
 @endsection
