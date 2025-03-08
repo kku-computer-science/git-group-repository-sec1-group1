@@ -11,10 +11,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">{{ trans('message.permission') }}
+            <div class="card-header">Permissions
                 @can('permission-create')
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">{{ trans('message.new_permission') }}</a>
+                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">New Permission</a>
                 </span>
                 @endcan
             </div>
@@ -22,9 +22,9 @@
                 <table id ="example1" class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>{{ trans('message.no') }}</th>
-                            <th>{{ trans('message.name') }}</th>
-                            <th width="280px">{{ trans('message.action') }}</th>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th width="280px">Action</th>
                         </tr>
                     </thead>
                     <tbody>

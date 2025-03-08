@@ -1,5 +1,6 @@
 <?php
 return [
+<<<<<<< HEAD
     'Home' => 'Home',
     'Researchers' => 'Researchers',
     'ResearchProj' => 'Research Project',
@@ -204,4 +205,16 @@ return [
 
     'source' => 'Source',
     'export_to_excel' => 'Export to Excel',
+=======
+'Home' => 'Home',
+'Researchers' => 'Researchers',
+'ResearchProj' => 'Research Project',
+'ResearchGroup' => 'Research Group',
+'Report' => 'Reports',
+'details' =>'More details',
+'expertise' => 'Research interests',
+'publications' => 'Publications (In the Last 5 Years)',
+'education'=>'Education',
+'publications2' => 'Publications',
+>>>>>>> main
 ];

@@ -112,4 +112,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Fund::class);
     }
+    public function relatedResearch()
+    {
+        return $this->belongsToMany(RelatedResearch::class, 'related_research_user', 'user_id', 'related_research_id');
+    }
 }

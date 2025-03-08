@@ -1,3 +1,4 @@
+
 @extends('dashboards.users.layouts.user-dash-layout')
 @section('content')
 <div class="container">
@@ -9,17 +10,17 @@
         @endif
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">{{ trans('message.roles') }}</h4>
+                <h4 class="card-title">Roles</h4>
                 @can('role-create')
-                <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('roles.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i>{{ trans('message.add') }}</a>
+                <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('roles.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i>Add</a>
                 @endcan
 
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>{{ trans('message.no') }}</th>
-                            <th>{{ trans('message.name') }}</th>
-                            <th width="280px">{{ trans('message.action') }}</th>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th width="280px">Action</th>
                         </tr>
                     </thead>
                     <tbody>

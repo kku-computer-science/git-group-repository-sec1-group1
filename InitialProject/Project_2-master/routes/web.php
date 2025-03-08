@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -10,6 +10,8 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileuserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RelatedResearchController;
+
 
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +40,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\ApplicationProjectController;
+use App\Http\Controllers\ApplicationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,25 +69,6 @@ use App\Http\Controllers\TcicallController;
 //     return view('welcome');
 // });
 
-// clear cache
-Route::get('/clear-all', function () {
-    Artisan::call('cache:clear');     // Clear Cache facade
-    Artisan::call('route:clear');     // Clear Route cache 
-    Artisan::call('view:clear');      // Clear View cache
-    Artisan::call('config:clear');    // Clear Config cache
-
-    Artisan::call('optimize');        // Reoptimize class loader
-    Artisan::call('route:cache');     // Cache Routes
-    Artisan::call('config:cache');    // Cache Config
-
-    return response()->json([
-        'cache' => 'Cache facade cleared',
-        'route' => 'Routes cached',
-        'view' => 'View cache cleared',
-        'config' => 'Config cached',
-        'optimize' => 'Class loader optimized'
-    ], 200);
-});
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
@@ -118,7 +103,7 @@ Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class
 
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
-    
+
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
@@ -158,7 +143,50 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
+    Route::resource('ApplicationProject', ApplicationProjectController::class);
+    Route::get('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'index'])
+        ->name('application_project.index');
+    Route::get('/application-project/{id}', [ApplicationProjectController::class, 'show'])->name('application_project.show');
+    Route::post('/researchGroups/application-project/{group_id}', [ApplicationProjectController::class, 'store'])
+        ->name('application_project.store');
+
+    Route::put('/application-project/{id}', [ApplicationProjectController::class, 'update'])->name('application_project.update');
+    Route::delete('/application-project/{id}', [ApplicationProjectController::class, 'destroy'])->name('application_project.destroy');
+
+    Route::get('/application/create/{project_id}', [ApplicationController::class, 'create'])->name('application.create');
+    Route::post('/application/store/{project_id}', [ApplicationController::class, 'store'])->name('application.store');
+    Route::delete('/application/destroy/{id}', [ApplicationController::class, 'destroy'])->name('application.destroy');
+    Route::get('/application/{id}/edit', [ApplicationController::class, 'edit'])->name('application.edit');
+    Route::get('/application/{id}/show', [ApplicationController::class, 'show'])->name('application.show');
+    Route::put('/application/update/{id}', [ApplicationController::class, 'update'])->name('application.update');
+
+<<<<<<< HEAD
+    Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
+=======
+
+>>>>>>> main
+
+
+    
+
+
 });
+Route::post('/researchGroup/{id}', [RelatedResearchController::class, 'store'])->name('relatedResearch.store');
+Route::get('/researchGroup/{id}', [RelatedResearchController::class, 'index'])->name('relatedResearch.index');
+Route::delete('/researchGroup/{id}/relatedResearch/{relatedResearchId}', [RelatedResearchController::class, 'destroy'])->name('relatedResearch.destroy');
+<<<<<<< HEAD
+
+=======
+Route::get('/application-announcement/{id}', [ApplicationController::class, 'usershow'])->name('applicationdetail');
+
+=======
+});
+>>>>>>> Watthana_2800
+>>>>>>> main
 
 
 
