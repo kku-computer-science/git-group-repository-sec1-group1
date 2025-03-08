@@ -1,0 +1,16 @@
+
+*** identity head ***
+ngamnij@kku.ac.th
+123456789
+
+*** researcher *** 
+ชื่อ (ภาษาไทย): อเล็กซ์
+นามสกุล (ภาษาไทย): สมิธ
+ชื่อ (English): Alex
+นามสกุล (English): Smith
+Email: alex.smith@example.com
+Password: 123456789
+Confirm Password: 123456789
+Role: Student
+Department: Computer Science
+Program: B.Sc in Computer Science
