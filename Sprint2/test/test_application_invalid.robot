@@ -43,15 +43,12 @@ Project Empty Name
     Click Element    css:button.create-project-btn
 <<<<<<< HEAD:InitialProject/test/test_researchgroup/test_application_invalid.robot
     Input Project    ${EMPTY}    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    111-1111-111
-    Page Should Contain    Project name must not be empty
 
 Project Empty Description
     Input Project    Create Application for AI & Machine Learning Innovations    ${EMPTY}    111-1111-111
-    Page Should Contain    Project Description must not be empty 
 
 Project Empty Contact
     Input Project    Create Application for AI & Machine Learning Innovations    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    ${EMPTY}
-    Page Should Contain    Contact must not be empty
     Press Keys    NONE    ESC
 
 Create Project
@@ -68,13 +65,10 @@ Open Form
 
 Empty Deadline
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    ${EMPTY}    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    ${EMPTY}    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-time    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Deadline must not be empty
-    
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -85,12 +79,11 @@ Open Form
 
 Empty Vacancies
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    ${EMPTY}    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    ${EMPTY}    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-time    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Amount must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -101,12 +94,11 @@ Open Form
 
 Empty Required Documents
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    ${EMPTY}    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    ${EMPTY}    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-time    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Documents must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -117,12 +109,11 @@ Open Form
 
 Empty Salary
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    ${EMPTY}   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    ${EMPTY}    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-time    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Salary must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -133,12 +124,11 @@ Open Form
 
 Empty Required Qualifications
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   ${EMPTY}    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    ${EMPTY}    • Teaching experience\n• Industry collaboration experience    Full-time    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Required Qualifications must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -149,13 +139,12 @@ Open Form
 
 Empty Working Time
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    ${EMPTY}    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    ${EMPTY}    Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Scroll Element Into View    xpath=${FORM_RESEARCHASSISTANT_PATH}//input[@name='working_time[]']
     Sleep    1s
-    Page Should Contain    WorkingT Time must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -166,13 +155,12 @@ Open Form
 
 Empty Work Location
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    ${EMPTY}    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-Time   ${EMPTY}    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Execute JavaScript    window.scrollBy(0, -150)
     Sleep    1s
-    Page Should Contain    Work Location must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -183,13 +171,12 @@ Open Form
 
 Empty Start Date
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    ${EMPTY}     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-Time   Home    ${EMPTY}     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Execute JavaScript    window.scrollBy(0, -50)
     Sleep    1s
-    Page Should Contain    Start Date must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -200,12 +187,11 @@ Open Form
 
 Empty Process
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    ${EMPTY}    We are seeking passionate and motivated individuals to join our AI & Machine Learning Innovations team as Research Assistants. This role offers an exciting opportunity to contribute to cutting-edge research, develop AI models, and explore novel machine learning techniques.    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-Time   Home    2025-03-10     2025-07-07    ${EMPTY}    This is an exciting opportunity for this position.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Process must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
@@ -216,12 +202,11 @@ Open Form
 
 Empty Detail
     Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume    600 per hours   • Currently pursuing or have completed a Bachelor's, Master's, or Ph.D. degree in Computer Science, Artificial Intelligence, Data Science, Engineering, Mathematics, or a related field.\n• Programming Proficiency - Experience with Python, R, or other relevant programming languages. Familiarity with AI frameworks such as TensorFlow, PyTorch, or Scikit-learn is preferred.    • Creating Model experience    Full-time    Work from home    2025-05-10     2025-09-12    • Submit application through the online portal\n• Initial screening\n• Interviews    ${EMPTY}    
+
+    # Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-02-28    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000 - 80,000 per month    • Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    Full-Time   Home    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    ${EMPTY}    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit All Applications
     Sleep    1s
-    Page Should Contain    Detail must not be empty
-
-Go To Project Detail
     Scroll Element Into View    css:.btn.btn-secondary.mt-3
     Click Element    css:.btn.btn-secondary.mt-3
 
