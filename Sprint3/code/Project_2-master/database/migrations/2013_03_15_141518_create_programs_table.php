@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDegreesTable extends Migration
+class CreateProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateDegreesTable extends Migration
      */
     public function up()
     {
-        Schema::create('degrees', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('degree_name_th');
-            $table->string('degree_name_en');
-            /*$table->unsignedBigInteger('program_id');
-            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');*/
-
-            $table->unsignedBigInteger('department_id')->nullable();  
+            $table->string('program_name_th');
+            $table->string('program_name_en');
+            $table->string('program_name_cn');
+            $table->unsignedBigInteger('degree_id');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-            
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateDegreesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('degrees');
+        Schema::dropIfExists('programs');
     }
 }

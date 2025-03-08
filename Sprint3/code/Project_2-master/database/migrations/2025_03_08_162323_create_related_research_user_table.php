@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramsTable extends Migration
+class CreateRelatedResearchUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('related_research_user', function (Blueprint $table) {
             $table->id();
-            $table->string('program_name_th');
-            $table->string('program_name_en');
-
-            $table->unsignedBigInteger('degree_id');
-            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
+            $table->foreignId('related_research_id')->constrained('related_research')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +28,8 @@ class CreateProgramsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::table('related_research_user', function (Blueprint $table) {
+            //
+        });
     }
 }
