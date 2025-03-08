@@ -50,6 +50,8 @@ return [
             'use_bom'                => false,
             'include_separator_line' => false,
             'excel_compatibility'    => false,
+            'output_encoding'        => '',
+            'test_auto_detect'       => true,
         ],
 
         /*

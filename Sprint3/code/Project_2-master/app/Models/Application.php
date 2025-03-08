@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ProjectApplication;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
@@ -28,10 +27,6 @@ class Application extends Model
         'salary_range_old',
         'salary_range_amount',
         'salary_preriod',
-        'working_time_old',
-        'working_type',
-        'working_hours',
-        'working_period',
         'work_location',
         'start_date',
         'end_date',
@@ -52,4 +47,17 @@ class Application extends Model
     {
         return $this->hasMany(Application::class, 'research_group_id');
     }
-}
+
+       // Relationship with custom fields
+       public function customFields()
+       {
+           return $this->hasMany(ApplicationCustomField::class, 'application_id');
+       }
+       
+       // Relationship with custom field values
+       public function customFieldValues()
+       {
+           return $this->hasMany(ApplicationCustomFieldValue::class, 'application_id');
+       }
+   }
+

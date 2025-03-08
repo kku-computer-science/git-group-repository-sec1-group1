@@ -26,7 +26,7 @@
                 @csrf
                 <div id="formContainer"></div>
 
-                <button type="submit" class="btn btn-primary mt-3">Submit Application                </button>
+                <button type="submit" class="btn btn-primary mt-3">Submit Application</button>
                 <a href="{{ route('application.index', $researchGroup->id) }}" class="btn btn-secondary mt-3">Cancel</a>
             </form>
         </div>
@@ -218,46 +218,58 @@
     }
 
     function saveCustomField() {
-        // Get field values from modal
-        const label = document.getElementById('modal-field-label').value;
-        const type = document.getElementById('modal-field-type').value;
-        const required = document.getElementById('modal-field-required').checked;
-        
-        // Validate required fields
-        if (!label) {
-            alert('Field Label is required');
-            return;
-        }
-        
-        // Create field config object
-        const fieldId = customFieldCounter++;
-        let fieldConfig = {
-            id: fieldId,
-            label: label,
-            type: type,
-            required: required
-        };
-        
-        // Add placeholder for text fields
-        if (['text', 'textarea', 'number'].includes(type)) {
-            fieldConfig.placeholder = document.getElementById('modal-field-placeholder').value;
-        }
-        
-        // Add to custom fields array
-        customFields.push(fieldConfig);
-        
-        // Update fields list and preview
-        updateCustomFieldsList();
-        generateApplicantFields(customFields);
-        
-        // Store in hidden input
-        document.getElementById('custom-fields-config').value = JSON.stringify(customFields);
-        
-        // Reset and close modal
-        resetModalForm();
-        const modal = bootstrap.Modal.getInstance(document.getElementById('customFieldModal'));
-        modal.hide();
+    // Get field values from modal
+    const label = document.getElementById('modal-field-label').value;
+    const type = document.getElementById('modal-field-type').value;
+    const required = document.getElementById('modal-field-required').checked;
+    
+    // Validate required fields
+    if (!label) {
+        alert('Field Label is required');
+        return;
     }
+    
+    // Create field config object
+    const fieldId = customFieldCounter++;
+    let fieldConfig = {
+        id: fieldId,
+        label: label,
+        type: type,
+        required: required
+    };
+    
+    // Add placeholder for text fields
+    if (['text', 'textarea', 'number'].includes(type)) {
+        fieldConfig.placeholder = document.getElementById('modal-field-placeholder').value;
+    }
+    
+    // Add to custom fields array
+    customFields.push(fieldConfig);
+    
+    // Update fields list and preview
+    updateCustomFieldsList();
+    generateApplicantFields(customFields);
+    
+    // Store in hidden input for processing - update this line
+    document.getElementById('custom-fields-config').value = JSON.stringify(customFields);
+    
+    // Also append custom fields HTML to the form container for submission
+    const customFieldsContainer = document.createElement('div');
+    customFieldsContainer.id = 'custom-fields-container-for-submission';
+    customFieldsContainer.style.display = 'none';
+    
+    // Append this container to the form if it doesn't exist
+    let container = document.getElementById('custom-fields-container-for-submission');
+    if (!container) {
+        document.querySelector('form').appendChild(customFieldsContainer);
+    }
+    
+    // Reset and close modal
+    resetModalForm();
+    const modal = bootstrap.Modal.getInstance(document.getElementById('customFieldModal'));
+    modal.hide();
+}
+
     
     function resetModalForm() {
         document.getElementById('modal-field-label').value = '';
@@ -328,85 +340,85 @@
     }
     
     function generateApplicantFields(fieldsConfig) {
-        const container = document.getElementById('applicant-custom-fields-container');
-        if (!container) return;
-        
-        // Clear previous fields
-        container.innerHTML = '';
-        
-        if (!fieldsConfig || fieldsConfig.length === 0) {
-            container.innerHTML = '<div class="alert alert-info">No custom fields have been added yet.</div>';
-            return;
-        }
-        
-        fieldsConfig.forEach(field => {
-            if (!field || !field.label || !field.type) return; // Skip invalid fields
-            
-            const fieldId = `app_field_${field.id}`;
-            let fieldHtml = '';
-            
-            // Create different input based on field type
-            try {
-                switch (field.type) {
-                    case 'text':
-                        fieldHtml = `
-                            <div class="mb-3">
-                                <label for="${fieldId}" class="form-label fw-bold">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
-                                <input type="text" class="form-control" id="${fieldId}" name="custom_${field.id}" 
-                                       placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}>
-                            </div>
-                        `;
-                        break;
-                        
-                    case 'textarea':
-                        fieldHtml = `
-                            <div class="mb-3">
-                                <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
-                                <textarea class="form-control" id="${fieldId}" name="custom_${field.id}" rows="3" 
-                                         placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}></textarea>
-                            </div>
-                        `;
-                        break;
-                        
-                    case 'date':
-                        fieldHtml = `
-                            <div class="mb-3">
-                                <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
-                                <input type="date" class="form-control" id="${fieldId}" name="custom_${field.id}" 
-                                       ${field.required ? 'required' : ''}>
-                            </div>
-                        `;
-                        break;
-                        
-                    case 'number':
-                        fieldHtml = `
-                            <div class="mb-3">
-                                <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
-                                <input type="number" class="form-control" id="${fieldId}" name="custom_${field.id}" 
-                                       placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}>
-                            </div>
-                        `;
-                        break;
-                        
-                    default:
-                        fieldHtml = `
-                            <div class="alert alert-warning">
-                                Unknown field type: ${field.type}
-                            </div>
-                        `;
-                }
-                
-                container.insertAdjacentHTML('beforeend', fieldHtml);
-            } catch (error) {
-                console.error('Error generating field:', error);
-                container.insertAdjacentHTML('beforeend', `
-                    <div class="alert alert-danger">
-                        Error generating field: ${error.message}
-                    </div>
-                `);
-            }
-        });
+    const container = document.getElementById('applicant-custom-fields-container');
+    if (!container) return;
+    
+    // Clear previous fields
+    container.innerHTML = '';
+    
+    if (!fieldsConfig || fieldsConfig.length === 0) {
+        container.innerHTML = '<div class="alert alert-info">No custom fields have been added yet.</div>';
+        return;
     }
+    
+    fieldsConfig.forEach(field => {
+        if (!field || !field.label || !field.type) return; // Skip invalid fields
+        
+        const fieldId = `app_field_${field.id}`;
+        let fieldHtml = '';
+        
+        // Create different input based on field type
+        try {
+            switch (field.type) {
+                case 'text':
+                    fieldHtml = `
+                        <div class="mb-3">
+                            <label for="${fieldId}" class="form-label fw-bold">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
+                            <input type="text" class="form-control" id="${fieldId}" name="custom_${field.id}" 
+                                   placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'textarea':
+                    fieldHtml = `
+                        <div class="mb-3">
+                            <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
+                            <textarea class="form-control" id="${fieldId}" name="custom_${field.id}" rows="3" 
+                                     placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}></textarea>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'date':
+                    fieldHtml = `
+                        <div class="mb-3">
+                            <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
+                            <input type="date" class="form-control" id="${fieldId}" name="custom_${field.id}" 
+                                   ${field.required ? 'required' : ''}>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'number':
+                    fieldHtml = `
+                        <div class="mb-3">
+                            <label for="${fieldId}" class="form-label">${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}</label>
+                            <input type="number" class="form-control" id="${fieldId}" name="custom_${field.id}" 
+                                   placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}>
+                        </div>
+                    `;
+                    break;
+                    
+                default:
+                    fieldHtml = `
+                        <div class="alert alert-warning">
+                            Unknown field type: ${field.type}
+                        </div>
+                    `;
+            }
+            
+            container.insertAdjacentHTML('beforeend', fieldHtml);
+        } catch (error) {
+            console.error('Error generating field:', error);
+            container.insertAdjacentHTML('beforeend', `
+                <div class="alert alert-danger">
+                    Error generating field: ${error.message}
+                </div>
+            `);
+        }
+    });
+}
 
     function generateForm(position) {
         return `
@@ -511,25 +523,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-4">
-                            <label class="form-label fw-bold">Working Time</label>
-                            <div class="input-group">
-                                <select class="form-select" name="working_type" style="max-width: 150px;">
-                                    <option value="Full-time" selected>Full-time</option>
-                                    <option value="Part-time">Part-time</option>
-                                    <option value="Flexible">Flexible</option>
-                                    <option value="Contract">Contract</option>
-                                </select>
-                                <input type="text" class="form-control" name="working_hours" 
-                                       placeholder="e.g., 40 hours">
-                                <select class="form-select" name="working_period" style="max-width: 120px;">
-                                    <option value="per day">per day</option>
-                                    <option value="per week" selected>per week</option>
-                                    <option value="per month">per month</option>
-                                    <option value="per contract">per contract</option>
-                                </select>
-                            </div>
-                        </div>
+
+                        
 
                         <div class="form-group mb-4">
                             <label class="form-label fw-bold">Working Location</label>
