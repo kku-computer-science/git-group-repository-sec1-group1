@@ -18,10 +18,13 @@ class CreateResearchGroupTable extends Migration
             $table->id();
             $table->string("Group_name_TH");
             $table->string("Group_name_EN");
+            $table->string("Group_name_CN");
             $table->longText("Group_detail_TH")->nullable();
             $table->longText("Group_detail_EN")->nullable();
+            $table->longText("Group_detail_CN")->nullable();
             $table->longText("Group_desc_TH")->nullable();
             $table->longText("Group_desc_EN")->nullable();
+            $table->longText("Group_desc_CN")->nullable();
             $table->string("Group_image")->nullable();
             $table->timestamps();
         });

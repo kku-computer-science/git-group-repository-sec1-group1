@@ -500,14 +500,14 @@
                     <!-- Full Width Fields -->
                     <div class="col-12">
                         <div class="form-group mb-4">
-                            <label class="form-label fw-bold">Additional Details</label>
+                            <label class="form-label fw-bold">Application Details</label>
                             <div class="input-group">
                                 <button type="button" class="btn btn-outline-secondary bullet-point-btn">
                                     Add Bullet Point
                                 </button>
                             </div>
                             <textarea class="form-control mt-2 txtarea" name="app_detail" rows="4" required
-                                    placeholder="Provide any additional information about the position, research project, or application requirements."></textarea>
+                                    placeholder="Provide any application information about the position, research project, or application requirements."></textarea>
                         </div>
 
                     <!-- Custom Fields Section -->

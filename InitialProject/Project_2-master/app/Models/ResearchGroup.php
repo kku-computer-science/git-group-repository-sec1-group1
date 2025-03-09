@@ -12,11 +12,6 @@ class ResearchGroup extends Model
         'group_name_th', 'group_name_en', 'group_detail_th', 'group_detail_en', 'group_desc_th', 'group_desc_en', 'group_image'
     ];
 
-    public function projects()
-    {
-        return $this->hasMany(ProjectApplication::class, 're_group_id');
-    }
-
     public function user()
     {
         return $this->belongsToMany(User::class,'work_of_research_groups')->withPivot('role');
@@ -24,24 +19,5 @@ class ResearchGroup extends Model
     }
     public function product(){
         return $this->hasOne(Product::class,'group_id');
-    }
-    public function relatedResearch()
-    {
-        return $this->hasMany(RelatedResearch::class, 're_group_id');
-    }
-
-    public function users() {
-        return $this->belongsToMany(User::class)->withPivot('role');
-
-    }
-    
-    public function projectApplications()
-    {
-        return $this->hasMany(ProjectApplication::class, 're_group_id');
-    }
-
-    public function applicationDetail()
-    {
-    return $this->hasOne(ApplicationDetail::class, 'application_id');
     }
 }
