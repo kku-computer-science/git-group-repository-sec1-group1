@@ -87,3 +87,80 @@ Close Custom Field
 Input Custom Field
     [Arguments]    ${INDEX}    ${INPUT}
     Input Text    xpath=//*[@id="app_field_${INDEX}"]    ${INPUT}
+
+Verify Deadline
+    [Arguments]    ${EXPECTED_DEADLINE}
+    ${Detail_Deadline_Text}=    Get Text    xpath=//div[contains(@class, 'info-card')][.//h6[text()='Deadline']]/div[@class='info-content']/p
+    Should Be Equal As Strings    ${Detail_Deadline_Text}    ${EXPECTED_DEADLINE}    #Feb 28, 2025
+
+Verify Vacancies
+    [Arguments]    ${EXPECTED_VACANCIES}
+    ${Detail_Vacancies_Text}=    Get Text    xpath=//div[contains(@class, 'info-card')][.//h6[text()='Vacancies']]/div[@class='info-content']/p
+    Should Be Equal As Strings    ${Detail_Vacancies_Text}    ${EXPECTED_VACANCIES}  #5
+
+Verify Salary
+    [Arguments]    ${EXPECTED_SALARY}    ${PEROID}
+    ${Detail_Salary_Text}=    Get Text    xpath=//div[contains(@class, 'info-card')][.//h6[text()='Salary']]/div[@class='info-content']/p
+    Should Be Equal As Strings    ${Detail_Salary_Text}    ${EXPECTED_SALARY} ${PEROID}    #$65,000 per project
+
+Verify Location 
+    [Arguments]    ${EXPECTED_LOCATION}
+    ${Detail_Location_Text}=    Get Text    xpath=//div[contains(@class, 'info-card')][.//h6[text()='Location']]/div[@class='info-content']/p
+    Should Be Equal As Strings    ${Detail_Location_Text}    ${EXPECTED_LOCATION}    #Washington D.C.(Hybrid)
+
+Verify Application Detail
+    [Arguments]    ${EXPECTED_DETAIL}
+    ${Detail_Application_Detail_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Application Details']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Detail_Application_Detail_Text}    ${EXPECTED_DETAIL}    #This is an exciting opportunity for this position.
+
+Verify Required Documents
+    [Arguments]    ${EXPECTED_DOCUMENTS}
+    ${Required_Documents_Detail_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Documents']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Required_Documents_Detail_Text}    ${EXPECTED_DOCUMENTS}    #• CV/Resume\n• Cover Letter\n• Research Statement
+
+Verify Required Qualifications
+    [Arguments]    ${EXPECTED_QUALIFICATIONS}
+    ${Required_Qualifications_Detail_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Qualifications']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Required_Qualifications_Detail_Text}    ${EXPECTED_QUALIFICATIONS}    #• Ph.D. in relevant field\n• Research experience\n• Strong publication record
+
+Verify Preferred Qualifications
+    [Arguments]    ${EXPECTED_PREFERRED_QUALIFICATIONS}
+    ${Preferred_Qualifications_Detail_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Preferred Qualifications']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Preferred_Qualifications_Detail_Text}    ${EXPECTED_PREFERRED_QUALIFICATIONS}    #No preferred qualifications specified.
+
+Verify Timeline
+    [Arguments]    ${EXPECTED_DEADLINE}    ${EXPECTED_START_DATE}    
+    ${Timeline_Deadline_Text}=    Get Text    xpath=//div[@class='timeline-content'][.//h6[text()='Application Deadline']]/p
+    ${Timeline_Start_Text}=    Get Text    xpath=//div[@class='timeline-content'][.//h6[text()='Expected Start']]/p
+    Should Be Equal As Strings    ${Timeline_Deadline_Text}    ${EXPECTED_DEADLINE}    #Feb 28, 2025
+    Should Be Equal As Strings    ${Timeline_Start_Text}    ${EXPECTED_START_DATE}    #Mar 10, 2025
+    
+
+Verify End Date
+    [Arguments]    ${EXPECTED_END_DATE}
+    ${Timeline_End_Text}=    Get Text    xpath=//div[@class='timeline-content'][.//h6[text()='Expected End']]/p
+    Should Be Equal As Strings    ${Timeline_End_Text}    ${EXPECTED_END_DATE}    #Jul 07, 2025
+
+Verify Contact
+    [Arguments]    ${EXPECTED_NAME}    ${EXPECTED_EMAIL}    
+    ${Detail_Contact_Name_Text}=    Get Text    xpath=//div[contains(@class, 'col-md-4')][contains(., 'Contact Person:')]
+    ${Detail_Contact_Email_Text}=    Get Text    xpath=//div[contains(@class, 'col-md-4')][contains(., 'Email:')]
+    Should Be Equal As Strings    ${Detail_Contact_Name_Text}    Contact Person: ${EXPECTED_NAME}     #Dew
+    Should Be Equal As Strings    ${Detail_Contact_Email_Text}    Email: ${EXPECTED_EMAIL}     #few8855@gmail.com
+
+Verify Phone
+    [Arguments]    ${EXPECTED_PHONE}
+    ${Detail_Contact_Phone_Text}=    Get Text    xpath=//div[contains(@class, 'col-md-4')][contains(., 'Phone:')]
+    Should Be Equal As Strings    ${Detail_Contact_Phone_Text}    Phone: ${EXPECTED_PHONE}    #0902386892
+
+
+Verify Custom Field
+    [Arguments]    ${FIELD_LABEL}    ${FIELD_INPUT}
+    ${Detail_Custom_Field_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='${FIELD_LABEL}']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Detail_Custom_Field_Text}    ${FIELD_INPUT}    
+
+Verify Process
+    [Arguments]    ${EXPECTED_PROCESS}
+    ${Detail_Process_Text}=    Get Text    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Application Process']]/div[@class='detail-content']
+    Should Be Equal As Strings    ${Detail_Process_Text}    ${EXPECTED_PROCESS}    #• Submit application through the online portal\n• Initial screening\n• Interviews
+
