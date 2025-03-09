@@ -6,7 +6,7 @@ ${BROWSER}    custom_chrome
 ${BASE_URL}    http://localhost:8000   #https://cs0167.cpkkuhost.com/
 ${CHROME_BROWSER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chrome${/}chrome.exe
 ${CHROME_DRIVER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chromedriver${/}chromedriver.exe
-${DELAY}    0.5
+${DELAY}    0.2
 
 ***Keywords***
 Open Custom Chrome Browser
