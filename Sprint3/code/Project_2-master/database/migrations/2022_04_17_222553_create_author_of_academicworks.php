@@ -15,7 +15,7 @@ class CreateAuthorOfAcademicworks extends Migration
     {
         Schema::create('author_of_academicworks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('author_name');
+            $table->unsignedBigInteger('author_type');
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')
                 ->references('id')

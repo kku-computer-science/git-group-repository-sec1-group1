@@ -20,6 +20,9 @@ class CreateFundsTable extends Migration
             $table->longText("fund_details");
             $table->string("fund_type");
             $table->string("fund_level");
+            $table->string("fund_agency");
+            $table->string("support_resource");
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

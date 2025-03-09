@@ -27,7 +27,9 @@ class AuthorOfPaper extends Migration
                 ->references('id')
                 ->on('papers')
                 ->onDelete('cascade');
-                });
+
+            $table->unsignedBigInteger('author_type');
+            });
     }
 
     /**
