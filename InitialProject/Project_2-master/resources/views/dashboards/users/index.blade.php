@@ -7,8 +7,4 @@
 <br>
 <h4>สวัสดี {{Auth::user()->position_th}} {{Auth::user()->fname_th}} {{Auth::user()->lname_th}}</h2>
 
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> main

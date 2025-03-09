@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\ResearchGroup;
-use App\Models\RelatedResearch;
 use Illuminate\Http\Request;
 use App\Models\Fund;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-
 
 class ResearchGroupController extends Controller
 {
@@ -27,17 +25,10 @@ class ResearchGroupController extends Controller
         $this->middleware('permission:groups-delete', ['only' => ['destroy']]);
     }
 
-    public function projects()
-    {
-        return $this->hasMany(ApplicationProject::class, 're_group_id');
-    }
-
     public function index()
     {
         //$researchGroups = ResearchGroup::latest()->paginate(5);
         $researchGroups = ResearchGroup::with('User')->get();
-
-
         return view('research_groups.index', compact('researchGroups'));
     }
 
@@ -103,12 +94,7 @@ class ResearchGroupController extends Controller
         //$data=ResearchGroup::find($researchGroup->id)->get(); 
 
         //return $data;
-        // $relatedResearch = $researchGroup->relatedResearch;
-        $relatedResearch = RelatedResearch::with('User') 
-        ->where('re_group_id', $researchGroup->id)
-        ->get();
-        $users = User::role(['teacher', 'student'])->get();
-        return view('research_groups.show', compact('researchGroup','relatedResearch', 'users'));
+        return view('research_groups.show', compact('researchGroup'));
     }
 
     /**
@@ -169,7 +155,6 @@ class ResearchGroupController extends Controller
         return redirect()->route('researchGroups.index')
             ->with('success', 'researchGroups updated successfully');
     }
-    
 
     /**
      * Remove the specified resource from storage.

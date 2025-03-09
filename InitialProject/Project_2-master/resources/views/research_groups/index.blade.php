@@ -16,27 +16,6 @@
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchGroups.create') }}"><i
                     class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
             <!-- <div class="table-responsive"> -->
-<<<<<<< HEAD
-            <table id="example1" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>{{ trans('message.no') }}</th>
-                        <th>{{ trans('message.group_name') }}</th>
-                        <th>{{ trans('message.head') }}</th>
-                        <th>{{ trans('message.member') }}</th>
-                        <th width="280px">{{ trans('message.action') }}</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($researchGroups as $i=>$researchGroup)
-                    <tr>
-                        <td>{{ $i+1 }}</td>
-                        <td>{{ Str::limit($researchGroup->{'group_name_' . app()->getLocale()}, 50) }}</td>
-                        <td>
-                            @foreach($researchGroup->user as $user)
-                            @if ( $user->pivot->role == 1)
-=======
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
@@ -58,46 +37,9 @@
                                 @if ( $user->pivot->role == 1)
 
                                 {{ $user->fname_th}}
->>>>>>> main
 
-                            {{ $user->{'fname_' . app()->getLocale()} }}
-
-                            @endif
-
-                            @endforeach
-                        </td>
-                        <td>
-                            @foreach($researchGroup->user as $user)
-                            @if ( $user->pivot->role == 2)
-                            {{ $user->{'fname_' . app()->getLocale()} }}
-                            @if (!$loop->last),@endif
-                            @endif
-
-                            @endforeach
-                        </td>
-                        <td>
-                            <form action="{{ route('researchGroups.destroy',$researchGroup->id) }}" method="POST">
-
-                                <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="view"
-                                    href="{{ route('researchGroups.show',$researchGroup->id) }}"><i
-                                        class="mdi mdi-eye"></i></a>
-
-                                @if(Auth::user()->can('update',$researchGroup))
-                                <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="Edit"
-                                    href="{{ route('researchGroups.edit',$researchGroup->id) }}"><i
-                                        class="mdi mdi-pencil"></i></a>
                                 @endif
 
-<<<<<<< HEAD
-                                @if(Auth::user()->can('update', $researchGroup))
-                                <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="Application"
-                                    href="{{ route('application_project.index', ['group_id' => $researchGroup->id]) }}">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </a>
-=======
                                 @endforeach
                             </td>
                             <td>
@@ -105,33 +47,48 @@
                                 @if ( $user->pivot->role == 2)
                                 {{ $user->fname_th}}
                                 @if (!$loop->last),@endif
->>>>>>> main
                                 @endif
 
+                                @endforeach
+                            </td>
+                            <td>
+                                <form action="{{ route('researchGroups.destroy',$researchGroup->id) }}" method="POST">
 
-                                @if(Auth::user()->can('delete',$researchGroup))
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip"
-                                    data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
-                                @endif
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
+                                        data-placement="top" title="view"
+                                        href="{{ route('researchGroups.show',$researchGroup->id) }}"><i
+                                            class="mdi mdi-eye"></i></a>
 
-            </table>
+                                    @if(Auth::user()->can('update',$researchGroup))
+                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
+                                        data-placement="top" title="Edit"
+                                        href="{{ route('researchGroups.edit',$researchGroup->id) }}"><i
+                                            class="mdi mdi-pencil"></i></a>
+                                    @endif
+
+                                    @if(Auth::user()->can('delete',$researchGroup))
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip"
+                                        data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                    @endif
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    
+                </table>
             <!-- </div> -->
         </div>
     </div>
-
+    
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
-<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
-<script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
+<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
+<script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({

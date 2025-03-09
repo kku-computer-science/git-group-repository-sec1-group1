@@ -625,9 +625,9 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label class="form-label fw-bold">Additional Details</label>
+                            <label class="form-label fw-bold">Application Details</label>
                             <textarea class="form-control txtarea" name="app_detail" rows="4" required
-                                    placeholder="Provide any additional information about the position, research project, or application requirements."></textarea>
+                                    placeholder="Provide any application information about the position, research project, or application requirements."></textarea>
                         </div>
                     </div>
                 </div>
