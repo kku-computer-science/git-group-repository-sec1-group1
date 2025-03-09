@@ -32,13 +32,13 @@
                             placeholder="ชื่อกลุ่มวิจัย (English)">
                     </div>
                 </div>
-                <!-- <div class="form-group row">
+                <div class="form-group row">
                     <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_th" value="{{ old('group_desc_th') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
-                </div> -->
+                </div>
                 <div class="form-group row">
                     <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (English)</b></p>
                     <div class="col-sm-8">
@@ -46,13 +46,13 @@
                             style="height:90px"></textarea>
                     </div>
                 </div>
-                <!-- <div class="form-group row">
+                <div class="form-group row">
                     <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ old('group_detail_th') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
-                </div> -->
+                </div>
                 <div class="form-group row">
                     <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
                     <div class="col-sm-8">

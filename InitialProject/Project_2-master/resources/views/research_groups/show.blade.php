@@ -27,16 +27,8 @@
                 <p class="card-text col-sm-9">{{ $researchGroup->group_detail_th }}</p>
             </div>
             <div class="row mt-2">
-                <p class="card-text col-sm-3"><b>รายละเอียดกลุ่มวิจัย (ภาษาจีน)</b></p>
-                <p class="card-text col-sm-9">{{ $researchGroup->group_detail_cn }}</p>
-            </div>
-            <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
                 <p class="card-text col-sm-9">{{ $researchGroup->group_detail_en }}</p>
-            </div>
-            <div class="row mt-2">
-                <p class="card-text col-sm-3"><b>รายละเอียดกลุ่มวิจัย (Ch)</b></p>
-                <p class="card-text col-sm-9">{{ $researchGroup->group_detail_cn }}</p>
             </div>
             <div class="row mt-3">
                 <p class="card-text col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
