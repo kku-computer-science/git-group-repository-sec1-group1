@@ -54,26 +54,26 @@ ${FORM_PostdocPATH}    (//h4[contains(text(),'Postdoc Application')]/ancestor::d
 #     ${Detail_Group_Text}=    Get Text    xpath=//p[contains(@class,'text-muted')]   
 #     Should Be Equal As Strings    ${Detail_Role_Text}    Research Assistant Position
 #     Should Be Equal As Strings    ${Detail_Group_Text}    Research Group: Laboratory, Machine Learning and Intelligent Systems (MLIS)
-#     Verify Deadline    Feb 28, 2025
-#     Verify Vacancies    5
-#     Verify Salary    $65,000    per project
-#     Verify Location    USA
-#     Verify Application Detail    This is an exciting opportunity for this position.
+#     Verify Input Deadline    Feb 28, 2025
+#     Verify Input Vacancies    5
+#     Verify Input Salary    $65,000    per project
+#     Verify Input Location    USA
+#     Verify Input Job Detail    This is an exciting opportunity for this position.
 #     Scroll Element Into View    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Qualifications']]/div[@class='detail-content']
 #     Sleep    1s
-#     Verify Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
-#     Verify Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
-#     Verify Preferred Qualifications    • Teaching experience\n• Industry collaboration experience
+#     Verify Input Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
+#     Verify Input Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
+#     Verify Input Preferred Qualifications    • Teaching experience\n• Industry collaboration experience
 #     Scroll Element Into View    xpath=//div[@class='timeline-content'][.//h6[text()='Expected End']]/p 
 #     Sleep    1s
-#     Verify Timeline    Feb 28, 2025    Mar 10, 2025    
-#     Verify End Date    Jul 07, 2025
-#     Verify Process    • Submit application through the online portal\n• Initial screening\n• Interviews
+#     Verify Input Timeline    Feb 28, 2025    Mar 10, 2025    
+#     Verify Input End Date    Jul 07, 2025
+#     Verify Input Process    • Submit application through the online portal\n• Initial screening\n• Interviews
 #     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
 #     Sleep    1s
-#     Verify Contact    Dew    few8855@gmail.com    
-#     Verify Phone    0902386892
-#     Verify Custom Field    Required Skills    java, python
+#     Verify Input Contact    Dew    few8855@gmail.com    
+#     Verify Input Phone    0902386892
+#     Verify Input Custom Field    Required Skills    java, python
 #     [Teardown]    Close Browser
 
 # # Create Application for Ph.D Success
@@ -115,24 +115,24 @@ ${FORM_PostdocPATH}    (//h4[contains(text(),'Postdoc Application')]/ancestor::d
 #     ${Detail_Group_Text}=    Get Text    xpath=//p[contains(@class,'text-muted')]   
 #     Should Be Equal As Strings    ${Detail_Role_Text}    PhD Position
 #     Should Be Equal As Strings    ${Detail_Group_Text}    Research Group: Laboratory, Machine Learning and Intelligent Systems (MLIS)
-#     Verify Deadline    Feb 28, 2025
-#     Verify Vacancies    5
-#     Verify Salary    $65,000    per project
-#     Verify Location    USA
-#     Verify Application Detail    This is an exciting opportunity for this position.
+#     Verify Input Deadline    Feb 28, 2025
+#     Verify Input Vacancies    5
+#     Verify Input Salary    $65,000    per project
+#     Verify Input Location    USA
+#     Verify Input Job Detail    This is an exciting opportunity for this position.
 #     Scroll Element Into View    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Qualifications']]/div[@class='detail-content']
 #     Sleep    1s
-#     Verify Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
-#     Verify Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
-#     Verify Preferred Qualifications    No preferred qualifications specified.
+#     Verify Input Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
+#     Verify Input Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
+#     Verify Input Preferred Qualifications    No preferred qualifications specified.
 #     Scroll Element Into View    xpath=//div[contains(@class, 'col-md-4')][contains(., 'Contact Person:')]
 #     Sleep    1s
-#     Verify Timeline    Feb 28, 2025    Mar 10, 2025
-#     Verify Process    • Submit application through the online portal\n• Initial screening\n• Interviews
+#     Verify Input Timeline    Feb 28, 2025    Mar 10, 2025
+#     Verify Input Process    • Submit application through the online portal\n• Initial screening\n• Interviews
 #     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
 #     Sleep    1s
-#     Verify Contact    Dew    few8855@gmail.com    
-#     Verify Custom Field    Required Skills    java, python
+#     Verify Input Contact    Dew    few8855@gmail.com    
+#     Verify Input Custom Field    Required Skills    java, python
 #     [Teardown]    Close Browser
 
 # # Create Application for Postdoc Success
@@ -176,26 +176,26 @@ ${FORM_PostdocPATH}    (//h4[contains(text(),'Postdoc Application')]/ancestor::d
 #     ${Detail_Group_Text}=    Get Text    xpath=//p[contains(@class,'text-muted')]   
 #     Should Be Equal As Strings    ${Detail_Role_Text}    Postdoc Position
 #     Should Be Equal As Strings    ${Detail_Group_Text}    Research Group: Laboratory, Machine Learning and Intelligent Systems (MLIS)
-#     Verify Deadline    Feb 28, 2025
-#     Verify Vacancies    5
-#     Verify Salary    $65,000    per project
-#     Verify Location    USA
-#     Verify Application Detail    This is an exciting opportunity for this position.
+#     Verify Input Deadline    Feb 28, 2025
+#     Verify Input Vacancies    5
+#     Verify Input Salary    $65,000    per project
+#     Verify Input Location    USA
+#     Verify Input Job Detail    This is an exciting opportunity for this position.
 #     Scroll Element Into View    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Qualifications']]/div[@class='detail-content']
 #     Sleep    1s
-#     Verify Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
-#     Verify Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
-#     Verify Preferred Qualifications    • Teaching experience\n• Industry collaboration experience
+#     Verify Input Required Documents    • CV/Resume\n• Cover Letter\n• Research Statement
+#     Verify Input Required Qualifications    • Ph.D. in relevant field\n• Research experience\n• Strong publication record
+#     Verify Input Preferred Qualifications    • Teaching experience\n• Industry collaboration experience
 #     Scroll Element Into View    xpath=//div[@class='timeline-content'][.//h6[text()='Expected End']]/p 
 #     Sleep    1s
-#     Verify Timeline    Feb 28, 2025    Mar 10, 2025    
-#     Verify End Date    Jul 07, 2025
-#     Verify Process    • Submit application through the online portal\n• Initial screening\n• Interviews
+#     Verify Input Timeline    Feb 28, 2025    Mar 10, 2025    
+#     Verify Input End Date    Jul 07, 2025
+#     Verify Input Process    • Submit application through the online portal\n• Initial screening\n• Interviews
 #     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
 #     Sleep    1s
-#     Verify Contact    Dew    few8855@gmail.com
-#     Verify Phone    0902386892    
-#     Verify Custom Field    Required Skills    java, python
+#     Verify Input Contact    Dew    few8855@gmail.com
+#     Verify Input Phone    0902386892    
+#     Verify Input Custom Field    Required Skills    java, python
 #     [Teardown]    Close Browser
 
 # Edit Application
@@ -224,7 +224,7 @@ Edit Application
     Sleep    1s
 
 Verify Change Detail
-    Verify Deadline    May 13, 2025
+    Verify Input Deadline    May 13, 2025
     [Teardown]    Close Browser
 # Delete Application
 Open Website
