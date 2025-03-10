@@ -21,7 +21,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -49,7 +49,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -77,7 +77,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -105,7 +105,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -133,7 +133,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -161,7 +161,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -189,7 +189,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -217,7 +217,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -245,7 +245,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -273,7 +273,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -301,7 +301,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
@@ -329,7 +329,7 @@ Login
     Click Button    Log In
     Title Should Be    Dashboard
 
-Go To Application
+Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
     Click Element    xpath=(//a[@title="Application"])[1]
 
