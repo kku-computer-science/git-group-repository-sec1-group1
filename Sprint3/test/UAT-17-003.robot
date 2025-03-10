@@ -309,7 +309,7 @@ Process Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    ${EMPTY}    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    ${EMPTY}    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    ${EMPTY}    This is an exciting opportunity for this position.  
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
     Sleep    5s
