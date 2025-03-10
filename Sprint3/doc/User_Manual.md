@@ -75,7 +75,8 @@ User - หัวหน้ากลุ่มวิจัย
         Field Type: เลือกรูปแบบข้อมูล (Short Text, Long Text, Date, Number)
         Field Placeholder: ใส่ข้อความตัวอย่าง เช่น "ระบุทักษะที่จำเป็น เช่น การเขียนโปรแกรม, การวิเคราะห์ข้อมูล"
 
-[alt text](../img/9.png)
+![alt text](../img/9.png)
+
     3.14 ช่องข้อมูลสำหรับผู้สมัคร (Custom Application Fields) ผู้สมัครต้องกรอกรายละเอียดตามที่กำหนดจาก Custom Fields
 
     3.15 รายละเอียดใบสมัคร (Application Details) ใช้เพื่อให้ข้อมูลเกี่ยวกับตำแหน่งงาน โครงการวิจัย หรือข้อกำหนดของใบสมัคร
@@ -87,13 +88,13 @@ User - หัวหน้ากลุ่มวิจัย
 
 หลังจากกรอกรายละเอียดทั้งหมดแล้ว กด Submit เพื่อบันทึกข้อมูล
 
-[alt text](../img/10.png)
+![alt text](../img/10.png)
 
-[alt text](../img/11.png)
+![alt text](../img/11.png)
 
 สามารถคลิก View Details เพื่อตรวจสอบข้อมูลที่กรอก
 
-[alt text](../img/12.png)
+![alt text](../img/12.png)
 
 ![alt text](../img/13.png)
 
