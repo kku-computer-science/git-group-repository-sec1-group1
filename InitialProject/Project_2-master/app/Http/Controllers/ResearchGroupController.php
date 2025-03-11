@@ -9,7 +9,6 @@ use App\Models\Fund;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class ResearchGroupController extends Controller
 {
@@ -54,40 +53,32 @@ class ResearchGroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'group_desc_en' => 'required',
-            'group_detail_en' => 'required',
+            'group_name_th' => 'required',
+            'group_name_en' => 'required',
             'head' => 'required',
+            //'group_image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
-
-        // Translate English input to Thai and Chinese
-        $tr_th = new GoogleTranslate('th');
-        $tr_zh = new GoogleTranslate('zh');
-
         $input = $request->all();
-        $input['group_desc_th'] = $tr_th->translate($request->group_desc_en);
-        $input['group_detail_th'] = $tr_th->translate($request->group_detail_en);
-        $input['group_desc_cn'] = $tr_zh->translate($request->group_desc_en);
-        $input['group_detail_cn'] = $tr_zh->translate($request->group_detail_en);
-
-        // Handle image upload
         if ($request->group_image) {
             $input['group_image'] = time() . '.' . $request->group_image->extension();
             $request->group_image->move(public_path('img'), $input['group_image']);
         }
-
+        // $input['group_image'] = time().'.'.$request->group_image->extension();
+        // $request->group_image->move(public_path('img'), $input['group_image']);
+        //return $input['group_image'];
         $researchGroup = ResearchGroup::create($input);
         $head = $request->head;
+        $fund = $request->fund;
         $researchGroup->user()->attach($head, ['role' => 1]);
-
         if ($request->moreFields) {
             foreach ($request->moreFields as $key => $value) {
-                if (!empty($value['userid'])) {
+
+                if ($value['userid'] != null) {
                     $researchGroup->user()->attach($value, ['role' => 2]);
                 }
             }
         }
-
-        return redirect()->route('researchGroups.index')->with('success', 'Research group created successfully.');
+        return redirect()->route('researchGroups.index')->with('success', 'research group created successfully.');
     }
 
     /**
@@ -132,41 +123,38 @@ class ResearchGroupController extends Controller
     public function update(Request $request, ResearchGroup $researchGroup)
     {
         $request->validate([
-            'group_desc_en' => 'required',
-            'group_detail_en' => 'required',
+            'group_name_th' => 'required',
+            'group_name_en' => 'required',
+
         ]);
-
-        // Translate English input to Thai and Chinese
-        $tr_th = new GoogleTranslate('th');
-        $tr_zh = new GoogleTranslate('zh');
-
         $input = $request->all();
-        $input['group_desc_th'] = $tr_th->translate($request->group_desc_en);
-        $input['group_detail_th'] = $tr_th->translate($request->group_detail_en);
-        $input['group_desc_cn'] = $tr_zh->translate($request->group_desc_en);
-        $input['group_detail_cn'] = $tr_zh->translate($request->group_detail_en);
-
-        // Handle image upload
         if ($request->group_image) {
+            //dd($request->file('group_image'));
             $input['group_image'] = time() . '.' . $request->group_image->extension();
+            //$file = $request->file('image');
+
+            //$url = Storage::putFileAs('images', $file, $name . '.' . $file->extension());
+            //dd($input['group_image']);
             $request->group_image->move(public_path('img'), $input['group_image']);
         }
-
         $researchGroup->update($input);
+        $head = $request->head;
         $researchGroup->user()->detach();
-        $researchGroup->user()->attach([$request->head => ['role' => 1]]);
+        $researchGroup->user()->attach(array(
+            $head => array('role' => 1),
+        ));
 
         if ($request->moreFields) {
             foreach ($request->moreFields as $key => $value) {
-                if (!empty($value['userid'])) {
+
+                if ($value['userid'] != null) {
                     $researchGroup->user()->attach($value, ['role' => 2]);
                 }
             }
         }
-
-        return redirect()->route('researchGroups.index')->with('success', 'Research group updated successfully.');
+        return redirect()->route('researchGroups.index')
+            ->with('success', 'researchGroups updated successfully');
     }
-
 
     /**
      * Remove the specified resource from storage.

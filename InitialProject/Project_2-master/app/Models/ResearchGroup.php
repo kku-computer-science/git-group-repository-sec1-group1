@@ -9,7 +9,7 @@ class ResearchGroup extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'group_name_th', 'group_name_en', 'group_detail_th', 'group_detail_en', 'group_desc_th', 'group_desc_en', 'group_image','group_desc_cn', 'group_detail_cn',
+        'group_name_th', 'group_name_en', 'group_detail_th', 'group_detail_en', 'group_desc_th', 'group_desc_en', 'group_image'
     ];
 
     public function user()
