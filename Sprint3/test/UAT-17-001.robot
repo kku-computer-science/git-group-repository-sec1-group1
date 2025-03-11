@@ -23,6 +23,8 @@ Login
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
+    ${Welcome_Text}=    Get Text    xpath=/html/body/div/div/div/div/h4
+    Should Be Equal As Strings    ${Welcome_Text}    Hello Assoc. Prof. Dr. Ngamnij Arch-int
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
@@ -87,6 +89,9 @@ Login
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
+    ${Welcome_Text}=    Get Text    xpath=/html/body/div/div/div/div/h4
+    Should Be Equal As Strings    ${Welcome_Text}    Hello Assoc. Prof. Dr. Ngamnij Arch-int
+
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
@@ -127,7 +132,7 @@ Check Ph.D. Application Detail
     Verify Input Job Detail    As an AI Researcher, you will play a pivotal role in our organization's efforts to advance the field of artificial intelligence. You will be responsible for conducting research, developing AI models and algorithms, and staying up-to-date with the latest developments in AI and machine learning. Your contributions will drive innovation and help shape our AI strategy.
     Scroll Element Into View    xpath=//div[contains(@class, 'detail-card')][.//h5[text()='Required Qualifications']]/div[@class='detail-content']
     Sleep    1s
-    Verify Input Required Documents     Transcripts\n• a statement of purpose (SOP)\n• GRE\n• TOEFL/IELTS
+    Verify Input Required Documents     • Transcripts\n• a statement of purpose (SOP)\n• GRE\n• TOEFL/IELTS
     Verify Input Required Qualifications    • A Ph.D. or master's degree in computer science, artificial intelligence, machine learning, or a related field.\n• Proven track record of AI research, including publications in recognized AI conferences and journals.\n• Strong programming skills in languages commonly used in AI research (e.g., Python, TensorFlow, PyTorch).\n• In-depth knowledge of machine learning algorithms, deep learning, natural language processing, and/or computer vision.\n• Experience with AI frameworks and libraries.\n• Proficiency in data analysis and statistical modeling.\n• Excellent problem-solving and analytical abilities.\n• Strong communication and collaboration skills.
     Verify Input Preferred Qualifications    No preferred qualifications specified.
     Scroll Element Into View    xpath=//div[contains(@class, 'col-md-4')][contains(., 'Contact Person:')]
@@ -152,6 +157,9 @@ Login
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
+    ${Welcome_Text}=    Get Text    xpath=/html/body/div/div/div/div/h4
+    Should Be Equal As Strings    ${Welcome_Text}    Hello Assoc. Prof. Dr. Ngamnij Arch-int
+
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
@@ -162,7 +170,7 @@ Create Application for Postdoc
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='postdoc']
     Sleep    1s
-    Input Application    ${FORM_PostDoc_PATH}    2025-05-04    3    • A Cover Letter\n• Full CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportunities, Name of PhD supervisor, etc.\n• A research statement (max of 3 pages) of major accomplishments in research, citing up to five research, citing up to five significant publications, creative work or other scholarly contribution, and explaining their significance. Including sample copies, complete list of publication and impact, and evidence of international visibility.\n• A Teaching Statement that focuses on evidence of student learning and educational leadership (if applicable). A preface (maximum 300 words) that makes the case for your appointment. This should be highly distilled summary of your key contributions to student learning and educational leadership, guided by your teaching philosophy.\n• Scanned copies of academic certificates and transcripts\n• A list of FOUR Referees (including one from the applicant's PhD or post-doctoral advisor/supervisor).    61,000    per year    Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational methods to the social sciences. This includes but is not limited to social science disciplines (sociology, political science, communication, economics etc.) or computer science and related disciplines (information science, data science, computational physics etc.)    • Experience that demonstrates a strong publication record.\n• Demonstrated ability or potential to mentor research of undergraduate and graduate students.\n• Demonstrated ability or potential to engage in professional and institutional service and leadership.\n• Evidence of ability to work with diverse student, faculty, and staff populations.    Khon Kaen University(Full time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Applicants should demonstrate a keen understanding of current and emerging trends in the communications industry, as well as excellence and innovation in practice-led pedagogy.  
+    Input Application    ${FORM_PostDoc_PATH}    2025-05-04    3    • A Cover Letter\n• Full CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportunities, Name of PhD supervisor, etc.\n• A research statement (max of 3 pages) of major accomplishments in research, citing up to five research, citing up to five significant publications, creative work or other scholarly contribution, and explaining their significance. Including sample copies, complete list of publication and impact, and evidence of international visibility.\n• A Teaching Statement that focuses on evidence of student learning and educational leadership (if applicable). A preface (maximum 300 words) that makes the case for your appointment. This should be highly distilled summary of your key contributions to student learning and educational leadership, guided by your teaching philosophy.\n• Scanned copies of academic certificates and transcripts\n• A list of FOUR Referees (including one from the applicant's PhD or post-doctoral advisor/supervisor).    61,000    per year    Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational methods to the social sciences. This includes but is not limited to social science disciplines (sociology, political science, communication, economics etc.) or computer science and related disciplines (information science, data science, computational physics etc.)    • Experience that demonstrates a strong publication record.\n• Demonstrated ability or potential to mentor research of undergraduate and graduate students.\n• Demonstrated ability or potential to engage in professional and institutional service and leadership.\n• Evidence of ability to work with diverse student, faculty, and staff populations.    Khon Kaen University(Full time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th    0902386892    2025-07-01     2027-07-02    • Submit application through the online portal\n• Initial screening\n• Interviews    The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Applicants should demonstrate a keen understanding of current and emerging trends in the communications industry, as well as excellence and innovation in practice-led pedagogy.  
     Open Custom Field
     Create Custom Field    Responsibilities    textarea    ${EMPTY}
     Close Custom Field
@@ -223,6 +231,9 @@ Login
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
+    ${Welcome_Text}=    Get Text    xpath=/html/body/div/div/div/div/h4
+    Should Be Equal As Strings    ${Welcome_Text}    Hello Assoc. Prof. Dr. Ngamnij Arch-int
+    
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
@@ -257,6 +268,8 @@ Login
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
+    ${Welcome_Text}=    Get Text    xpath=/html/body/div/div/div/div/h4
+    Should Be Equal As Strings    ${Welcome_Text}    Hello Assoc. Prof. Dr. Ngamnij Arch-int
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
@@ -267,9 +280,6 @@ Delete Application
     Delete Application Card    2
     Delete Application Card    2
     Delete Application Card    2
-    # Click Element    xpath=(//a[contains(., 'View Details')])[2]
-    # Click Button    xpath=//button[@class='btn btn-danger mt-3 ct-btn']
-    # Handle Alert    accept
 
 #
 Edit Application
