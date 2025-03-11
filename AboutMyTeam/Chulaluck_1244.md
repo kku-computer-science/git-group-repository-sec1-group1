@@ -1,0 +1,1 @@
+Author: Chulaluck Chansri Section: 1 My personal quote: ชีวิตมันสั้น  Semester 2/2567

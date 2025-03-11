@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2025-03-11T19:08:15.272693" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT-17-002" source="D:\SE\git-group-repository-sec1-group1\Sprint3\test\UAT-17-002.robot">
+<test id="s1-t1" name="Open Website" line="8">
+<kw name="Open Web" owner="resource">
+<kw name="Open Custom Chrome Browser" owner="resource">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-11T19:08:15.527964" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000139A7BBA670&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-11T19:08:15.526963" elapsed="0.001001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>binary_location</arg>
+<arg>${CHROME_BROWSER_PATH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-11T19:08:15.527964" elapsed="0.000993"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-11T19:08:15.528957" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x00000139A7BBA970&gt;</msg>
+<var>${service}</var>
+<arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-11T19:08:15.528957" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:15.529963" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<arg>service=${service}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-11T19:08:15.529963" elapsed="1.118715"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:16.648678" level="INFO">Opening url 'https://cs0167.cpkkuhost.com/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-11T19:08:16.648678" elapsed="3.255410"/>
+</kw>
+<arg>${BASE_URL}</arg>
+<status status="PASS" start="2025-03-11T19:08:15.526963" elapsed="4.377125"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-11T19:08:19.904088" elapsed="0.031998"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-03-11T19:08:19.936086" elapsed="0.000000"/>
+</kw>
+<kw name="Home Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:20.757256" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-03-11T19:08:19.937096" elapsed="0.820160"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:19.937096" elapsed="0.820160"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:15.515953" elapsed="5.242305"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:15.515953" elapsed="5.242305"/>
+</test>
+<test id="s1-t2" name="Visit Research Group" line="11">
+<kw name="Go To Researcher Group" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:20.760259" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
+<arg>xpath=//a[@href='/researchgroup']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:20.760259" elapsed="2.444831"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:24.025835" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
+<arg>xpath=//p[contains(text(), 'Research Group')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-03-11T19:08:23.205090" elapsed="0.820745"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:20.760259" elapsed="3.265576"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:08:24.026624" elapsed="1.888521"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:20.759258" elapsed="5.156394"/>
+</test>
+<test id="s1-t3" name="Visit Research Group Detail" line="15">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:08:25.916523" elapsed="1.889083"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:27.806540" level="INFO">Clicking element 'xpath=(//a[contains(@href, 'researchgroupdetail')])[2]'.</msg>
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:27.806540" elapsed="2.215468"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:30.022923" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-11T19:08:30.022923" elapsed="0.808545"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:30.832474" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
+<msg time="2025-03-11T19:08:31.652104" level="INFO">${job_count} = 2</msg>
+<var>${job_count}</var>
+<arg>//tbody/tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:30.832474" elapsed="0.819630"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:08:31.652935" level="INFO">Job openings exist: 2 jobs available.</msg>
+<arg>Job openings exist: ${job_count} jobs available.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:08:31.652935" elapsed="0.000000"/>
+</kw>
+<arg>${job_count} &gt; 0</arg>
+<arg>Log</arg>
+<arg>Job openings exist: ${job_count} jobs available.</arg>
+<arg>ELSE</arg>
+<arg>Element Should Be Visible</arg>
+<arg>//div[contains(@class, 'empty-jobs-container')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-11T19:08:31.652935" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:25.916523" elapsed="5.737407"/>
+</test>
+<test id="s1-t4" name="Visit Application Detail" line="26">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:31.654935" level="INFO">Clicking element 'xpath=(//a[@class='btn-job-details'])[2]'.</msg>
+<arg>xpath=(//a[@class='btn-job-details'])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:31.653930" elapsed="2.208555"/>
+</kw>
+<kw name="Check Application Details Header" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:35.498796" level="INFO">${Header_Text} = Postdoc
+Khon Kaen University(Full time)
+Apply by May 04, 2025
+$61,000 per year
+3 position(s)</msg>
+<var>${Header_Text}</var>
+<arg>xpath=//div[contains(@class, 'card-header')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:33.863486" elapsed="1.635310"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Header_Text}</arg>
+<arg>${ROLE}\n${LOCATION}\nApply by ${DEADLINE}\n${SALARY}\n${VACANCIES} position(s)</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:35.498796" elapsed="0.000891"/>
+</kw>
+<arg>Postdoc</arg>
+<arg>Khon Kaen University(Full time)</arg>
+<arg>May 04, 2025</arg>
+<arg>$61,000 per year</arg>
+<arg>3</arg>
+<status status="PASS" start="2025-03-11T19:08:33.863486" elapsed="1.636201"/>
+</kw>
+<kw name="Check Basic Info" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:37.146568" level="INFO">${Body_Text} = Status
+Open (54 days left)
+Employment Type
+Contract
+Jul 2025 - Jul 2027
+Start Date
+July 01, 2025
+Contact
+Assoc. Prof. Ngamnij Arch-int
+ngamnij@kku.ac.th
+0902386892</msg>
+<var>${Body_Text}</var>
+<arg>xpath=//div[contains(@class,'grid')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:35.500685" elapsed="1.645883"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Body_Text}</arg>
+<arg>Status\n${STATUS} (${REMAINING_DAY} days left)\nEmployment Type\n${EMPLOYMENT_TYPE}\nStart Date\n${START_DATE}\nContact\n${CONTACT_NAME}\n${CONTACT_EMAIL}${CONTACT_PHONE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:37.146568" elapsed="0.000892"/>
+</kw>
+<arg>Open</arg>
+<arg>54</arg>
+<arg>Contract\nJul 2025 - Jul 2027</arg>
+<arg>July 01, 2025</arg>
+<arg>Assoc. Prof. Ngamnij Arch-int</arg>
+<arg>ngamnij@kku.ac.th</arg>
+<arg>\n0902386892</arg>
+<status status="PASS" start="2025-03-11T19:08:35.499687" elapsed="1.647773"/>
+</kw>
+<kw name="Check Custom Field" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:38.785754" level="INFO">${Custom_Field_Text} = This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics...</msg>
+<var>${Custom_Field_Text}</var>
+<arg>xpath=//div[contains(@class, 'custom-field')][div[contains(@class, 'custom-field-label')][contains(text(), '${FIELD_LABEL}')]]/div[contains(@class, 'custom-field-value')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:37.147930" elapsed="1.637824"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Custom_Field_Text}</arg>
+<arg>${FIELD_VALUE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:38.785754" elapsed="0.000866"/>
+</kw>
+<arg>Responsibilities</arg>
+<arg>This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics research projects (50%). The successful will also contribute towards publishing top-tier journal articles and curriculum development in data visualization and analytics. Other responsibilities may include service roles.</arg>
+<status status="PASS" start="2025-03-11T19:08:37.147930" elapsed="1.638690"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='card-body'][.//h3[contains(.,'Job Description')]]//p</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:08:38.787618" elapsed="1.888367"/>
+</kw>
+<kw name="Check Job Details" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:42.306185" level="INFO">${Desc_Text} = The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Appl...</msg>
+<var>${Desc_Text}</var>
+<arg>xpath=//div[@class='card-body'][.//h3[contains(.,'Job Description')]]//p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:40.676840" elapsed="1.629345"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Desc_Text}</arg>
+<arg>${JOB_DETAILS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:42.306185" elapsed="0.000955"/>
+</kw>
+<arg>The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Applicants should demonstrate a keen understanding of current and emerging trends in the communications industry, as well as excellence and innovation in practice-led pedagogy.</arg>
+<status status="PASS" start="2025-03-11T19:08:40.676840" elapsed="1.630300"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//h4[text()="Preferred"]/following-sibling::ul</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:08:42.307140" elapsed="1.903608"/>
+</kw>
+<kw name="Check Required Qualifications" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:45.839916" level="INFO">${Required_Qualification_Text} = Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational met...</msg>
+<var>${Required_Qualification_Text}</var>
+<arg>xpath=//h4[text()="Required"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:44.212762" elapsed="1.627154"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Required_Qualification_Text}</arg>
+<arg>${Required_Qualification_Text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:45.839916" elapsed="0.000893"/>
+</kw>
+<arg>Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational methods to the social sciences. This includes but is not limited to social science disciplines (sociology, political science, communication, economics etc.) or computer science and related disciplines (information science, data science, computational physics etc.)</arg>
+<status status="PASS" start="2025-03-11T19:08:44.211764" elapsed="1.629045"/>
+</kw>
+<kw name="Check Preferred Qualifications" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:47.480470" level="INFO">${Required_Qualification_Text} = Experience that demonstrates a strong publication record.
+Demonstrated ability or potential to mentor research of undergraduate and graduate students.
+Demonstrated ability or potential to engage in pr...</msg>
+<var>${Required_Qualification_Text}</var>
+<arg>xpath=//h4[text()="Preferred"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:45.841813" elapsed="1.638657"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Required_Qualification_Text}</arg>
+<arg>${PREFERRED_QUALIFICATIONS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:47.480470" elapsed="0.000000"/>
+</kw>
+<arg>Experience that demonstrates a strong publication record.\nDemonstrated ability or potential to mentor research of undergraduate and graduate students.\nDemonstrated ability or potential to engage in professional and institutional service and leadership.\nEvidence of ability to work with diverse student, faculty, and staff populations.</arg>
+<status status="PASS" start="2025-03-11T19:08:45.840809" elapsed="1.639661"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//h4[text()="Required Documents"]/following-sibling::ul</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:08:47.481989" elapsed="1.900614"/>
+</kw>
+<kw name="Check Application Process" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:51.015141" level="INFO">${Process_Text} = Submit application through the online portal
+Initial screening
+Interviews</msg>
+<var>${Process_Text}</var>
+<arg>xpath=//h4[text()="How to Apply"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:49.382603" elapsed="1.632538"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Process_Text}</arg>
+<arg>${APPLICATION_PROCESS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:51.015141" elapsed="0.000905"/>
+</kw>
+<arg>Submit application through the online portal\nInitial screening\nInterviews</arg>
+<status status="PASS" start="2025-03-11T19:08:49.382603" elapsed="1.633443"/>
+</kw>
+<kw name="Check Required Documents" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:52.644987" level="INFO">${Documents_Text} = A Cover Letter
+Full CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportun...</msg>
+<var>${Documents_Text}</var>
+<arg>xpath=//h4[text()="Required Documents"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:08:51.017009" elapsed="1.627978"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Documents_Text}</arg>
+<arg>${REQUIRED_DOCUMENTS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:08:52.644987" elapsed="0.000886"/>
+</kw>
+<arg>A Cover Letter\nFull CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportunities, Name of PhD supervisor, etc.\nA research statement (max of 3 pages) of major accomplishments in research, citing up to five research, citing up to five significant publications, creative work or other scholarly contribution, and explaining their significance. Including sample copies, complete list of publication and impact, and evidence of international visibility.\nA Teaching Statement that focuses on evidence of student learning and educational leadership (if applicable). A preface (maximum 300 words) that makes the case for your appointment. This should be highly distilled summary of your key contributions to student learning and educational leadership, guided by your teaching philosophy.\nScanned copies of academic certificates and transcripts\nA list of FOUR Referees (including one from the applicant’s PhD or post-doctoral advisor/supervisor). Referees are to submit their letters directly to cnmcareer@nus.edu.sg</arg>
+<status status="PASS" start="2025-03-11T19:08:51.016046" elapsed="1.629827"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-11T19:08:52.646871" elapsed="3.087429"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:31.653930" elapsed="24.082266"/>
+</test>
+<test id="s1-t5" name="Open Website" line="43">
+<kw name="Open Web" owner="resource">
+<kw name="Open Custom Chrome Browser" owner="resource">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-11T19:08:55.740196" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000139A7C32AF0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-11T19:08:55.739200" elapsed="0.000996"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>binary_location</arg>
+<arg>${CHROME_BROWSER_PATH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-11T19:08:55.740196" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-11T19:08:55.741196" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x00000139A7C32070&gt;</msg>
+<var>${service}</var>
+<arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-11T19:08:55.741196" elapsed="0.001001"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:55.742197" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<arg>service=${service}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-03-11T19:08:55.742197" elapsed="1.110245"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:08:56.854445" level="INFO">Opening url 'https://cs0167.cpkkuhost.com/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-03-11T19:08:56.853443" elapsed="3.833443"/>
+</kw>
+<arg>${BASE_URL}</arg>
+<status status="PASS" start="2025-03-11T19:08:55.738195" elapsed="4.948691"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-11T19:09:00.686886" elapsed="0.029515"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-03-11T19:09:00.716401" elapsed="0.000000"/>
+</kw>
+<kw name="Home Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:01.538262" level="INFO">Page title is 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์'.</msg>
+<arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-03-11T19:09:00.717405" elapsed="0.820857"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:00.717405" elapsed="0.820857"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:55.738195" elapsed="5.800067"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:08:55.737195" elapsed="5.801959"/>
+</test>
+<test id="s1-t6" name="Go To Login" line="46">
+<kw name="Click Login" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:01.542151" level="INFO">Clicking element 'xpath= //a[@href='/login']'.</msg>
+<arg>xpath= //a[@href='/login']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:01.541152" elapsed="1.734578"/>
+</kw>
+<kw name="Switch Tab" owner="resource">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:04.082098" level="INFO">${handles} = ['08C676C9CB737D57616C36D2B7C22C8C', 'AD13CDC7769837DE29D7A419A3B6F71B']</msg>
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-03-11T19:09:03.276729" elapsed="0.805369"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>${handles}[${INDEX}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:04.082098" elapsed="7.330126"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2025-03-11T19:09:03.275730" elapsed="8.136494"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:12.220292" level="INFO">Page title is 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-03-11T19:09:11.412224" elapsed="0.808068"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:01.541152" elapsed="10.679140"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:01.541152" elapsed="10.681153"/>
+</test>
+<test id="s1-t7" name="Teacher Login" line="49">
+<kw name="Input Email" owner="resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:12.223305" level="INFO">Typing text 'wongsar@kku.ac.th' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:12.223305" elapsed="2.510759"/>
+</kw>
+<arg>wongsar@kku.ac.th</arg>
+<status status="PASS" start="2025-03-11T19:09:12.223305" elapsed="2.510759"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:14.735934" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-03-11T19:09:16.374592" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>123456789</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:14.734924" elapsed="2.506403"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:17.242300" level="INFO">Clicking button 'Log In'.</msg>
+<arg>Log In</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:17.242300" elapsed="6.314896"/>
+</kw>
+<kw name="Switch Tab" owner="resource">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:24.361776" level="INFO">${handles} = ['08C676C9CB737D57616C36D2B7C22C8C', 'AD13CDC7769837DE29D7A419A3B6F71B']</msg>
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-03-11T19:09:23.559056" elapsed="0.802720"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>${handles}[${INDEX}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:24.362662" elapsed="3.259107"/>
+</kw>
+<arg>0</arg>
+<status status="PASS" start="2025-03-11T19:09:23.557923" elapsed="4.063846"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:12.222305" elapsed="15.400468"/>
+</test>
+<test id="s1-t8" name="Visit Research Group" line="55">
+<kw name="Go To Researcher Group" owner="resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:27.625765" level="INFO">Clicking element 'xpath=//a[@href='/researchgroup']'.</msg>
+<arg>xpath=//a[@href='/researchgroup']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:27.625765" elapsed="3.856544"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:32.304637" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Research Group')]'.</msg>
+<arg>xpath=//p[contains(text(), 'Research Group')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-03-11T19:09:31.482309" elapsed="0.822328"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:27.625765" elapsed="4.678872"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:09:32.305554" elapsed="1.892559"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:27.624804" elapsed="6.573309"/>
+</test>
+<test id="s1-t9" name="Visit Research Group Detail" line="59">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:09:34.200128" elapsed="1.894337"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:36.095360" level="INFO">Clicking element 'xpath=(//a[contains(@href, 'researchgroupdetail')])[2]'.</msg>
+<arg>xpath=(//a[contains(@href, 'researchgroupdetail')])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:36.095360" elapsed="2.817325"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:38.913686" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight);
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.body.scrollHeight);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-11T19:09:38.912685" elapsed="0.821266"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:39.733951" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
+<msg time="2025-03-11T19:09:40.555595" level="INFO">${job_count} = 2</msg>
+<var>${job_count}</var>
+<arg>//tbody/tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:39.734958" elapsed="0.820637"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:09:40.556457" level="INFO">Job openings exist: 2 jobs available.</msg>
+<arg>Job openings exist: ${job_count} jobs available.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:09:40.556457" elapsed="0.000996"/>
+</kw>
+<arg>${job_count} &gt; 0</arg>
+<arg>Log</arg>
+<arg>Job openings exist: ${job_count} jobs available.</arg>
+<arg>ELSE</arg>
+<arg>Element Should Be Visible</arg>
+<arg>//div[contains(@class, 'empty-jobs-container')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-11T19:09:40.556457" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:34.199121" elapsed="6.358332"/>
+</test>
+<test id="s1-t10" name="Visit Application Detail" line="70">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:40.560452" level="INFO">Clicking element 'xpath=(//a[@class='btn-job-details'])[2]'.</msg>
+<arg>xpath=(//a[@class='btn-job-details'])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:40.560452" elapsed="2.262490"/>
+</kw>
+<kw name="Check Application Details Header" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:44.468403" level="INFO">${Header_Text} = Postdoc
+Khon Kaen University(Full time)
+Apply by May 04, 2025
+$61,000 per year
+3 position(s)</msg>
+<var>${Header_Text}</var>
+<arg>xpath=//div[contains(@class, 'card-header')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:42.823948" elapsed="1.644455"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Header_Text}</arg>
+<arg>${ROLE}\n${LOCATION}\nApply by ${DEADLINE}\n${SALARY}\n${VACANCIES} position(s)</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:44.468403" elapsed="0.000000"/>
+</kw>
+<arg>Postdoc</arg>
+<arg>Khon Kaen University(Full time)</arg>
+<arg>May 04, 2025</arg>
+<arg>$61,000 per year</arg>
+<arg>3</arg>
+<status status="PASS" start="2025-03-11T19:09:42.823948" elapsed="1.644455"/>
+</kw>
+<kw name="Check Basic Info" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:46.112927" level="INFO">${Body_Text} = Status
+Open (54 days left)
+Employment Type
+Contract
+Jul 2025 - Jul 2027
+Start Date
+July 01, 2025
+Contact
+Assoc. Prof. Ngamnij Arch-int
+ngamnij@kku.ac.th
+0902386892</msg>
+<var>${Body_Text}</var>
+<arg>xpath=//div[contains(@class,'grid')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:44.470402" elapsed="1.642525"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Body_Text}</arg>
+<arg>Status\n${STATUS} (${REMAINING_DAY} days left)\nEmployment Type\n${EMPLOYMENT_TYPE}\nStart Date\n${START_DATE}\nContact\n${CONTACT_NAME}\n${CONTACT_EMAIL}${CONTACT_PHONE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:46.113794" elapsed="0.000000"/>
+</kw>
+<arg>Open</arg>
+<arg>54</arg>
+<arg>Contract\nJul 2025 - Jul 2027</arg>
+<arg>July 01, 2025</arg>
+<arg>Assoc. Prof. Ngamnij Arch-int</arg>
+<arg>ngamnij@kku.ac.th</arg>
+<arg>\n0902386892</arg>
+<status status="PASS" start="2025-03-11T19:09:44.469527" elapsed="1.644267"/>
+</kw>
+<kw name="Check Custom Field" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:47.746070" level="INFO">${Custom_Field_Text} = This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics...</msg>
+<var>${Custom_Field_Text}</var>
+<arg>xpath=//div[contains(@class, 'custom-field')][div[contains(@class, 'custom-field-label')][contains(text(), '${FIELD_LABEL}')]]/div[contains(@class, 'custom-field-value')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:46.114794" elapsed="1.631276"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Custom_Field_Text}</arg>
+<arg>${FIELD_VALUE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:47.746070" elapsed="0.000000"/>
+</kw>
+<arg>Responsibilities</arg>
+<arg>This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics research projects (50%). The successful will also contribute towards publishing top-tier journal articles and curriculum development in data visualization and analytics. Other responsibilities may include service roles.</arg>
+<status status="PASS" start="2025-03-11T19:09:46.114794" elapsed="1.631276"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='card-body'][.//h3[contains(.,'Job Description')]]//p</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:09:47.748070" elapsed="1.903759"/>
+</kw>
+<kw name="Check Job Details" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:51.293800" level="INFO">${Desc_Text} = The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Appl...</msg>
+<var>${Desc_Text}</var>
+<arg>xpath=//div[@class='card-body'][.//h3[contains(.,'Job Description')]]//p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:49.652707" elapsed="1.641093"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Desc_Text}</arg>
+<arg>${JOB_DETAILS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:51.293800" elapsed="0.000000"/>
+</kw>
+<arg>The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Applicants should demonstrate a keen understanding of current and emerging trends in the communications industry, as well as excellence and innovation in practice-led pedagogy.</arg>
+<status status="PASS" start="2025-03-11T19:09:49.652707" elapsed="1.641093"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//h4[text()="Preferred"]/following-sibling::ul</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:09:51.295401" elapsed="1.888252"/>
+</kw>
+<kw name="Check Required Qualifications" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:54.827799" level="INFO">${Required_Qualification_Text} = Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational met...</msg>
+<var>${Required_Qualification_Text}</var>
+<arg>xpath=//h4[text()="Required"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:53.184538" elapsed="1.643261"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Required_Qualification_Text}</arg>
+<arg>${Required_Qualification_Text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:54.827799" elapsed="0.000876"/>
+</kw>
+<arg>Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational methods to the social sciences. This includes but is not limited to social science disciplines (sociology, political science, communication, economics etc.) or computer science and related disciplines (information science, data science, computational physics etc.)</arg>
+<status status="PASS" start="2025-03-11T19:09:53.184538" elapsed="1.644137"/>
+</kw>
+<kw name="Check Preferred Qualifications" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:56.467436" level="INFO">${Required_Qualification_Text} = Experience that demonstrates a strong publication record.
+Demonstrated ability or potential to mentor research of undergraduate and graduate students.
+Demonstrated ability or potential to engage in pr...</msg>
+<var>${Required_Qualification_Text}</var>
+<arg>xpath=//h4[text()="Preferred"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:54.829672" elapsed="1.637764"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Required_Qualification_Text}</arg>
+<arg>${PREFERRED_QUALIFICATIONS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:56.467436" elapsed="0.001025"/>
+</kw>
+<arg>Experience that demonstrates a strong publication record.\nDemonstrated ability or potential to mentor research of undergraduate and graduate students.\nDemonstrated ability or potential to engage in professional and institutional service and leadership.\nEvidence of ability to work with diverse student, faculty, and staff populations.</arg>
+<status status="PASS" start="2025-03-11T19:09:54.829672" elapsed="1.638789"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//h4[text()="Required Documents"]/following-sibling::ul</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-11T19:09:56.468828" elapsed="1.886950"/>
+</kw>
+<kw name="Check Application Process" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:09:59.991328" level="INFO">${Process_Text} = Submit application through the online portal
+Initial screening
+Interviews</msg>
+<var>${Process_Text}</var>
+<arg>xpath=//h4[text()="How to Apply"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:58.356657" elapsed="1.634671"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Process_Text}</arg>
+<arg>${APPLICATION_PROCESS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:09:59.991328" elapsed="0.000903"/>
+</kw>
+<arg>Submit application through the online portal\nInitial screening\nInterviews</arg>
+<status status="PASS" start="2025-03-11T19:09:58.356657" elapsed="1.635574"/>
+</kw>
+<kw name="Check Required Documents" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:10:01.628693" level="INFO">${Documents_Text} = A Cover Letter
+Full CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportun...</msg>
+<var>${Documents_Text}</var>
+<arg>xpath=//h4[text()="Required Documents"]/following-sibling::ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:09:59.992690" elapsed="1.636003"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Documents_Text}</arg>
+<arg>${REQUIRED_DOCUMENTS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:10:01.628693" elapsed="0.000875"/>
+</kw>
+<arg>A Cover Letter\nFull CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportunities, Name of PhD supervisor, etc.\nA research statement (max of 3 pages) of major accomplishments in research, citing up to five research, citing up to five significant publications, creative work or other scholarly contribution, and explaining their significance. Including sample copies, complete list of publication and impact, and evidence of international visibility.\nA Teaching Statement that focuses on evidence of student learning and educational leadership (if applicable). A preface (maximum 300 words) that makes the case for your appointment. This should be highly distilled summary of your key contributions to student learning and educational leadership, guided by your teaching philosophy.\nScanned copies of academic certificates and transcripts\nA list of FOUR Referees (including one from the applicant’s PhD or post-doctoral advisor/supervisor). Referees are to submit their letters directly to cnmcareer@nus.edu.sg</arg>
+<status status="PASS" start="2025-03-11T19:09:59.992690" elapsed="1.636878"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-11T19:10:01.629568" elapsed="3.090330"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:09:40.559464" elapsed="24.161277"/>
+</test>
+<status status="PASS" start="2025-03-11T19:08:15.274701" elapsed="109.447039"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="10" fail="0" skip="0" id="s1" name="UAT-17-002">UAT-17-002</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-11T19:08:30.832474" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
+<msg time="2025-03-11T19:08:55.737195" level="WARN">Multiple tests with name 'Open Website' executed in suite 'UAT-17-002'.</msg>
+<msg time="2025-03-11T19:09:27.623781" level="WARN">Multiple tests with name 'Visit Research Group' executed in suite 'UAT-17-002'.</msg>
+<msg time="2025-03-11T19:09:34.199121" level="WARN">Multiple tests with name 'Visit Research Group Detail' executed in suite 'UAT-17-002'.</msg>
+<msg time="2025-03-11T19:09:39.733951" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
+<msg time="2025-03-11T19:09:40.559464" level="WARN">Multiple tests with name 'Visit Application Detail' executed in suite 'UAT-17-002'.</msg>
+</errors>
+</robot>
