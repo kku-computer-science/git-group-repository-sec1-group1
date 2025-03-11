@@ -1,0 +1,150 @@
+Scene 1: หัวหน้ากลุ่มสร้างและแก้ไขใบสมัคร
+รศ. ดร.งามนิจ อาจอินทร์(Assoc. Prof. Ngamnij Arch-int)
+- หัวหน้ากลุ่มวิจัย Applied Intelligence and Data Analytics (AIDA)
+- Email = ngamnij@kku.ac.th  |  Password = 123456789
+
+
+สร้างประกาศการสมัครในกลุ่มวิจัย Applied Intelligence and Data Analytics (AIDA)
+1. Research Assistant
+- Deadline = 2025-06-15  
+- Vacancies = 3
+- Required Documents
+	• CV 
+
+- Salary = 30 per hour
+- Qualification
+	Required	
+	• Fresh graduates are also welcome.
+	• Bachelor’s degree or above graduates in Finance, Economics or Accounting, or a related field.
+	• Having Analyst License (CFA, CISA) would be an advantage.
+	• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.
+	• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.
+	• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.
+
+- Working Location = Thailand, Khonkaen(Full Time)
+- Contact Information
+	Name = Assoc. Prof. Ngamnij Arch-int  |  Email = ngamnij@kku.ac.th
+
+- Start Date = 2025-07-21
+- Apply Process
+	• Submit application through the online portal
+	• Initial screening
+	• Interviews 
+
+- Details = Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients’ requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts’ work.
+
+
+2. Ph.D.
+- Deadline = 2025-05-04  
+- Vacancies = 2
+- Required Documents
+	• Transcripts
+	• a statement of purpose (SOP)
+	• GRE
+	• TOEFL/IELTS
+
+- Salary = 20,000 per month
+- Qualification
+	Required		
+	• A Ph.D. or master's degree in computer science, artificial intelligence, machine learning, or a related field.
+	• Proven track record of AI research, including publications in recognized AI conferences and journals.
+	• Strong programming skills in languages commonly used in AI research (e.g., Python, TensorFlow, PyTorch).
+	• In-depth knowledge of machine learning algorithms, deep learning, natural language processing, and/or computer vision.
+	• Experience with AI frameworks and libraries.
+	• Proficiency in data analysis and statistical modeling.
+	• Excellent problem-solving and analytical abilities.
+	• Strong communication and collaboration skills.
+
+- Working Location = Thailand, Bangkok(Full time)
+- Contact Information
+	Name = Assoc. Prof. Ngamnij Arch-int  |  Email = ngamnij@kku.ac.th
+
+- Start Date = 2025-06-16
+- Apply Process
+	• Submit application through the online portal
+	• Initial screening
+	• Interviews 
+
+- Details = As an AI Researcher, you will play a pivotal role in our organization's efforts to advance the field of artificial intelligence. You will be responsible for conducting research, developing AI models and algorithms, and staying up-to-date with the latest developments in AI and machine learning. Your contributions will drive innovation and help shape our AI strategy.
+
+
+3. Postdoc
+- Deadline = 2025-05-04  
+- Vacancies = 3
+- Required Documents
+	• A Cover Letter
+	• Full CV: academic and employment history, degrees obtained, scholarships and awards, post-doctoral and clinical/ residency training (where applicable), other study and research opportunities, Name of PhD supervisor, etc.
+	• A research statement (max of 3 pages) of major accomplishments in research, citing up to five research, citing up to five significant publications, creative work or other scholarly contribution, and explaining their significance. Including sample copies, complete list of publication and impact, and evidence of international visibility.
+	• A Teaching Statement that focuses on evidence of student learning and educational leadership (if applicable). A preface (maximum 300 words) that makes the case for your appointment. This should be highly distilled summary of your key contributions to student learning and educational leadership, guided by your teaching philosophy.
+	• Scanned copies of academic certificates and transcripts
+	• A list of FOUR Referees (including one from the applicant’s PhD or post-doctoral advisor/supervisor). Referees are to submit their letters directly to cnmcareer@nus.edu.sg
+
+- Salary = 61,000 per year
+- Qualification
+	Required		
+	 •  Successful candidates must hold a PhD in a discipline closely related to data visualization and analytics by date of appointment, with evidence of interdisciplinary research applying computational methods to the social sciences. This includes but is not limited to social science disciplines (sociology, political science, communication, economics etc.) or computer science and related disciplines (information science, data science, computational physics etc.)
+
+	Preferred
+	• Experience that demonstrates a strong publication record.
+	• Demonstrated ability or potential to mentor research of undergraduate and graduate students.
+	• Demonstrated ability or potential to engage in professional and institutional service and leadership.
+	• Evidence of ability to work with diverse student, faculty, and staff populations.
+
+- Working Location = Khon Kaen University(Full time)
+- Contact Information
+	Name = Assoc. Prof. Ngamnij Arch-int  |  Email = ngamnij@kku.ac.th  |  Phone = 0902386892
+
+- Start Date = 2025-07-01
+- End Date = 2027-07-02
+- Apply Process
+	• Submit application through the online portal
+	• Initial screening
+	• Interviews 
+
+- Details = The Department of Communications and New Media is seeking applicants for the position of Postdoctoral Fellow in Data Visualization and Analytics, specializing in data visualization and analytics. Applicants should demonstrate a keen understanding of current and emerging trends in the communications industry, as well as excellence and innovation in practice-led pedagogy.
+
+- Custom Field: Responsibilities
+	This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualisation and analytics research projects (50%). The successful will also contribute towards publishing top-tier journal articles and curriculum development in data visualisation and analytics. Other responsibilities may include service roles.
+
+
+
+
+
+
+
+
+
+
+
+แก้ไขข้อมูลใบสมัคร
+3. Postdoc
+- Deadline = 2025-02-04  -->  2025-03-30
+- Vacancies = 3
+- Required Documents
+	• Resume/Curriculum Vitae.
+	• Letter of Application/Cover Letter covering your interest or experience related to the projects mentioned above.
+	• Contact Information for Three Professional References. Once you submit your application, we may contact your references.
+
+- Salary = 61,000 per year
+- Qualification
+	Required		
+	• Ph.D. or equivalent degree in computer science or a closely related field.
+	• Publications in top tier venues.
+
+	Preferred
+	• Experience that demonstrates a strong publication record.
+	• Demonstrated ability or potential to mentor research of undergraduate and graduate students.
+	• Demonstrated ability or potential to engage in professional and institutional service and leadership.
+	• Evidence of ability to work with diverse student, faculty, and staff populations.
+
+- Working Location = Thailand, Bangkok(Full time)
+- Contact Information
+	Name = Assoc. Prof. Ngamnij Arch-int  |  Email = ngamnij@kku.ac.th
+
+- Start Date = 2025-06-16
+- Apply Process
+	• Submit application through the online portal
+	• Initial screening
+	• Interviews 
+
+- Details = As an AI Researcher, you will play a pivotal role in our organization's efforts to advance the field of artificial intelligence. You will be responsible for conducting research, developing AI models and algorithms, and staying up-to-date with the latest developments in AI and machine learning. Your contributions will drive innovation and help shape our AI strategy.
