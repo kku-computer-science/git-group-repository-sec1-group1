@@ -16,23 +16,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Deadline Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    ${EMPTY}    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    ${EMPTY}    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
  
 #Doesn't Input Vacancies
@@ -44,23 +45,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Vacancies Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    ${EMPTY}    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    ${EMPTY}    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Required Documents
@@ -72,23 +74,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Required Documents Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    ${EMPTY}    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    ${EMPTY}    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Salary
@@ -100,23 +103,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Salary Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    ${EMPTY}    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    ${EMPTY}    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Required Qualifications
@@ -128,23 +132,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Required Qualifications Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    ${EMPTY}    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    ${EMPTY}    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Work Location
@@ -156,23 +161,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Work Location Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    ${EMPTY}    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    ${EMPTY}    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Contact Name
@@ -184,23 +190,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
-Contact Empty
+Contact Name Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    ${EMPTY}    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    ${EMPTY}    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Contact Email
@@ -212,23 +219,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Contact Email Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    ${EMPTY}    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ${EMPTY}      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 # Input Invalid Contact Email
@@ -240,23 +248,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Contact Email Invalid
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Start Date
@@ -268,23 +277,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Start Date Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    $${EMPTY}     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    ${EMPTY}     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Process
@@ -296,23 +306,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Process Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    ${EMPTY}    This is an exciting opportunity for this position.  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    ${EMPTY}    Research will have to provide an analysis of company/stock data for Equity analysts and aid them in regard to the preparation of data to write up investment decision research papers and clients' requests. Other aspects of research work involve producing financial models, evaluating public information, and gathering any other available forms of data to support the analysts' work.    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 #Doesn't Input Detail
@@ -324,23 +335,24 @@ Go To Login
     Click Login
 
 Login
-    Input Email    wongsar@kku.ac.th
+    Input Email    ngamnij@kku.ac.th  
     Input Password    id:password    123456789
     Click Button    Log In
     Title Should Be    Dashboard
 
 Go To Application Management Page
     Click Element    xpath=//a[contains(@href, 'researchGroups')]
+    Scroll Element Into View    xpath=(//a[contains(@title,"Application")])[2]
     Click Element    xpath=(//a[@title="Application"])[1]
 
 Detail Empty
     Click Element    xpath=//a[contains(text(), 'Create Application')]
     Click Element    xpath=//label[@for='researchAssistant']
     Sleep    1s
-    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-03-10    5    • CV/Resume\n• Cover Letter\n• Research Statement    65,000    per project    • Ph.D. in relevant field\n• Research experience\n• Strong publication record    • Teaching experience\n• Industry collaboration experience    USA    Dew    few8855@gmail.com    0902386892    2025-03-10     2025-07-07    • Submit application through the online portal\n• Initial screening\n• Interviews    ${EMPTY}  
+    Input Application    ${FORM_RESEARCHASSISTANT_PATH}    2025-06-15    3    • CV    30    per hour    • Fresh graduates are also welcome.\n• Bachelor's degree or above graduates in Finance, Economics or Accounting, or a related field.\n• Having Analyst License (CFA, CISA) would be an advantage.\n• Experience in utilizing Excel to build/maintain financial models; An advanced level of Excel proficiency is expected and required.\n• The ability to work under the guidance of mentors and develop fundamental research-driven ideas.\n• A highly competitive self-starter who thrives in a collaborative and fast-paced environment.    ${EMPTY}    Thailand, Khonkaen(Full Time)    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th      ${EMPTY}    2025-07-21     ${EMPTY}    • Submit application through the online portal\n• Initial screening\n• Interviews    ${EMPTY}    
     Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Button    Submit Application
-    Sleep    5s
+    Sleep    3s
     [Teardown]    Close Browser
 
 
