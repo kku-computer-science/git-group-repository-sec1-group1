@@ -24,7 +24,7 @@ Visit Research Group Detail
     ...    Element Should Be Visible    //div[contains(@class, 'empty-jobs-container')]  
 
 Visit Application Detail
-    Click Element    xpath=(//a[@class='btn-job-details'])[1]
+    Click Element    xpath=(//a[@class='btn-job-details'])[2]
     Check Application Details Header    Postdoc    Khon Kaen University(Full time)    May 04, 2025    $61,000 per year    3
     Check Basic Info    Open    54    Contract\nJul 2025 - Jul 2027    July 01, 2025    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th    \n0902386892
     Check Custom Field    Responsibilities    This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics research projects (50%). The successful will also contribute towards publishing top-tier journal articles and curriculum development in data visualization and analytics. Other responsibilities may include service roles.
@@ -68,7 +68,7 @@ Visit Research Group Detail
     ...    Element Should Be Visible    //div[contains(@class, 'empty-jobs-container')]  
 
 Visit Application Detail
-    Click Element    xpath=(//a[@class='btn-job-details'])[1]
+    Click Element    xpath=(//a[@class='btn-job-details'])[2]
     Check Application Details Header    Postdoc    Khon Kaen University(Full time)    May 04, 2025    $61,000 per year    3
     Check Basic Info    Open    54    Contract\nJul 2025 - Jul 2027    July 01, 2025    Assoc. Prof. Ngamnij Arch-int    ngamnij@kku.ac.th    \n0902386892
     Check Custom Field    Responsibilities    This is a full-time position for two years. The successful candidate is expected to teach two courses per year (50%) and work with existing faculty members in pursuing data visualization and analytics research projects (50%). The successful will also contribute towards publishing top-tier journal articles and curriculum development in data visualization and analytics. Other responsibilities may include service roles.
