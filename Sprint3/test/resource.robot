@@ -6,7 +6,7 @@ ${BROWSER}    custom_chrome
 ${BASE_URL}    http://localhost:8000   #https://cs0167.cpkkuhost.com/
 ${CHROME_BROWSER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chrome${/}chrome.exe
 ${CHROME_DRIVER_PATH}    C:\\Users\\few66\\Downloads\\chrome-win64\\chrome-win64\\chromedriver.exe  #${EXECDIR}${/}..${/}ChromeForTesting${/}chromedriver${/}chromedriver.exe
-${DELAY}    0.5
+${DELAY}    0.8
 
 ***Keywords***
 Open Custom Chrome Browser
@@ -204,4 +204,9 @@ Check Required Documents
     ${Documents_Text}=    Get Text    xpath=//h4[text()="Required Documents"]/following-sibling::ul
     Should Be Equal As Strings    ${Documents_Text}    ${REQUIRED_DOCUMENTS}
 
+Delete Application Card
+    [Arguments]    ${INDEX}
+    Click Element    xpath=(//a[contains(., 'View Details')])[${INDEX}]
+    Click Button    xpath=//button[@class='btn btn-danger mt-3 ct-btn']
+    Handle Alert    accept
 
