@@ -1,17 +1,15 @@
 <?php
 return [
-'Home' => 'หน้าแรก',
-'Researchers' => 'ผู้วิจัย',
-'ResearchProj' => 'โครงการวิจัย',
-'ResearchGroup' => 'กลุ่มวิจัย',
-'Report' => 'รายงาน',
-'details' =>'รายละเอียดเพิ่มเติม',
-'expertise' =>'ความเชี่ยวชาญ',
-'publications' => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
-'education'=>'การศึกษา',
-'publications2' => 'ผลงานตีพิมพ์',
-
-<<<<<<< HEAD
+    'Home' => 'หน้าแรก',
+    'Researchers' => 'ผู้วิจัย',
+    'ResearchProj' => 'โครงการวิจัย',
+    'ResearchGroup' => 'กลุ่มวิจัย',
+    'Report' => 'รายงาน',
+    'details' => 'รายละเอียดเพิ่มเติม',
+    'expertise' => 'ความเชี่ยวชาญ',
+    'publications' => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
+    'education' => 'การศึกษา',
+    'publications2' => 'ผลงานตีพิมพ์',
 
     'profile' => 'โปรไฟล์',
     'user_profile' => 'ข้อมูลผู้ใช้',
@@ -186,7 +184,7 @@ return [
     //REPORTS
     'TotalArticle' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
     'StatisticsArticle' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
-    
+
     //RESEARCH GROUP
     'Research_Group' => 'กลุ่มวิจัย',
     'Lab_supervisor' => 'หัวหน้าแลป',
@@ -211,6 +209,5 @@ return [
     'registration_date' => 'วันที่จดทะเบียน',
     'source' => 'แหล่งที่มา',
     'export_to_excel' => 'ส่งออกเป็น Excel',
-=======
->>>>>>> main
+
 ];

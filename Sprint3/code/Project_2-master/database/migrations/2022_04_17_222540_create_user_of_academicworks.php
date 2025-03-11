@@ -14,14 +14,14 @@ class CreateUserOfAcademicworks extends Migration
     public function up()
     {
         Schema::create('user_of_academicworks', function (Blueprint $table) {
-            
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('author_name');
+            // $table->string('author_name');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
+            $table->unsignedBigInteger('author_type')->nullable();
             $table->unsignedBigInteger('academicwork_id');
             $table->foreign('academicwork_id')
                 ->references('id')
